@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whitesmoke"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/use_info_back_title_rl"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@color/red"
+        android:clickable="true">
+
+        <ImageView
+            android:id="@+id/use_info_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x15"
+            android:background="@mipmap/back_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:text="意见反馈"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x14" />
+
+    </RelativeLayout>
+
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_margin="5dip"-->
+        <!--android:layout_marginLeft="8dip"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="联系方式（Email或者QQ号）:"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="16sp"-->
+        <!--android:visibility="gone" />-->
+
+    <EditText
+        android:id="@+id/use_info_tel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dip"
+        android:layout_weight="1"
+        android:background="@drawable/editview_selector"
+        android:visibility="gone" />
+
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_margin="5dip"-->
+        <!--android:layout_marginLeft="8dip"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="反馈内容:"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="16sp" />-->
+
+    <EditText
+        android:id="@+id/use_info_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/x12"
+        android:background="@drawable/edit_corners_gray"
+        android:gravity="start"
+        android:hint="感谢您宝贵的意见..."
+        android:minHeight="@dimen/x125"
+        android:padding="@dimen/x8"
+        android:textColor="@color/textColorDark"
+        android:textColorHint="@color/textColorShallow" />
+
+    <TextView
+        android:id="@+id/use_info_save"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x35"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/x15"
+        android:background="@color/red"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="提交反馈"
+        android:textColor="@color/white"
+        android:textSize="@dimen/x15" />
+
+</LinearLayout>

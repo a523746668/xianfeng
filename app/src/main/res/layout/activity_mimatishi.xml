@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="请输入密码"
+        android:textColor="@drawable/black"
+        android:textSize="20sp"
+        android:visibility="visible" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/lightgray"
+        android:visibility="gone" />
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_margin="5dip"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <!-- <EditText
+            android:id="@+id/sr_password"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="25dp"
+            android:layout_weight="1"
+            android:background="@drawable/corner_white_lightgray"
+            android:inputType="textPassword" /> -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="扫描考试密码 :"
+            android:textColor="@drawable/black"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/iv_shaomiao"
+            android:layout_width="35dip"
+            android:layout_height="35dip"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/iconfont_saoyisao" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/lightgray" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/x40"
+        android:layout_margin="@dimen/x5"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/x5"
+            android:layout_marginLeft="@dimen/x5"
+            android:text="手动输入密码:"
+            android:textColor="@drawable/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/sr_password"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/x30"
+            android:layout_weight="1"
+            android:layout_marginRight="@dimen/x5"
+            android:background="@color/backgroundColor"
+            android:inputType="textPassword" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/lightgray" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_sure"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/corners_red"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/bt_cancel"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/corners_red"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>

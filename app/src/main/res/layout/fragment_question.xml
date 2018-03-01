@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white" >
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_question"
+        android:text="1.刘备和曹操谁更适合做国足教练？"
+        android:textSize="20sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_weight="4"
+        android:gravity="center_vertical"
+        android:textColor="@color/black"/>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal"
+        android:layout_weight="0.5">
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请选择答案"
+        android:textSize="16sp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/black"/>
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/type_question_item"
+        android:text="(单选)"
+        android:textSize="16sp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/black"/>
+    </LinearLayout>
+    <ListView 
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/lv_question"
+        android:layout_weight="5">       
+    </ListView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2" >
+    <TextView 
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:id="@+id/ok_btn_question"
+        android:layout_centerInParent="true"
+        android:text="确定"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/corners_red"
+        android:textSize="20sp"/>
+    </RelativeLayout>
+    
+</LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_train_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.qingyii.hxt.TrainDetailsActivity">
+
+    <include
+        android:id="@+id/activity_tltle"
+        layout="@layout/activity_tltle" />
+
+    <ListView
+        android:id="@+id/train_details_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:divider="@null"/>
+
+    <!--<ScrollView-->
+        <!--android:id="@+id/train_details_scroll"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--android:scrollbars="none">-->
+
+    <!--</ScrollView>-->
+
+</com.zhy.autolayout.AutoLinearLayout>

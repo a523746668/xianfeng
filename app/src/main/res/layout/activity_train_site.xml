@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.qingyii.hxt.TrainSiteActivity">
+
+    <include
+        android:id="@+id/activity_tltle"
+        layout="@layout/activity_tltle" />
+
+    <WebView
+        android:id="@+id/train_site_web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/black"/>
+
+    <Button
+        android:id="@+id/navigate"
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:text="导航到这个位置"
+        />
+
+</com.zhy.autolayout.AutoLinearLayout>

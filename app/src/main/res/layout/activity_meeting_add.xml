@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:clickable="false"
+    android:orientation="vertical"
+    app:layout_auto_basewidth="padding|height">
+
+    <include layout="@layout/include_toolbar" />
+
+    <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingLayoutStyle">
+
+        <TextView
+            style="@style/addMeetingTitleTextStyle"
+            android:text="会议标题" />
+
+        <EditText
+            android:id="@+id/meeting_add_title"
+            style="@style/addMeetingContentTextStyle"
+            android:hint="请输入会议标题，20字内"
+            android:maxLength="20" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/add_meeting_item_bg"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_normal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:text="会议内容"
+            android:textColor="#565656"
+            android:textSize="@dimen/sp_normal"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/meeting_add_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48px"
+            android:background="@null"
+            android:gravity="top|left"
+            android:hint="请输入会议内容"
+            android:minHeight="166px"
+            android:textColor="#858585"
+            android:textSize="@dimen/sp_normal" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingLayoutStyle">
+
+        <TextView
+            style="@style/addMeetingTitleTextStyle"
+            android:text="会议类型" />
+
+        <EditText
+            android:id="@+id/meeting_add_type"
+            style="@style/addMeetingContentTextStyle"
+            android:hint="请选择会议类型" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingLayoutStyle">
+
+        <TextView
+            style="@style/addMeetingTitleTextStyle"
+            android:text="会议标签" />
+
+        <EditText
+            android:id="@+id/meeting_add_tag"
+            style="@style/addMeetingContentTextStyle"
+            android:hint="请选择会议标签" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/add_meeting_item_bg"
+        android:gravity="center_vertical"
+        android:minHeight="218px"
+        android:orientation="horizontal"
+        android:paddingBottom="20px"
+        android:paddingLeft="@dimen/padding_normal"
+        android:paddingRight="@dimen/padding_normal"
+        android:paddingTop="20px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="48px"
+            android:text="会议海报"
+            android:textColor="#565656"
+            android:textSize="@dimen/sp_normal"
+            android:textStyle="bold" />
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/meeting_add_poster_iv"
+                android:layout_width="133px"
+                android:layout_height="178px"
+                android:layout_marginRight="34px"
+                android:src="@mipmap/ic_launcher" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <Button
+            android:id="@+id/meeting_add_pic_btn"
+            android:layout_width="112px"
+            android:layout_height="101px"
+            android:background="@drawable/meeting_add_pic_selector" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/add_meeting_item_bg"
+        android:gravity="center_vertical"
+        android:minHeight="208px"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/padding_normal"
+        >
+
+        <TextView
+            style="@style/addMeetingTitleTextStyle"
+            android:text="会议地址" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/meeting_add_address_tv"
+                android:layout_width="match_parent"
+                android:clickable="true"
+                android:layout_height="104px"
+                android:gravity="left|center"
+                android:paddingRight="@dimen/padding_normal"
+                android:textColor="#858585"
+                android:textSize="@dimen/sp_normal"
+                android:background="@drawable/add_meeting_item_bg"
+                android:drawableRight="@drawable/gps_icon_normal"
+                android:hint="请选择地区" />
+
+            <EditText
+                android:id="@+id/meeting_add_address_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="104px"
+                android:gravity="left|center"
+                android:textColor="#858585"
+                android:paddingRight="@dimen/padding_normal"
+                android:textSize="@dimen/sp_normal"
+                android:background="@null"
+                android:layout_gravity="center_vertical"
+                android:hint="请输入详细地址" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingLayoutStyle">
+
+        <TextView
+            style="@style/addMeetingTitleTextStyle"
+            android:text="开始时间" />
+
+        <TextView
+            android:id="@+id/meeting_add_start_time"
+            android:clickable="true"
+            style="@style/addMeetingContentTextStyle"
+            android:hint="请选择开始时间" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingLayoutStyle">
+
+        <TextView
+            style="@style/addMeetingTitleTextStyle"
+            android:text="结束时间" />
+
+        <TextView
+            android:id="@+id/meeting_add_end_time"
+            android:clickable="true"
+            style="@style/addMeetingContentTextStyle"
+            android:hint="请选择结束时间" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingLayoutStyle">
+
+        <TextView
+            style="@style/addMeetingTitleTextStyle"
+            android:text="反馈时间" />
+
+        <TextView
+            android:id="@+id/meeting_add_feedback_time"
+            android:clickable="true"
+            style="@style/addMeetingContentTextStyle"
+            android:hint="请选择反馈时间" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

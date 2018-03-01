@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="@dimen/x53"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/unit_level_item_ranking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/x15"
+            android:layout_marginTop="@dimen/x15"
+            android:text="1"
+            android:textColor="@color/textColorDark"
+            android:textSize="@dimen/x14" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/x53"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/unit_level_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:text="姓名"
+            android:textColor="@color/textColorDark"
+            android:textSize="@dimen/x13" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/x53"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/unit_level_item_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:text="部门"
+            android:textColor="@color/textColorDark"
+            android:textSize="@dimen/x13" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/x90"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/unit_level_star1_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="无星"
+                android:textColor="@color/textColorDark"
+                android:textSize="@dimen/x13"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/unit_buhege"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                android:src="@mipmap/guan_li_warn_red_small"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/unit_level_star1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/star"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/unit_level_star2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/star"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/unit_level_star3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/star"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/unit_level_star4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/star"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/unit_level_star5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/star"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/x71"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/unit_level_item_integral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:text="积分"
+            android:textColor="@color/textColorDark"
+            android:textSize="@dimen/x13" />
+
+    </RelativeLayout>
+
+</LinearLayout>

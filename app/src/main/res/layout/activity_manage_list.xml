@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_manage_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.qingyii.hxt.ManageListActivity">
+
+    <RelativeLayout
+        android:id="@+id/activity_tltle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x45"
+        android:background="@color/tltleColor"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/returns_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x15"
+                android:layout_marginRight="@dimen/x15"
+                android:src="@mipmap/returns_arrow" />
+
+            <TextView
+                android:id="@+id/activity_tltle_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="日期页面"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/x16" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <com.andbase.library.view.refresh.AbPullToRefreshView
+        android:id="@+id/mPullRefreshView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/max_button_ll"
+        android:layout_below="@+id/activity_tltle"
+        android:background="@drawable/white">
+
+        <ListView
+            android:id="@+id/mListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="@drawable/list_divider"
+            android:dividerHeight="@dimen/x1" />
+
+    </com.andbase.library.view.refresh.AbPullToRefreshView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/mPullRefreshView"
+        android:background="@mipmap/comui_bar_top_shadow" />
+
+    <RelativeLayout
+        android:id="@+id/max_button_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x50"
+        android:layout_alignParentBottom="true"
+
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/max_button_affirm"
+            android:layout_width="@dimen/x135"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/x8"
+            android:layout_marginLeft="@dimen/x15"
+            android:layout_marginTop="@dimen/x8"
+            android:background="@color/green1"
+            android:gravity="center"
+            android:text="同意归档"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x15" />
+
+        <TextView
+            android:id="@+id/max_button_appeal"
+            android:layout_width="@dimen/x135"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/x8"
+            android:layout_marginRight="@dimen/x15"
+            android:layout_marginTop="@dimen/x8"
+            android:background="@color/red"
+            android:gravity="center"
+            android:text="不同意"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x15" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

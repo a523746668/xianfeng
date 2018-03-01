@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+
+<external-path  path=""  name="download"></external-path>
+<external-path  path="HXT" name="hxt"></external-path>
+<external-path  path="" name="download/com.qingyii.hxt/images"></external-path>
+</paths>

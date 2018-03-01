@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_notice_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/tuceng"
+    tools:context="com.qingyii.hxt.notice.mvp.ui.activity.NoticeDetailsActivity">
+
+    <include layout="@layout/include_toolbar" />
+
+    <LinearLayout
+        android:id="@+id/notice_details_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="5px"
+            android:layout_weight="1"
+            android:background="@drawable/tukuang"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/notice_details_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="50px"
+                android:layout_marginRight="50px"
+                android:layout_marginTop="110px"
+                android:gravity="center"
+                android:letterSpacing="0.05"
+                android:text="标题内容"
+                android:textColor="#f5f5f5"
+                android:textSize="60px" />
+
+            <TextView
+                android:id="@+id/notice_details_author_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40px"
+                android:text="某某某 2017-07-24"
+                android:textColor="#959595"
+                android:textSize="36px" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="80px"
+                android:layout_weight="1"
+                android:scrollbars="none">
+
+                <TextView
+                    android:id="@+id/notice_details_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:includeFontPadding="false"
+                    android:letterSpacing="0.05"
+                    android:paddingLeft="80px"
+                    android:paddingRight="80px"
+                    android:text="正魂牵梦萦魂牵梦萦魂牵梦萦霜期霜期霜期霜期奇葩魂牵梦萦魂牵梦萦"
+                    android:textColor="#c6c6c6"
+                    android:textSize="48px" />
+            </ScrollView>
+
+            <TextView
+                android:id="@+id/notice_already_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="126px"
+                android:layout_gravity="center"
+                android:background="@color/transparent"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="查看已阅人员"
+                android:textColor="@color/old_notice_tv_selector"
+                android:textSize="48px"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/old_notice_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="126px"
+                android:layout_gravity="center"
+                android:background="@color/transparent"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="查看往期公告"
+                android:textColor="@color/old_notice_tv_selector"
+                android:textSize="48px" />
+
+        </LinearLayout>
+    </LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

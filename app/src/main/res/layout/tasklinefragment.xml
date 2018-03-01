@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <include layout="@layout/include_toolbar"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:layout_toRightOf="@+id/resultfragsub"
+         android:text="文明单位日常工作清单"
+        android:textSize="40px"
+        android:textColor="#dd3030"
+        android:gravity="center"
+        android:id="@+id/tasklinetitle"
+        />
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="4px"
+    android:background="@color/tasklisttextview"
+    android:layout_marginTop="15px"/>
+   <com.zhy.autolayout.AutoLinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+       >
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textSize="52px"
+         android:text="层级"
+         android:padding="20px"
+         android:layout_marginLeft="30px"
+
+         />
+       <TextView
+           android:layout_width="4px"
+           android:layout_height="match_parent"
+           android:layout_marginLeft="30px"
+           android:background="@color/tasklisttextview"/>
+     <TextView
+         android:layout_width="630px"
+         android:layout_height="wrap_content"
+         android:textSize="52px"
+         android:text="指标/任务名称"
+         android:padding="20px"
+         android:gravity="center"
+        />
+       <TextView
+           android:layout_width="4px"
+           android:layout_height="match_parent"
+           android:layout_marginLeft="30px"
+           android:background="@color/tasklisttextview"/>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textSize="52px"
+           android:text="分值"
+           android:padding="20px"
+           android:gravity="center"
+           android:layout_marginLeft="30px"
+           android:layout_marginRight="30px"
+
+           />
+
+   </com.zhy.autolayout.AutoLinearLayout>
+   <android.support.v7.widget.RecyclerView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+      android:id="@+id/tasklinerecyc"
+       ></android.support.v7.widget.RecyclerView>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/allStyles"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x20">
+
+        <ImageView
+            android:layout_width="@dimen/x100"
+            android:layout_height="@dimen/x100"
+            android:layout_centerInParent="true"
+            android:background="@mipmap/circle_header" />
+
+        <com.qingyii.hxt.view.RoundedImageView
+            android:id="@+id/circle_dm_head_photo"
+            android:layout_width="@dimen/x70"
+            android:layout_height="@dimen/x70"
+            android:layout_centerInParent="true"
+            android:scaleType="center"
+            app:corner_radius="100dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/circle_head_star_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x12"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="您的星级："
+            android:textColor="#ffffff"
+            android:textSize="@dimen/x13" />
+
+        <TextView
+            android:id="@+id/circle_head_star1_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="无星"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/x13"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/circle_head_star1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/star"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/circle_head_star2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/star"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/circle_head_star3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/star"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/circle_head_star4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/star"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/circle_head_star5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/star"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/circle_dm_head_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x15"
+        android:text=""
+        android:textColor="#ffffff"
+        android:textSize="@dimen/x16" />
+
+    <!--<TextView-->
+    <!--android:id="@+id/circle_dm_head_department"-->
+    <!--android:layout_below="@+id/circle_dm_head_name"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:background="#33000000"-->
+    <!--android:text="长沙连商网络科技有限公司"-->
+    <!--app:layout_heightPercent="6.7%h"-->
+    <!--app:layout_widthPercent="60.6%w" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x65"
+        android:layout_marginTop="@dimen/x15"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/circle_dm_head_content2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/circle_dm_head_num2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x14" />
+
+            <TextView
+                android:id="@+id/circle_dm_head_hint2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x6"
+                android:text="发布日志"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x12" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/x1"
+            android:layout_height="@dimen/x35"
+            android:background="#33000000" />
+
+        <LinearLayout
+            android:id="@+id/circle_dm_head_content3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/circle_dm_head_num3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x14" />
+
+            <TextView
+                android:id="@+id/circle_dm_head_hint3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x6"
+                android:text="发表评论"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x12" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/x1"
+            android:layout_height="@dimen/x35"
+            android:background="#33000000" />
+
+        <LinearLayout
+            android:id="@+id/circle_dm_head_content4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/circle_dm_head_num4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x14" />
+
+            <TextView
+                android:id="@+id/circle_dm_head_hint4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x6"
+                android:text="收到点赞"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x12" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/x1"
+            android:layout_height="@dimen/x35"
+            android:background="#33000000" />
+
+        <LinearLayout
+            android:id="@+id/circle_dm_head_content5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/circle_dm_head_num5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x14" />
+
+            <TextView
+                android:id="@+id/circle_dm_head_hint5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x6"
+                android:text="送出点赞"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x12" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

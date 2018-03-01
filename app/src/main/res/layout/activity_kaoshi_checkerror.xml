@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white" >
+    <RelativeLayout
+        android:id="@+id/kaoshicontent_rl"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="@color/red"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/iv_back_kaoshicontent"          
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/back_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/title_kaoshicontent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="网络百事通八级考试"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/white"
+             android:textSize="18sp"
+            android:layout_centerInParent="true" />
+        <!-- <ImageView
+            android:id="@+id/iv_rank_kaoshicontent"          
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/look_jifen" 
+            android:scaleType="centerInside"/> -->
+    </RelativeLayout>
+    <!-- <com.ab.view.sliding.AbSlidingTabView
+        android:id="@+id/abstv_kaoshicontent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" /> -->
+   <!--  <FrameLayout     
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fm_kaoshicontent">         
+    </FrameLayout> -->
+    <FrameLayout 
+        android:layout_width="match_parent"
+	    			android:layout_height="0dp"
+	    			android:layout_weight = "1">
+        		<com.zhf.android_viewflow.ViewFlow 
+	    			android:layout_width="match_parent"
+	    			android:layout_height="match_parent"
+	    			android:id="@+id/kaoshi_viewflow">
+			</com.zhf.android_viewflow.ViewFlow>
+			<TextView 
+			    android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:id="@+id/text_rightanswer"
+	            android:gravity="center_vertical"
+	            android:textColor="@color/red"
+	             android:textSize="18sp"
+	             android:layout_marginBottom="20dp"
+	             android:layout_gravity="bottom|center_horizontal"
+	             ></TextView>
+    </FrameLayout>
+	
+	<!-- <LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="50dip"
+	    android:background="@color/one_black"
+	    android:orientation="horizontal">
+	    <TextView 
+	        android:id="@+id/question_page"
+	        android:layout_width="0dip"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:layout_gravity="center"
+	        android:gravity="center"
+	        android:textColor="@color/white"
+	        android:textSize="20sp"
+	        android:text=""/>
+	    <TextView 
+	        android:id="@+id/question_time"
+	        android:layout_width="0dip"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:layout_gravity="center"
+	        android:gravity="center"
+	        android:textColor="@color/white"
+	        android:textSize="20sp"
+	        android:text=""/>
+	    <TextView 
+	        android:id="@+id/question_over"
+	        android:layout_width="0dip"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:layout_gravity="center"
+	        android:gravity="center"
+	        android:textColor="@color/white"
+	        android:textSize="20sp"
+	        android:text="交卷"/>
+	</LinearLayout> -->
+</LinearLayout>

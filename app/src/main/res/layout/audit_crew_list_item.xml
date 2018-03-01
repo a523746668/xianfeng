@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/backgroundColor"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x15" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/x15"
+        android:paddingTop="@dimen/x15">
+
+        <TextView
+            android:id="@+id/audit_crew_name"
+            android:layout_width="@dimen/x69"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="用户名"
+            android:textColor="@color/textColorDark"
+            android:textSize="@dimen/x15" />
+
+        <View
+            android:layout_width="@dimen/x1"
+            android:layout_height="@dimen/x50"
+            android:background="@color/backgroundColor" />
+
+        <LinearLayout
+            android:layout_width="@dimen/x180"
+            android:layout_height="wrap_content">
+
+            <com.qingyii.hxt.customview.MyGridView
+                android:id="@+id/audit_crew_GridView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clipChildren="true"
+                android:focusable="false"
+                android:horizontalSpacing="@dimen/x5"
+                android:listSelector="#ffffffff"
+                android:numColumns="2"
+                android:scrollbars="none"
+                android:verticalSpacing="@dimen/x3" />
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="3"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/audit_crew_resumption"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="履职类 n 条"-->
+            <!--android:textColor="@color/textColorDark"-->
+            <!--android:textSize="@dimen/x13" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/audit_crew_study"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="学习类 n 条"-->
+            <!--android:textColor="@color/textColorDark"-->
+            <!--android:textSize="@dimen/x13" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/audit_crew_activity"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="活动类 n 条"-->
+            <!--android:textColor="@color/textColorDark"-->
+            <!--android:textSize="@dimen/x13" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/audit_crew_integrity"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="诚信类 n 条"-->
+            <!--android:textColor="@color/textColorDark"-->
+            <!--android:textSize="@dimen/x13" />-->
+
+            <!--</LinearLayout>-->
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/x1"
+            android:layout_height="@dimen/x50"
+            android:background="@color/backgroundColor" />
+
+        <LinearLayout
+            android:layout_width="@dimen/x69"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/audit_crew_state"
+                android:layout_width="@dimen/x69"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="状态"
+                android:textColor="@color/textColorDark"
+                android:textSize="@dimen/x15"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/audit_crew_state1"
+                android:layout_width="@dimen/x69"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="有申诉"
+                android:textColor="@color/allStyles"
+                android:textSize="@dimen/x15"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/audit_crew_state2"
+                android:layout_width="@dimen/x69"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="待审核"
+                android:textColor="@color/allStyles"
+                android:textSize="@dimen/x15"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/audit_crew_state3"
+                android:layout_width="@dimen/x69"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="待确认"
+                android:textColor="@color/green1"
+                android:textSize="@dimen/x15"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/audit_crew_state4"
+                android:layout_width="@dimen/x69"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="已确认"
+                android:textColor="@color/green1"
+                android:textSize="@dimen/x15"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

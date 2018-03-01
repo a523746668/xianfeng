@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/activity_tltle"/>
+
+    <com.andbase.library.view.refresh.AbPullToRefreshView
+        android:id="@+id/mPullRefreshView"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/white" >
+
+        <ListView
+            android:id="@+id/mListView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="@drawable/list_divider"
+            android:dividerHeight="1px" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/empty"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/shujia_empty"
+                android:layout_marginBottom="34px"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColorShallow"
+                android:textSize="40px"
+                android:text="空荡荡的书架等您来填满" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.andbase.library.view.refresh.AbPullToRefreshView>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/shujia_add"
+        android:layout_width="match_parent"
+        android:layout_height="135px"
+        android:background="#666666">
+
+        <TextView
+            android:id="@+id/tv_dyzhashi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="17px"
+            android:text="逛逛先锋书城"
+            android:textColor="@color/white"
+            android:textSize="51px" />
+
+        <ImageView
+            android:layout_width="84px"
+            android:layout_height="84px"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/tv_dyzhashi"
+            android:background="@mipmap/jia" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

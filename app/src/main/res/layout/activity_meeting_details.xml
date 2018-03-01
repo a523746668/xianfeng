@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.qingyii.hxt.notify.mvp.ui.activity.NotifyDetailsActivity">
+
+    <include
+        android:id="@+id/activity_tltle"
+        layout="@layout/include_toolbar" />
+    <ProgressBar
+        android:layout_below="@+id/activity_tltle"
+        android:id="@+id/webview_progressbar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="5px" />
+    <im.delight.android.webview.AdvancedWebView
+        android:id="@+id/wb_meeting_details_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/operation_ll"
+        android:layout_below="@+id/webview_progressbar" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/wb_meeting_details_content"
+        android:background="@mipmap/comui_bar_top_shadow" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/operation_ll"
+        android:layout_width="match_parent"
+        android:layout_height="146px"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/meeting_details_feedback_time"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:paddingLeft="@dimen/padding_normal"
+            android:text="反馈时限：2017-06-30 12:00"
+            android:background="@color/white"
+            android:gravity="center|left"
+            android:textColor="@color/allStyles"
+            android:textSize="48px" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundColorTranslucence" />
+
+        <TextView
+            android:id="@+id/meeting_details_feedback"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_wg_selector_style"
+            android:gravity="center"
+            android:text="点击反馈"
+            android:textColor="@drawable/text_gw_selector_style"
+            android:textSize="52px" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

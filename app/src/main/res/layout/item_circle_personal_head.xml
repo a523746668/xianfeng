@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/circle_personal_head_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f0f0f0"
+        android:scaleType="centerCrop" />
+
+    <com.qingyii.hxt.view.RoundedImageView
+        android:id="@+id/circle_personal_head_photo"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/default_head"
+        app:corner_radius="2dp"
+        app:layout_heightPercent="40%h"
+        app:layout_marginTopPercent="3%h"
+        app:layout_widthPercent="40%h"
+        app:mutate_background="false"
+        app:oval="true" />
+
+    <TextView
+        android:id="@+id/circle_personal_head_info"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/circle_personal_head_photo"
+        android:layout_centerHorizontal="true"
+        android:background="#33000000"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text=""
+        android:textColor="#ffffff"
+        app:layout_heightPercent="15%h"
+        app:layout_marginTopPercent="3%h" />
+
+    <!--
+         <TextView
+        android:id="@+id/circle_personal_head_department"
+        android:layout_below="@+id/circle_personal_head_name"
+        android:layout_centerHorizontal="true"
+        app:layout_heightPercent="6.7%h"
+        app:layout_widthPercent="60.6%w"
+        android:text="长沙连商网络科技有限公司"
+        android:background="#33000000" />
+    -->
+
+
+    <LinearLayout
+        android:id="@+id/circle_personal_head_content1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="#33000000"
+        android:orientation="vertical"
+        app:layout_heightPercent="20%h"
+        app:layout_widthPercent="25%w">
+
+        <TextView
+            android:id="@+id/circle_personal_head_num1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            app:layout_textSizePercent="4%w" />
+
+        <TextView
+            android:id="@+id/circle_personal_head_hint1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/circle_personal_head_num1"
+            android:gravity="center"
+            android:text="发布日志"
+            android:textColor="#ffffff"
+            app:layout_textSizePercent="4%w" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/circle_personal_head_content2"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/circle_personal_head_content1"
+        android:background="#33000000"
+        android:orientation="vertical"
+        app:layout_heightPercent="20%h"
+        app:layout_widthPercent="25%w">
+
+        <TextView
+            android:id="@+id/circle_personal_head_num2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            app:layout_textSizePercent="4%w" />
+
+        <TextView
+            android:id="@+id/circle_personal_head_hint2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/circle_personal_head_num2"
+            android:gravity="center"
+            android:text="发表评论"
+            android:textColor="#ffffff"
+            app:layout_textSizePercent="4%w" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/circle_personal_head_content3"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/circle_personal_head_content2"
+        android:background="#33000000"
+        android:orientation="vertical"
+        app:layout_heightPercent="20%h"
+        app:layout_widthPercent="25%w">
+
+        <TextView
+            android:id="@+id/circle_personal_head_num3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            app:layout_textSizePercent="4%w" />
+
+        <TextView
+            android:id="@+id/circle_personal_head_hint3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/circle_personal_head_num3"
+            android:gravity="center"
+            android:text="收到点赞"
+            android:textColor="#ffffff"
+            app:layout_textSizePercent="4%w" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/circle_personal_head_content4"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/circle_personal_head_content3"
+        android:background="#33000000"
+        android:orientation="vertical"
+        app:layout_heightPercent="20%h"
+        app:layout_widthPercent="25%w">
+
+        <TextView
+            android:id="@+id/circle_personal_head_num4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            app:layout_textSizePercent="4%w" />
+
+        <TextView
+            android:id="@+id/circle_personal_head_hint4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/circle_personal_head_num4"
+            android:gravity="center"
+            android:text="送出点赞"
+            android:textColor="#ffffff"
+            app:layout_textSizePercent="4%w" />
+    </LinearLayout>
+
+</android.support.percent.PercentRelativeLayout>

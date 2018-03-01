@@ -1,0 +1,194 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.antfortune.freeline'
+apply plugin: 'kotlin-kapt'
+repositories {
+    flatDir {
+        dir 'libs'
+    }
+    mavenCentral()
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/snapshots/'
+    }
+}
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    signingConfigs {
+        // your debug keystore
+        debug {
+            keyAlias 'HongXinInfo'
+            keyPassword '83882511'
+            storeFile file("xfypt.jks")
+            storePassword '83882511'
+        }
+    }
+    sourceSets.main.jni.srcDirs = [] //disable automatic ndk-build call
+    sourceSets {
+        main {
+            jniLibs.srcDir 'src/main/jniLibs'
+        }
+        // Move the tests to tests/java, tests/res, etc...
+        instrumentTest.setRoot('tests')
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+
+        useLibrary 'org.apache.http.legacy'
+    }
+
+    defaultConfig {
+        applicationId "com.qingyii.hxt"
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+        multiDexEnabled true
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
+        dexOptions {
+            javaMaxHeapSize "4g"
+        }
+//        versionCode 1
+//        versionName "1.0"
+        testInstrumentationRunner rootProject.ext.dependencies["androidJUnitRunner"]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+//修改生成的apk名字
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            //  def outputFile = output.outputFile
+            //格式为“xianfeng_v_版本号年月日时分”
+            if (variant.buildType.name.equals('release')) {
+                def outputFile = output.packageApplication.outputFile
+                def releaseApkName = "xianfeng_v${defaultConfig.versionName}_${releaseTime()}.apk"
+                //output.outputFile = new File(outputFile.parent, releaseApkName)
+//                output.outputFile = new File(oldFile.parent+"/"+defaultConfig.versionName, releaseApkName)
+                output.packageApplication.outputFile = new File(outputFile.parent, releaseApkName)
+            }
+        }
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+def releaseTime() {
+    return new Date().format("yyyyMMddHHmm", TimeZone.getTimeZone("GMT+08:00"))
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile(name: 'andbase-2.0', ext: 'aar') {
+        exclude group: 'com.google.gson'
+    }
+    compile project(path: ':framework')
+    compile project(':badger')
+    compile project(path: ':superToasts')
+    compile project(path: ':ambilWarna')
+
+    //lambda
+
+    //自动适配屏幕框架
+
+    //adapter基类
+
+    //mvpArms
+
+    //    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
+    kapt rootProject.ext.dependencies["dagger2-compiler"]
+    compile rootProject.ext.dependencies["dagger2"]
+    //依赖插件, annotationProcessor 是 AndroidStudio 自带并用来替换 APT
+    provided rootProject.ext.dependencies["javax.annotation"]
+    //dagger2必须依赖jsr250 annotation
+    compile(rootProject.ext.dependencies["butterknife"]) {
+        exclude module: 'support-annotations'
+        exclude module: 'butterknife'
+    }
+    kapt(rootProject.ext.dependencies["butterknife-compiler"]) {
+        exclude module: 'support-annotations'
+        exclude module: 'butterknife-annotations'
+    }
+    compile(rootProject.ext.dependencies["cardview-v7"]) {
+        exclude module: 'support-annotations'
+    }
+    compile(rootProject.ext.dependencies["recyclerview-v7"]) {
+        exclude module: 'support-annotations'
+    }
+    //support
+    compile(rootProject.ext.dependencies["support-v4"]) {
+        exclude module: 'support-annotations'
+    }
+    compile(rootProject.ext.dependencies["appcompat-v7"]) {
+        exclude module: 'support-annotations'
+        exclude module: 'support-v4'
+    }
+    compile(rootProject.ext.dependencies["design"]) {
+        exclude module: 'support-annotations'
+        exclude module: 'appcompat-v7'
+        exclude module: 'support-v4'
+    }
+    //rx
+    compile rootProject.ext.dependencies["rxjava2"]
+    compile(rootProject.ext.dependencies["rxandroid2"]) {
+        exclude module: 'rxjava'
+    }
+    compile rootProject.ext.dependencies["RecyclerTreeView"]
+    compile rootProject.ext.dependencies["progressmanager"]
+    //    compile rootProject.ext.dependencies["paginate"]
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile rootProject.ext.dependencies["gson"]
+    compile rootProject.ext.dependencies["multidex"]
+    //
+    compile('cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2') {
+        exclude module: 'support-v4'
+    }
+    compile files('libs/umeng-common-1.4.0.jar')
+
+    compile 'com.github.d-max:spots-dialog:0.4@aar'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.1'
+    compile 'com.github.zzz40500:android-shapeLoadingView:1.0.3.2'
+    compile 'com.google.android.gms:play-services-appindexing:9.8.0'
+    compile 'com.bigkoo:convenientbanner:2.0.5'
+    compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.squareup.okio:okio:1.5.0'
+    compile 'com.squareup.okhttp:okhttp:2.7.5'
+    compile 'com.baoyz.actionsheet:library:1.1.7'
+    compile 'es.voghdev.pdfviewpager:library:1.0.1'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.orhanobut:logger:1.15'
+    compile 'com.commit451:PhotoView:1.2.4'
+    compile 'com.zhy:autolayout:1.4.5'
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.github.mcxtzhang:all-base-adapter:V1.8.1'
+    compile 'me.jessyan:arms:2.1.5'
+    compile 'cn.yipianfengye.android:zxing-library:2.1'
+    compile 'com.king.thread:nevercrash:1.0.0'
+    compile 'com.github.delight-im:Android-AdvancedWebView:v3.0.0'
+    compile 'com.github.hss01248:DialogUtil:1.1.6'
+    compile 'me.iwf.photopicker:PhotoPicker:0.9.5@aar'
+    compile 'in.srain.cube:ultra-ptr:1.0.11'
+    compile 'com.youth.banner:banner:1.4.4'
+    compile 'com.beloo.widget:ChipsLayoutManager:0.3.7@aar'
+    compile 'com.cjj.materialrefeshlayout:library:1.3.0'
+    compile 'com.bartoszlipinski:recyclerviewheader2:2.0.1'
+    compile 'com.github.fodroid:XRadioGroup:v1.1'
+    compile 'com.contrarywind:Android-PickerView:3.2.6'
+    compile 'com.github.GrenderG:Toasty:1.2.5'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}

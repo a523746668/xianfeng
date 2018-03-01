@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="120px"
+     android:background="@color/white"
+
+    >
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="120px"
+        android:id="@+id/lattext"
+       android:gravity="center_vertical"
+          android:paddingTop="35px"
+         android:paddingBottom="35px"
+       android:textSize="42px"
+        android:paddingLeft="24px"
+       android:paddingRight="30px"
+       android:drawableRight="@mipmap/rightjt"
+       android:textColor="#333333"
+       android:drawableLeft="@mipmap/red2"
+       android:drawablePadding="10px"
+       />
+
+</com.zhy.autolayout.AutoRelativeLayout>

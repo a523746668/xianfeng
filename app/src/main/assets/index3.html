@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>test</title>
+
+    <link rel="stylesheet" type="text/css" href="monoclelib/monocore.css" />
+    <link rel="stylesheet" type="text/css" href="monoclelib/monoctrl.css" />
+    <link rel="stylesheet" type="text/css" href="monoclelib/book.css" />
+    <style type="text/css">
+        #reader, #readerBg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <script type="text/javascript" src="monoclelib/monocore.js"></script>
+    <script type="text/javascript" src="monoclelib/monoctrl.js"></script>
+    <script type="text/javascript" src="monoclelib/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="monoclelib/highlight.js"></script>
+    <script type="text/javascript" src="monoclelib/rangy/rangy-core.js"></script>
+    <script type="text/javascript" src="monoclelib/rangy/rangy-classapplier.js"></script>
+    <script type="text/javascript" src="monoclelib/rangy/rangy-textrange.js"></script>
+    <script type="text/javascript" src="monoclelib/rangy/rangy-highlighter.js"></script>
+    <script type="text/javascript" src="monoclelib/jquery-json.js"></script>
+
+    <script type="text/javascript">
+    	var bookData=#bookData#;
+		var currentcmptId,searchXpath,searchKeyword;
+      	var highlighter;
+      function setBookData(bookDataStr){
+      	var tempbookdata = eval(bookDataStr);
+		bookData= Monocle.bookData(tempbookdata);
+		//document.getElementById('reader').innerHTML = bookDataStr;
+      }
+    var bookData3 = Monocle.bookData({
+    components: [
+      'file:///android_asset/components/1.html',
+      'file:///android_asset/components/2.html',
+      'file:///android_asset/components/3.html',
+      'file:///android_asset/components/toc.html'
+    ],
+    metadata: {
+      title: "Three Ghost Stories",
+      creator: "Charles Dickens"
+    }
+  });
+   var bookData2 = Monocle.bookData({
+		  "components": [
+		    "file:///mnt/sdcard/HXT/coverpage.html",
+		    "file:///mnt/sdcard/HXT/chapter2.html",
+		    "file:///mnt/sdcard/HXT/chapter3.html",
+		    "file:///mnt/sdcard/HXT/chapter4.html",
+		    "file:///mnt/sdcard/HXT/chapter5.html",
+		    "file:///mnt/sdcard/HXT/chapter6.html",
+		    "file:///mnt/sdcard/HXT/chapter7.html",
+		    "file:///mnt/sdcard/HXT/chapter8.html",
+		    "file:///mnt/sdcard/HXT/chapter9.html",
+		    "file:///mnt/sdcard/HXT/chapter10.html"
+		  ],
+		  "metadata": {
+		    "title": "168816",
+		    "creator": ""
+		  }
+		});
+	
+      function initReader(){
+          Monocle.Styles.container.right = "24px";
+          var readerOptions = {};
+          readerOptions.panels = Monocle.Panels.Magic;
+          readerOptions.stylesheet = "body { " +
+          "color: #210;" +
+          "font-family: Palatino, Georgia, serif;" +
+          "}";
+          window.reader = Monocle.Reader('reader',bookData,readerOptions,onReaderLoad);
+          
+      }
+    //书籍加载
+    function onReaderLoad(reader){
+    	//处理历史阅读进度
+    	contact.loadLocus();
+    	addSelectionListener();
+        var pageNumber = {
+            runners: [],
+            createControlElements: function (page) {
+              var cntr = document.createElement('div');
+              cntr.className = "pageNumber";
+              var runner = document.createElement('div');
+              runner.className = "runner";
+              cntr.appendChild(runner);
+              this.runners.push(runner);
+              this.update(page, page.m.place.pageNumber());
+              return cntr;
+            },
+            update: function (page, pageNumber) {
+              if (pageNumber) {
+                this.runners[page.m.pageIndex].innerHTML = pageNumber;
+              }
+            }
+          }
+          reader.addControl(pageNumber, 'page');
+          
+          reader.listen(
+            'monocle:pagechange',
+            function (evt) {
+            	addSelectionListener();
+              pageNumber.update(evt.m.page, evt.m.pageNumber);
+            }
+          );
+    }
+    function addSelectionListener(){
+        var index = 0, frame = null;
+        while (frame = reader.dom.find('component', index++)) {
+            if (frame.contentWindow) {
+                //frame.contentWindow.document.documentElement.style.webkitTouchCallout = "none"; //禁止弹出菜单
+                //frame.contentWindow.document.documentElement.style.webkitUserSelect = "none";//禁止选中
+                $(frame.contentWindow.document).attr('domid',"readerframe_"+index);
+                frame.contentWindow.document.removeEventListener("selectionchange", userselection);
+                frame.contentWindow.document.selectionwindow = frame.contentWindow;
+                frame.contentWindow.document.addEventListener("selectionchange", userselection, false);
+            }
+        }
+    }
+    function onChangeFontSize(size){
+    	window.reader.formatting.setFontScale(size, true);
+    }
+    function jumpChapter(mycomponentId){
+        var coponent={componentId:mycomponentId};
+    	window.reader.moveTo(coponent);
+    }
+    //进度条拖动书籍内容
+    function movePercent(cComponentId,myPercent){
+    	//alert(cComponentId+myPercent);
+    	var str={componentId:cComponentId,percent:myPercent};
+    	//alert(str);
+    	window.reader.moveTo(str);
+    }
+    //第一次阅读历史位置加载进入
+    function historyRead(locusStr){
+    	//alert(locusStr);
+    	//var locus=JSON.parse(locusStr);
+    	//alert(locus);
+    	window.reader.moveTo(locusStr);
+    }
+    function nodeForXPath(doc, xpath) {
+    	//alert(doc+xpath);
+        return doc.evaluate(xpath, doc, null, 9, null).singleNodeValue;
+    }
+    
+    function   sleep(n)
+    {
+        var   start=new   Date().getTime();
+        while(true)   if(new   Date().getTime()-start>n)   break;
+    }
+   
+      function goToXPath(cmptId, xpath, keyword) {
+        //alert(cmptId+xpath+keyword);
+        if(currentcmptId){
+            clearhighlight();
+        }
+        currentcmptId=cmptId;
+        searchXpath=xpath;
+        searchKeyword=keyword;
+        window.reader.moveTo(
+                             { componentId: reader.getPlace().componentId(), xpath: xpath },
+                             function () {
+                                 highlight(function (doc) {
+                                             return nodeForXPath(doc, xpath)
+                                           },keyword);
+                             }
+                             );
+    }
+    
+    function clearhighlight(){
+        var cmpt = null, i = 0;
+        while (cmpt = window.reader.dom.find('component', i++)) {
+            var doc = cmpt.contentDocument;
+            var targetDom = nodeForXPath(doc,searchXpath);
+            if(targetDom){
+                clearSelection(targetDom);
+            }
+        }
+    }
+    
+    function highlight(fn,keyword) {
+        var cmpt = null, i = 0;
+        while (cmpt = window.reader.dom.find('component', i++)) {
+            var doc = cmpt.contentDocument;
+            var targetDom = fn(doc);
+            if(targetDom){
+                highlightkeyword(targetDom,keyword);
+            }
+        }
+    }
+
+    
+    function getSelectionForWindow(windowdomid){
+        var frame,index=0;
+        while (frame = window.reader.dom.find('component', index++)) {
+            if (frame.contentWindow) {
+                if($(frame.contentWindow.document).attr('domid')==windowdomid){
+                    var selection = frame.contentWindow.getSelection();
+                    return selection.toString();
+                }
+            }
+        }
+    }
+    //选择文字后触发的事件
+    var userselection = function userSelectionChanged(event) {
+        var selection = event.currentTarget.selectionwindow.getSelection();
+        var range = selection.getRangeAt(0);
+        //window.location.href="selectionchanged://"+event.currentTarget.domid;
+        //alert(selection);
+		var tempStr=getSelectionDataForWindow(event.currentTarget.domid);
+		//调用JAVA方法
+		//contact.userselection(JSON.stringify(tempStr));
+		contact.userselection(tempStr);
+		
+    }
+    
+    jQuery.fn.extend({
+		getPath: function () {
+			var path, node = this;
+			while (node.length) {
+				var realNode = node[0], name = realNode.localName;
+				if (!name) break;
+				name = name.toLowerCase();
+
+				var parent = node.parent();
+
+				var sameTagSiblings = parent.children(name);
+				if (sameTagSiblings.length > 1) { 
+					allSiblings = parent.children();
+					var index = allSiblings.index(realNode) + 1;
+					if (index > 1) {
+						name += ':nth-child(' + index + ')';
+					}
+				}
+
+				path = name + (path ? '>' + path : '');
+				node = parent;
+			}
+
+			return path;
+		}
+	});
+    
+    //获取选择的相关数据
+    function getSelectionDataForWindow(windowdomid){
+        var frame,index=0,currentWindow,selection;
+        while (frame = window.reader.dom.find('component', index++)) {
+            if (frame.contentWindow) {
+                if($(frame.contentWindow.document).attr('domid')==windowdomid){
+                    currentWindow = frame.contentWindow;
+                    selection = currentWindow.getSelection();
+                }
+            }
+        }
+        if(!currentWindow)
+        return;
+        var range = selection.getRangeAt(0);
+        var anchorOffset = selection.anchorOffset;//选择开始的索引
+        var focusOffset = selection.focusOffset;//选择结束的索引
+        var selectiontext = selection.toString();
+        var currentcomponent = window.reader.getPlace().componentId();
+        var jqueryselectorForSelectedDom = $(range.startContainer.parentElement).getPath();
+        var remarkdata = {};
+        var currentcomponent = window.reader.getPlace().componentId();
+        remarkdata.cmpid = currentcomponent;
+        remarkdata.anchorOffset = anchorOffset;
+        remarkdata.focusOffset = focusOffset;
+        remarkdata.selectionstring = selectiontext;
+        remarkdata.jqueryselector = jqueryselectorForSelectedDom;
+        //alert(remarkdata);
+        //调用java保存
+         //contact.userselection(JSON.stringify(remarkdata));
+        return $.toJSON(remarkdata);
+    }
+    
+    function randomString(len) {
+	　　len = len || 32;
+	　　var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+	　　var maxPos = $chars.length;
+	　　var pwd = '';
+	　　for (i = 0; i < len; i++) {
+	　　　　pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+	　　}
+	　　return pwd;
+	}
+    
+    var remarkuniqueprefix = "remarkuniqueprefix";
+    //保存标注
+    function saveBookRemark(windowdomid,remarkobject){
+        alert(windowdomid+remarkobject);
+        var frame,index=0,currentWindow;
+        while (frame = window.reader.dom.find('component', index++)) {
+            if (frame.contentWindow) {
+                if($(frame.contentWindow.document).attr('domid')==windowdomid){
+                    currentWindow = frame.contentWindow;
+                    break;
+                }
+            }
+        }
+        if(!currentWindow)
+        	return;
+        var node = $(remarkobject.locateJquerySelector,currentWindow.document);
+        alert(node.get(0).childNodes[0].data);
+        var nodetext = node.html();
+        var starttext = nodetext.substring(0,remarkobject.anchorOffset);
+        var middletext = nodetext.substring(remarkobject.anchorOffset,remarkobject.focusOffset);
+        var endtext = nodetext.substring(remarkobject.focusOffset,nodetext.length);
+        var markbutton = "<a href='javascript:void(0);' class='note' id='"+remarkuniqueprefix+remarkobject.uniqueid+"'>"+middletext+"</a>";
+        $(node).html(starttext+markbutton+endtext);
+        $("#"+remarkuniqueprefix+remarkobject.uniqueid,node.get(0)).click(function(){
+        	var rect = this.getBoundingClientRect();
+            window.location.href = "remarkclick://"+rect.top+"/"+rect.left+"/"+rect.width+"/"+rect.height;
+        });
+    }
+     function clearSelection(){
+        highlighter.unhighlightSelection();
+    }
+    
+    function sameRange(m1, m2) {
+		return (
+		  m1.rangeStartContainer == m2.rangeStartContainer &&
+		  m1.rangeEndContainer == m2.rangeEndContainer &&
+		  m1.rangeStartOffset == m2.rangeStartOffset &&
+		  m1.rangeEndOffset == m2.rangeEndOffset
+		);
+    }
+    
+    
+    function changeNight(){
+    	$('#bookboard').addClass('board_nightmode');
+		$('#bookboard').removeClass('board');
+		$('.dummyPage').css('background-color','#afaca7');
+		$('#readerBg').css('background-color','#afaca7');
+		$('div.monelem_page').css('background-color','#c4bfb7').css('background-image','-webkit-linear-gradient(0deg, #c4bfb7 0px, #c4bfb7 24px)').css('background-image','-moz-linear-gradient(0deg, #c4bfb7 0px, #c4bfb7 24px)').css('background-image','linear-gradient(90deg, #c4bfb7 0px, #c4bfb7 24px)');
+		$('#cover').css('outline','5000px solid rgba(0, 0, 0, 0.3)');
+    }
+    function changeDay(){
+    	$('#bookboard').removeClass('board_nightmode');
+    	$('#bookboard').addClass('board');
+    	$('.dummyPage').css('background-color','#FCF6F0');
+		$('#readerBg').css('background-color','#000');
+		$('div.monelem_page').css('background-color','#FFFFFE').css('background-image','-webkit-linear-gradient(0deg, #EDEAE8 0px, #FFFFFE 24px)').css('background-image','-moz-linear-gradient(0deg, #EDEAE8 0px, #FFFFFE 24px)').css('background-image','linear-gradient(90deg, #EDEAE8 0px, #FFFFFE 24px)');
+		$('#cover').css('outline','5000px solid rgba(0, 0, 0, 0)');
+    }
+    
+    function back(){
+	    var locus = {
+	      		componentId: reader.getPlace().componentId(),
+	      		percent: reader.getPlace().percentageThrough()
+	   		}
+	    //alert(reader.getPlace().componentId());
+	    //alert(reader.getPlace().percentageThrough());
+	    //退出保存阅读进度信息
+	    contact.saveLocus(JSON.stringify(reader.getPlace().getLocus()),reader.getPlace().componentId(),reader.getPlace().percentageThrough());
+	    }
+	    //保存书签
+	    function saveBookMark(){
+	    var locus = {
+	      		componentId: reader.getPlace().componentId(),
+	      		percent: reader.getPlace().percentageThrough()
+	   		}
+	    //退出保存阅读进度信息
+	    contact.saveBookMark(JSON.stringify(reader.getPlace().getLocus()));
+	    }
+    </script>
+
+  </head>
+
+  <body class="narrow" onload="initReader()">
+      <div id="readerBg">
+          <div class="board"></div>
+<!--          <div class="jacket"></div>-->
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+      </div>
+    <div id="readerCntr">
+    <div id="reader">
+    	#content#
+     </div>
+    </div>
+  </body>
+</html>

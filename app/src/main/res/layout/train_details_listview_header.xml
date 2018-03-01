@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/allStyles"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/train_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="36px"
+            android:layout_marginTop="50px"
+            android:textColor="@color/white"
+            android:textSize="46px" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/train_details_site_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/allStyles"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/x14"
+        android:paddingLeft="@dimen/x15"
+        android:paddingRight="@dimen/x12"
+        android:paddingTop="@dimen/x14">
+
+        <LinearLayout
+            android:layout_width="@dimen/x250"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/x11"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/x15"
+                    android:layout_height="@dimen/x15"
+                    android:layout_marginRight="@dimen/x7"
+                    android:src="@mipmap/train_details_site" />
+
+                <TextView
+                    android:id="@+id/train_details_site"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="地址 : "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/x12" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/x11"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/x15"
+                    android:layout_height="@dimen/x15"
+                    android:layout_marginRight="@dimen/x7"
+                    android:src="@mipmap/train_details_time" />
+
+                <TextView
+                    android:id="@+id/train_details_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="培训起始时间 : "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/x12" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/x11"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/x15"
+                    android:layout_height="@dimen/x15"
+                    android:layout_marginRight="@dimen/x7"
+                    android:src="@mipmap/train_details_lecturer" />
+
+                <TextView
+                    android:id="@+id/train_details_lecturer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="主讲人 : "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/x12" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="@dimen/x15"
+                    android:layout_height="@dimen/x15"
+                    android:layout_marginRight="@dimen/x7"
+                    android:src="@mipmap/train_details_note" />
+
+                <TextView
+                    android:id="@+id/train_details_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="Don' t forget your guitar and book"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/x12" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="114px"
+            android:layout_height="162px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10px"
+            android:background="@drawable/daohang_selector" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"
+        android:background="@color/backgroundColor" />
+
+    <com.qingyii.hxt.customview.MyGridView
+        android:id="@+id/train_details_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="3"
+        android:paddingLeft="@dimen/x10"
+        android:paddingRight="@dimen/x10"
+        android:paddingTop="@dimen/x15"
+        android:stretchMode="columnWidth" />
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_indent_details_tltle"
+    android:layout_width="match_parent"
+    android:layout_height="150px"
+    android:background="@color/tltleColor"
+    android:gravity="center_vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/returns_arrow"
+        android:layout_width="150px"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="68px"
+            android:layout_height="58px"
+            android:src="@mipmap/back_white"
+            android:scaleType="fitXY"
+            android:id="@+id/toolbar_back"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <TextView
+        android:id="@+id/activity_tltle_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginLeft="150px"
+        android:layout_marginRight="150px"
+        android:layout_centerInParent="true"
+        android:text="这个页面还没有名字"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#FFFFFF"
+        android:textSize="52px"
+         />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="35px"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/activity_tltle_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/fenxiang_tltle"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="12px"
+            android:visibility="gone" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/activity_tltle_operation"
+        android:layout_width="55px"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/menu_point"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="12px"
+            android:layout_marginRight="30px"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

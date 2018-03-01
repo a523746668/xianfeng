@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_my_tong_xun_lu_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.qingyii.hxt.MyTongXunLuDetailsActivity">
+
+    <include layout="@layout/activity_tltle" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x10"
+                android:background="@color/white"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/x75"
+                    android:layout_height="@dimen/x75"
+                    android:layout_marginBottom="@dimen/x10"
+                    android:layout_marginTop="@dimen/x15">
+
+                    <com.qingyii.hxt.view.RoundedImageView
+                        android:id="@+id/txl_details_header"
+                        android:layout_width="@dimen/x75"
+                        android:layout_height="@dimen/x75"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/circle_header"
+                        android:scaleType="center"
+                        app:corner_radius="100dp" />
+
+                    <ImageView
+                        android:id="@+id/txl_details_emblem"
+                        android:layout_width="@dimen/x25"
+                        android:layout_height="@dimen/x25"
+                        android:layout_alignParentRight="true"
+                        android:background="@mipmap/the_emblem"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txl_details_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="用户名"
+                    android:textColor="@color/textColorMedium"
+                    android:textSize="@dimen/x20"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txl_details_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x5"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="00000000000"
+                    android:textColor="@color/textColorMedium"
+                    android:textSize="@dimen/x20"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/x115">
+
+                    <TextView
+                        android:id="@+id/txl_details_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/x10"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="部门："
+                        android:textColor="@color/textColorMedium"
+                        android:textSize="@dimen/x14" />
+
+                    <TextView
+                        android:id="@+id/txl_details_duty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/x12"
+                        android:layout_marginTop="@dimen/x10"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="职务："
+                        android:textColor="@color/textColorMedium"
+                        android:textSize="@dimen/x14" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/x12"
+                        android:layout_marginTop="@dimen/x10"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="星级："
+                            android:textColor="@color/textColorMedium"
+                            android:textSize="@dimen/x14" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/unit_level_star1_no"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="无星"
+                                android:textColor="@color/textColorDark"
+                                android:textSize="@dimen/x13"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/unit_level_star1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/star"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/unit_level_star2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/star"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/unit_level_star3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/star"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/unit_level_star4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/star"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/unit_level_star5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/star"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--<RelativeLayout-->
+            <!--android:id="@+id/txl_details_shiguangzhou"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="@dimen/x10"-->
+            <!--android:background="#FFFFFF">-->
+
+            <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/txl_details_shiguangzhou"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_centerVertical="true"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginBottom="@dimen/x15"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginLeft="@dimen/x20"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginTop="@dimen/x15"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="@mipmap/wodeshiguangzhou" />&ndash;&gt;-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginBottom="@dimen/x15"-->
+            <!--android:layout_marginLeft="@dimen/x25"-->
+            <!--android:layout_marginTop="@dimen/x15"-->
+            <!--android:text="时光轴"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:textSize="16sp" />-->
+
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="@dimen/x15"-->
+            <!--android:background="@mipmap/keyijinru" />-->
+
+            <!--</RelativeLayout>-->
+
+            <!--<RelativeLayout-->
+            <!--android:id="@+id/txl_details_jishiguanli"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="@dimen/x2"-->
+            <!--android:background="#FFFFFF"-->
+            <!--android:visibility="gone">-->
+
+            <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/txl_details_jishi"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_centerVertical="true"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginBottom="@dimen/x15"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginLeft="@dimen/x20"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginTop="@dimen/x15"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="@mipmap/wodeshiguangzhou" />&ndash;&gt;-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginBottom="@dimen/x15"-->
+            <!--android:layout_marginLeft="@dimen/x25"-->
+            <!--android:layout_marginTop="@dimen/x15"-->
+            <!--android:text="纪实信息"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:textSize="16sp" />-->
+
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="@dimen/x15"-->
+            <!--android:background="@mipmap/keyijinru" />-->
+
+            <!--</RelativeLayout>-->
+
+            <TextView
+                android:id="@+id/txl_details_shiguangzhou"
+                android:layout_width="@dimen/x220"
+                android:layout_height="@dimen/x40"
+                android:layout_marginTop="@dimen/x20"
+                android:background="@color/green1"
+                android:gravity="center"
+                android:text="时光轴"
+                android:textColor="@color/white"
+                android:textSize="@dimen/x16"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/txl_details_call"
+                android:layout_width="@dimen/x220"
+                android:layout_height="@dimen/x40"
+                android:layout_marginTop="@dimen/x20"
+                android:background="@color/green1"
+                android:gravity="center"
+                android:text="拨打电话"
+                android:textColor="@color/white"
+                android:textSize="@dimen/x16" />
+
+            <TextView
+                android:id="@+id/txl_details_attention"
+                android:layout_width="@dimen/x220"
+                android:layout_height="@dimen/x40"
+                android:layout_marginTop="@dimen/x20"
+                android:background="@color/allStyles"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="@dimen/x16" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

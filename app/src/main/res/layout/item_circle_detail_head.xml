@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:paddingRight="@dimen/x12">
+
+    <ImageView
+        android:id="@+id/circle_detail_header"
+        android:layout_width="@dimen/x50"
+        android:layout_height="@dimen/x50"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/x12"
+        android:background="@color/backgroundColorDeep"
+         />
+
+    <TextView
+        android:id="@+id/circle_detail_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/circle_detail_header"
+        android:layout_marginLeft="@dimen/x12"
+        android:layout_toRightOf="@+id/circle_detail_header"
+        android:text="发布者名称"
+        android:textColor="@color/black"
+        android:textSize="@dimen/x14"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/circle_detail_department"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/circle_detail_name"
+        android:layout_below="@+id/circle_detail_name"
+        android:layout_marginTop="@dimen/x4"
+        android:text="所在部门"
+        android:textColor="#9B9B9B"
+        android:textSize="@dimen/x11" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/circle_detail_header"
+        android:layout_marginRight="@dimen/x5">
+
+        <TextView
+            android:id="@+id/circle_detail_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="类型：纪实类型"
+            android:textColor="@color/textColorDark"
+            android:textSize="@dimen/x11" />
+
+        <TextView
+            android:id="@+id/circle_detail_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x5"
+            android:text="删除"
+            android:textColor="@color/red"
+            android:textSize="@dimen/x11" />
+
+        <TextView
+            android:id="@+id/circle_detail_report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x5"
+            android:text="举报"
+            android:textColor="#FF0000"
+            android:textSize="@dimen/x11" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/circle_detail_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/circle_detail_department"
+        android:layout_marginLeft="@dimen/x12"
+        android:layout_marginTop="@dimen/x25"
+        android:text="文字内容"
+        android:textColor="@color/black"
+        android:textSize="@dimen/x13" />
+    <TextView
+        android:id="@+id/circle_detail_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/circle_detail_photo"
+        android:layout_below="@+id/circle_detail_content"
+        android:layout_marginTop="@dimen/x15"
+        android:layout_marginBottom="@dimen/x15"
+        android:text="发布时间"
+        android:textColor="#9B9B9B"
+        android:textSize="@dimen/x10" />
+
+    <com.qingyii.hxt.base.widget.NoScrollListView
+        android:id="@+id/circle_detail_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/circle_detail_content"
+        android:layout_below="@+id/circle_detail_time"
+        android:layout_marginBottom="@dimen/x8"
+        android:layout_marginTop="@dimen/x8"
+         />
+
+
+    <TextView
+        android:id="@+id/circle_detail_like"
+        android:layout_width="@dimen/x20"
+        android:layout_height="@dimen/x20"
+        android:layout_below="@+id/circle_detail_photo"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/circle_biglove_selector_style" />
+
+    <TextView
+        android:id="@+id/circle_detail_like_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/circle_detail_like"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/x6"
+        android:text="0 点赞数"
+        android:textColor="@color/textColorMedium"
+        android:textSize="@dimen/x12" />
+
+    <View
+        android:id="@+id/circle_detail_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/circle_detail_like_num"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginRight="@dimen/x20"
+        android:layout_marginTop="@dimen/x15"
+        android:background="@color/backgroundColor" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/circle_detail_line"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginTop="@dimen/x10"
+        android:text="全部评论"
+        android:textColor="@color/textColorMedium"
+        android:textSize="@dimen/x15" />
+
+</RelativeLayout>

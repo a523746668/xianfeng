@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_tltle"
+        android:id="@+id/activity_tltle"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/empty_exam"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="34px"
+            android:background="@mipmap/list_empty" />
+
+        <TextView
+            android:id="@+id/empty_exam_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="暂没有您需要参加的考试"
+            android:textColor="@color/textColorShallow"
+            android:textSize="40px" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.andbase.library.view.refresh.AbPullToRefreshView
+        android:id="@+id/mPullRefreshView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/white">
+
+        <ListView
+            android:id="@+id/mListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="@drawable/list_divider"
+            android:dividerHeight="4px" />
+
+    </com.andbase.library.view.refresh.AbPullToRefreshView>
+
+
+
+
+</com.zhy.autolayout.AutoLinearLayout>

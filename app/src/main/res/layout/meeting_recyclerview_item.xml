@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qingyii.hxt.base.widget.AutoCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="30px"
+    android:layout_marginRight="30px"
+    android:layout_marginTop="10px"
+    android:layout_marginBottom="10px"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/meeting_item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="46px"
+                    android:layout_marginRight="74px"
+                    android:layout_marginTop="44px"
+                    android:ellipsize="end"
+                    android:text="和谐社会由你开始"
+                    android:textColor="@color/notifyListTitleColor"
+                    android:textSize="46px" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="46px"
+                    android:layout_marginTop="35px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="主办单位："
+                        android:textColor="@color/notifyListContentColor"
+                        android:textSize="@dimen/sp_normal" />
+
+                    <TextView
+                        android:id="@+id/meeting_item_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="党建工作部"
+                        android:textColor="@color/notifyListContentColor"
+                        android:textSize="@dimen/sp_normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="46px"
+                    android:layout_marginTop="26px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="会议地点："
+                        android:textColor="@color/notifyListContentColor"
+                        android:textSize="@dimen/sp_normal" />
+
+                    <TextView
+                        android:id="@+id/meeting_item_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="74px"
+                        android:text="省委办公楼4栋直机关工委机关1号会议室省委办公楼4栋直机关工委机关1号会议室"
+                        android:textColor="@color/notifyListContentColor"
+                        android:textSize="@dimen/sp_normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="46px"
+                    android:layout_marginTop="26px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="会议时间："
+                        android:textColor="@color/notifyListContentColor"
+                        android:textSize="@dimen/sp_normal" />
+
+                    <TextView
+                        android:id="@+id/meeting_item_train_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="74px"
+                        android:text="2017-06-15 08:00到2017-06-20 17：30"
+                        android:textColor="@color/notifyListContentColor"
+                        android:textSize="@dimen/sp_normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="44px"
+                    android:layout_marginLeft="46px"
+                    android:layout_marginTop="26px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="会议类型："
+                        android:textColor="@color/notifyListContentColor"
+                        android:textSize="@dimen/sp_normal" />
+
+                    <TextView
+                        android:id="@+id/meeting_item_train_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="党建大课堂"
+                        android:textColor="@color/notifyListContentColor"
+                        android:textSize="@dimen/sp_normal" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/meeting_item_train_status"
+                        android:layout_width="180px"
+                        android:layout_height="56px"
+                        android:layout_marginRight="53px"
+                        android:textColor="@color/white"
+                        android:text="进行中"
+                        android:gravity="center"
+                        android:textSize="@dimen/sp_normal" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/meeting_item_mark"
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="36px"
+            android:layout_marginTop="28px"
+            android:background="@mipmap/tabhost_hint"
+            android:visibility="visible"
+            app:layout_auto_basewidth="height" />
+    </RelativeLayout>
+</com.qingyii.hxt.base.widget.AutoCardView>

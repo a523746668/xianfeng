@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_audit_context"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.qingyii.hxt.AuditContextActivity">
+
+    <include
+        android:id="@+id/activity_tltle"
+        layout="@layout/activity_tltle" />
+
+    <ListView
+        android:id="@+id/mListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/context_operation_ll"
+        android:layout_below="@+id/activity_tltle"
+        android:background="@color/backgroundColor"
+        android:clickable="true"
+        android:divider="@null"
+        android:focusable="true" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/context_operation_ll"
+        android:background="@mipmap/comui_bar_top_shadow" />
+
+    <LinearLayout
+        android:id="@+id/context_operation_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/backgroundColor"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/context_operation_evaluate"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/x35"
+            android:layout_marginBottom="@dimen/x8"
+            android:layout_marginLeft="@dimen/x15"
+            android:layout_marginRight="@dimen/x15"
+            android:layout_marginTop="@dimen/x8"
+            android:layout_weight="1"
+            android:background="@color/green1"
+            android:gravity="center"
+            android:text="审核评价"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x15"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/context_operation_appear"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/x35"
+            android:layout_marginBottom="@dimen/x8"
+            android:layout_marginLeft="@dimen/x15"
+            android:layout_marginRight="@dimen/x15"
+            android:layout_marginTop="@dimen/x8"
+            android:layout_weight="1"
+            android:background="@color/allStyles"
+            android:gravity="center"
+            android:text="直接报上级"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x15"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

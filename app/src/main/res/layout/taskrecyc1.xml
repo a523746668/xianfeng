@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="目标要求: "
+           android:id="@+id/taskleft1"
+           android:textSize="40px"
+           android:textColor="#505050"
+           />
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/tvrequeir"
+           android:text="在落实意识形态工作责任制，加强意识形态方面有实际措施"
+           android:layout_toRightOf="@+id/taskleft1"
+           android:textSize="40px"
+           android:textColor="#505050"
+           />
+
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40px"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="任务次数: "
+            android:id="@+id/taskleft2"
+            android:textSize="40px"
+            android:textColor="#505050"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tasktvnum"
+            android:text="在落实意识形态工作责任制，加强意识形态方面有实际措施"
+            android:layout_toRightOf="@+id/taskleft2"
+            android:textSize="40px"
+            android:textColor="#505050"
+            />
+
+       </com.zhy.autolayout.AutoRelativeLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40px"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上报时限: "
+            android:id="@+id/taskleft3"
+            android:textSize="40px"
+            android:textColor="#505050"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvtime"
+            android:text="在落实意识形态工作责任制，加强意识形态方面有实际措施"
+            android:layout_toRightOf="@+id/taskleft3"
+            android:textSize="40px"
+            android:textColor="#505050"
+            />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40px"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="资料要求: "
+            android:id="@+id/taskleft4"
+            android:textSize="40px"
+            android:textColor="#505050"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvmesage"
+            android:text="在落实意识形态工作责任制，加强意识形态方面有实际措施"
+            android:layout_toRightOf="@+id/taskleft4"
+            android:textSize="40px"
+            android:textColor="#505050"
+            />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40px"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="任务来源: "
+            android:id="@+id/taskleft5"
+            android:textSize="40px"
+            android:textColor="#505050"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvsouce"
+            android:text="在落实意识形态工作责任制，加强意识形态方面有实际措施"
+            android:layout_toRightOf="@+id/taskleft5"
+            android:textSize="40px"
+            android:textColor="#505050"
+            />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40px"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="执行组织: "
+            android:id="@+id/taskleft6"
+            android:textSize="40px"
+            android:textColor="#505050"
+            />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/taskright6"
+             android:layout_toRightOf="@+id/taskleft6"
+             android:textSize="40px"
+             android:textColor="#505050"
+
+             >
+         </TextView>
+
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+
+    <Button
+        android:layout_width="400px"
+        android:layout_height="100px"
+        android:text="报送任务动态"
+        android:layout_marginTop="100px"
+        android:id="@+id/taskrecycfabu"
+        android:layout_gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40px"
+        android:background="@drawable/circle_conner"
+        android:visibility="gone"
+
+        />
+     <Button
+         android:layout_width="400px"
+         android:layout_height="100px"
+         android:text="发起任务活动"
+         android:layout_marginTop="100px"
+         android:id="@+id/taskrecyc1button"
+         android:layout_gravity="center"
+         android:textColor="#FFFFFF"
+         android:textSize="40px"
+         android:background="@drawable/circle_conner"
+
+         />
+
+</com.zhy.autolayout.AutoLinearLayout>

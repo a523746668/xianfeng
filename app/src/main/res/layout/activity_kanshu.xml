@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_tab_top"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_gravity=""
+        android:background="@color/red"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@mipmap/back_white" />
+
+        <TextView
+            android:id="@+id/tv_kanshu_shuming"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="书名"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/iv_kanshumulu"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/kanshumulu" />
+    </RelativeLayout>
+
+
+    <com.qingyii.hxt.customview.ReadView
+        android:id="@+id/main_context"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="9"
+        android:background="@color/white"
+        android:padding="5dip"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:visibility="visible" />
+
+    <com.zhf.android_viewflow.ViewFlow
+        android:id="@+id/main_list_viewflow"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="9"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/page_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="3dp"
+        android:text=""
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:id="@+id/ll_kanshujindu"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:background="@color/black_pinglun"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <SeekBar
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:max="100"
+            android:progress="20"
+            android:thumb="@mipmap/kanshuhua" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:text="31%"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_tab_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:background="@color/black"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/kanshuziti"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dip"
+            android:layout_weight="1"
+            android:src="@mipmap/kanshushezhi" />
+
+        <ImageView
+            android:id="@+id/iv_kanshujindu"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dip"
+            android:layout_weight="1"
+            android:src="@mipmap/kanshujindu" />
+
+        <ImageView
+            android:id="@+id/iv_kanshujinduliang"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dip"
+            android:layout_weight="1"
+            android:src="@mipmap/kanshujinduliang"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_dengguang"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dip"
+            android:layout_weight="1"
+            android:src="@mipmap/kanshudengguang"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/iv_yueliang"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dip"
+            android:layout_weight="1"
+            android:src="@mipmap/kanshuyueliang"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_kanshu_sousuo"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dip"
+            android:layout_weight="1"
+            android:src="@mipmap/kanshusousuo" />
+
+        <ImageView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dip"
+            android:layout_weight="1"
+            android:src="@mipmap/kanshupinglun" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="20px">
+
+    <ImageView
+        android:layout_width="250px"
+        android:layout_height="250px"
+        android:id="@+id/pviv"
+        android:src="@mipmap/xiangxia"
+        android:layout_marginLeft="30px"
+          android:layout_marginTop="30px"
+        android:scaleType="fitXY"
+        />
+      <Button
+          android:layout_width="match_parent"
+          android:layout_height="250px"
+           android:layout_marginRight="30px"
+          android:layout_marginTop="30px"
+          android:hint="长按输入图片/视频描述，点击图片查看视频/图片详情"
+          android:gravity="top|left"
+          android:id="@+id/pved"
+          android:background="@color/white"
+          android:textSize="45px"
+          />
+
+
+</com.zhy.autolayout.AutoLinearLayout>

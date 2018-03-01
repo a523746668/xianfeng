@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <TextView
+        android:id="@+id/fragment_paiming"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:gravity="center"
+        android:text=""
+        app:layout_widthPercent="15%" />
+
+    <TextView
+        android:id="@+id/fragment_xingming"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_toRightOf="@+id/fragment_paiming"
+        android:gravity="center"
+        android:text=""
+        app:layout_widthPercent="20%" />
+
+    <TextView
+        android:id="@+id/fragment_danwei"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_toLeftOf="@+id/fragment_score"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text=""
+        app:layout_widthPercent="50%" />
+
+    <TextView
+        android:id="@+id/fragment_score"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_alignParentRight="true"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text=""
+        app:layout_widthPercent="15%" />
+
+</android.support.percent.PercentRelativeLayout>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#d2d2d2"
+        ></TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+
+        android:textSize="52px"
+        android:gravity="center"
+        android:textColor="#505050"
+        android:id="@+id/resultsonname"
+        />
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:orientation="horizontal"
+        android:background="@color/tasklisttextview"
+        android:weightSum="2"
+        >
+       <com.zhy.autolayout.AutoLinearLayout
+           android:layout_width="358px"
+           android:layout_height="246px"
+           android:orientation="vertical"
+           android:layout_weight="1"
+           android:gravity="center_horizontal">
+    <TextView
+        android:layout_width="250px"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_marginTop="50px"
+        android:text="当前得分/总分"
+        android:textSize="32px"
+        android:textColor="#898989"
+        />
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            >
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="52px"
+               android:textColor="#dd3030"
+
+               android:layout_gravity="bottom"
+               android:layout_marginBottom="20px"
+
+               android:id="@+id/getscore"
+               />
+            <TextView
+                android:textSize="40px"
+                android:textColor="#505050"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="20px"
+                android:id="@+id/score"
+                />
+        </com.zhy.autolayout.AutoLinearLayout>
+       </com.zhy.autolayout.AutoLinearLayout>
+      <TextView
+          android:layout_width="2px"
+          android:layout_height="match_parent"
+           android:layout_marginBottom="20px"
+          android:layout_marginTop="20px"
+          android:background="#d2d2d2"
+          ></TextView>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="358px"
+            android:layout_height="246px"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+            <TextView
+                android:layout_width="250px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50px"
+                android:layout_marginRight="50px"
+                android:layout_marginTop="50px"
+                android:gravity="center"
+                android:textSize="32px"
+                android:textColor="#898989"
+                android:id="@+id/postion1name"
+                />
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="52px"
+                    android:textColor="#dd3030"
+
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="20px"
+
+                    android:id="@+id/postion"
+                    />
+                <TextView
+                    android:textSize="40px"
+                    android:textColor="#505050"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="20px"
+                    android:id="@+id/allpostion"
+                    />
+            </com.zhy.autolayout.AutoLinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+        <TextView
+            android:layout_width="2px"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20px"
+            android:layout_marginTop="20px"
+            android:background="#d2d2d2"
+            android:visibility="gone"
+            ></TextView>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="358px"
+            android:layout_height="246px"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/postion2name"
+                android:layout_width="250px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50px"
+                android:layout_marginRight="50px"
+                android:layout_marginTop="50px"
+
+                android:textColor="#898989"
+
+                android:textSize="32px" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="52px"
+                    android:textColor="#dd3030"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="20px"
+                    android:layout_marginLeft="90px"
+                    android:id="@+id/postion2"
+                    />
+                <TextView
+                    android:textSize="40px"
+                    android:textColor="#505050"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="20px"
+                    android:id="@+id/allpostion2"
+                    />
+            </com.zhy.autolayout.AutoLinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50px"
+        android:id="@+id/resultsonrecyc"
+        ></android.support.v7.widget.RecyclerView>
+
+</com.zhy.autolayout.AutoLinearLayout>

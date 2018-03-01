@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_report_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.qingyii.hxt.ReportListActivity">
+
+    <include
+        android:id="@+id/activity_tltle"
+        layout="@layout/activity_tltle" />
+
+    <com.andbase.library.view.refresh.AbPullToRefreshView
+        android:id="@+id/mPullRefreshView"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/a_key_to_confirm_ll"
+        android:layout_below="@+id/activity_tltle"
+        android:background="@drawable/white">
+
+        <ListView
+            android:id="@+id/mListView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="#00000000"
+            android:descendantFocusability="blocksDescendants"
+            android:divider="@drawable/list_divider"
+            android:dividerHeight="1px" />
+
+        <LinearLayout
+            android:id="@+id/empty_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/empty_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="您该月没有发布记录事项"
+                android:textColor="@color/textColorShallow"
+                android:textSize="@dimen/x16" />
+
+        </LinearLayout>
+
+    </com.andbase.library.view.refresh.AbPullToRefreshView>
+
+    <LinearLayout
+        android:id="@+id/a_key_to_confirm_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/backgroundColor">
+
+        <TextView
+            android:id="@+id/a_key_to_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x40"
+            android:layout_margin="@dimen/x10"
+            android:background="@color/tltleColor"
+            android:gravity="center"
+            android:text="一键确认"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x16"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</RelativeLayout>

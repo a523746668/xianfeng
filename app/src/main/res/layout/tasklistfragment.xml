@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <include layout="@layout/include_toolbar"
+        android:id="@+id/include" />
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/tasklistall"
+        android:orientation="vertical"
+        android:layout_below="@+id/include"
+        >
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:layout_below="@+id/include"
+
+        android:id="@+id/resultfragrl">
+       <Button
+           android:layout_width="54px"
+           android:layout_height="53px"
+           android:layout_centerVertical="true"
+           android:layout_marginLeft="50px"
+           android:background="@mipmap/leftbutton_unclick"
+           android:id="@+id/resultfragsub"
+           />
+      <TextView
+          android:layout_width="772px"
+          android:layout_height="match_parent"
+          android:layout_toRightOf="@+id/resultfragsub"
+          android:layout_marginLeft="50px"
+
+          android:textSize="40px"
+          android:textColor="#dd3030"
+          android:gravity="center"
+          android:id="@+id/resulttitle"
+          />
+      <Button
+          android:layout_width="54px"
+          android:layout_height="53px"
+           android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:layout_marginRight="50px"
+          android:background="@mipmap/rightbutton_unclick"
+         android:id="@+id/taskadd"
+          />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:id="@+id/linehead"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="52px"
+            android:text="层级"
+            android:padding="20px"
+            android:layout_marginLeft="30px"
+
+            />
+        <TextView
+            android:layout_width="4px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30px"
+            android:background="@color/tasklisttextview"/>
+        <TextView
+            android:layout_width="630px"
+            android:layout_height="wrap_content"
+            android:textSize="52px"
+            android:text="指标/任务名称"
+            android:padding="20px"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="4px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30px"
+            android:background="@color/tasklisttextview"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="52px"
+            android:text="分值"
+            android:padding="20px"
+            android:gravity="center"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
+
+            />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+  <android.support.v4.view.ViewPager
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:id="@+id/taskvp"
+
+      ></android.support.v4.view.ViewPager>
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_below="@+id/include">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/x10"
+            android:background="@mipmap/list_empty" />
+
+        <TextView
+            android:id="@+id/empty_neikan_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="暂未收到需要完成的任务清单"
+            android:textColor="@color/textColorShallow"
+            android:textSize="42px" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

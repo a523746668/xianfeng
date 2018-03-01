@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   >
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="778px"
+            android:layout_height="wrap_content"
+            android:id="@+id/tasklistname"
+            android:gravity="center_vertical"
+            android:text="加强卢纶武装提出建设"
+            android:textSize="40px"
+            android:paddingLeft="40px"
+            android:textColor="#505050"
+            android:paddingBottom="15sp"
+            android:paddingTop="15sp"
+            />
+        <TextView
+            android:layout_width="3.5px"
+            android:layout_height="match_parent"
+            android:background="@color/tasklisttextview"
+            />
+
+        <TextView
+            android:layout_width="120px"
+            android:layout_height="match_parent"
+            android:id="@+id/tasklistscore"
+
+            android:gravity="center"
+
+            android:textSize="40px"
+            android:textColor="#505050"
+            />
+        <TextView
+            android:layout_width="3.5px"
+            android:layout_height="match_parent"
+            android:background="@color/tasklisttextview"
+            />
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="174px"
+            android:layout_height="match_parent">
+        <TextView
+            android:layout_width="174px"
+            android:layout_height="match_parent"
+            android:id="@+id/tasklistzk"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textColor="#505050"
+            android:textSize="40px"
+            />
+            
+           <ImageView
+               android:layout_width="44px"
+               android:layout_height="46px"
+                android:id="@+id/unzk"
+               android:layout_centerInParent="true"
+               android:src="@mipmap/into_unclick"/>
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/tasklisttextview"/>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zhf.IssusetaskActivity"
+    android:orientation="vertical"
+    >
+    <include layout="@layout/include_toolbar" />
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_white"
+        android:id="@+id/issscrow">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingLayoutStyle">
+
+                <TextView
+                    style="@style/addMeetingTitleTextStyle"
+                    android:text="上报标题" />
+
+                <EditText
+                    android:id="@+id/meeting_summary_title"
+                    style="@style/addMeetingContentTextStyle"
+                    android:hint="请输入上报标题，50字内"
+                    android:maxLength="50" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/add_meeting_item_bg"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_normal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="top"
+                    android:text="上报内容"
+                    android:textColor="#565656"
+                    android:textSize="@dimen/sp_normal"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/meeting_summary_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="48px"
+                    android:background="@null"
+                    android:gravity="top|left"
+                    android:hint="请输入上报内容"
+                    android:minHeight="166px"
+                    android:textColor="#858585"
+                    android:textSize="@dimen/sp_normal" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingLayoutStyle">
+
+                <TextView
+                    style="@style/addMeetingTitleTextStyle"
+                    android:text="对应任务指标" />
+
+                <TextView
+                    android:id="@+id/meeting_task"
+                    style="@style/addMeetingTitleTextStyle"
+                     />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingLayoutStyle">
+
+                <TextView
+                    style="@style/addMeetingTitleTextStyle"
+                    android:text="参与情况" />
+
+                <EditText
+                    android:id="@+id/meeting_qk"
+                    style="@style/addMeetingContentTextStyle"
+                    android:hint="请输入参与情况（选填）"
+                    android:maxLength="20"
+
+                    />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingLayoutStyle">
+
+                <TextView
+                    style="@style/addMeetingTitleTextStyle"
+                    android:text="专题/标签" />
+
+                <TextView
+                    android:id="@+id/meeting_summary_type"
+                    style="@style/addMeetingTitleTextStyle"
+                    android:text="请点击选择标签(选填)" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingLayoutStyle">
+
+                <TextView
+                    style="@style/addMeetingTitleTextStyle"
+                    android:text="活动时间" />
+
+                <EditText
+                    android:id="@+id/meeting_time"
+                    style="@style/addMeetingTitleTextStyle"
+                    android:hint="发布时间(必填)" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/add_meeting_item_bg"
+                android:gravity="center_vertical"
+                android:minHeight="218px"
+                android:orientation="vertical"
+                android:paddingBottom="20px"
+                android:paddingLeft="@dimen/padding_normal"
+                android:paddingRight="@dimen/padding_normal"
+                android:paddingTop="20px"
+                android:descendantFocusability="blocksDescendants"
+
+                >
+               <com.zhy.autolayout.AutoRelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginRight="48px"
+                       android:text="上传文件"
+                       android:textColor="#565656"
+                       android:textSize="60px"
+                       android:textStyle="bold"
+                       android:id="@+id/sctp"
+                       />
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="上传视频"
+                       android:textColor="#565656"
+                       android:textSize="60px"
+                       android:textStyle="bold"
+                       android:id="@+id/scsp"
+                       android:layout_alignParentTop="true"
+                       android:layout_toRightOf="@+id/sctp"
+                       android:layout_toEndOf="@+id/sctp"
+                       android:visibility="gone"/>
+
+                   <ImageView
+                       android:layout_width="300px"
+                       android:layout_height="120px"
+                      android:layout_alignParentRight="true"
+                       android:id="@+id/test"
+                       android:scaleType="fitXY"
+                       />
+
+               </com.zhy.autolayout.AutoRelativeLayout>
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginTop="20px"
+                    android:id="@+id/meeting_summary_pic_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:descendantFocusability="afterDescendants"
+                    />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/add_meeting_item_bg"
+                android:gravity="center_vertical"
+                android:minHeight="218px"
+                android:orientation="horizontal"
+                android:paddingBottom="20px"
+                android:paddingLeft="@dimen/padding_normal"
+                android:paddingRight="@dimen/padding_normal"
+                android:paddingTop="20px"
+                android:descendantFocusability="blocksDescendants"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="48px"
+                    android:text="台账记录"
+                    android:textColor="#565656"
+                    android:textSize="@dimen/sp_normal"
+                    android:textStyle="bold" />
+             <android.support.v7.widget.RecyclerView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/recyc2"
+                 ></android.support.v7.widget.RecyclerView>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/isck"
+                style="@style/addMeetingLayoutStyle">
+
+                <TextView
+                    style="@style/addMeetingTitleTextStyle"
+                    android:text="展开其他默认设置" />
+
+                <ImageView
+                    android:id="@+id/iszk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="550px"
+                    android:src="@mipmap/user_guide" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/zk"
+                android:visibility="gone"
+               >
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingLayoutStyle">
+
+                <TextView
+                    style="@style/addMeetingTitleTextStyle"
+                    android:text="质量合格率自评" />
+
+                <EditText
+                    android:id="@+id/hegelv"
+                    style="@style/addMeetingTitleTextStyle"
+
+                    android:text="100%"/>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/add_meeting_item_bg"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_normal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="top"
+                    android:text="自评依据和理由"
+                    android:textColor="#565656"
+                    android:textSize="@dimen/sp_normal"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/zpcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="48px"
+                    android:background="@null"
+                    android:gravity="top|left"
+                    android:hint="请输入上报内容"
+                    android:minHeight="166px"
+                    android:textColor="#858585"
+                    android:textSize="@dimen/sp_normal"
+                    android:text="默认"/>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="15sp"
+                android:text="关联工作动态展示"
+                android:textColor="@color/red"
+                android:textSize="52px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="8px"
+                android:background="@drawable/add_meeting_item_bg" />
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingRadioGroupLayoutStyle">
+
+                <TextView
+                    style="@style/addMeetingTitleTextStyle"
+                    android:layout_gravity="center_vertical"
+                    android:text="是否展示动态" />
+
+                <com.qingyii.hxt.base.widget.AutoRadioGroup
+                    android:id="@+id/summary_rg1"
+                    style="@style/addMeetingRadioGroupStyle">
+
+                    <RadioButton
+                        android:id="@+id/summary_rg1_rb1"
+                        style="@style/addMeetingRadioButtonStyle"
+                        android:checked="true"
+                        android:tag="1"
+                        android:text="展示" />
+
+                    <RadioButton
+                        android:id="@+id/summary_rg1_rb2"
+                        style="@style/addMeetingRadioButtonStyle"
+                        android:tag="2"
+                        android:text="不展示" />
+
+                </com.qingyii.hxt.base.widget.AutoRadioGroup>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingRadioGroupLayoutStyle">
+
+                <TextView
+                    style="@style/addMeetingTitleTextStyle"
+                    android:layout_gravity="center_vertical"
+                    android:text="是否需要审核" />
+
+                <com.qingyii.hxt.base.widget.AutoRadioGroup
+                    android:id="@+id/summary_rg2"
+                    style="@style/addMeetingRadioGroupStyle">
+
+                    <RadioButton
+                        android:id="@+id/summary_rg2_rb1"
+                        style="@style/addMeetingRadioButtonStyle"
+                        android:checked="true"
+                        android:tag="1"
+                        android:text="不需审核" />
+
+                    <RadioButton
+                        android:id="@+id/summary_rg2_rb2"
+                        style="@style/addMeetingRadioButtonStyle"
+                        android:tag="2"
+                        android:text="需要审核" />
+
+
+                </com.qingyii.hxt.base.widget.AutoRadioGroup>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingRadioGroupLayoutStyle">
+
+                <TextView
+                    style="@style/addMeetingTitleTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:text="动态可见范围" />
+
+                <me.shihao.library.XRadioGroup
+                    android:id="@+id/summary_rg3"
+                    style="@style/addMeetingRadioGroupStyle">
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <RadioButton
+                            android:id="@+id/summary_rg3_rb1"
+                            style="@style/addMeetingRadioButtonStyle"
+                            android:layout_width="match_parent"
+                            android:tag="1"
+                            android:text="限本单位" />
+
+                        <RadioButton
+                            android:id="@+id/summary_rg3_rb2"
+                            style="@style/addMeetingRadioButtonStyle"
+                            android:layout_width="match_parent"
+                            android:checked="true"
+                            android:tag="3"
+                            android:text="限本考核" />
+
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <RadioButton
+                            android:id="@+id/summary_rg3_rb3"
+                            style="@style/addMeetingRadioButtonStyle"
+                            android:layout_width="match_parent"
+                            android:tag="2"
+                            android:text="限本行业组" />
+
+                        <RadioButton
+                            android:id="@+id/summary_rg3_rb4"
+                            style="@style/addMeetingRadioButtonStyle"
+                            android:layout_width="match_parent"
+                            android:tag="4"
+                            android:text="全平台公开" />
+
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                </me.shihao.library.XRadioGroup>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingRadioGroupLayoutStyle">
+
+                <TextView
+                    style="@style/addMeetingTitleTextStyle"
+                    android:layout_gravity="center_vertical"
+                    android:text="是否允许评论" />
+
+                <com.qingyii.hxt.base.widget.AutoRadioGroup
+                    android:id="@+id/summary_rg4"
+                    style="@style/addMeetingRadioGroupStyle">
+
+                    <RadioButton
+                        android:id="@+id/summary_rg4_rb1"
+                        style="@style/addMeetingRadioButtonStyle"
+                        android:checked="true"
+                        android:tag="1"
+                        android:text="允许评论" />
+
+                    <RadioButton
+                        android:id="@+id/summary_rg4_rb2"
+                        style="@style/addMeetingRadioButtonStyle"
+                        android:tag="2"
+                        android:text="不允许评论" />
+
+
+                </com.qingyii.hxt.base.widget.AutoRadioGroup>
+            </com.zhy.autolayout.AutoLinearLayout>
+           </com.zhy.autolayout.AutoLinearLayout>
+
+            <Button
+                android:layout_width="400px"
+                android:layout_height="100px"
+                android:text="保存到草稿箱"
+                android:layout_marginTop="100px"
+                android:id="@+id/taskbaocun"
+                android:layout_gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="40px"
+                android:background="@drawable/circle_conner"
+                android:layout_marginBottom="30px"
+                />
+
+            <Button
+                android:layout_width="400px"
+                android:layout_height="100px"
+                android:text="立即发布"
+                android:layout_marginTop="30px"
+                android:id="@+id/taskfabu"
+                android:layout_gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="40px"
+                android:background="@drawable/greenbutton"
+                android:layout_marginBottom="60px"
+                />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_tltle" />
+
+    <com.andbase.library.view.refresh.AbPullToRefreshView
+        android:id="@+id/mPullRefreshView"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/white">
+
+        <ListView
+            android:id="@+id/mListView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="@color/backgroundColorShallow"
+            android:dividerHeight="3px" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/empty_neikanxq"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/neikan_empty"
+                android:layout_marginBottom="34px"/>
+
+            <TextView
+                android:id="@+id/empty_neikan_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColorShallow"
+                android:textSize="40px"
+                android:text="" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.andbase.library.view.refresh.AbPullToRefreshView>
+
+</com.zhy.autolayout.AutoLinearLayout>

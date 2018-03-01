@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroundColor">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40px"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/type_iv_kaoshi_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="61px"
+            android:layout_marginLeft="68px"
+            android:layout_marginRight="68px"
+            android:layout_marginTop="54px"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name_kaoshi_item"
+                android:layout_width="880px"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40px"
+                android:ellipsize="end"
+                android:text="111111111"
+                android:textColor="@color/black"
+                android:textSize="54px" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="51px"
+                    android:layout_weight="6"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/time_kaoshi_item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginBottom="14px"
+                        android:ellipsize="end"
+                        android:text="考试时间:"
+                        android:textColor="@color/textColorMedium"
+                        android:textSize="40px" />
+
+                    <TextView
+                        android:id="@+id/type_kaoshi_item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginBottom="14px"
+                        android:ellipsize="end"
+                        android:text="考试类型:"
+                        android:textColor="@color/textColorMedium"
+                        android:textSize="40px" />
+
+                    <TextView
+                        android:id="@+id/unit_kaoshi_item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:ellipsize="end"
+                        android:text="主办单位:"
+                        android:textColor="@color/textColorMedium"
+                        android:textSize="40px" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="3px"
+                    android:layout_height="151px"
+                    android:background="@color/backgroundColor" />
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="54px">
+
+                    <ImageView
+                        android:id="@+id/join_kaoshi_item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/enter_test" />
+
+                </com.zhy.autolayout.AutoRelativeLayout>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

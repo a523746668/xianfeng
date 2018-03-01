@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qingyii.hxt.base.widget.AutoCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="20px"
+    android:layout_marginRight="20px"
+    android:layout_marginTop="20px"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/notice_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="46px"
+                android:layout_marginRight="74px"
+                android:layout_marginTop="44px"
+                android:ellipsize="end"
+                android:text="和谐社会由你开始"
+                android:textColor="@color/notifyListTitleColor"
+                android:textSize="46px" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="35px"
+                android:layout_marginLeft="46px"
+                android:layout_marginRight="46px"
+                android:layout_marginTop="35px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="发布人："
+                    android:textColor="#575757"
+                    android:textSize="@dimen/sp_normal" />
+
+                <TextView
+                    android:id="@+id/notice_item_name"
+                    android:layout_width="180px"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="张某某"
+                    android:textColor="#575757"
+                    android:textSize="@dimen/sp_normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="发布时间："
+                    android:textColor="#575757"
+                    android:textSize="@dimen/sp_normal" />
+
+                <TextView
+                    android:id="@+id/notice_item_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="2017-07-24 10:30"
+                    android:textColor="#575757"
+                    android:textSize="@dimen/sp_normal" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/meeting_item_mark"
+            app:layout_auto_basewidth="height"
+
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="36px"
+            android:layout_marginTop="28px"
+            android:background="@mipmap/tabhost_hint"
+            android:visibility="visible" />
+    </RelativeLayout>
+</com.qingyii.hxt.base.widget.AutoCardView>

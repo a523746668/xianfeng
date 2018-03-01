@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
+
+    <RelativeLayout
+        android:id="@+id/circle_personal_nav"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_height="45dp"
+        android:background="#C55C56" >
+
+        <ImageView
+            android:id="@+id/circle_personal_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@mipmap/back_white" />
+
+        <TextView
+            android:id="@+id/circle_personal_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="详情"
+            android:textSize="18sp" 
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/circle_personal_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#FFFFFF" />
+    </RelativeLayout>
+
+    <com.ab.view.pullview.AbPullToRefreshView
+        android:id="@+id/circle_personal_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/circle_personal_nav"
+        android:background="#ffffff" >
+
+        <ListView
+            android:id="@+id/circle_personal_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:listSelector="#ffffffff"
+            android:cacheColorHint="#ffffffff" >
+        </ListView>
+    </com.ab.view.pullview.AbPullToRefreshView>
+
+
+</android.support.percent.PercentRelativeLayout>

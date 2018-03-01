@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/main_circle_nav"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x40"
+        android:background="@color/tltleColor">
+
+        <ImageView
+            android:id="@+id/main_circle_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x10"
+            android:background="@mipmap/back_white" />
+
+        <TextView
+            android:id="@+id/main_circle_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="时光轴"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/x16" />
+
+        <TextView
+            android:id="@+id/main_circle_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/x5"
+            android:gravity="center"
+            android:text="发布"
+            android:textColor="#FFFFFF" />
+
+    </RelativeLayout>
+
+
+    <com.andbase.library.view.refresh.AbPullToRefreshView
+        android:id="@+id/main_circle_refreshdepartment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/white">
+
+        <ListView
+            android:id="@+id/main_circle_listdepartment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundColor"
+            android:divider="@color/backgroundColor"
+            android:dividerHeight="@dimen/x1" />
+
+    </com.andbase.library.view.refresh.AbPullToRefreshView>
+
+</LinearLayout>

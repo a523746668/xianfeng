@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="40px">
+
+    <TextView
+        android:id="@+id/workpark_lv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:text="纯文字：魂牵梦萦无可奈何花落去奇葩魂牵梦萦魂牵梦萦霜期魂牵梦萦魂牵梦萦魂牵梦萦魂牵梦萦魂牵梦萦魂牵梦萦"
+        android:maxLines="2"
+        android:layout_marginBottom="30px"
+        android:textColor="#353535"
+        android:textSize="52px"
+        android:textStyle="bold" />
+
+    <include layout="@layout/include_workpark_layout" />
+
+</com.zhy.autolayout.AutoLinearLayout>

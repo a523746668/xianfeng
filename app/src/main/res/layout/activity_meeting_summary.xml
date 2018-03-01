@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jess.arms.widget.autolayout.AutoScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0">
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_auto_basewidth="padding|height">
+
+        <include layout="@layout/include_toolbar" />
+
+        <LinearLayout style="@style/addMeetingLayoutStyle">
+
+            <TextView
+                style="@style/addMeetingTitleTextStyle"
+                android:text="小结标题" />
+
+            <EditText
+                android:id="@+id/meeting_summary_title"
+                style="@style/addMeetingContentTextStyle"
+                android:hint="请输入小结标题，20字内"
+                android:maxLength="20" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/add_meeting_item_bg"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_normal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="top"
+                android:text="小结内容"
+                android:textColor="#565656"
+                android:textSize="@dimen/sp_normal"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/meeting_summary_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="48px"
+                android:background="@null"
+                android:gravity="top|left"
+                android:hint="请输入小结内容"
+                android:minHeight="166px"
+                android:textColor="#858585"
+                android:textSize="@dimen/sp_normal" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/addMeetingLayoutStyle">
+
+            <TextView
+                style="@style/addMeetingTitleTextStyle"
+                android:text="会议类型" />
+
+            <TextView
+                android:id="@+id/meeting_summary_type"
+                style="@style/addMeetingTitleTextStyle"
+                android:text="会议类型" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/addMeetingLayoutStyle">
+
+            <TextView
+                style="@style/addMeetingTitleTextStyle"
+                android:text="会议标签" />
+
+            <TextView
+                android:id="@+id/meeting_summary_tag"
+                style="@style/addMeetingTitleTextStyle"
+                android:hint="会议标签" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/add_meeting_item_bg"
+            android:gravity="center_vertical"
+            android:minHeight="218px"
+            android:orientation="horizontal"
+            android:paddingBottom="20px"
+            android:paddingLeft="@dimen/padding_normal"
+            android:paddingRight="@dimen/padding_normal"
+            android:paddingTop="20px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="48px"
+                android:text="现场图片"
+                android:textColor="#565656"
+                android:textSize="@dimen/sp_normal"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/meeting_summary_pic_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@drawable/add_meeting_item_bg"
+            android:gravity="center_vertical"
+            android:minHeight="218px"
+            android:orientation="horizontal"
+            android:paddingBottom="20px"
+            android:paddingLeft="@dimen/padding_normal"
+            android:paddingRight="@dimen/padding_normal"
+            android:paddingTop="20px">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="48px"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="会议记录"
+                    android:textColor="#565656"
+                    android:textSize="@dimen/sp_normal"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="仅后台可见"
+                    android:textColor="@color/red"
+                    android:textSize="30px"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/meeting_summary_attachment_btn"
+                android:layout_width="108px"
+                android:layout_height="109px"
+                android:background="@drawable/add_attachment" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/addMeetingRadioGroupLayoutStyle">
+
+            <TextView
+                style="@style/addMeetingTitleTextStyle"
+                android:layout_gravity="center_vertical"
+                android:text="可否评论" />
+
+            <com.qingyii.hxt.base.widget.AutoRadioGroup
+                android:id="@+id/summary_rg1"
+                style="@style/addMeetingRadioGroupStyle">
+
+                <RadioButton
+                    android:id="@+id/summary_rg1_rb1"
+                    style="@style/addMeetingRadioButtonStyle"
+                    android:checked="true"
+                    android:tag="1"
+                    android:text="允许评论" />
+
+                <RadioButton
+                    android:id="@+id/summary_rg1_rb2"
+                    style="@style/addMeetingRadioButtonStyle"
+                    android:tag="0"
+                    android:text="不允许评论" />
+
+                <RadioButton
+                    style="@style/addMeetingRadioButtonStyle"
+                    android:tag="2"
+                    android:visibility="invisible" />
+            </com.qingyii.hxt.base.widget.AutoRadioGroup>
+        </LinearLayout>
+
+        <LinearLayout style="@style/addMeetingRadioGroupLayoutStyle">
+
+            <TextView
+                style="@style/addMeetingTitleTextStyle"
+                android:layout_gravity="center_vertical"
+                android:text="是否审核" />
+
+            <com.qingyii.hxt.base.widget.AutoRadioGroup
+                android:id="@+id/summary_rg2"
+                style="@style/addMeetingRadioGroupStyle">
+
+                <RadioButton
+                    android:id="@+id/summary_rg2_rb1"
+                    style="@style/addMeetingRadioButtonStyle"
+                    android:checked="true"
+                    android:tag="0"
+                    android:text="不需要审核" />
+
+                <RadioButton
+                    android:id="@+id/summary_rg2_rb2"
+                    style="@style/addMeetingRadioButtonStyle"
+                    android:tag="1"
+                    android:text="直属上级审核" />
+
+                <RadioButton
+                    android:id="@+id/summary_rg2_rb3"
+                    style="@style/addMeetingRadioButtonStyle"
+                    android:tag="2"
+                    android:text="最高上级审核" />
+            </com.qingyii.hxt.base.widget.AutoRadioGroup>
+        </LinearLayout>
+
+        <LinearLayout style="@style/addMeetingRadioGroupLayoutStyle">
+
+            <TextView
+                style="@style/addMeetingTitleTextStyle"
+                android:layout_gravity="center_vertical"
+                android:text="可见范围" />
+
+            <com.qingyii.hxt.base.widget.AutoRadioGroup
+                android:id="@+id/summary_rg3"
+                style="@style/addMeetingRadioGroupStyle">
+
+                <RadioButton
+                    android:id="@+id/summary_rg3_rb1"
+                    style="@style/addMeetingRadioButtonStyle"
+                    android:checked="true"
+                    android:tag="1"
+                    android:text="本单位人员" />
+
+                <RadioButton
+                    android:id="@+id/summary_rg3_rb2"
+                    style="@style/addMeetingRadioButtonStyle"
+                    android:tag="2"
+                    android:text="限上级管理员" />
+
+                <RadioButton
+                    android:id="@+id/summary_rg3_rb3"
+                    style="@style/addMeetingRadioButtonStyle"
+                    android:tag="0"
+                    android:text="所有人" />
+            </com.qingyii.hxt.base.widget.AutoRadioGroup>
+        </LinearLayout>
+
+        <LinearLayout style="@style/addMeetingRadioGroupLayoutStyle">
+
+            <TextView
+                style="@style/addMeetingTitleTextStyle"
+                android:layout_gravity="center_vertical"
+                android:text="是否展示" />
+
+            <com.qingyii.hxt.base.widget.AutoRadioGroup
+                android:id="@+id/summary_rg4"
+                style="@style/addMeetingRadioGroupStyle">
+
+                <RadioButton
+                    android:id="@+id/summary_rg4_rb1"
+                    style="@style/addMeetingRadioButtonStyle"
+                    android:checked="true"
+                    android:tag="1"
+                    android:text="显示到展示墙" />
+
+                <RadioButton
+                    android:id="@+id/summary_rg4_rb2"
+                    style="@style/addMeetingRadioButtonStyle"
+                    android:tag="0"
+                    android:text="不显示到展示墙" />
+
+                <RadioButton
+                    style="@style/addMeetingRadioButtonStyle"
+                    android:tag="2"
+                    android:visibility="invisible" />
+            </com.qingyii.hxt.base.widget.AutoRadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/summary_submit"
+                android:layout_width="210px"
+                android:layout_height="70px"
+                android:layout_marginBottom="42px"
+                android:layout_marginTop="42px"
+                android:background="@drawable/publish_btn_selector"
+                android:gravity="center"
+                android:padding="5px"
+                android:text="立即发布"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_normal" />
+        </LinearLayout>
+
+    </LinearLayout>
+</com.jess.arms.widget.autolayout.AutoScrollView>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/very_dimgrey"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_tltle"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <android.support.percent.PercentRelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/personalfragment_paiming"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_widthPercent="15%" />
+
+            <TextView
+                android:id="@+id/personalfragment_xingming"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/personalfragment_paiming"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_widthPercent="20%" />
+
+            <TextView
+                android:id="@+id/personalfragment_unit"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_toLeftOf="@+id/personalfragment_score"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_widthPercent="50%" />
+
+            <TextView
+                android:id="@+id/personalfragment_score"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_widthPercent="15%" />
+        </android.support.percent.PercentRelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#C0C0C0" />
+
+        <com.andbase.library.view.refresh.AbPullToRefreshView
+            android:id="@+id/personalfragment_mPull_kaoshirank"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <ListView
+                android:id="@+id/personalfragment_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:cacheColorHint="#00000000"
+                android:divider="@color/lightgray"
+                android:dividerHeight="0.5dp"/>
+
+        </com.andbase.library.view.refresh.AbPullToRefreshView>
+
+    </LinearLayout>
+
+</LinearLayout>

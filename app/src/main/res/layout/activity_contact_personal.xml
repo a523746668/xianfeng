@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/contact_personal_nav"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:background="#C55C56">
+
+        <ImageView
+            android:id="@+id/contact_personal_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@mipmap/back_white" />
+
+        <TextView
+            android:id="@+id/contact_personal_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="同事信息"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/contact_personal_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:gravity="center" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/contact_personal_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/contact_personal_nav"
+        android:background="#f0f0f0"
+        android:scaleType="centerCrop" />
+
+    <com.qingyii.hxt.view.RoundedImageView
+        android:id="@+id/contact_personal_photo"
+        android:layout_alignTop="@+id/contact_personal_bg"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/default_head"
+        app:corner_radius="2dp"
+        app:layout_heightPercent="25%w"
+        app:layout_marginTopPercent="3%h"
+        app:layout_widthPercent="25%w"
+        app:mutate_background="false"
+        app:oval="true" />
+
+    <TextView
+        android:id="@+id/contact_personal_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contact_personal_photo"
+        android:layout_centerHorizontal="true"
+        android:background="#33000000"
+        android:gravity="center"
+        android:paddingBottom="2dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="2dp"
+        android:text=""
+        android:textColor="#ffffff"
+        app:layout_marginTopPercent="1%h" />
+
+    <TextView
+        android:id="@+id/contact_personal_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contact_personal_info"
+        android:layout_centerHorizontal="true"
+        android:background="#33000000"
+        android:gravity="center"
+        android:paddingBottom="2dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="2dp"
+        android:text="前往他的空间>"
+        android:textColor="#ffffff"
+        app:layout_marginTopPercent="1%h" />
+
+    <View
+        android:id="@+id/contact_personal_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/contact_personal_circle"
+        android:background="#cccccc"
+        app:layout_marginTopPercent="2%h" />
+
+    <LinearLayout
+        android:id="@+id/contact_personal_content1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contact_personal_line"
+        android:orientation="horizontal"
+        app:layout_marginLeftPercent="10%w"
+        app:layout_marginTopPercent="5%h">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="部门"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/contact_personal_department"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_marginLeftPercent="2%w" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/contact_personal_content2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contact_personal_content1"
+        android:orientation="horizontal"
+        app:layout_marginLeftPercent="10%w">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="职务"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/contact_personal_job"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_marginLeftPercent="2%w" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/contact_personal_content3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contact_personal_content2"
+        android:orientation="horizontal"
+        app:layout_marginLeftPercent="10%w">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="手机"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/contact_personal_mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_marginLeftPercent="2%w" />
+
+        <ImageView
+            android:id="@+id/contact_personal_sendmsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:padding="2dp"
+            android:src="@mipmap/ic_contact_message"
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/contact_personal_mobilecall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:padding="2dp"
+            android:src="@mipmap/ic_contact_call"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/contact_personal_content4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contact_personal_content3"
+        android:orientation="horizontal"
+        app:layout_marginLeftPercent="10%w">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="电话"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/contact_personal_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_marginLeftPercent="2%w" />
+
+        <ImageView
+            android:id="@+id/contact_personal_phonecall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:padding="2dp"
+            android:src="@mipmap/ic_contact_call"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
+</android.support.percent.PercentRelativeLayout>

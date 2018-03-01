@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_toolbar" />
+
+    <com.qingyii.hxt.base.widget.NoScrollViewPager
+        android:id="@+id/meeting_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#F0F0F0" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#bdbdbd" />
+
+    <com.qingyii.hxt.base.widget.AutoRadioGroup
+        android:id="@+id/meeting_radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/meeting_rb1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="所有会议"
+            android:textColor="@color/train_radiobutton_selector"
+            android:textSize="52px" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="match_parent"
+            android:background="#bdbdbd" />
+
+        <RadioButton
+            android:id="@+id/meeting_rb2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="我的会议"
+            android:textColor="@color/train_radiobutton_selector"
+            android:textSize="52px" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="match_parent"
+            android:background="#bdbdbd" />
+
+        <RadioButton
+            android:id="@+id/meeting_rb3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="我的发布箱"
+            android:textColor="@color/train_radiobutton_selector"
+            android:textSize="52px" />
+    </com.qingyii.hxt.base.widget.AutoRadioGroup>
+</com.zhy.autolayout.AutoLinearLayout>

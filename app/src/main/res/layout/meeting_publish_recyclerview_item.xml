@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qingyii.hxt.base.widget.AutoCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="30px"
+    android:layout_marginRight="30px"
+    android:layout_marginTop="20px"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/meeting_publish_item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginRight="54px"
+                    android:layout_marginTop="44px"
+                    android:ellipsize="end"
+                    android:text="和谐社会由你开始"
+                    android:textColor="@color/notifyListTitleColor"
+                    android:textSize="46px" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginTop="26px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="培训地点："
+                        android:textColor="@color/notifyListContentColor"
+                        android:textSize="@dimen/sp_normal" />
+
+                    <TextView
+                        android:id="@+id/meeting_publish_item_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="54px"
+                        android:text="省委办公楼4栋直机关工委机关1号会议室省委办公楼4栋直机关工委机关1号会议室"
+                        android:textColor="@color/notifyListContentColor"
+                        android:textSize="@dimen/sp_normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginTop="40px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="培训时间："
+                        android:textColor="@color/notifyListContentColor"
+                        android:textSize="@dimen/sp_normal" />
+
+                    <TextView
+                        android:id="@+id/meeting_publish_item_train_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="54px"
+                        android:text="2017-06-15 08:00至2017-06-20 17：30"
+                        android:textColor="@color/notifyListContentColor"
+                        android:textSize="@dimen/sp_normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="44px"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginTop="40px">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/meeting_publish_edit_btn"
+                        android:layout_width="200px"
+                        android:layout_height="74px"
+                        android:layout_marginRight="53px"
+                        android:clickable="true"
+                        android:background="@drawable/publish_btn_selector"
+                        android:textColor="@color/white"
+                        android:text="编辑发布"
+                        android:gravity="center"
+                        android:textSize="@dimen/sp_normal" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+</com.qingyii.hxt.base.widget.AutoCardView>

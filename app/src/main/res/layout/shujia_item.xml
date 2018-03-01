@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_shujia_Image"
+        android:layout_width="@dimen/x70"
+        android:layout_height="@dimen/x100"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/x9"
+        android:layout_marginRight="@dimen/x9"
+        android:layout_marginTop="@dimen/x12"
+        android:scaleType="centerCrop">
+
+        <ImageView
+            android:id="@+id/iv_shujia_Image"
+            android:layout_width="@dimen/x70"
+            android:layout_height="@dimen/x100"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/tv_shujia_jurisdic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/shuwu_gongkai"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/x12"
+        android:layout_marginBottom="@dimen/x12"
+        android:layout_toLeftOf="@id/rl_shujia_Image"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_shujia_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/x8"
+                    android:text="书架"
+                    android:textColor="@color/textColorDark"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_shujia_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/x8"
+                    android:text="阅读次数:"
+                    android:textColor="@color/textColorShallow"
+                    android:textSize="12sp"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/tv_shujia_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/x8"
+                    android:text="作者："
+                    android:textColor="@color/textColorShallow"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/x2"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/xiazai"
+                    android:layout_width="@dimen/x35"
+                    android:layout_height="@dimen/x18"
+                    android:background="@mipmap/shujia_xiazai" />
+
+                <TextView
+                    android:id="@+id/yixiazai"
+                    android:layout_width="@dimen/x48"
+                    android:layout_height="@dimen/x18"
+                    android:background="@mipmap/shujia_yixiazai"
+                    android:visibility="gone" />
+
+                <ProgressBar
+                    android:id="@+id/progressbar"
+                    style="?android:attr/progressBarStyleInverse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/numble"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="3dp"
+                    android:text="0%"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_shujia_read"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="以阅读:30%"
+            android:textColor="@color/one_black"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_shujia_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:padding="3dp"
+            android:text="发生大声答道奥斯达大三大四的大叔大叔是大势大三大四的啊阿什顿大声的阿德啊"
+            android:textColor="@color/textColorMedium"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/x10">
+
+        <ImageView
+            android:id="@+id/circle_main_header"
+            android:layout_width="@dimen/x45"
+            android:layout_height="@dimen/x45"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="@dimen/x10"
+            android:background="@color/backgroundColorDeep" />
+
+        <TextView
+            android:id="@+id/circle_main_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/circle_main_header"
+            android:layout_toRightOf="@+id/circle_main_header"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/x15"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/circle_main_department"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/circle_main_name"
+            android:layout_below="@+id/circle_main_name"
+            android:layout_marginBottom="@dimen/x10"
+            android:text=""
+            android:textColor="#9B9B9B"
+            android:textSize="@dimen/x12" />
+
+        <TextView
+            android:id="@+id/circle_main_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/circle_main_header"
+            android:layout_marginRight="@dimen/x40"
+            android:text=""
+            android:textColor="@color/textColorDark"
+            android:textSize="@dimen/x11" />
+
+        <TextView
+            android:id="@+id/circle_main_report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/circle_main_header"
+            android:layout_marginRight="@dimen/x6"
+            android:text="举报"
+            android:textColor="#9B9B9B"
+            android:textSize="@dimen/x12" />
+
+        <TextView
+            android:id="@+id/circle_main_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/circle_main_header"
+            android:layout_marginRight="@dimen/x6"
+            android:text="删除"
+            android:textColor="#DDFF0000"
+            android:textSize="@dimen/x12"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/circle_main_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/circle_main_department"
+            android:layout_marginBottom="@dimen/x3"
+            android:layout_marginTop="@dimen/x3"
+            android:layout_toRightOf="@+id/circle_main_header"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/x14" />
+
+        <com.qingyii.hxt.circle.NonScrollGridView
+            android:id="@+id/circle_main_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignLeft="@+id/circle_main_content"
+            android:layout_below="@+id/circle_main_content"
+            android:clipChildren="true"
+            android:focusable="false"
+            android:horizontalSpacing="@dimen/x5"
+            android:listSelector="#ffffffff"
+            android:numColumns="3"
+            android:verticalSpacing="@dimen/x3" />
+        <TextView
+            android:id="@+id/circle_main_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/circle_main_photo"
+            android:layout_below="@+id/circle_main_photo"
+            android:padding="10px"
+            android:layout_marginTop="40px"
+            android:text=""
+            android:textColor="#9B9B9B"
+            android:textSize="@dimen/x11" />
+        <TextView
+            android:id="@+id/circle_main_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/circle_main_time"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/x15"
+            android:drawableLeft="@mipmap/ic_circle_comment"
+            android:drawablePadding="@dimen/x5"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#9B9B9B"
+            android:textSize="@dimen/x18" />
+
+        <TextView
+            android:id="@+id/circle_main_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/circle_main_time"
+            android:layout_marginRight="@dimen/x10"
+            android:layout_toLeftOf="@+id/circle_main_comment"
+            android:drawableLeft="@drawable/circle_love_selector_style"
+            android:drawablePadding="@dimen/x5"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#9B9B9B"
+            android:textSize="@dimen/x18" />
+
+
+
+        <View
+            android:id="@+id/circle_main_view"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/x10"
+            android:layout_alignLeft="@+id/circle_main_content"
+            android:layout_below="@+id/circle_main_comment" />
+
+        <com.qingyii.hxt.customview.MyListView
+            android:id="@+id/circle_main_comment_listview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/circle_main_view"
+            android:layout_below="@+id/circle_main_view"
+            android:layout_marginRight="@dimen/x5"
+            android:background="#F2F2F2"
+            android:clipChildren="true"
+            android:divider="@null"
+            android:focusable="false" />
+
+        <!--<TextView-->
+        <!--android:id="@+id/circle_main_comment1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignLeft="@+id/circle_main_view"-->
+        <!--android:layout_below="@+id/circle_main_view"-->
+        <!--android:layout_marginRight="@dimen/x5"-->
+        <!--android:background="#F2F2F2"-->
+        <!--android:text=""-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="@dimen/x14" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/circle_main_comment2"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignLeft="@+id/circle_main_content"-->
+        <!--android:layout_below="@+id/circle_main_comment1"-->
+        <!--android:layout_marginRight="@dimen/x5"-->
+        <!--android:background="#F2F2F2"-->
+        <!--android:text=""-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="@dimen/x14" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/circle_main_comment3"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignLeft="@+id/circle_main_content"-->
+        <!--android:layout_below="@+id/circle_main_comment2"-->
+        <!--android:layout_marginRight="@dimen/x5"-->
+        <!--android:background="#F2F2F2"-->
+        <!--android:text=""-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="@dimen/x14" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/circle_main_more"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignLeft="@+id/circle_main_content"-->
+        <!--android:layout_below="@+id/circle_main_comment3"-->
+        <!--android:layout_marginRight="@dimen/x5"-->
+        <!--android:background="#F2F2F2"-->
+        <!--android:gravity="right"-->
+        <!--android:text="更多"-->
+        <!--android:textColor="@color/cirlce_comment_blue"-->
+        <!--android:textSize="@dimen/x14" />-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x13"
+            android:layout_below="@+id/circle_main_comment_listview"
+            android:background="#ffffffff" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/x15"
+        android:layout_marginRight="@dimen/x15"
+        android:background="@color/backgroundColorShallow" />
+
+</com.zhy.autolayout.AutoLinearLayout>

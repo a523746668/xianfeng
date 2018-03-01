@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_neikan_Image"
+        android:layout_width="237px"
+        android:layout_height="338px"
+        android:layout_alignParentRight="true"
+        android:layout_margin="34px" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34px"
+        android:layout_marginTop="27px"
+        android:layout_toLeftOf="@id/iv_neikan_Image"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_neikan_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20px"
+            android:text="内刊"
+            android:textColor="@color/textColorDark"
+            android:textSize="52px" />
+
+        <TextView
+            android:id="@+id/tv_neikan_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="27px"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="这本榨汁很好看这本榨汁很好看这榨汁很好看这本榨汁很好看这本榨汁很好看这本榨汁很好看这本榨汁很好看这本榨汁很好看"
+            android:textColor="@color/textColorMedium"
+            android:textSize="38px" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_neikan_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上传者：wewe"
+                android:textColor="@color/textColorShallow"
+                android:textSize="30px" />
+
+            <ImageView
+                android:id="@+id/tv_neikan_jurisdiction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="34px" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

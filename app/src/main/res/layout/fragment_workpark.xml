@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--标题栏-->
+    <include layout="@layout/zdyactionbar" />
+
+    <com.jess.arms.widget.autolayout.AutoTabLayout
+        android:id="@+id/workpark_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="scrollable"
+        app:tabPaddingEnd="60px"
+        app:tabPaddingStart="60px"
+        app:tabSelectedTextColor="@color/workpark_tablayout_select"
+        app:tabTextColor="@color/workpark_tablayout_normal"
+        app:auto_textSize_base_width="true"
+        android:visibility="gone"/>
+
+
+    <com.zhf.wight.CustomViewPager
+        android:id="@+id/workpark_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</com.zhy.autolayout.AutoLinearLayout>

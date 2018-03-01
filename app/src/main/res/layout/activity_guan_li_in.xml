@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_tltle" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bottom_ll"
+            android:orientation="vertical">
+
+            <com.qingyii.hxt.view.StickyNavLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:id="@id/id_stickynavlayout_topview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/allStyles">
+
+                    <include layout="@layout/activity_guan_li_in_header" />
+
+                </com.zhy.autolayout.AutoRelativeLayout>
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:id="@id/id_stickynavlayout_indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x50"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <android.support.design.widget.TabLayout
+                        android:id="@+id/tablayout_menu"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/activity_tltle"
+                        android:layout_marginTop="@dimen/x15"
+                        android:textAlignment="center"
+                        app:tabIndicatorColor="@color/allStyles"
+                        app:tabIndicatorHeight="@dimen/x3"
+                        app:tabSelectedTextColor="@color/allStyles"
+                        app:tabTextColor="@color/textColorDark" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x1"
+                        android:layout_alignBottom="@+id/tablayout_menu"
+                        android:background="@color/backgroundColor" />
+
+                </com.zhy.autolayout.AutoRelativeLayout>
+
+                <android.support.v4.view.ViewPager
+                    android:id="@id/id_stickynavlayout_viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.qingyii.hxt.view.StickyNavLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@mipmap/comui_bar_top_shadow" />
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true">
+
+                <ListView
+                    android:id="@+id/check_month_list"
+                    android:layout_width="@dimen/x80"
+                    android:layout_height="@dimen/x150"
+                    android:visibility="gone" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/guan_li_confirmed_in"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/x40"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="您有N条纪实打分需要确认"
+                android:textSize="@dimen/x15"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/guan_li_advanced_in"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/x40"
+                android:layout_weight="1"
+                android:background="@color/red"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="N月纪实积分确认"
+                android:textColor="@color/white"
+                android:textSize="@dimen/x15"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/guan_li_audit_in"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/x40"
+                android:layout_weight="1"
+                android:background="@color/red"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="您有N条纪实项目需要审核"
+                android:textColor="@color/white"
+                android:textSize="@dimen/x15"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

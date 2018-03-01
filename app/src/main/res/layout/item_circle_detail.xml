@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <!--<ImageView-->
+    <!--android:id="@+id/item_circle_detail_header"-->
+    <!--android:layout_width="@dimen/x40"-->
+    <!--android:layout_height="@dimen/x40"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_marginLeft="@dimen/x20"-->
+    <!--android:layout_marginRight="@dimen/x12"-->
+    <!--android:layout_marginTop="@dimen/x12"-->
+    <!--android:background="@color/backgroundColorDeep" />-->
+
+    <TextView
+        android:id="@+id/item_circle_detail_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginTop="@dimen/x12"
+        android:text="发布者"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_textSizePercent="4.2%w" />
+
+    <!--<TextView-->
+    <!--android:id="@+id/item_circle_detail_department"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="所属部门"-->
+    <!--android:layout_alignLeft="@+id/item_circle_detail_name"-->
+    <!--android:layout_below="@+id/item_circle_detail_name"-->
+    <!--android:textColor="#9B9B9B"-->
+    <!--app:layout_textSizePercent="3.2%w" />-->
+
+    <TextView
+        android:id="@+id/item_circle_detail_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_circle_detail_name"
+        android:layout_marginLeft="@dimen/x20"
+        android:singleLine="false"
+        android:text="内容部分"
+        android:textColor="@color/black"
+        app:layout_marginBottomPercent="1%w"
+        app:layout_marginRightPercent="5%w"
+        app:layout_marginTopPercent="3.2%w"
+        app:layout_textSizePercent="4.2%w" />
+
+    <!--<TextView-->
+    <!--android:id="@+id/item_circle_detail_delete"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_alignTop="@+id/item_circle_detail_header"-->
+    <!--android:text="删除"-->
+    <!--android:textColor="#FF0000"-->
+    <!--android:visibility="invisible"-->
+    <!--app:layout_marginRightPercent="2%w"-->
+    <!--app:layout_textSizePercent="3.2%w" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/item_circle_detail_report"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignTop="@+id/item_circle_detail_delete"-->
+    <!--android:layout_toLeftOf="@+id/item_circle_detail_delete"-->
+    <!--android:text="举报"-->
+    <!--android:textColor="#FF0000"-->
+    <!--app:layout_marginRightPercent="2%w"-->
+    <!--app:layout_textSizePercent="3.2%w" />-->
+
+    <View
+        android:id="@+id/circle_detail_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/item_circle_detail_content"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginRight="@dimen/x20"
+        android:layout_marginTop="@dimen/x15"
+        android:background="@color/backgroundColor" />
+
+</android.support.percent.PercentRelativeLayout>

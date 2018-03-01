@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FC5252</color>
+    <color name="colorPrimaryDark">#FC5252</color>
+    <color name="colorAccent">#C04040</color>
+    <color name="tltleColor">#DC3032</color>
+
+
+    <!--radio-->
+     <color name="tasklisttextview">#eeeeee</color>
+
+    <color name="backgroundColor">#EEEEEE</color>
+    <color name="backgroundColorTranslucence">#CCEEEEEE</color>
+    <color name="backgroundColorShallow">#F0F0F0</color>
+    <color name="backgroundColorDeep">#DDDDDD</color>
+    <color name="allStyles">#EE584E</color>
+    <color name="textColorDark">#323232</color>
+    <color name="textColorMedium">#727272</color>
+    <color name="textColorShallow">#B8B8B8</color>
+    <color name="textColorWhite">#FFFFFF</color>
+
+    <color name="textcolorred">#dd3030</color>
+
+    <color name="notifyListTitleColor">#3d3b39</color>
+    <color name="notifyListContentColor">#858585</color>
+    <color name="notifyListUnreadColor">#FF0000</color>
+    <color name="notifyListReadColor">#18d200</color>
+    <color name="notifyListEmergencyColor">#dd3030</color>
+    <color name="notifyTitleColor">#dd3030</color>
+    <color name="notifyDetailsUnSign">#4a4a4a</color>
+
+    <!--紫粉-->
+    <!--SwipeRefreshLayout-->
+    <!--button-->
+    <!-- 400 -->
+    <!-- 400 -->
+    <!-- 400 -->
+
+    <!--button-->
+    <!-- 400 -->
+    <!-- 400 -->
+    <!-- 400 -->
+
+
+    <!--绿色-->
+
+    <!-- 900 -->
+    <!-- 700 -->
+    <!-- 500 -->
+    <!-- 400 -->
+    <!-- 300 -->
+    <!-- 50 -->
+    <!-- A700 -->
+    <!-- 200 -->
+    <!-- 50 -->
+    <!-- 400 -->
+
+
+    <!--二维码扫码-->
+    <color name="grey_60000000">#60000000</color>
+    <color name="green_09bb07">#09bb07</color>
+
+
+    <drawable name="white">#FFFFFFFF</drawable>
+    <color name="gray_white">#ebebeb</color>
+    <color name="gray_dark">#2e2e2e</color>
+    <drawable name="black">#000000</drawable>
+    <color name="zongfen">#F9CE68</color>
+    <color name="jingyan">#ACD183</color>
+    <color name="chengji">#FFA897</color>
+    <color name="qingfen">#C4B3EA</color>
+    <color name="xuefen">#7ACBE8</color>
+    <color name="transparent_bg">#88838B8B</color>
+    <color name="transparent_bgt">#CC000000</color>
+    <color name="status_doing">#ff9a00</color>
+    <color name="status">#67cc65</color>
+    <color name="status_end">#858585</color>
+
+    <!--浅灰白色  -->
+    <color name="very_dimgrey">#ECECEC</color>
+
+    <!--白灰 -->
+
+    <!--非常朦胧蓝色  -->
+
+    <!-- 朦胧蓝色 -->
+
+    <color name="green1">#24C280</color>
+    <!-- 橘色 -->
+    <color name="black_wenzhang">#004276</color>
+    <!-- 橘色 -->
+    <color name="black_pinglun">#f2f2f2</color>
+    <!-- 橘色 -->
+    <!-- 水蓝 -->
+   <!--  深蓝-->
+    <color name="bulue_s">#177cca</color>
+    <!-- 轻灰 -->
+    <color name="white">#FFFFFFFF</color>
+    <!-- 白色 -->
+    <!-- 象牙色 -->
+    <!-- 亮黄色 -->
+    <color name="yellow">#FFFF00</color>
+    <!-- 黄色 -->
+    <!-- 雪白色 -->
+    <!-- 花白色 -->
+    <!-- 柠檬绸色 -->
+    <!-- 米绸色 -->
+    <!-- 海贝色 -->
+    <!-- 淡紫红 -->
+    <!-- 番木色 -->
+    <!-- 白杏色 -->
+    <!-- 浅玫瑰色 -->
+    <!-- 桔黄色 -->
+    <!-- 鹿皮色 -->
+    <!-- 纳瓦白 -->
+    <!-- 桃色 -->
+    <!-- 金色 -->
+    <!-- 粉红色 -->
+    <!-- 亮粉红色 -->
+    <!-- 橙色 -->
+    <!-- 亮肉色 -->
+    <!-- 暗桔黄色 -->
+    <!-- 珊瑚色 -->
+    <!-- 热粉红色 -->
+    <!-- 西红柿色 -->
+    <!-- 红橙色 -->
+    <!-- 深粉红色 -->
+    <!-- 紫红色 -->
+    <!-- 红紫色 #E80F0F-->
+    <color name="red">#DD3031</color>
+    <!-- 红色 -->
+    <!-- 老花色 -->
+    <!-- 亮金黄色 -->
+    <!-- 亚麻色 -->
+    <!-- 古董白 -->
+    <!-- 鲜肉色 -->
+    <!-- 幽灵白 -->
+    <!-- 薄荷色 -->
+    <color name="whitesmoke">#F5F5F5</color>
+    <!-- 烟白色 -->
+    <!-- 米色 -->
+    <!-- 浅黄色 -->
+    <!-- 沙褐色 -->
+    <!-- 天蓝色 -->
+    <!-- 蜜色 -->
+    <!-- 艾利斯兰 -->
+    <!-- 黄褐色 -->
+    <!-- 亮珊瑚色 -->
+    <!-- 苍麒麟色 -->
+    <!-- 紫罗兰色 -->
+    <!-- 暗肉色 -->
+    <!-- 淡紫色 -->
+    <!-- 亮青色 -->
+    <!-- 实木色 -->
+    <!-- 洋李色 -->
+    <!-- 淡灰色 -->
+    <!-- 暗深红色 -->
+    <!-- 苍紫罗兰色 -->
+    <!-- 金麒麟色 -->
+    <!-- 淡紫色 -->
+    <!-- 蓟色 -->
+    <color name="lightgray">#D3D3D3</color>
+    <!-- 亮灰色 -->
+    <!-- 亮灰色 -->
+    <!-- 茶色 -->
+    <!-- 巧可力色 -->
+    <!-- 秘鲁色 -->
+    <!-- 印第安红 -->
+    <!-- 中紫罗兰色 -->
+    <!-- 银色 -->
+    <!-- 暗黄褐色 -->
+    <!-- 褐玫瑰红 -->
+    <!-- 中粉紫色 -->
+    <!-- 暗金黄色 -->
+    <!-- 火砖色 -->
+    <!-- 粉蓝色 -->
+    <!-- 亮钢兰色 -->
+    <!-- 苍宝石绿 -->
+    <color name="greenyellow">#ADFF2F</color>
+    <!-- 黄绿色 -->
+    <!-- 亮蓝色 -->
+    <!-- 暗灰色 -->
+    <!-- 暗灰色 -->
+    <!-- 褐色 -->
+    <!-- 赭色 -->
+    <!-- 暗紫色 -->
+    <!-- 苍绿色 -->
+    <!-- 暗紫罗兰色 -->
+    <!-- 中紫色 -->
+    <!-- 亮绿色 #90EE90-->
+    <!-- 暗海兰色 -->
+    <!-- 重褐色 -->
+    <!-- 暗洋红 -->
+    <!-- 暗红色 -->
+    <!-- 紫罗兰蓝色 -->
+    <!-- 亮天蓝色#87CEEB -->
+    <!-- 天蓝色 -->
+    <color name="gray">#808080</color>
+    <!-- 灰色 -->
+    <!-- 灰色 -->
+    <!-- 橄榄色 -->
+    <!-- 紫色 -->
+    <!-- 粟色 -->
+    <!-- 碧绿色 -->
+    <!-- 黄绿色 -->
+    <!-- 草绿色 -->
+    <!-- 中暗蓝色 -->
+    <!-- 亮蓝灰 -->
+    <!-- 亮蓝灰 -->
+    <!-- 灰石色 -->
+    <!-- 灰石色 -->
+    <!-- 深绿褐色 -->
+    <!-- 石蓝色 -->
+    <!-- 暗灰色 -->
+    <!-- 暗灰色 -->
+    <!-- 中绿色 -->
+    <!-- 菊兰色 -->
+    <color name="cadetblue">#5F9EA0</color>
+    <!-- 军兰色 -->
+    <!-- 暗橄榄绿 -->
+    <!-- 靛青色 -->
+    <!-- 中绿宝石 -->
+    <!-- 暗灰蓝色 -->
+    <!-- 钢兰色 -->
+    <!-- 皇家蓝 -->
+    <!-- 青绿色 -->
+    <!-- 中海蓝 -->
+    <!-- 橙绿色 -->
+    <!-- 暗瓦灰色 -->
+    <!-- 暗瓦灰色 -->
+    <!-- 海绿色 -->
+    <!-- 森林绿 -->
+    <!-- 亮海蓝色 -->
+    <!-- 闪兰色 -->
+    <!-- 中灰兰色 -->
+    <!-- 浅绿色 -->
+    <!-- 青色 -->
+    <!-- 春绿色 -->
+    <!-- 酸橙色 -->
+    <!-- 中春绿色 -->
+    <!-- 暗宝石绿 -->
+    <!-- 深天蓝色 -->
+    <!-- 暗青色 -->
+    <!-- 水鸭色 -->
+    <color name="green">#008000</color>
+    <!-- 绿色 -->
+    <!-- 暗绿色 -->
+    <color name="blue">#0000FF</color>
+    <!-- 蓝色 -->
+    <!-- 中兰色 -->
+    <!-- 暗蓝色 -->
+    <!-- 海军色 -->
+    <color name="black">#333333</color>
+    <!-- 黑色 -->
+    <color name="one_black">#848484</color>
+    <!-- 淡黑色 -->
+    <color name="gray_black">#2e2e2e</color>
+    <!-- 专题颜色块一 -->
+    <!-- 专题颜色块二 -->
+    <!-- 专题颜色块三 -->
+    <!-- 商品结算金额背景-->
+
+    <color name="viewfinder_mask">#60000000</color>
+
+    <!-- o2o查询菜单背景 #B7C1D3-->
+    <color name="transparent">#00000000</color>
+    <!-- 考场分类 -->
+    <color name="type_01">#edc951</color>
+    <color name="type_02">#ec6841</color>
+    <color name="type_03">#cd333f</color>
+    <color name="primary">#ff444444</color>
+
+
+    <color name="light_model">#DF111111</color>
+    <color name="dark_model">#DFEEEEEE</color>
+    <color name="wmcj_tabhost_select">#dd3030</color>
+    <color name="wmcj_tabhost_normal">#898989</color>
+
+    <!--workpar tablayout-->
+    <color name="workpark_tablayout_select">#dd3030</color>
+    <color name="workpark_tablayout_normal">#8a8a8a</color>
+    <color name="workpark_tablayout_backgroug">#F5F5F5</color>
+    <color name="workpark_item_text_selected">#dd3030</color>
+    <color name="workpark_item_text_normal">#898989</color>
+
+</resources>

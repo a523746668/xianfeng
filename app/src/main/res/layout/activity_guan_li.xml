@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_guan_li"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.qingyii.hxt.GuanLiActivity">
+
+    <RelativeLayout
+        android:id="@+id/activity_tltle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x45"
+        android:background="@color/tltleColor"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/returns_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x15"
+                android:layout_marginRight="@dimen/x15"
+                android:src="@mipmap/returns_arrow" />
+
+            <TextView
+                android:id="@+id/activity_tltle_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="日期页面"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/x16" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/activity_tltle_operation"
+            android:layout_width="@dimen/x35"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/menu_point"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/x12" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x100">
+
+        <ImageButton
+            android:id="@+id/guanli_time_last"
+            android:layout_width="@dimen/x35"
+            android:layout_height="@dimen/x35"
+            android:background="@mipmap/btn_left"
+            android:layout_marginLeft="@dimen/x60"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/guanli_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="0000-00"
+
+            android:textColor="@color/textColorDark"
+            android:textSize="@dimen/x20" />
+
+        <ImageButton
+            android:id="@+id/guanli_time_next"
+            android:layout_width="@dimen/x35"
+            android:layout_height="@dimen/x35"
+            android:background="@mipmap/btn_right"
+            android:layout_marginRight="@dimen/x60"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/guanli_manage_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x100"
+        android:background="@color/backgroundColor"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/manage_release"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/x8"
+                android:gravity="center"
+                android:text="发布总人数"
+                android:textColor="@color/textColorMedium"
+                android:textSize="@dimen/x12" />
+
+            <TextView
+                android:id="@+id/manage_release_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/green1"
+                android:textSize="@dimen/x25" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/x1"
+            android:layout_height="@dimen/x60"
+            android:background="#10000000" />
+
+        <LinearLayout
+            android:id="@+id/manage_log"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/x8"
+                android:gravity="center"
+                android:text="日志总篇幅"
+                android:textColor="@color/textColorMedium"
+                android:textSize="@dimen/x12" />
+
+            <TextView
+                android:id="@+id/manage_log_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/green1"
+                android:textSize="@dimen/x25" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/guanli_user_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x100"
+        android:background="@color/backgroundColor"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/user_log"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/x8"
+                android:gravity="center"
+                android:text="日志总篇幅"
+                android:textColor="@color/textColorMedium"
+                android:textSize="@dimen/x12" />
+
+            <TextView
+                android:id="@+id/user_log_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/green1"
+                android:textSize="@dimen/x25" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/x1"
+            android:layout_height="@dimen/x60"
+            android:background="#10000000" />
+
+        <LinearLayout
+            android:id="@+id/user_month_credits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/x8"
+                android:gravity="center"
+                android:text="本月积分"
+                android:textColor="@color/textColorMedium"
+                android:textSize="@dimen/x12" />
+
+            <TextView
+                android:id="@+id/user_month_credits_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/textColorShallow"
+                android:textSize="@dimen/x25" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/x1"
+            android:layout_height="@dimen/x60"
+            android:background="#10000000" />
+
+        <LinearLayout
+            android:id="@+id/user_all_credits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/x8"
+                android:gravity="center"
+                android:text="累计积分"
+                android:textColor="@color/textColorMedium"
+                android:textSize="@dimen/x12" />
+
+            <TextView
+                android:id="@+id/user_all_credits_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/red_light"
+                android:textSize="@dimen/x25" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/guanli_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x65"
+        android:background="@mipmap/guan_ed" />
+
+</LinearLayout>

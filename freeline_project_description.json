@@ -1,0 +1,232 @@
+{
+    "android_gradle_plugin_version": "2.3.3",
+    "apk_path": "C:\\Android\\WorkSpace\\xianfeng\\app\\build\\outputs\\apk\\xianfeng_v3.00.102_201707311035.apk",
+    "auto_dependency": true,
+    "build_cache_dir": "C:\\Android\\WorkSpace\\xianfeng\\app\\build\\freeline",
+    "build_directory": "C:\\Android\\WorkSpace\\xianfeng\\app\\build",
+    "build_script": "gradlew.bat :app:assembleDebug",
+    "build_script_work_directory": "",
+    "build_tools_directory": "D:\\Android\\sdk\\build-tools\\25.0.2",
+    "build_tools_version": "25.0.2",
+    "check_sources_md5": [
+        
+    ],
+    "compile_sdk_directory": "D:\\Android\\sdk\\platforms\\android-24",
+    "compile_sdk_version": "android-24",
+    "databinding": [
+        
+    ],
+    "databinding_modules": [
+        
+    ],
+    "debug_package": "com.qingyii.hxt",
+    "exclude_dep_res_paths": [
+        
+    ],
+    "extra_dep_res_paths": [
+        
+    ],
+    "freeline_cache_dir": "C:\\Android\\WorkSpace\\xianfeng",
+    "freeline_gradle_plugin_version": "0.8.7",
+    "ignore_resource_ids": [
+        "avd_hide_password_1",
+        "avd_hide_password_2",
+        "avd_hide_password_3",
+        "avd_show_password_1",
+        "avd_show_password_2",
+        "avd_show_password_3"
+    ],
+    "java_home": "C:\\Program Files\\Java\\jdk1.8.0_131",
+    "launcher": "com.qingyii.hxt.FirstActivity",
+    "main_assets_directory": [
+        "C:\\Android\\WorkSpace\\xianfeng\\app\\build-types\\debug\\assets",
+        "C:\\Android\\WorkSpace\\xianfeng\\app\\src\\main\\assets"
+    ],
+    "main_jniLibs_directory": [
+        "C:\\Android\\WorkSpace\\xianfeng\\app\\build-types\\debug\\jniLibs",
+        "C:\\Android\\WorkSpace\\xianfeng\\app\\libs"
+    ],
+    "main_jni_directory": [
+        "C:\\Android\\WorkSpace\\xianfeng\\app\\build-types\\debug\\jni",
+        "C:\\Android\\WorkSpace\\xianfeng\\app\\src\\main\\jni"
+    ],
+    "main_manifest_path": "C:\\Android\\WorkSpace\\xianfeng\\app\\src\\main\\AndroidManifest.xml",
+    "main_project_dir": "app",
+    "main_project_name": "app",
+    "main_r_path": "C:\\Android\\WorkSpace\\xianfeng\\app\\build\\generated\\source\\r\\debug\\R.java",
+    "main_res_directory": [
+        "C:\\Android\\WorkSpace\\xianfeng\\app\\build-types\\debug\\res",
+        "C:\\Android\\WorkSpace\\xianfeng\\app\\src\\main\\res"
+    ],
+    "main_src_directory": [
+        "C:\\Android\\WorkSpace\\xianfeng\\app\\build-types\\debug\\java",
+        "C:\\Android\\WorkSpace\\xianfeng\\app\\src\\main\\java"
+    ],
+    "module_dependencies": {
+        "ambilWarna": [
+            
+        ],
+        "app": [
+            "framework",
+            "badger",
+            "superToasts",
+            "ambilWarna"
+        ],
+        "badger": [
+            
+        ],
+        "framework": [
+            
+        ],
+        "superToasts": [
+            
+        ]
+    },
+    "modules": [
+        {
+            "name": "app",
+            "path": "C:\\Android\\WorkSpace\\xianfeng\\app"
+        },
+        {
+            "name": "framework",
+            "path": "C:\\Android\\WorkSpace\\xianfeng\\framework"
+        },
+        {
+            "name": "badger",
+            "path": "C:\\Android\\WorkSpace\\xianfeng\\badger"
+        },
+        {
+            "name": "superToasts",
+            "path": "C:\\Android\\WorkSpace\\xianfeng\\superToasts"
+        },
+        {
+            "name": "ambilWarna",
+            "path": "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna"
+        }
+    ],
+    "package": "com.qingyii.hxt",
+    "product_flavor": "",
+    "project_source_sets": {
+        "ambilWarna": {
+            "main_assets_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna\\src\\release\\assets",
+                "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna\\src\\main\\assets"
+            ],
+            "main_jniLibs_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna\\src\\release\\jniLibs",
+                "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna\\src\\main\\jniLibs"
+            ],
+            "main_jni_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna\\src\\release\\jni",
+                "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna\\src\\main\\jni"
+            ],
+            "main_manifest_path": "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna\\src\\main\\AndroidManifest.xml",
+            "main_res_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna\\src\\release\\res",
+                "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna\\src\\main\\res"
+            ],
+            "main_src_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna\\src\\release\\java",
+                "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna\\src\\main\\java"
+            ]
+        },
+        "app": {
+            "main_assets_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\app\\build-types\\debug\\assets",
+                "C:\\Android\\WorkSpace\\xianfeng\\app\\src\\main\\assets"
+            ],
+            "main_jniLibs_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\app\\build-types\\debug\\jniLibs",
+                "C:\\Android\\WorkSpace\\xianfeng\\app\\libs"
+            ],
+            "main_jni_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\app\\build-types\\debug\\jni",
+                "C:\\Android\\WorkSpace\\xianfeng\\app\\src\\main\\jni"
+            ],
+            "main_manifest_path": "C:\\Android\\WorkSpace\\xianfeng\\app\\src\\main\\AndroidManifest.xml",
+            "main_res_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\app\\build-types\\debug\\res",
+                "C:\\Android\\WorkSpace\\xianfeng\\app\\src\\main\\res"
+            ],
+            "main_src_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\app\\build-types\\debug\\java",
+                "C:\\Android\\WorkSpace\\xianfeng\\app\\src\\main\\java"
+            ]
+        },
+        "badger": {
+            "main_assets_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\badger\\src\\release\\assets",
+                "C:\\Android\\WorkSpace\\xianfeng\\badger\\src\\main\\assets"
+            ],
+            "main_jniLibs_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\badger\\src\\release\\jniLibs",
+                "C:\\Android\\WorkSpace\\xianfeng\\badger\\src\\main\\jniLibs"
+            ],
+            "main_jni_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\badger\\src\\release\\jni",
+                "C:\\Android\\WorkSpace\\xianfeng\\badger\\src\\main\\jni"
+            ],
+            "main_manifest_path": "C:\\Android\\WorkSpace\\xianfeng\\badger\\src\\main\\AndroidManifest.xml",
+            "main_res_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\badger\\src\\release\\res",
+                "C:\\Android\\WorkSpace\\xianfeng\\badger\\src\\main\\res"
+            ],
+            "main_src_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\badger\\src\\release\\java",
+                "C:\\Android\\WorkSpace\\xianfeng\\badger\\src\\main\\java"
+            ]
+        },
+        "framework": {
+            "main_assets_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\framework\\build-types\\release\\assets",
+                "C:\\Android\\WorkSpace\\xianfeng\\framework\\src\\main\\assets"
+            ],
+            "main_jniLibs_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\framework\\build-types\\release\\jniLibs",
+                "C:\\Android\\WorkSpace\\xianfeng\\framework\\src\\main\\jniLibs",
+                "C:\\Android\\WorkSpace\\xianfeng\\framework\\libs"
+            ],
+            "main_jni_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\framework\\build-types\\release\\jni",
+                "C:\\Android\\WorkSpace\\xianfeng\\framework\\src\\main\\jni"
+            ],
+            "main_manifest_path": "C:\\Android\\WorkSpace\\xianfeng\\framework\\src\\main\\AndroidManifest.xml",
+            "main_res_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\framework\\build-types\\release\\res",
+                "C:\\Android\\WorkSpace\\xianfeng\\framework\\src\\main\\res"
+            ],
+            "main_src_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\framework\\build-types\\release\\java",
+                "C:\\Android\\WorkSpace\\xianfeng\\framework\\src\\main\\java"
+            ]
+        },
+        "superToasts": {
+            "main_assets_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\superToasts\\src\\release\\assets",
+                "C:\\Android\\WorkSpace\\xianfeng\\superToasts\\src\\main\\assets"
+            ],
+            "main_jniLibs_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\superToasts\\src\\release\\jniLibs",
+                "C:\\Android\\WorkSpace\\xianfeng\\superToasts\\src\\main\\jniLibs"
+            ],
+            "main_jni_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\superToasts\\src\\release\\jni",
+                "C:\\Android\\WorkSpace\\xianfeng\\superToasts\\src\\main\\jni"
+            ],
+            "main_manifest_path": "C:\\Android\\WorkSpace\\xianfeng\\superToasts\\src\\main\\AndroidManifest.xml",
+            "main_res_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\superToasts\\src\\release\\res",
+                "C:\\Android\\WorkSpace\\xianfeng\\superToasts\\src\\main\\res"
+            ],
+            "main_src_directory": [
+                "C:\\Android\\WorkSpace\\xianfeng\\superToasts\\src\\release\\java",
+                "C:\\Android\\WorkSpace\\xianfeng\\superToasts\\src\\main\\java"
+            ]
+        }
+    },
+    "project_type": "gradle",
+    "root_dir": "C:\\Android\\WorkSpace\\xianfeng",
+    "sdk_directory": "D:\\Android\\sdk",
+    "use_jdk8": true,
+    "use_system_gradle": false
+}

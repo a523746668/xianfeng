@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/main_circle_nav"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_alignParentTop="true"
+        android:background="@color/tltleColor">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/main_circle_left"
+            android:layout_width="150px"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/returns_arrow" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:id="@+id/main_circle_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="同事圈"
+            android:textColor="#FFFFFF"
+            android:textSize="48px" />
+
+        <TextView
+            android:id="@+id/main_circle_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30px"
+            android:gravity="center"
+            android:text="发布"
+            android:textColor="#FFFFFF" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <!--<com.ab.view.pullview.AbPullToRefreshView-->
+    <!--android:id="@+id/main_circle_refreshorg"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_below="@+id/main_circle_nav"-->
+    <!--android:background="@drawable/white" >-->
+
+    <!--<ListView-->
+    <!--android:id="@+id/main_circle_listorg"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="#ffffff"-->
+    <!--android:cacheColorHint="#ffffffff"-->
+    <!--android:divider="#f0f0f0"-->
+    <!--android:dividerHeight="1px"-->
+    <!--android:focusable="false"-->
+    <!--android:listSelector="#ffffffff" />-->
+
+    <!--</com.ab.view.pullview.AbPullToRefreshView>-->
+
+    <com.andbase.library.view.refresh.AbPullToRefreshView
+        android:id="@+id/main_circle_refreshdepartment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/main_circle_nav"
+        android:layout_above="@+id/bottom_ll"
+        android:background="@drawable/white">
+
+        <ListView
+            android:id="@+id/main_circle_listdepartment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:divider="@null" />
+
+    </com.andbase.library.view.refresh.AbPullToRefreshView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_ll"
+        android:background="@mipmap/comui_bar_top_shadow" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_ll"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+
+    <RadioGroup
+        android:id="@+id/types"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x48"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/r_danwei"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/x15"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/circle_unit_selector_style" />
+
+        <RadioButton
+            android:id="@+id/r_bumen"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/x15"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/circle_department_selector_style" />
+
+        <RadioButton
+            android:id="@+id/r_guanzhu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/x15"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/circle_attention_selector_style" />
+
+    </RadioGroup>
+
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/main_circle_type"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/x35"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:background="#F5F5F5" >-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/main_circle_org"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1"-->
+    <!--android:gravity="center"-->
+    <!--android:textColor="#FF0033"-->
+    <!--android:text="本单位" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/main_circle_department"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1"-->
+    <!--android:gravity="center"-->
+    <!--android:textColor="#000000"-->
+    <!--android:text="本部门" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/main_circle_follow"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1"-->
+    <!--android:textColor="#000000"-->
+    <!--android:gravity="center"-->
+    <!--android:text="我关注" />-->
+
+    <!--</LinearLayout>-->
+
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,0 +1,169 @@
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whitesmoke"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <include layout="@layout/activity_tltle" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_marginTop="120px"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/login_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x10"
+            android:background="@mipmap/login_user" />
+
+        <EditText
+            android:id="@+id/login_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginRight="@dimen/x10"
+            android:layout_toLeftOf="@+id/login_user_delete"
+            android:layout_toRightOf="@+id/login_user"
+            android:background="#FFFFFF"
+            android:inputType="phone"
+            android:hint="本机号码"
+            android:maxLength="11"
+            android:textColor="@color/textColorMedium"
+            android:textColorHint="@color/textColorShallow" />
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/login_user_delete"
+            android:layout_width="@dimen/x40"
+            android:layout_height="@dimen/x40"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/login_user_delete" />
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_marginTop="60px"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/login_pwd_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x10"
+            android:background="@mipmap/login_pwd" />
+
+        <EditText
+            android:id="@+id/login_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginRight="@dimen/x10"
+            android:layout_toLeftOf="@+id/login_pwd_warn"
+            android:layout_toRightOf="@+id/login_pwd_image"
+            android:background="#FFFFFF"
+            android:hint="输入密码"
+            android:inputType="textPassword"
+            android:textColor="@color/textColorMedium"
+            android:textColorHint="@color/textColorShallow" />
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/login_pwd_warn"
+            android:layout_width="@dimen/x40"
+            android:layout_height="@dimen/x40"
+            android:layout_alignParentRight="true"
+            android:visibility="gone">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/login_pwd_warn"/>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/regiest_go_02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/x8"
+            android:text="激活账号"
+            android:textSize="@dimen/x14"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/change_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/x8"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x10"
+            android:text="忘记密码"
+            android:textSize="@dimen/sp_normal" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/login_go"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:background="@color/allStyles"
+        android:gravity="center"
+        android:text="登 录"
+        android:textColor="#FFFFFF"
+        android:textSize="52px"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:gravity="center"
+        android:text="本软件需要用户所在单位统一开通后，才能通过个人手机号码进行激活登录使用。"
+        android:layout_marginTop="80px"
+        android:textColor="#979494"
+        />
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:gravity="center"
+       android:layout_marginTop="60px"
+       android:text="开通咨询电话：0731-83882511"
+       android:textColor="#979494"
+       android:autoLink="phone"
+       />
+
+
+</com.zhy.autolayout.AutoLinearLayout>

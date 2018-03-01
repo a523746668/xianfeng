@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="@color/red">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@color/red"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="确认交卷"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/ks_close"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:scaleType="centerInside"
+            android:src="@mipmap/iconfont_x" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/ks_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dip"
+        android:gravity="center_vertical"
+        android:minHeight="100dip"
+        android:padding="5dip"
+        android:text="确认交卷？"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_marginBottom="5dip">
+
+        <TextView
+            android:id="@+id/ks_no"
+            android:layout_width="0dip"
+            android:layout_height="45dip"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="50dip"
+            android:layout_weight="1"
+            android:background="@color/red"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="检查一遍"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/ks_yes"
+            android:layout_width="0dip"
+            android:layout_height="45dip"
+            android:layout_gravity="center"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@color/red"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="确认交卷"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>

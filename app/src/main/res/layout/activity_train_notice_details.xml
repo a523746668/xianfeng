@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.qingyii.hxt.notify.mvp.ui.activity.NotifyDetailsActivity">
+
+    <include
+        android:id="@+id/activity_tltle"
+        layout="@layout/include_toolbar" />
+    <ProgressBar
+        android:layout_below="@+id/activity_tltle"
+        android:id="@+id/webview_progressbar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="5px" />
+    <WebView
+        android:id="@+id/wb_notify_details_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/operation_ll"
+        android:layout_below="@+id/webview_progressbar" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/wb_notify_details_content"
+        android:background="@mipmap/comui_bar_top_shadow" />
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

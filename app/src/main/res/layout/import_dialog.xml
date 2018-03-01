@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/backgroundColorShallow"
+    android:orientation="horizontal"
+    android:padding="@dimen/x10">
+
+    <EditText
+        android:id="@+id/import_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/import_send"
+        android:background="@color/white"
+        android:gravity="top"
+        android:hint="发表评论"
+        android:imeOptions="actionDone"
+        android:inputType="textMultiLine"
+        android:minLines="1"
+        android:padding="@dimen/x8"
+        android:textColor="@color/textColorDark"
+        android:textColorHint="@color/textColorShallow" />
+
+    <TextView
+        android:id="@+id/import_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/x15"
+        android:gravity="center"
+        android:text="发送"
+        android:textColor="@color/textColorMedium"
+        android:textSize="@dimen/x18" />
+
+</RelativeLayout>

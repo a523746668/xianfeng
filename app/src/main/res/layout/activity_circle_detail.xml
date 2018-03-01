@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/circle_detail_nav"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_alignParentTop="true"
+        android:background="@color/tltleColor">
+
+        <ImageView
+            android:id="@+id/circle_detail_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@mipmap/back_white" />
+
+        <TextView
+            android:id="@+id/circle_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="详情"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/circle_detail_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#FFFFFF" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <!--<com.andbase.library.view.refresh.AbPullToRefreshView-->
+        <!--android:id="@+id/circle_detail_refresh"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_above="@+id/circle_detail_input"-->
+        <!--android:layout_below="@+id/circle_detail_nav"-->
+        <!--android:background="#ffffff">-->
+
+        <ListView
+            android:id="@+id/circle_detail_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/circle_detail_input"
+            android:layout_below="@+id/circle_detail_nav"
+            android:cacheColorHint="#ffffffff"
+            android:divider="@null" />
+
+    <!--</com.andbase.library.view.refresh.AbPullToRefreshView>-->
+
+    <RelativeLayout
+        android:id="@+id/circle_detail_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/backgroundColorShallow"
+        android:orientation="horizontal"
+        android:padding="@dimen/x10">
+
+        <EditText
+            android:id="@+id/circle_detail_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/circle_detail_send"
+            android:background="@color/white"
+            android:gravity="top"
+            android:hint="发表评论"
+            android:imeOptions="actionDone"
+            android:inputType="textMultiLine"
+            android:minLines="1"
+            android:padding="@dimen/x8"
+            android:textColor="@color/textColorDark"
+            android:textColorHint="@color/textColorShallow" />
+
+        <TextView
+            android:id="@+id/circle_detail_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x15"
+            android:gravity="center"
+            android:text="发送"
+            android:textColor="@color/textColorMedium"
+            android:textSize="@dimen/x18" />
+
+    </RelativeLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

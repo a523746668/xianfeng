@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/item_circle_choose_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="纪实类型"
+        android:textSize="@dimen/x16"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginTop="@dimen/x12"
+        android:layout_marginBottom="@dimen/x12"
+        android:textColor="@color/textColorMedium"/>
+
+</RelativeLayout>

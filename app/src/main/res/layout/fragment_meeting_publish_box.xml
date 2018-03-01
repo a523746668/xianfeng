@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <com.qingyii.hxt.base.widget.AutoRadioGroup
+        android:id="@+id/meeting_publish_radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="132px"
+        android:background="#C2C1C1"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:id="@+id/meeting_publish_rb1"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="10px"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center|right"
+            android:text="已发布会议"
+            android:textColor="@color/train_radiobutton_selector"
+            android:textSize="@dimen/sp_normal" />
+
+        <View
+            android:layout_width="3px"
+            android:layout_height="40px"
+            android:layout_gravity="center_vertical"
+            android:background="#404040" />
+
+        <RadioButton
+            android:id="@+id/meeting_publish_rb2"
+            android:layout_marginLeft="10px"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:gravity="center|left"
+            android:text="未发布会议"
+            android:textColor="@color/train_radiobutton_selector"
+            android:textSize="@dimen/sp_normal" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+    </com.qingyii.hxt.base.widget.AutoRadioGroup>
+
+    <com.qingyii.hxt.base.widget.NoScrollViewPager
+        android:id="@+id/meeting_publish_viewPager"
+        android:background="#F0F0F0"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</com.zhy.autolayout.AutoLinearLayout>

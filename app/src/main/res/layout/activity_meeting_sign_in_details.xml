@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".meeting.mvp.ui.activity.MeetingSignInActivity">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f0f0f0"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/activity_tltle"
+            layout="@layout/include_toolbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="80px">
+
+            <ImageView
+                android:layout_width="70px"
+                android:layout_height="70px"
+                android:src="@drawable/sign_in_success" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="44px"
+                android:text="签到成功"
+                android:textColor="#19fb28"
+                android:textSize="52px" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="50px"
+            android:layout_marginRight="50px"
+            android:background="#f4f3f3" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingLeft="50px"
+            android:paddingRight="50px">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="姓名："
+                    android:textColor="#5f5f5f"
+                    android:textSize="@dimen/sp_normal" />
+
+                <TextView
+                    android:id="@+id/sign_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="张三四"
+                    android:textColor="#5f5f5f"
+                    android:textSize="@dimen/sp_normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="单位："
+                    android:textColor="#5f5f5f"
+                    android:textSize="@dimen/sp_normal" />
+
+                <TextView
+                    android:id="@+id/sign_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="市公安厅"
+                    android:textColor="#5f5f5f"
+                    android:textSize="@dimen/sp_normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50px"
+                android:layout_marginRight="50px"
+                android:layout_marginTop="40px"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="电话："
+                    android:textColor="#5f5f5f"
+                    android:textSize="@dimen/sp_normal" />
+
+                <TextView
+                    android:id="@+id/sign_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="13212345678"
+                    android:textColor="#5f5f5f"
+                    android:textSize="@dimen/sp_normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="签到时间："
+                    android:textColor="#5f5f5f"
+                    android:textSize="@dimen/sp_normal" />
+
+                <TextView
+                    android:id="@+id/sign_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2017-06-28 12:00"
+                    android:textColor="#5f5f5f"
+                    android:textSize="@dimen/sp_normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40px"
+                android:layout_marginTop="40px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="签到地点："
+                    android:textColor="#5f5f5f"
+                    android:textSize="@dimen/sp_normal" />
+
+                <TextView
+                    android:id="@+id/sign_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="地点"
+                    android:textColor="#5f5f5f"
+                    android:textSize="@dimen/sp_normal" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/already_sign_in_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已签到人员（10人）"
+                android:textColor="#00d800"
+                android:textSize="40px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="97px"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="62px"
+                android:text="姓名"
+                android:textColor="#5f5f5f"
+                android:textSize="35px" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="42px"
+                android:text="单位/部门"
+                android:textColor="#5f5f5f"
+                android:textSize="35px" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+                android:paddingRight="54px"
+                android:text="签到时间"
+                android:textColor="#5f5f5f"
+                android:textSize="35px" />
+        </LinearLayout>
+
+        <com.qingyii.hxt.base.widget.AutoLoadMoreRecyclerView
+            android:id="@+id/sign_in_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</ScrollView>

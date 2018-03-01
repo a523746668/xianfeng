@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.qingyii.hxt.TrainGuideActivity">
+
+    <include
+        android:id="@+id/activity_tltle"
+        layout="@layout/activity_tltle" />
+
+    <WebView
+        android:id="@+id/train_guide_web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
+
+</com.zhy.autolayout.AutoLinearLayout>

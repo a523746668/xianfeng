@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/x45"
+        android:background="@color/red"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@mipmap/back_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="写评论"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x15" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_xierizhi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/x12"
+        android:background="@drawable/corner_white_lightgray"
+        android:gravity="top"
+        android:hint="请在这里输入评论.."
+        android:maxLength="300"
+        android:minLines="8"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp" />
+
+    <TextView
+        android:id="@+id/tv_fabu"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x40"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/x15"
+        android:layout_marginRight="20dp"
+        android:background="@color/tltleColor"
+        android:gravity="center"
+        android:text="发布"
+        android:textColor="@color/white"
+        android:textSize="@dimen/x16" />
+
+</LinearLayout>

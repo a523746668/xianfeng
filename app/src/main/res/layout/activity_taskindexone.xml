@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zhf.TaskindexoneActivity"
+    android:background="@color/white"
+   >
+
+    <include layout="@layout/activity_tltle"
+        android:id="@+id/include" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:layout_below="@+id/include"
+
+        android:text="2017年省直工委建设一级指标"
+        android:textSize="40px"
+        android:textColor="#dd3030"
+        android:gravity="center"
+        android:id="@+id/taskindextitle"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/tasklisttextview"
+        android:layout_below="@+id/taskindextitle"
+        android:id="@+id/taskview"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:layout_below="@+id/taskview"
+
+        android:text="加强理论突出武装建设"
+        android:textSize="52px"
+        android:textColor="#505050"
+        android:gravity="center"
+        android:id="@+id/taskindexname"
+        />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/taskindexname"
+         android:id="@+id/taskindexlist"
+
+        ></ListView>
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

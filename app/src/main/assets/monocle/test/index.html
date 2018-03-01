@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>test</title>
+
+    <link rel="stylesheet" type="text/css" href="../styles/monocore.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/monoctrl.css" />
+    <link rel="stylesheet" type="text/css" href="book.css" />
+    <style type="text/css">
+        #reader, #readerBg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <script type="text/javascript" src="../scripts/monocore.js"></script>
+    <script type="text/javascript" src="../scripts/monoctrl.js"></script>
+    <script type="text/javascript" src="../scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/highlight.js"></script>
+    <script type="text/javascript">
+        var bookData = Monocle.bookData({
+    components: [
+      'file:///android_asset/components/1.html',
+      'file:///android_asset/components/2.html',
+      'file:///android_asset/components/3.html',
+      'file:///android_asset/components/toc.html'
+    ],
+    chapters:[
+      {
+        title: "The Signal Man",
+        src: "file:///android_asset/components/1.html"
+      },
+      {
+        title: "The Haunted House",
+        src: "file:///android_asset/components/2.html",
+      },
+      {
+        title: "The Trial for Murder",
+        src: "file:///android_asset/components/3.html"
+      }
+      {
+        title: "toc",
+        src: "file:///android_asset/components/toc.html"
+      }
+    ],
+    metadata: {
+      title: "Three Ghost Stories",
+      creator: "Charles Dickens"
+    }
+  });
+        
+      var currentcmptId,searchXpath,searchKeyword;
+      function initReader(){
+          document.documentElement.style.webkitTouchCallout = "none"; //禁止弹出菜单
+          document.documentElement.style.webkitUserSelect = "none";//禁止选中
+          Monocle.Styles.container.right = "24px";
+          var readerOptions = {};
+          readerOptions.stylesheet = ".hl { background: #FFC !important; }";
+          readerOptions.panels = Monocle.Panels.Magic;
+          window.reader = Monocle.Reader('reader',bookData,readerOptions,onReaderLoad);
+      }
+    
+    function nodeForXPath(doc, xpath) {
+        return doc.evaluate(xpath, doc, null, 9, null).singleNodeValue;
+    }
+    
+    function   sleep(n)
+    {
+        var   start=new   Date().getTime();
+        while(true)   if(new   Date().getTime()-start>n)   break;
+    }
+    
+    function goToXPath(cmptId, xpath, keyword) {
+        if(currentcmptId){
+            clearhighlight();
+        }
+        currentcmptId=cmptId;
+        searchXpath=xpath;
+        searchKeyword=keyword;
+        window.reader.moveTo(
+                             { componentId: cmptId, xpath: xpath },
+                             function () {
+                                 highlight(function (doc) {
+                                             return nodeForXPath(doc, xpath)
+                                           },keyword);
+                             }
+                             );
+    }
+    
+    function clearhighlight(){
+        var cmpt = null, i = 0;
+        while (cmpt = window.reader.dom.find('component', i++)) {
+            var doc = cmpt.contentDocument;
+            var targetDom = nodeForXPath(doc,searchXpath);
+            if(targetDom){
+                clearSelection(targetDom);
+            }
+        }
+    }
+    
+    function highlight(fn,keyword) {
+        var cmpt = null, i = 0;
+        while (cmpt = window.reader.dom.find('component', i++)) {
+            var doc = cmpt.contentDocument;
+            var targetDom = fn(doc);
+            if(targetDom){
+                highlightkeyword(targetDom,keyword);
+            }
+        }
+    }
+    
+    function getSelectionForWindow(windowdomid){
+        var frame,index=0;
+        while (frame = window.reader.dom.find('component', index++)) {
+            if (frame.contentWindow) {
+                if($(frame.contentWindow.document).attr('domid')==windowdomid){
+                    var selection = frame.contentWindow.getSelection();
+                    return selection.toString();
+                }
+            }
+        }
+    }
+    
+    var userselection = function userSelectionChanged(event) {
+        var selection = event.currentTarget.selectionwindow.getSelection();
+        var range = selection.getRangeAt(0);
+        //var span = event.currentTarget.createElement("span");
+        //$(span).text(selection.toString());
+        //span.style.backgroundColor = "black";
+        //span.style.color = "white";
+        //range.surroundContents(span);
+        window.location.href="selectionchanged://"+event.currentTarget.domid;
+    }
+    
+    function onReaderLoad(reader){
+        addSelectionListener();
+        var pageNumber = {
+            runners: [],
+            createControlElements: function (page) {
+                var cntr = document.createElement('div');
+                cntr.className = "pageNumber";
+                var runner = document.createElement('div');
+                runner.className = "runner";
+                cntr.appendChild(runner);
+                this.runners.push(runner);
+                this.update(page, page.m.place.pageNumber());
+                return cntr;
+            },
+            update: function (page, pageNumber) {
+                if (pageNumber) {
+                    this.runners[page.m.pageIndex].innerHTML = pageNumber;
+                    var locus = reader.getPlace().getLocus();
+                    window.location.href= "locusChanged://"+locus.percent;
+                }
+            }
+        }
+        reader.addControl(pageNumber, 'page');
+        //var centerPanel = {
+        //    createControlElements:function(page){
+        //        var center = document.createElement("div");
+        //        $(center).css("position","absolute");
+        //        $(center).css("width","20%").css("left","40%").css("height","100%");
+        //        $(center).css("background-color","#ffffff");
+                //Gala.onContact(center, {start: function (event) {Gala.stop(event) ;}, end: function (event) {Gala.stop(event) ; } });
+        //        Monocle.Events.listenForTap(center,function(event){
+        //                                    Gala.stop(event) ;
+        //                                    window.location.href = "center://";
+        //                                   });
+        //                                    return center;
+        //    }
+        //}
+        //reader.addControl(centerPanel,'standard');-->
+        reader.listen("monocle:panel:tapcenter", function(){
+                      window.location.href = "taponcenter://";
+                      });
+        reader.listen('monocle:pagechange',
+                      function (evt) {
+                        addSelectionListener();
+                        pageNumber.update(evt.m.page, evt.m.pageNumber);
+                      }
+                    );
+    }
+    
+    function addSelectionListener(){
+        var index = 0, frame = null;
+        while (frame = reader.dom.find('component', index++)) {
+            if (frame.contentWindow) {
+                //frame.contentWindow.document.documentElement.style.webkitTouchCallout = "none"; //禁止弹出菜单
+                //frame.contentWindow.document.documentElement.style.webkitUserSelect = "none";//禁止选中
+                $(frame.contentWindow.document).attr('domid',"readerframe_"+index);
+                frame.contentWindow.document.removeEventListener("selectionchange", userselection);
+                frame.contentWindow.document.selectionwindow = frame.contentWindow;
+                frame.contentWindow.document.addEventListener("selectionchange", userselection, false);
+            }
+        }
+    }
+    
+    function textSelected(evt) {
+        console.log("Selection: "+evt.m.string);
+        var sel = evt.m.string;
+        window.location.href="textselection://"+sel;
+    }
+    
+    
+    function textDeselected(evt) {
+        window.location.href="textdeselection://";
+    }
+    function onChangeFontSize(size){
+    	window.reader.formatting.setFontScale(size, true);
+    }
+    </script>
+
+  </head>
+
+  <body class="narrow" onload="initReader()">
+      <div id="cover"></div>
+      <div id="readerBg">
+          <div id="bookboard" class="board"></div>
+<!--          <div class="jacket"></div>-->
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+      </div>
+    <div id="readerCntr">
+    <div id="reader">
+        
+    </div>
+    </div>
+  </body>
+</html>

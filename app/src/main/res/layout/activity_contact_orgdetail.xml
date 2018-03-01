@@ -1,0 +1,62 @@
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="com.qingyii.hxt.contact.ContactMainActivity">
+
+    <RelativeLayout
+        android:id="@+id/contact_orgdetail_nav"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:background="#C55C56">
+
+        <ImageView
+            android:id="@+id/contact_orgdetail_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@mipmap/back_white" />
+
+        <TextView
+            android:id="@+id/contact_orgdetail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="同事通讯录"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/contact_orgdetail_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:src="@mipmap/ic_menu_search_f" />
+    </RelativeLayout>
+
+    <com.ab.view.pullview.AbPullToRefreshView
+        android:id="@+id/contact_orgdetail_refreshorg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/contact_orgdetail_nav">
+
+        <ListView
+            android:id="@+id/contact_orgdetail_listorg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#ffffffff"
+            android:divider="#f0f0f0"
+            android:dividerHeight="1px"
+            android:focusable="false"
+            android:listSelector="#ffffffff"/>
+    </com.ab.view.pullview.AbPullToRefreshView>
+
+</android.support.percent.PercentRelativeLayout>

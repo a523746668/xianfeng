@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/ll_Dyneikan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_Dyneikan_Image"
+            android:layout_width="@dimen/x70"
+            android:layout_height="@dimen/x100"
+            android:layout_margin="@dimen/x12"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/dingyue_dyneikan_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/x12"
+            android:background="@drawable/neikandingyue_selector_style" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x15"
+        android:layout_marginRight="@dimen/x12"
+        android:layout_marginTop="@dimen/x8"
+        android:layout_toLeftOf="@+id/ll_Dyneikan"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name_dyneikan_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x10"
+            android:text="内刊"
+            android:textColor="@color/textColorDark"
+            android:textSize="@dimen/x15" />
+
+        <TextView
+            android:id="@+id/tv_dyneikan_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x12"
+            android:text="上传者：wewe"
+            android:textColor="@color/one_black"
+            android:textSize="@dimen/x11" />
+
+        <TextView
+            android:id="@+id/content_dyneikan_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x10"
+            android:ellipsize="end"
+            android:lines="3"
+            android:textColor="@color/textColorMedium"
+            android:textSize="@dimen/x12" />
+
+        <ImageView
+            android:id="@+id/iv_ismianfei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x12" />
+
+    </LinearLayout>
+
+</RelativeLayout>

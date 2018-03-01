@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+   <!--  <com.ab.view.sliding.AbSlidingPlayView
+        android:id="@+id/guide_AbSlidingPlayView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    </com.ab.view.sliding.AbSlidingPlayView> -->
+    <com.zhf.android_viewflow.ViewFlow 
+        android:id="@+id/guide_viewflow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+    </com.zhf.android_viewflow.ViewFlow>
+
+</LinearLayout>

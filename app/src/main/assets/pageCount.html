@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>test</title>
+
+    <link rel="stylesheet" type="text/css" href="monocore.css" />
+    <link rel="stylesheet" type="text/css" href="book.css" />
+    <style type="text/css">
+        #reader, #readerBg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <script type="text/javascript" src="monocore.js"></script>
+    <script type="text/javascript">
+      function initReader(){
+          Monocle.Styles.container.right = "24px";
+          var readerOptions = {};
+          readerOptions.panels = Monocle.Panels.Magic;
+          readerOptions.stylesheet = "body { " +
+          "color: #210;" +
+          "font-family: Palatino, Georgia, serif;" +
+          "}";
+          window.reader = Monocle.Reader('reader',null,readerOptions,onReaderLoad);
+      }
+    function onReaderLoad(reader){
+        var pagesInCurrentChapter = reader.getPlace().pagesInComponent();
+        window.location.href=("pagesincomponent://"+pagesInCurrentChapter);
+    }
+    function updateHtml(value){
+    	document.getElementById("reader").innerHTML = value;
+    }
+    </script>
+
+  </head>
+
+  <body class="narrow" onload="initReader()">
+      <div id="readerBg">
+          <div class="board"></div>
+<!--          <div class="jacket"></div>-->
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+      </div>
+    <div id="readerCntr">
+    <div id="reader">
+        {$content}
+    </div>
+    </div>
+  </body>
+</html>

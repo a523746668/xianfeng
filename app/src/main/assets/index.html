@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>test</title>
+
+    <link rel="stylesheet" type="text/css" href="monocore.css" />
+    <link rel="stylesheet" type="text/css" href="monoctrl.css" />
+    <link rel="stylesheet" type="text/css" href="book.css" />
+    <style type="text/css">
+        #reader, #readerBg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <script type="text/javascript" src="monocore.js"></script>
+    <script type="text/javascript" src="monoctrl.js"></script>
+    <script type="text/javascript">
+    	//{$bookdata}
+       //var bookData = Monocle.bookData({"metadata":{"title":"1845","creator":"wmh"},"components":["file:///mnt/sdcard/HXT/coverpage.html","file:///mnt/sdcard/HXT/chapter2.html","file:///mnt/sdcard/HXT/chapter3.html","file:///mnt/sdcard/HXT/chapter4.html","file:///mnt/sdcard/HXT/chapter5.html","file:///mnt/sdcard/HXT/chapter6.html","file:///mnt/sdcard/HXT/chapter7.html","file:///mnt/sdcard/HXT/chapter8.html","file:///mnt/sdcard/HXT/chapter9.html","file:///mnt/sdcard/HXT/chapter10.html"]});
+      function initReader(){
+          Monocle.Styles.container.right = "24px";
+          var readerOptions = {};
+          readerOptions.stylesheet = ".hl { background: #FFC !important; }";
+          readerOptions.panels = Monocle.Panels.Magic;
+          //window.reader = Monocle.Reader('reader',bookData,readerOptions,onReaderLoad);
+          //window.reader = Monocle.Reader('reader',bookData);
+          window.reader = Monocle.Reader('reader');
+      }
+   function nodeForXPath(doc, xpath) {
+        return doc.evaluate(xpath, doc, null, 9, null).singleNodeValue;
+    }
+    
+    
+    function goToXPath(cmptId, xpath) {
+        window.reader.moveTo(
+                             { componentId: cmptId, xpath: xpath },
+                             function () {
+                             highlight(function (doc) { return nodeForXPath(doc, xpath) });
+                             }
+                             );
+    }
+    function highlight(fn) {
+        var cmpt = null, i = 0;
+        while (cmpt = window.reader.dom.find('component', i)) {
+            var doc = cmpt.contentDocument;
+            var hl = doc.querySelector('.hl');
+            if (hl) { hl.className = hl.className.replace(/\s?hl/, ''); }
+            hl = fn(doc);
+            console.log(hl);
+            if (hl) { hl.className += " hl"; }
+            i += 1;
+        }
+    }
+    function onReaderLoad(reader){
+        var pageNumber = {
+            runners: [],
+            createControlElements: function (page) {
+                var cntr = document.createElement('div');
+                cntr.className = "pageNumber";
+                var runner = document.createElement('div');
+                runner.className = "runner";
+                cntr.appendChild(runner);
+                this.runners.push(runner);
+                this.update(page, page.m.place.pageNumber());
+                return cntr;
+            },
+            update: function (page, pageNumber) {
+                if (pageNumber) {
+                    this.runners[page.m.pageIndex].innerHTML = pageNumber;
+                    var locus = reader.getPlace().getLocus();
+                    window.location.href= "locusChanged://"+locus.percent;
+                }
+            }
+        }
+        reader.addControl(pageNumber, 'page');
+        reader.listen(
+                      'monocle:pagechange',
+                      function (evt) {
+                        pageNumber.update(evt.m.page, evt.m.pageNumber);
+                      }
+                      );
+    }
+    
+    </script>
+
+  </head>
+
+  <body class="narrow" onload="initReader()">
+      <div id="readerBg">
+          <div class="board"></div>
+<!--          <div class="jacket"></div>-->
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+          <div class="dummyPage"></div>
+      </div>
+    <div id="readerCntr">
+    <div id="reader">
+        #content#
+     </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="150px"
+    android:background="@color/notifyTitleColor"
+
+    >
+    <Button
+        android:layout_width="68px"
+        android:layout_height="58px"
+        android:background="@mipmap/back_white"
+        android:padding="30px"
+        android:layout_margin="20px"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:id="@+id/toolbar_back"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+       android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:textSize="62px"
+        android:id="@+id/toolbar_title"
+
+        />
+
+    <Button
+        android:id="@+id/toolbar_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@null"
+        android:layout_centerVertical="true"
+        android:textColor="@color/white"
+        android:textSize="52px"
+        />
+
+</com.zhy.autolayout.AutoRelativeLayout>

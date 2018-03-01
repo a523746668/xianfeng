@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_user_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".UserListActivity">
+
+    <RelativeLayout
+        android:id="@+id/activity_tltle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x45"
+        android:background="@color/tltleColor"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/returns_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x15"
+                android:layout_marginRight="@dimen/x15"
+                android:src="@mipmap/returns_arrow" />
+
+            <TextView
+                android:id="@+id/activity_tltle_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="日期页面"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/x16" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <com.andbase.library.view.refresh.AbPullToRefreshView
+        android:id="@+id/mPullRefreshView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/white">
+
+        <ListView
+            android:id="@+id/mListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="@null"
+            android:dividerHeight="0dp"/>
+
+    </com.andbase.library.view.refresh.AbPullToRefreshView>
+
+</LinearLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_guan_li_warn"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.qingyii.hxt.GuanLiWarnActivity">
+
+    <include layout="@layout/activity_tltle" />
+
+    <com.qingyii.hxt.view.RoundedImageView
+        android:id="@+id/warn_head_photo"
+        android:layout_width="@dimen/x100"
+        android:layout_height="@dimen/x100"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/x35"
+        android:scaleType="center"
+        app:corner_radius="100dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x25"
+        android:text="XXX，您的履职类积分"
+        android:textColor="@color/textColorDark"
+        android:textSize="@dimen/x15"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/warn_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x15"
+        android:text=""
+        android:textColor="@color/textColorDark"
+        android:textSize="@dimen/x15" />
+
+    <TextView
+        android:id="@+id/warn_head_remark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/x15"
+        android:text=""
+        android:textColor="@color/textColorDark"
+        android:textSize="@dimen/x15" />
+
+</LinearLayout>
