@@ -27,7 +27,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 
 public class BugReportActivity extends Activity implements ErrorKeys {

@@ -33,7 +33,7 @@ import android.preference.DialogPreference;
 import android.view.View;
 import android.widget.SeekBar;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 import org.geometerplus.zlibrary.core.options.ZLIntegerRangeOption;
 import org.geometerplus.zlibrary.core.resources.ZLResource;

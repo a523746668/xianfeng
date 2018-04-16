@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#F3F6F6"
     android:orientation="vertical"
-    tools:context=".wmcj.mvp.ui.WMCJActivity">
+    tools:context=".wmcj.mvp.ui.activity.WMCJActivity">
 
     <FrameLayout
         android:id="@+id/wmcj_fragmentLayout"
@@ -19,7 +19,7 @@
         android:layout_height="1dp"
         android:background="#E1E1E1"/>
 
-    <com.qingyii.hxt.base.widget.MyFragmentTabHost
+    <com.qingyii.hxtz.base.widget.MyFragmentTabHost
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:id="@android:id/tabhost"
@@ -33,5 +33,5 @@
             android:id="@android:id/tabcontent"
             />
 
-    </com.qingyii.hxt.base.widget.MyFragmentTabHost>
+    </com.qingyii.hxtz.base.widget.MyFragmentTabHost>
 </LinearLayout>

@@ -32,7 +32,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 import org.geometerplus.zlibrary.core.resources.ZLResource;
 

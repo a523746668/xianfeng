@@ -7,7 +7,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context="com.qingyii.hxt.GuanLiActivity">
+    tools:context="com.qingyii.hxtz.GuanLiActivity">
 
     <RelativeLayout
         android:id="@+id/activity_tltle"

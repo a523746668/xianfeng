@@ -5,15 +5,12 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.qingyii.hxt.R;
-import com.qingyii.hxt.base.adapter.BaseRecyclerAdapter;
-import com.qingyii.hxt.base.adapter.BaseRecyclerViewHolder;
-import com.qingyii.hxt.neiKanWebActivity;
-import com.qingyii.hxt.wmcj.mvp.ui.WorkParkDetailsActivity;
-import com.zhf.Sqlitehelper.Drafitbean;
+import com.qingyii.hxtz.R;
+import com.qingyii.hxtz.base.adapter.BaseRecyclerAdapter;
+import com.qingyii.hxtz.base.adapter.BaseRecyclerViewHolder;
+import com.qingyii.hxtz.neiKanWebActivity;
+import com.qingyii.hxtz.wmcj.mvp.ui.activity.WorkParkDetailsActivity;
 import com.zhf.bean.SCbean;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 

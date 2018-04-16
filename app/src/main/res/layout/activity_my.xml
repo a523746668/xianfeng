@@ -40,7 +40,7 @@
                      android:layout_centerInParent="true"
                      android:background="@mipmap/headportrait" />
 
-                 <com.qingyii.hxt.view.RoundedImageView
+                 <com.qingyii.hxtz.view.RoundedImageView
                      app:layout_auto_basewidth="height"
                      android:id="@+id/head_photo"
                      android:layout_width="202px"

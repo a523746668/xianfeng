@@ -1,19 +1,16 @@
 package com.zhf;
 
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 import com.zhf.adapter.ImgandVideoAdapter;
 import com.zhf.bean.SendTask;
 import com.zhf.zfragment.ImgandVideoFragment;
 
-import org.geometerplus.android.fbreader.api.FBReaderIntents;
 import org.simple.eventbus.EventBus;
 
 import java.util.ArrayList;

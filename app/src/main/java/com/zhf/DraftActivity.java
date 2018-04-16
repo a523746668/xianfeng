@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.qingyii.hxt.R;
-import com.qingyii.hxt.base.adapter.BaseRecyclerAdapter;
+import com.qingyii.hxtz.R;
+import com.qingyii.hxtz.base.adapter.BaseRecyclerAdapter;
 import com.zhf.Sqlitehelper.Drafitbean;
 import com.zhf.Sqlitehelper.DraftHelper;
 import com.zhf.Util.Global;

@@ -21,7 +21,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/x14" />
 
-        <com.qingyii.hxt.customview.MyGridView
+        <com.qingyii.hxtz.customview.MyGridView
             android:id="@+id/context_main_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

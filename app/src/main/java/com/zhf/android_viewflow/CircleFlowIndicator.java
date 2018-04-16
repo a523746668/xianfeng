@@ -12,7 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 /**
  * A FlowIndicator which draws circles (one for each view). 

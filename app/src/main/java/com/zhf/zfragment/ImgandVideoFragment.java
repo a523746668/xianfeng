@@ -10,9 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.MediaController;
-import android.widget.VideoView;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 import com.zhf.bean.SendTask;
 import com.zhf.wight.CustomerVideoView;
 

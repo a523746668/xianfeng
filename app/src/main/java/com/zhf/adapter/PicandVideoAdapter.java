@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,15 +12,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.qingyii.hxt.R;
-import com.qingyii.hxt.base.adapter.BaseRecyclerAdapter;
-import com.qingyii.hxt.base.adapter.BaseRecyclerViewHolder;
+import com.qingyii.hxtz.R;
+import com.qingyii.hxtz.base.adapter.BaseRecyclerAdapter;
+import com.qingyii.hxtz.base.adapter.BaseRecyclerViewHolder;
 import com.zhf.ImgandVideoActivity;
-import com.zhf.IssusetaskActivity;
-import com.zhf.Util.SelectVideoUtil;
 import com.zhf.bean.SendTask;
 
 import java.io.File;

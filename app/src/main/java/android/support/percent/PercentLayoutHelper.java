@@ -27,7 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

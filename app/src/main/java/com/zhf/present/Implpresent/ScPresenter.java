@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.qingyii.hxt.http.MyApplication;
-import com.qingyii.hxt.http.XrjHttpClient;
+import com.qingyii.hxtz.http.MyApplication;
+import com.qingyii.hxtz.http.XrjHttpClient;
 import com.zhf.bean.SCbean;
 import com.zhf.bean.SCtypebean;
 import com.zhf.http.Urlutil;

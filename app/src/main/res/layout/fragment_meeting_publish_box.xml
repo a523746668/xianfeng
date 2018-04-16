@@ -5,7 +5,7 @@
     android:background="#f0f0f0"
     android:orientation="vertical">
 
-    <com.qingyii.hxt.base.widget.AutoRadioGroup
+    <com.qingyii.hxtz.base.widget.AutoRadioGroup
         android:id="@+id/meeting_publish_radioGroup"
         android:layout_width="match_parent"
         android:layout_height="132px"
@@ -48,9 +48,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
-    </com.qingyii.hxt.base.widget.AutoRadioGroup>
+    </com.qingyii.hxtz.base.widget.AutoRadioGroup>
 
-    <com.qingyii.hxt.base.widget.NoScrollViewPager
+    <com.qingyii.hxtz.base.widget.NoScrollViewPager
         android:id="@+id/meeting_publish_viewPager"
         android:background="#F0F0F0"
         android:layout_width="match_parent"

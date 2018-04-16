@@ -29,7 +29,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.orhanobut.logger.Logger;
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 import org.geometerplus.android.fbreader.api.FBReaderIntents;
 import org.geometerplus.android.fbreader.bookmark.BookmarksActivity;

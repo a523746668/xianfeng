@@ -31,7 +31,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 import org.geometerplus.android.util.PackageUtil;
 import org.geometerplus.android.util.ViewUtil;

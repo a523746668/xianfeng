@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context="com.qingyii.hxt.UserContextActivity">
+    tools:context="com.qingyii.hxtz.UserContextActivity">
 
     <RelativeLayout
         android:id="@+id/activity_tltle"
@@ -69,7 +69,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/x14" />
 
-                <com.qingyii.hxt.circle.NonScrollGridView
+                <com.qingyii.hxtz.circle.NonScrollGridView
                     android:id="@+id/context_main_photo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

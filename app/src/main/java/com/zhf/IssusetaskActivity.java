@@ -33,10 +33,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bigkoo.pickerview.TimePickerView;
-import com.qingyii.hxt.R;
-import com.qingyii.hxt.http.MyApplication;
-import com.qingyii.hxt.meeting.mvp.ui.adapter.PhotoAdapter;
-import com.qingyii.hxt.meeting.mvp.ui.adapter.RecyclerItemClickListener;
+import com.qingyii.hxtz.R;
+import com.qingyii.hxtz.http.MyApplication;
+import com.qingyii.hxtz.meeting.mvp.ui.adapter.PhotoAdapter;
+import com.qingyii.hxtz.meeting.mvp.ui.adapter.RecyclerItemClickListener;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.Taskdetailbean;
 import com.zhf.Sqlitehelper.Drafitbean;
 import com.zhf.Util.Global;
 import com.zhf.Util.HintUtil;
@@ -44,11 +45,12 @@ import com.zhf.Util.SelectVideoUtil;
 import com.zhf.adapter.PicandVideoAdapter;
 import com.zhf.bean.SendTask;
 import com.zhf.bean.TaskTag;
-import com.zhf.bean.Taskdetailbean;
+
 import com.zhf.present.Implpresent.IssPresenter;
 import com.zhf.present.Implview.Isstaskview;
 import com.zhf.wight.FullyGridLayoutManager;
 import com.zhy.autolayout.AutoLinearLayout;
+import com.zhy.autolayout.AutoRelativeLayout;
 
 import org.simple.eventbus.EventBus;
 import org.simple.eventbus.Subscriber;
@@ -184,6 +186,9 @@ public class IssusetaskActivity extends AppCompatActivity implements Isstaskview
        boolean[] stag2;
     @BindView(R.id.taskfabu)
     Button fabu;
+
+    @BindView(R.id.djsc)
+    AutoRelativeLayout djsc;
      int select1=1;
     int select2=1;
     int select3=3;
@@ -520,7 +525,7 @@ public class IssusetaskActivity extends AppCompatActivity implements Isstaskview
             }
         });
 
-        sctp.setOnClickListener(this);
+        djsc.setOnClickListener(this);
     }
 
        //草稿箱处理上传图片和视频的数据
@@ -803,7 +808,7 @@ public class IssusetaskActivity extends AppCompatActivity implements Isstaskview
     @Override
     public void onClick(View v) {
           switch (v.getId()){
-              case R.id.sctp:
+              case R.id.djsc:
                   if(tasks.size()>=9){
                       Toasty.error(this,"文件上传数量最大为9",0).show();
                       return;

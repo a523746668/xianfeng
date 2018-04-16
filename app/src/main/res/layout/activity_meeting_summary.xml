@@ -159,7 +159,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="可否评论" />
 
-            <com.qingyii.hxt.base.widget.AutoRadioGroup
+            <com.qingyii.hxtz.base.widget.AutoRadioGroup
                 android:id="@+id/summary_rg1"
                 style="@style/addMeetingRadioGroupStyle">
 
@@ -180,7 +180,7 @@
                     style="@style/addMeetingRadioButtonStyle"
                     android:tag="2"
                     android:visibility="invisible" />
-            </com.qingyii.hxt.base.widget.AutoRadioGroup>
+            </com.qingyii.hxtz.base.widget.AutoRadioGroup>
         </LinearLayout>
 
         <LinearLayout style="@style/addMeetingRadioGroupLayoutStyle">
@@ -190,7 +190,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="是否审核" />
 
-            <com.qingyii.hxt.base.widget.AutoRadioGroup
+            <com.qingyii.hxtz.base.widget.AutoRadioGroup
                 android:id="@+id/summary_rg2"
                 style="@style/addMeetingRadioGroupStyle">
 
@@ -212,7 +212,7 @@
                     style="@style/addMeetingRadioButtonStyle"
                     android:tag="2"
                     android:text="最高上级审核" />
-            </com.qingyii.hxt.base.widget.AutoRadioGroup>
+            </com.qingyii.hxtz.base.widget.AutoRadioGroup>
         </LinearLayout>
 
         <LinearLayout style="@style/addMeetingRadioGroupLayoutStyle">
@@ -222,7 +222,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="可见范围" />
 
-            <com.qingyii.hxt.base.widget.AutoRadioGroup
+            <com.qingyii.hxtz.base.widget.AutoRadioGroup
                 android:id="@+id/summary_rg3"
                 style="@style/addMeetingRadioGroupStyle">
 
@@ -244,7 +244,7 @@
                     style="@style/addMeetingRadioButtonStyle"
                     android:tag="0"
                     android:text="所有人" />
-            </com.qingyii.hxt.base.widget.AutoRadioGroup>
+            </com.qingyii.hxtz.base.widget.AutoRadioGroup>
         </LinearLayout>
 
         <LinearLayout style="@style/addMeetingRadioGroupLayoutStyle">
@@ -254,7 +254,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="是否展示" />
 
-            <com.qingyii.hxt.base.widget.AutoRadioGroup
+            <com.qingyii.hxtz.base.widget.AutoRadioGroup
                 android:id="@+id/summary_rg4"
                 style="@style/addMeetingRadioGroupStyle">
 
@@ -275,7 +275,7 @@
                     style="@style/addMeetingRadioButtonStyle"
                     android:tag="2"
                     android:visibility="invisible" />
-            </com.qingyii.hxt.base.widget.AutoRadioGroup>
+            </com.qingyii.hxtz.base.widget.AutoRadioGroup>
         </LinearLayout>
 
         <LinearLayout

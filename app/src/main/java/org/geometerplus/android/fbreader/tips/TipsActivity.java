@@ -27,7 +27,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 import org.geometerplus.fbreader.Paths;
 import org.geometerplus.fbreader.tips.Tip;

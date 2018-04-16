@@ -24,7 +24,7 @@
                 android:layout_centerInParent="true"
                 android:background="@mipmap/guan_li_in_head" />
 
-            <com.qingyii.hxt.view.RoundedImageView
+            <com.qingyii.hxtz.view.RoundedImageView
                 android:id="@+id/guan_li_in_head_photo"
                 android:layout_width="@dimen/x80"
                 android:layout_height="@dimen/x80"

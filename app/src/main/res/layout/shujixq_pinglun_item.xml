@@ -6,7 +6,7 @@
     android:background="@color/white"
     android:padding="34px">
 
-    <com.qingyii.hxt.view.RoundedImageView
+    <com.qingyii.hxtz.view.RoundedImageView
         android:id="@+id/iv_shujixq_pl_imageUrl"
         android:layout_width="108px"
         android:layout_height="108px"
@@ -104,7 +104,7 @@
             android:textColor="@color/black"
             android:textSize="37px" />
 
-        <com.qingyii.hxt.customview.MyListView
+        <com.qingyii.hxtz.customview.MyListView
             android:id="@+id/list_shujixq_pl_mlistview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

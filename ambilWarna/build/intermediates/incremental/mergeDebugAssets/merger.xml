@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Android\WorkSpace\xianfeng\ambilWarna\src\main\assets"/><source path="C:\Android\WorkSpace\xianfeng\ambilWarna\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="C:\Android\WorkSpace\xianfeng\ambilWarna\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\android\workspace\xianfeng\ambilWarna\src\main\assets"/><source path="E:\android\workspace\xianfeng\ambilWarna\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="E:\android\workspace\xianfeng\ambilWarna\src\debug\assets"/></dataSet></merger>

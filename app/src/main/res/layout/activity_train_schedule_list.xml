@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.qingyii.hxt.training.details.schedule.mvp.ui.activity.TrainScheduleListActivity">
+    tools:context="com.qingyii.hxtz.training.details.schedule.mvp.ui.activity.TrainScheduleListActivity">
 
 </android.support.constraint.ConstraintLayout>

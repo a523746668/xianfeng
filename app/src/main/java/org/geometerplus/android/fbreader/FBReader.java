@@ -46,8 +46,8 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.qingyii.hxt.R;
-import com.qingyii.hxt.base.app.EventBusTags;
+import com.qingyii.hxtz.R;
+import com.qingyii.hxtz.base.app.EventBusTags;
 
 import org.geometerplus.android.fbreader.api.ApiListener;
 import org.geometerplus.android.fbreader.api.ApiServerImplementation;

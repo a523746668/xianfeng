@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.qingyii.hxt.TrainActivity">
+    tools:context="com.qingyii.hxtz.TrainActivity">
 
     <!-- TODO: Update blank fragment layout -->
     <include layout="@layout/activity_tltle"

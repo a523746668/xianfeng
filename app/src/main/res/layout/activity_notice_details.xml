@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/tuceng"
-    tools:context="com.qingyii.hxt.notice.mvp.ui.activity.NoticeDetailsActivity">
+    tools:context="com.qingyii.hxtz.notice.mvp.ui.activity.NoticeDetailsActivity">
 
     <include layout="@layout/include_toolbar" />
 

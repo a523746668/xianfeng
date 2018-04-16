@@ -8,8 +8,8 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
-import com.qingyii.hxt.http.MyApplication;
-import com.qingyii.hxt.http.XrjHttpClient;
+import com.qingyii.hxtz.http.MyApplication;
+import com.qingyii.hxtz.http.XrjHttpClient;
 import com.zhf.Util.HintUtil;
 import com.zhf.Sqlitehelper.Drafitbean;
 import com.zhf.Sqlitehelper.DraftHelper;

@@ -4,12 +4,10 @@ import android.content.Context;
 import android.util.Log;
 import android.view.View;
 
-import com.qingyii.hxt.R;
-import com.qingyii.hxt.base.adapter.BaseRecyclerAdapter;
-import com.qingyii.hxt.base.adapter.BaseRecyclerViewHolder;
+import com.qingyii.hxtz.R;
+import com.qingyii.hxtz.base.adapter.BaseRecyclerAdapter;
+import com.qingyii.hxtz.base.adapter.BaseRecyclerViewHolder;
 import com.zhf.Sqlitehelper.Drafitbean;
-
-import org.simple.eventbus.EventBus;
 
 import java.util.List;
 

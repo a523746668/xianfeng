@@ -10,13 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 import com.zhf.adapter.SCAdapter;
 import com.zhf.bean.SCbean;
 import com.zhf.bean.SCtypebean;
 import com.zhf.present.Implpresent.ScPresenter;
 import com.zhf.present.Implview.Scview;
-import com.zhf.wight.DefaultItem;
 import com.zhf.wight.Itemdecotion;
 
 import java.util.ArrayList;

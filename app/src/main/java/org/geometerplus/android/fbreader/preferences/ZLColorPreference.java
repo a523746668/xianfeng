@@ -21,7 +21,7 @@ package org.geometerplus.android.fbreader.preferences;
 
 import android.content.Context;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 import org.geometerplus.zlibrary.core.options.ZLColorOption;
 import org.geometerplus.zlibrary.core.resources.ZLResource;

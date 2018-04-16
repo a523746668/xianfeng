@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 import com.zhf.present.Implpresent.ExpericePresenter;
 
 import butterknife.BindView;

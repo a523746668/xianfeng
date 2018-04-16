@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.qingyii.hxt.notify.mvp.ui.activity.NotifyReturnActivity">
+    tools:context="com.qingyii.hxtz.notify.mvp.ui.activity.NotifyReturnActivity">
 
     <include
         android:id="@+id/activity_tltle"

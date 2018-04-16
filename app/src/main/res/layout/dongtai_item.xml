@@ -43,7 +43,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <com.qingyii.hxt.customview.MyGridView
+    <com.qingyii.hxtz.customview.MyGridView
         android:id="@+id/gv_dongtai_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
         android:cacheColorHint="#00000000"
         android:listSelector="@drawable/white"
         android:numColumns="3" >
-    </com.qingyii.hxt.customview.MyGridView>
+    </com.qingyii.hxtz.customview.MyGridView>
 
     <TextView
         android:layout_width="wrap_content"

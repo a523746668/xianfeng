@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.qingyii.hxt.TrainDetailsActivity">
+    tools:context="com.qingyii.hxtz.TrainDetailsActivity">
 
     <include
         android:id="@+id/activity_tltle"

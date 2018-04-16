@@ -42,7 +42,7 @@ import com.blahti.drag.DragLayer;
 import com.blahti.drag.DragListener;
 import com.blahti.drag.DragSource;
 import com.blahti.drag.MyAbsoluteLayout;
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 import net.londatiga.android.ActionItem;
 import net.londatiga.android.QuickAction;

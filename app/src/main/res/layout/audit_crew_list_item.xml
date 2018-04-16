@@ -39,7 +39,7 @@
             android:layout_width="@dimen/x180"
             android:layout_height="wrap_content">
 
-            <com.qingyii.hxt.customview.MyGridView
+            <com.qingyii.hxtz.customview.MyGridView
                 android:id="@+id/audit_crew_GridView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

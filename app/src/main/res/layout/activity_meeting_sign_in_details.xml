@@ -218,7 +218,7 @@
                 android:textSize="35px" />
         </LinearLayout>
 
-        <com.qingyii.hxt.base.widget.AutoLoadMoreRecyclerView
+        <com.qingyii.hxtz.base.widget.AutoLoadMoreRecyclerView
             android:id="@+id/sign_in_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

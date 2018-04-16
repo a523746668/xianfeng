@@ -88,7 +88,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/x14" />
 
-        <com.qingyii.hxt.circle.NonScrollGridView
+        <com.qingyii.hxtz.circle.NonScrollGridView
             android:id="@+id/circle_main_photo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -148,7 +148,7 @@
             android:layout_alignLeft="@+id/circle_main_content"
             android:layout_below="@+id/circle_main_comment" />
 
-        <com.qingyii.hxt.customview.MyListView
+        <com.qingyii.hxtz.customview.MyListView
             android:id="@+id/circle_main_comment_listview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,10 +1,10 @@
 [
     {
-        "merged": "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ambilwarna_dialog.xml",
-        "source": "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna\\build\\intermediates\\bundles\\debug\\res\\layout\\ambilwarna_dialog.xml"
+        "merged": "E:\\android\\workspace\\xianfeng\\ambilWarna\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ambilwarna_pref_widget.xml",
+        "source": "E:\\android\\workspace\\xianfeng\\ambilWarna\\build\\intermediates\\bundles\\debug\\res\\layout\\ambilwarna_pref_widget.xml"
     },
     {
-        "merged": "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ambilwarna_pref_widget.xml",
-        "source": "C:\\Android\\WorkSpace\\xianfeng\\ambilWarna\\build\\intermediates\\bundles\\debug\\res\\layout\\ambilwarna_pref_widget.xml"
+        "merged": "E:\\android\\workspace\\xianfeng\\ambilWarna\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ambilwarna_dialog.xml",
+        "source": "E:\\android\\workspace\\xianfeng\\ambilWarna\\build\\intermediates\\bundles\\debug\\res\\layout\\ambilwarna_dialog.xml"
     }
 ]

@@ -11,7 +11,7 @@
         android:background="#f0f0f0"
         android:scaleType="centerCrop" />
 
-    <com.qingyii.hxt.view.RoundedImageView
+    <com.qingyii.hxtz.view.RoundedImageView
         android:id="@+id/circle_personal_head_photo"
         android:layout_centerHorizontal="true"
         android:scaleType="fitXY"

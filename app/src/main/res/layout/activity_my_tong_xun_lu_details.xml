@@ -8,7 +8,7 @@
     android:background="@color/backgroundColor"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="com.qingyii.hxt.MyTongXunLuDetailsActivity">
+    tools:context="com.qingyii.hxtz.MyTongXunLuDetailsActivity">
 
     <include layout="@layout/activity_tltle" />
 
@@ -37,7 +37,7 @@
                     android:layout_marginBottom="@dimen/x10"
                     android:layout_marginTop="@dimen/x15">
 
-                    <com.qingyii.hxt.view.RoundedImageView
+                    <com.qingyii.hxtz.view.RoundedImageView
                         android:id="@+id/txl_details_header"
                         android:layout_width="@dimen/x75"
                         android:layout_height="@dimen/x75"

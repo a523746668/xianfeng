@@ -18,7 +18,7 @@
             android:layout_centerInParent="true"
             android:background="@mipmap/circle_header" />
 
-        <com.qingyii.hxt.view.RoundedImageView
+        <com.qingyii.hxtz.view.RoundedImageView
             android:id="@+id/circle_dm_head_photo"
             android:layout_width="@dimen/x70"
             android:layout_height="@dimen/x70"

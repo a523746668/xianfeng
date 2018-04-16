@@ -4,11 +4,11 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
     android:orientation="vertical"
-    tools:context="com.qingyii.hxt.fragment.TXLCompanyFragment">
+    tools:context="com.qingyii.hxtz.fragment.TXLCompanyFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <com.qingyii.hxt.view.PinnedHeaderExpandableListView
+    <com.qingyii.hxtz.view.PinnedHeaderExpandableListView
         android:id="@+id/mPinnedHeaderExpandableListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

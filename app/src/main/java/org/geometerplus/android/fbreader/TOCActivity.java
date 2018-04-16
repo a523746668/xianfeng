@@ -30,7 +30,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 import org.geometerplus.android.util.OrientationUtil;
 import org.geometerplus.android.util.ViewUtil;

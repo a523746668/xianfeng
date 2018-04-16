@@ -4,7 +4,7 @@
     android:id="@+id/activity_audit_context"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.qingyii.hxt.AuditContextActivity">
+    tools:context="com.qingyii.hxtz.AuditContextActivity">
 
     <include
         android:id="@+id/activity_tltle"

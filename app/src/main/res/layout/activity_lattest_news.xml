@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.qingyii.hxt.home.mvp.ui.LattestNewsActivity">
+    tools:context="com.qingyii.hxtz.home.mvp.ui.LattestNewsActivity">
 
    <include layout="@layout/include_toolbar" />
 
-   <com.qingyii.hxt.base.widget.AutoLoadMoreRecyclerView
+   <com.qingyii.hxtz.base.widget.AutoLoadMoreRecyclerView
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:id="@+id/new_recyc"
        tools:listitem="@layout/lattestrecyc"
-       ></com.qingyii.hxt.base.widget.AutoLoadMoreRecyclerView>
+       ></com.qingyii.hxtz.base.widget.AutoLoadMoreRecyclerView>
 
 </com.zhy.autolayout.AutoLinearLayout>

@@ -28,7 +28,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 import org.geometerplus.fbreader.fbreader.WallpapersUtil;
 import org.geometerplus.zlibrary.core.filesystem.ZLFile;

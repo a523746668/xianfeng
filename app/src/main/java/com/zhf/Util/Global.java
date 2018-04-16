@@ -1,7 +1,12 @@
 package com.zhf.Util;
 
-import com.zhf.bean.Taskdetailbean;
-import com.zhf.bean.WorkParkbean;
+import com.qingyii.hxtz.home.mvp.model.entity.HomeInfo;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.Taskdetailbean;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.WorkParkbean;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 /**
  * Created by zhf on 2017/9/27.
@@ -32,4 +37,8 @@ public class Global {
 
     public static String phone="";
 
+    //是否在登录状态
+    public static boolean flag=false;
+
+    public static ArrayList<HomeInfo.AccountBean.ModulesBean> list=new ArrayList<>();
 }

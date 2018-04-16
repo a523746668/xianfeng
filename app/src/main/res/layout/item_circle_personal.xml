@@ -15,7 +15,7 @@
         android:textColor="@color/black"
         android:textStyle="bold" />
 
-    <com.qingyii.hxt.circle.NonScrollGridView
+    <com.qingyii.hxtz.circle.NonScrollGridView
         android:id="@+id/item_circle_personal_photo"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/item_circle_personal_time"
@@ -25,7 +25,7 @@
         android:horizontalSpacing="5px"
         android:numColumns="2"
         android:verticalSpacing="5px" >
-    </com.qingyii.hxt.circle.NonScrollGridView>
+    </com.qingyii.hxtz.circle.NonScrollGridView>
 
     <TextView
         android:id="@+id/item_circle_personal_text"

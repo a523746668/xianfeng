@@ -6,11 +6,7 @@ import android.hardware.Camera;
 import android.media.CamcorderProfile;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
-import android.os.Build;
 import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,18 +16,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.qingyii.hxt.Manifest;
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 import org.simple.eventbus.EventBus;
 
-import java.io.File;
 import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import es.dmoral.toasty.Toasty;
 
 
 //录制视频

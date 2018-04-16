@@ -12,7 +12,7 @@
         android:background="@color/red"
         android:gravity="center_vertical"
         android:padding="5dip"
-        android:text="先锋平台"
+        android:text="湘直宣传"
         android:textColor="@color/white"
         android:textSize="20sp" />
 

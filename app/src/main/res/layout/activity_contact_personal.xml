@@ -47,7 +47,7 @@
         android:background="#f0f0f0"
         android:scaleType="centerCrop" />
 
-    <com.qingyii.hxt.view.RoundedImageView
+    <com.qingyii.hxtz.view.RoundedImageView
         android:id="@+id/contact_personal_photo"
         android:layout_alignTop="@+id/contact_personal_bg"
         android:layout_centerHorizontal="true"

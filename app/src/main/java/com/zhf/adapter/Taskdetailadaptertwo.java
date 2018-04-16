@@ -1,9 +1,9 @@
 package com.zhf.adapter;
 
 
-import com.qingyii.hxt.R;
-import com.qingyii.hxt.base.adapter.BaseRecyclerAdapter;
-import com.qingyii.hxt.base.adapter.BaseRecyclerViewHolder;
+import com.qingyii.hxtz.R;
+import com.qingyii.hxtz.base.adapter.BaseRecyclerAdapter;
+import com.qingyii.hxtz.base.adapter.BaseRecyclerViewHolder;
 
 import java.util.List;
 

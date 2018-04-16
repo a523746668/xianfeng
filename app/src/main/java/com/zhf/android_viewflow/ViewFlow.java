@@ -19,7 +19,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Scroller;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

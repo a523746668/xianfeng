@@ -7,7 +7,7 @@
 
     <include layout="@layout/include_toolbar" />
 
-    <com.qingyii.hxt.base.widget.NoScrollViewPager
+    <com.qingyii.hxtz.base.widget.NoScrollViewPager
         android:id="@+id/meeting_viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -19,7 +19,7 @@
         android:layout_height="2px"
         android:background="#bdbdbd" />
 
-    <com.qingyii.hxt.base.widget.AutoRadioGroup
+    <com.qingyii.hxtz.base.widget.AutoRadioGroup
         android:id="@+id/meeting_radioGroup"
         android:layout_width="match_parent"
         android:layout_height="144px"
@@ -70,5 +70,5 @@
             android:text="我的发布箱"
             android:textColor="@color/train_radiobutton_selector"
             android:textSize="52px" />
-    </com.qingyii.hxt.base.widget.AutoRadioGroup>
+    </com.qingyii.hxtz.base.widget.AutoRadioGroup>
 </com.zhy.autolayout.AutoLinearLayout>

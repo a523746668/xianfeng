@@ -117,7 +117,7 @@
                 app:layout_marginTopPercent="1%w"
                 app:layout_textSizePercent="4%w" />
 
-            <com.qingyii.hxt.circle.NonScrollGridView
+            <com.qingyii.hxtz.circle.NonScrollGridView
                 android:id="@+id/circle_report_photo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -128,7 +128,7 @@
                 android:horizontalSpacing="5px"
                 android:listSelector="#ffffffff"
                 android:numColumns="3"
-                android:verticalSpacing="5px"></com.qingyii.hxt.circle.NonScrollGridView>
+                android:verticalSpacing="5px"></com.qingyii.hxtz.circle.NonScrollGridView>
 
             <TextView
                 android:id="@+id/circle_report_time"

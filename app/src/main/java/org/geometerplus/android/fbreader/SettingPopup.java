@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 import org.geometerplus.android.fbreader.preferences.PreferenceActivity;
 import org.geometerplus.android.util.OrientationUtil;

@@ -90,7 +90,7 @@
             android:textColor="@color/black"
             android:textSize="14sp" />
         
-        <com.qingyii.hxt.customview.MyListView
+        <com.qingyii.hxtz.customview.MyListView
             android:id="@+id/mlistview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="5dp" >
-        </com.qingyii.hxt.customview.MyListView>        
+        </com.qingyii.hxtz.customview.MyListView>
         
         <RelativeLayout
             android:layout_width="fill_parent"

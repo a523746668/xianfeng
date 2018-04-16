@@ -60,7 +60,7 @@
             android:layout_marginTop="10dp"
             android:background="@mipmap/log_add" />
 
-        <com.qingyii.hxt.view.HorizontalListView
+        <com.qingyii.hxtz.view.HorizontalListView
             android:id="@+id/add_rizhi_image_HorizontalListView"
             android:layout_width="fill_parent"
 
@@ -68,7 +68,7 @@
             android:layout_marginTop="20dp"
 
 
-            ></com.qingyii.hxt.view.HorizontalListView>
+            ></com.qingyii.hxtz.view.HorizontalListView>
     </LinearLayout>
 
 </LinearLayout>

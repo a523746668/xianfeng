@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.qingyii.hxt.ReportListActivity">
+    tools:context="com.qingyii.hxtz.ReportListActivity">
 
     <include
         android:id="@+id/activity_tltle"

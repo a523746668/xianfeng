@@ -4,7 +4,7 @@
     android:id="@+id/activity_report_context"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.qingyii.hxt.ReportContextActivity">
+    tools:context="com.qingyii.hxtz.ReportContextActivity">
 
     <include
         android:id="@+id/activity_tltle"

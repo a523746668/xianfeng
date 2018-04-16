@@ -5,7 +5,7 @@
     android:background="#ffffff"
     android:orientation="vertical">
 
-    <com.qingyii.hxt.circle.ExtendedViewPager
+    <com.qingyii.hxtz.circle.ExtendedViewPager
         android:id="@+id/bigphoto_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

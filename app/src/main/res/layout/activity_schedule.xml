@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context="com.qingyii.hxt.ScheduleActivity">
+    tools:context="com.qingyii.hxtz.ScheduleActivity">
 
     <!-- TODO: Update blank fragment layout -->
     <include

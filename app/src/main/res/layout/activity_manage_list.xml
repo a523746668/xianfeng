@@ -4,7 +4,7 @@
     android:id="@+id/activity_manage_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.qingyii.hxt.ManageListActivity">
+    tools:context="com.qingyii.hxtz.ManageListActivity">
 
     <RelativeLayout
         android:id="@+id/activity_tltle"

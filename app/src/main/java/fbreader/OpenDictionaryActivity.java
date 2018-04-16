@@ -36,7 +36,7 @@ import android.widget.TextView;
 import com.paragon.open.dictionary.api.Dictionary;
 import com.paragon.open.dictionary.api.TranslateFormat;
 import com.paragon.open.dictionary.api.TranslateMode;
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 import org.geometerplus.zlibrary.core.util.MiscUtil;
 

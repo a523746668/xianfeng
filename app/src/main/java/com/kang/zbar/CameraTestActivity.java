@@ -22,7 +22,7 @@ import android.os.Vibrator;
 import android.widget.FrameLayout;
 
 import com.andbase.library.app.base.AbBaseActivity;
-import com.qingyii.hxt.R;
+import com.qingyii.hxtz.R;
 
 import net.sourceforge.zbar.Config;
 import net.sourceforge.zbar.Image;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.qingyii.hxt"
+    package="com.qingyii.hxtz"
     android:installLocation="auto"> <!-- android:installLocation="preferExternal" -->
     <uses-sdk
         android:minSdkVersion="15"
@@ -58,7 +58,7 @@
 
     <!-- 极光开始 -->
     <permission
-        android:name="com.qingyii.hxt.permission.JPUSH_MESSAGE"
+        android:name="com.qingyii.hxtz.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
     <!-- Required  一些系统要求的权限，如访问网络等 -->
     <uses-permission android:name="com.qingyii.hxt.permission.JPUSH_MESSAGE" />
@@ -98,7 +98,7 @@
         android:name=".http.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/xzlogo"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
@@ -106,7 +106,7 @@
         android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.qingyii.hxt.fileprovider"
+            android:authorities="com.qingyii.hxtz.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true"
             tools:replace="name,authorities,exported,grantUriPermissions">
@@ -258,7 +258,7 @@
 
         <!-- Umeng 自动更新结束 -->
         <!-- <activity -->
-        <!-- android:name=".HomeActivity" -->
+        <!-- android:name=".MoreActivity" -->
         <!-- android:label="@string/app_name" -->
         <!-- android:screenOrientation="portrait"> -->
 
@@ -731,7 +731,7 @@
             android:name=".jpush.TrainDetailsJPush"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".home.mvp.ui.HomeActivity"
+            android:name=".home.mvp.ui.MoreActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
@@ -882,7 +882,7 @@
         </service>
 
         <!-- <activity -->
-        <!-- android:name="org.geometerplus.zlibrary.ui.android.HomeActivity" -->
+        <!-- android:name="org.geometerplus.zlibrary.ui.android.MoreActivity" -->
         <!-- android:theme="@style/AppTheme.NoActionBar"> -->
         <!-- <intent-filter> -->
         <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -1113,7 +1113,7 @@
         <!-- Required SDK核心功能 -->
         <!-- arms配置 -->
         <meta-data
-            android:name="com.qingyii.hxt.base.app.GlobalConfiguration"
+            android:name="com.qingyii.hxtz.base.app.GlobalConfiguration"
             android:value="ConfigModule" />
         <!-- glide配置 -->
         <meta-data
@@ -1123,22 +1123,10 @@
         <activity android:name=".training.details.schedule.mvp.ui.activity.TrainScheduleListActivity" />
         <activity android:name=".training.details.schedule.mvp.ui.activity.TrainNoticeActivity" />
         <activity android:name=".training.details.schedule.mvp.ui.activity.TrainNoticeDetailsActivity" />
-        <activity android:name=".wmcj.mvp.ui.WMCJActivity" />
-        <activity android:name=".wmcj.mvp.ui.WorkParkDetailsActivity" />
+        <activity android:name=".wmcj.mvp.ui.activity.WMCJActivity" />
+        <activity android:name=".wmcj.mvp.ui.activity.WorkParkDetailsActivity" />
         <activity
-            android:name=".wmcj.mvp.ui.WorkParkCategoryActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.zhf.TaskindexoneActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.zhf.TaskdetailActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.zhf.ResultpostionActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.zhf.WorkParkDetailActivity"
+            android:name=".wmcj.mvp.ui.activity.WorkParkCategoryActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.zhf.IssusetaskActivity"
@@ -1152,9 +1140,12 @@
         <activity
             android:name="com.zhf.RecodingActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.zhf.ReportingMainActivity" />
         <activity android:name="com.zhf.MyshoucangActivity" />
-        <activity android:name="com.zhf.PDFreadActivity"></activity>
+        <activity android:name="com.zhf.PDFreadActivity" />
+        <activity android:name=".wmcj.mvp.ui.activity.TaskDetailActivity" />
+        <activity android:name=".wmcj.mvp.ui.activity.ResultPostionActivity" />
+        <activity android:name=".wmcj.mvp.ui.activity.ReportingActivity" />
+        <activity android:name=".home.mvp.ui.HomeNewActivity"></activity>
     </application>
 
 </manifest>
