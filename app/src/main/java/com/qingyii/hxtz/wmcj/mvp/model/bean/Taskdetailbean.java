@@ -5,11 +5,10 @@ import java.util.List;
 
 public class Taskdetailbean {
 
-
     /**
      * error_msg : success
      * error_code : 0
-     * data : {"task":{"id":38,"task_type":"","created_at":"2017-10-06 15:18:19","updated_at":"2017-10-06 15:18:19","begin_at":"2017-01-01 00:00:00","data":"会议记录（纪要）照片、会议现场照片","status":1,"create_admin_id":1111,"create_industry_id":16,"score":"4.00","year":null,"unit":"year","times":1,"num":1,"cycle":"quarter","target":"党组（党委）年初专题研究文明创建工作。4 分","ind_lib_sys_id":29,"sort":1,"end_at":"2017-03-31 23:55:00","system_id":17,"industryName":"省直工委宣传部"},"indlibsyies":[{"id":23,"level":0,"levelChines":"一级","score":20,"title":"营造浓厚氛围夯实基础工作"},{"id":29,"level":1,"levelChines":"二级","score":8,"title":"创建氛围1"}]}
+     * data : {"task":{"id":40,"task_type":"","created_at":"2018-01-29 10:20:04","updated_at":"2018-01-29 10:20:04","begin_at":"2018-01-01 00:00:00","data":"相关图文报道","status":1,"create_admin_id":1113,"create_industry_id":6,"score":"4.0","year":null,"unit":"year","times":1,"num":1,"cycle":"year","target":"工青妇、关工委等群团组织大力开展活动，营造文明创建浓厚氛围。4分","ind_lib_sys_id":164,"sort":2,"end_at":"2018-12-31 23:55:00","system_id":15,"is_input":1,"industry_admin":120,"industryName":"省直机关工委","accountName":"湖南气象灾害防御技术中心（原防雷中心）"},"indlibsyies":[{"id":158,"level":0,"levelChines":"一级","score":20,"title":"营造浓厚氛围夯实工作基础"},{"id":164,"level":1,"levelChines":"二级","score":8,"title":"创建氛围"}],"industryParent":[{"ID":"143","name":"省直机关工委"}]}
      */
 
     private String error_msg;
@@ -42,12 +41,14 @@ public class Taskdetailbean {
 
     public static class DataBean {
         /**
-         * task : {"id":38,"task_type":"","created_at":"2017-10-06 15:18:19","updated_at":"2017-10-06 15:18:19","begin_at":"2017-01-01 00:00:00","data":"会议记录（纪要）照片、会议现场照片","status":1,"create_admin_id":1111,"create_industry_id":16,"score":"4.00","year":null,"unit":"year","times":1,"num":1,"cycle":"quarter","target":"党组（党委）年初专题研究文明创建工作。4 分","ind_lib_sys_id":29,"sort":1,"end_at":"2017-03-31 23:55:00","system_id":17,"industryName":"省直工委宣传部"}
-         * indlibsyies : [{"id":23,"level":0,"levelChines":"一级","score":20,"title":"营造浓厚氛围夯实基础工作"},{"id":29,"level":1,"levelChines":"二级","score":8,"title":"创建氛围1"}]
+         * task : {"id":40,"task_type":"","created_at":"2018-01-29 10:20:04","updated_at":"2018-01-29 10:20:04","begin_at":"2018-01-01 00:00:00","data":"相关图文报道","status":1,"create_admin_id":1113,"create_industry_id":6,"score":"4.0","year":null,"unit":"year","times":1,"num":1,"cycle":"year","target":"工青妇、关工委等群团组织大力开展活动，营造文明创建浓厚氛围。4分","ind_lib_sys_id":164,"sort":2,"end_at":"2018-12-31 23:55:00","system_id":15,"is_input":1,"industry_admin":120,"industryName":"省直机关工委","accountName":"湖南气象灾害防御技术中心（原防雷中心）"}
+         * indlibsyies : [{"id":158,"level":0,"levelChines":"一级","score":20,"title":"营造浓厚氛围夯实工作基础"},{"id":164,"level":1,"levelChines":"二级","score":8,"title":"创建氛围"}]
+         * industryParent : [{"ID":"143","name":"省直机关工委"}]
          */
 
         private TaskBean task;
         private List<IndlibsyiesBean> indlibsyies;
+        private List<IndustryParentBean> industryParent;
 
         public TaskBean getTask() {
             return task;
@@ -65,42 +66,42 @@ public class Taskdetailbean {
             this.indlibsyies = indlibsyies;
         }
 
+        public List<IndustryParentBean> getIndustryParent() {
+            return industryParent;
+        }
+
+        public void setIndustryParent(List<IndustryParentBean> industryParent) {
+            this.industryParent = industryParent;
+        }
+
         public static class TaskBean {
             /**
-             * id : 38
+             * id : 40
              * task_type :
-             * created_at : 2017-10-06 15:18:19
-             * updated_at : 2017-10-06 15:18:19
-             * begin_at : 2017-01-01 00:00:00
-             * data : 会议记录（纪要）照片、会议现场照片
+             * created_at : 2018-01-29 10:20:04
+             * updated_at : 2018-01-29 10:20:04
+             * begin_at : 2018-01-01 00:00:00
+             * data : 相关图文报道
              * status : 1
-             * create_admin_id : 1111
-             * create_industry_id : 16
-             * score : 4.00
+             * create_admin_id : 1113
+             * create_industry_id : 6
+             * score : 4.0
              * year : null
              * unit : year
              * times : 1
              * num : 1
-             * cycle : quarter
-             * target : 党组（党委）年初专题研究文明创建工作。4 分
-             * ind_lib_sys_id : 29
-             * sort : 1
-             * end_at : 2017-03-31 23:55:00
-             * system_id : 17
-             * industryName : 省直工委宣传部
+             * cycle : year
+             * target : 工青妇、关工委等群团组织大力开展活动，营造文明创建浓厚氛围。4分
+             * ind_lib_sys_id : 164
+             * sort : 2
+             * end_at : 2018-12-31 23:55:00
+             * system_id : 15
+             * is_input : 1
+             * industry_admin : 120
+             * industryName : 省直机关工委
+             * accountName : 湖南气象灾害防御技术中心（原防雷中心）
              */
-            private int industry_admin;
 
-            public int getIndustry_admin() {
-                return industry_admin;
-            }
-
-            public void setIndustry_admin(int industry_admin) {
-                this.industry_admin = industry_admin;
-            }
-
-
-            private  int is_input;
             private int id;
             private String task_type;
             private String created_at;
@@ -114,24 +115,17 @@ public class Taskdetailbean {
             private Object year;
             private String unit;
             private int times;
-            private int num;  //任务次数
+            private int num;
             private String cycle;
             private String target;
             private int ind_lib_sys_id;
             private int sort;
             private String end_at;
             private int system_id;
-            private String industryName;//执行组织
-
-            public String getAccountName() {
-                return accountName;
-            }
-
-            public void setAccountName(String accountName) {
-                this.accountName = accountName;
-            }
-
-            private String  accountName;
+            private int is_input;
+            private int industry_admin;
+            private String industryName;
+            private String accountName;
 
             public int getId() {
                 return id;
@@ -195,15 +189,6 @@ public class Taskdetailbean {
 
             public void setCreate_admin_id(int create_admin_id) {
                 this.create_admin_id = create_admin_id;
-            }
-
-
-            public int getIs_input() {
-                return is_input;
-            }
-
-            public void setIs_input(int is_input) {
-                this.is_input = is_input;
             }
 
             public int getCreate_industry_id() {
@@ -302,6 +287,22 @@ public class Taskdetailbean {
                 this.system_id = system_id;
             }
 
+            public int getIs_input() {
+                return is_input;
+            }
+
+            public void setIs_input(int is_input) {
+                this.is_input = is_input;
+            }
+
+            public int getIndustry_admin() {
+                return industry_admin;
+            }
+
+            public void setIndustry_admin(int industry_admin) {
+                this.industry_admin = industry_admin;
+            }
+
             public String getIndustryName() {
                 return industryName;
             }
@@ -309,15 +310,23 @@ public class Taskdetailbean {
             public void setIndustryName(String industryName) {
                 this.industryName = industryName;
             }
+
+            public String getAccountName() {
+                return accountName;
+            }
+
+            public void setAccountName(String accountName) {
+                this.accountName = accountName;
+            }
         }
 
         public static class IndlibsyiesBean {
             /**
-             * id : 23
+             * id : 158
              * level : 0
              * levelChines : 一级
              * score : 20
-             * title : 营造浓厚氛围夯实基础工作
+             * title : 营造浓厚氛围夯实工作基础
              */
 
             private int id;
@@ -364,6 +373,32 @@ public class Taskdetailbean {
 
             public void setTitle(String title) {
                 this.title = title;
+            }
+        }
+
+        public static class  IndustryParentBean {
+            /**
+             * ID : 143
+             * name : 省直机关工委
+             */
+
+            private String ID;
+            private String name;
+
+            public String getID() {
+                return ID;
+            }
+
+            public void setID(String ID) {
+                this.ID = ID;
+            }
+
+            public String getName() {
+                return name;
+            }
+
+            public void setName(String name) {
+                this.name = name;
             }
         }
     }

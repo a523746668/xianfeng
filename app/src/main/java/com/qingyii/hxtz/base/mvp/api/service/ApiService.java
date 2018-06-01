@@ -54,7 +54,7 @@ public interface ApiService {
     @POST("/notify/{id}/sign")
     Observable<CommonData<String>> getSignMark(@Path("id") int id, @Field("rejectreturn") String message);
 
-    @GET("/meeting")
+    @GET("/hy")
     Observable<MeetingList> getMeetingLists(@Query("id") int lastId, @Query("direction") String direction);
 
     @Streaming
@@ -75,7 +75,7 @@ public interface ApiService {
     Observable<HomeInfo> getHomeInfo();
 
     @FormUrlEncoded
-    @POST("/meeting/{id}/confirm")
+    @POST("/hy/{id}/confirm")
     Observable<CommonData<String>> getFeedback(@Path("id") int id, @Field("status") String status, @Field("rejectresult") String rejectresult);
 
     @FormUrlEncoded

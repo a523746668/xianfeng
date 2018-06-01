@@ -74,6 +74,15 @@ public class TrainList implements Parcelable {
         private int noticebegintime;
         private int frequency;
         private int exam_id;
+        private int isend;
+
+        public int getIsend() {
+            return isend;
+        }
+
+        public void setIsend(int  isend) {
+            this.isend = isend;
+        }
 
         public int getId() {
             return id;
@@ -199,6 +208,8 @@ public class TrainList implements Parcelable {
             dest.writeInt(this.noticebegintime);
             dest.writeInt(this.frequency);
             dest.writeInt(this.exam_id);
+            dest.writeInt(this.isend);
+
         }
 
         public DataBean() {
@@ -218,6 +229,7 @@ public class TrainList implements Parcelable {
             this.noticebegintime = in.readInt();
             this.frequency = in.readInt();
             this.exam_id = in.readInt();
+            this.isend=in.readInt();
         }
 
         public static final Creator<DataBean> CREATOR = new Creator<DataBean>() {

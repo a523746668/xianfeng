@@ -20,8 +20,8 @@ import com.qingyii.hxtz.wmcj.mvp.presenter.TaskDetailPresenter;
 
 
 import com.qingyii.hxtz.wmcj.mvp.ui.adapter.Taskdetailadapter;
-import com.zhf.Util.HintUtil;
-import com.zhf.wight.Itemdecotion;
+import com.qingyii.hxtz.zhf.Util.HintUtil;
+import com.qingyii.hxtz.zhf.wight.Itemdecotion;
 import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.AutoRelativeLayout;
 
@@ -157,7 +157,6 @@ public class TaskDetailActivity extends BaseActivity<TaskDetailPresenter> implem
                 list3.get(postion).setText(taskdetailbean.getData().getIndlibsyies().get(i).getTitle());
                 list4.get(postion).setText(taskdetailbean.getData().getIndlibsyies().get(i).getScore()
                         +"("+taskdetailbean.getData().getIndlibsyies().get(i).getLevelChines()+")");
-
             }
         }
 
@@ -166,32 +165,18 @@ public class TaskDetailActivity extends BaseActivity<TaskDetailPresenter> implem
                 break;
             case 1:
                 huaxian.setPadding(0,0,0,0);
-                //    list3.get(0).setPadding(0,30,0,30);
                 break;
             case 2:
-              /* list3.get(0).setPadding(0,30,0,15);
-               list3.get(1).setPadding(0,15,0,30);
-               TextView line2= (TextView) findViewById(R.id.taskline2);
-*/
+
                 huaxian.setPadding(0,0,0,15);
 
                 break;
             case 3:
-              /* list3.get(0).setPadding(0,30,0,30);
-               list3.get(1).setPadding(0,0,0,0);
-               list3.get(2).setPadding(0,30,0,30);
-*/
+
                 huaxian.setPadding(0,0,0,0);
                 break;
             case 4:
-             /*  list3.get(0).setPadding(0,30,0,30);
-               list3.get(1).setPadding(0,0,0,0);
-               list3.get(2).setPadding(0,30,0,30);
-               list3.get(3).setPadding(0,0,0,30);
-               list4.get(3).setPadding(0,0,0,30);
-               TextView line4= (TextView) findViewById(R.id.taskline4);
-               line4.setPadding(0,0,0,30);
-*/
+
                 huaxian.setPadding(0,0,0,15);
                 break;
         }

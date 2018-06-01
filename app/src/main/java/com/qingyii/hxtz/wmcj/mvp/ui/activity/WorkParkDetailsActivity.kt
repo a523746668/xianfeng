@@ -20,8 +20,8 @@ import com.qingyii.hxtz.R
 import com.qingyii.hxtz.base.app.bindView
 import com.qingyii.hxtz.http.MyApplication
 import com.qingyii.hxtz.http.XrjHttpClient
-import com.zhf.Util.Global
-import com.zhf.http.Urlutil
+import com.qingyii.hxtz.zhf.Util.Global
+import com.qingyii.hxtz.zhf.http.Urlutil
 import im.delight.android.webview.AdvancedWebView
 
 
@@ -93,7 +93,7 @@ class WorkParkDetailsActivity : BaseActivity<BasePresenter<IModel,IView>>() {
     override fun setupActivityComponent(appComponent: AppComponent?) {
 
         var param :Int?=  intent.getIntExtra("actid",0);
-        webUrl = Urlutil.baseurl+"/task/"+Global.userid+"/dynamicDetail?token="+MyApplication.hxt_setting_config.getString("token","")+
+        webUrl = Urlutil.baseurls+"/task/"+Global.userid+"/dynamicDetail?token="+MyApplication.hxt_setting_config.getString("token","")+
                 "&actid="+param;
         Log.i("tmd",webUrl);
 

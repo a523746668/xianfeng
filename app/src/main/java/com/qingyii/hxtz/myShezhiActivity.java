@@ -27,6 +27,7 @@ import com.jess.arms.integration.AppManager;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.qingyii.hxtz.database.BookDB;
+import com.qingyii.hxtz.home.mvp.ui.HomeNewActivity;
 import com.qingyii.hxtz.http.CacheUtil;
 import com.qingyii.hxtz.http.HttpUrlConfig;
 import com.qingyii.hxtz.http.MyApplication;
@@ -47,6 +48,7 @@ import org.simple.eventbus.EventBus;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 
+import butterknife.BindView;
 import okhttp3.Call;
 
 /**
@@ -79,6 +81,8 @@ public class myShezhiActivity extends BaseActivity {
 
     MyApplication myApplication = new MyApplication();
 
+
+     TextView userchange;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +90,7 @@ public class myShezhiActivity extends BaseActivity {
         //tltle设置
         TextView tltle = (TextView) findViewById(R.id.activity_tltle_name);
         tltle.setText("设置");
+        userchange= (TextView) findViewById(R.id.tv_changeuser);
         returns_arrow = (LinearLayout) findViewById(R.id.returns_arrow);
         returns_arrow.setOnClickListener(new OnClickListener() {
 
@@ -156,7 +161,7 @@ public class myShezhiActivity extends BaseActivity {
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
                 UpdateUtil util=new UpdateUtil();
-                util.Update(myShezhiActivity.this);
+                util.Updatehome(myShezhiActivity.this,true);
             }
         });
         tv_fankui = (RelativeLayout) findViewById(R.id.tv_fankui);
@@ -187,6 +192,12 @@ public class myShezhiActivity extends BaseActivity {
                 Intent it = new Intent(myShezhiActivity.this, AlterPwdActivity.class);
                 it.putExtra("tltle", "修改密码");
                 startActivity(it);
+            }
+        });
+        userchange.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ischangeuser();
             }
         });
     }
@@ -603,4 +614,30 @@ public class myShezhiActivity extends BaseActivity {
     public void initData(Bundle savedInstanceState) {
 
     }
+
+    private void ischangeuser(){
+        new AlertDialog.Builder(myShezhiActivity.this)
+                .setTitle("提示")
+                .setIcon(R.mipmap.xzlogo)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        myApplication.removeActivity(myShezhiActivity.this);
+                        myApplication.finishAllActivity();
+                        MyApplication.hxt_setting_config.edit().putString("token","").commit();
+                        Intent intent=new Intent(myShezhiActivity.this, HomeNewActivity.class);
+                        intent.putExtra("userchange",true);
+                        startActivity(intent);
+                        finish();
+                    }
+                }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }).setMessage("确定要切换用户?").show();
+    }
+
 }

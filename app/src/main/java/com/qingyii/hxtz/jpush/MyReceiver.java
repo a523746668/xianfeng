@@ -161,7 +161,7 @@ public class MyReceiver extends BroadcastReceiver {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         JPusheExtras jPusheExtras = new Gson().fromJson(extras, JPusheExtras.class);
         if (jPusheExtras == null || extras == null || extras.equals("")) {
-//            Log.e("推送 打开页面", "MoreActivity 1");
+           Log.e("推送 打开页面", "MoreActivity 1");
             intent.setClass(context, MoreActivity.class);  //去到哪个Activity
         } else {
             switch (jPusheExtras.getType()) {
@@ -209,7 +209,7 @@ public class MyReceiver extends BroadcastReceiver {
         NOTICE_TYPE msgType = NOTICE_TYPE.NOTICE_1;
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MyApplication.getInstance())
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.mipmap.xzlogo)
                 .setContentTitle(mTitle + "")
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(mContent))
                 .setContentText(mContent + "").setAutoCancel(true);

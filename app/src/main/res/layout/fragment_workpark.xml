@@ -20,12 +20,12 @@
         app:auto_textSize_base_width="true"
         android:visibility="gone"/>
 
-      <com.zhf.wight.CustomViewPager
+      <com.qingyii.hxtz.zhf.wight.CustomViewPager
           android:layout_width="match_parent"
           android:layout_height="match_parent"
          android:id="@+id/workpark_viewpager"
           android:visibility="gone"
-          ></com.zhf.wight.CustomViewPager>
+          ></com.qingyii.hxtz.zhf.wight.CustomViewPager>
     <in.srain.cube.views.ptr.PtrClassicFrameLayout xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
         android:id="@+id/workpark_item_refresh"
         android:layout_width="match_parent"

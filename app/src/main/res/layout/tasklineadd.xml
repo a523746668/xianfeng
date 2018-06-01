@@ -7,37 +7,40 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="42px"
         android:text="层级"
-        android:padding="20px"
-        android:layout_marginLeft="30px"
         android:gravity="center"
-      android:id="@+id/tasklinecj"
+        android:textColor="@color/black"
+        android:id="@+id/tasklinecj"
+        android:layout_marginLeft="30px"
         />
     <TextView
         android:layout_width="4px"
         android:layout_height="match_parent"
         android:layout_marginLeft="30px"
-        android:background="@color/tasklisttextview"/>
+        android:background="@color/tasklisttextview"
+        android:textColor="@color/black"
+        android:id="@+id/shuxian1"
+        />
     <TextView
         android:layout_width="610px"
         android:layout_height="wrap_content"
-        android:textSize="42px"
+
         android:text="指标/任务名称"
         android:padding="20px"
-
+        android:textColor="@color/black"
         android:id="@+id/tasklinetitle"
         />
     <TextView
         android:layout_width="4px"
         android:layout_height="match_parent"
         android:layout_marginLeft="30px"
-        android:background="@color/tasklisttextview"/>
+        android:background="@color/tasklisttextview"
+        android:id="@+id/shuxian2" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="42px"
-        android:text="分值"
+
+        android:text="分 值"
         android:padding="20px"
         android:gravity="center"
         android:layout_marginLeft="30px"
@@ -45,5 +48,5 @@
         android:id="@+id/tasklinefenshu"
         android:layout_gravity="center"
        android:layout_weight="1"
-        />
+        android:textColor="@color/black"/>
 </com.zhy.autolayout.AutoLinearLayout>

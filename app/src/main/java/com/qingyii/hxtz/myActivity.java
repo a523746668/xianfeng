@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -21,16 +22,20 @@ import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
+import com.qingyii.hxtz.base.app.EventBusTags;
 import com.qingyii.hxtz.circle.ShiGuangZhou;
 import com.qingyii.hxtz.home.mvp.model.entity.HomeInfo;
 import com.qingyii.hxtz.http.MyApplication;
 import com.qingyii.hxtz.http.XrjHttpClient;
+import com.qingyii.hxtz.my.My_StudyActivity;
 import com.qingyii.hxtz.pojo.AddressUnitList;
 import com.qingyii.hxtz.util.AnimateFirstDisplayListener;
 import com.qingyii.hxtz.view.RoundedImageView;
-import com.zhf.MyshoucangActivity;
+import com.qingyii.hxtz.zhf.MyshoucangActivity;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
+
+import org.simple.eventbus.EventBus;
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -55,6 +60,8 @@ public class myActivity extends BaseActivity implements OnClickListener {
     private RelativeLayout rl_myshiguangzhou;
     private RelativeLayout rl_tongxunlu;
     private RelativeLayout rl_snezhi;
+    private RelativeLayout rl_mystudy;
+    private RelativeLayout rl_mygrade;
 
     private HomeInfo.AccountBean moduletitle;
 
@@ -80,7 +87,13 @@ public class myActivity extends BaseActivity implements OnClickListener {
         TextView tltle = (TextView) findViewById(R.id.activity_tltle_name);
         tltle.setText("我的");
         LinearLayout returns_arrow = (LinearLayout) findViewById(R.id.returns_arrow);
-        returns_arrow.setOnClickListener(view -> goBack());
+        returns_arrow.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               EventBus.getDefault().post(true,EventBusTags.HOME);
+                finish();
+            }
+        });
 
         intent = getIntent();
         moduletitle = intent.getParcelableExtra("moduletitle");
@@ -139,7 +152,8 @@ public class myActivity extends BaseActivity implements OnClickListener {
         rl_myshoucang = (RelativeLayout) findViewById(R.id.rl_myshoucang);
         rl_myshiguangzhou = (RelativeLayout) findViewById(R.id.rl_myshiguangzhou);
         rl_tongxunlu = (RelativeLayout) findViewById(R.id.rl_tongxunlu);
-
+        rl_mystudy= (RelativeLayout) findViewById(R.id.rl_mystudy);
+        //rl_mygrade= (RelativeLayout) findViewById(R.id.rl_mygrade);
         rl_snezhi = (RelativeLayout) findViewById(R.id.rl_snezhi);
 
         for (int i = 0; i < moduletitle.getModules().size(); i++){
@@ -175,6 +189,7 @@ public class myActivity extends BaseActivity implements OnClickListener {
         rl_myshoucang.setOnClickListener(this);
         rl_snezhi.setOnClickListener(this);
         rl_tongxunlu.setOnClickListener(this);
+        rl_mystudy.setOnClickListener(this);
 
 //        rl_gonggaoban.setOnClickListener(new OnClickListener() {
 //
@@ -274,6 +289,12 @@ public class myActivity extends BaseActivity implements OnClickListener {
                 } else
                     Toast.makeText(myActivity.this, "未获得单位列表", Toast.LENGTH_LONG).show();
                 break;
+            case  R.id.rl_mystudy:
+                intent=new Intent(myActivity.this, My_StudyActivity.class);
+                intent.putExtra("flag",2);
+                startActivity(intent);
+                break;
+
             default:
                 break;
         }
@@ -408,4 +429,11 @@ public class myActivity extends BaseActivity implements OnClickListener {
 //            return userInfo;
 //        }
 //    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        EventBus.getDefault().post(true, EventBusTags.HOME);
+        return super.onKeyDown(keyCode, event);
+    }
 }

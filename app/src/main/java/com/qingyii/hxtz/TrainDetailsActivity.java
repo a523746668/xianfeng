@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.andbase.library.app.base.AbBaseActivity;
+import com.jess.arms.utils.UiUtils;
 import com.qingyii.hxtz.base.app.GlobalConsts;
 import com.qingyii.hxtz.customview.MyGridView;
 import com.qingyii.hxtz.pojo.TrainList;
@@ -175,6 +176,10 @@ public class TrainDetailsActivity extends AbBaseActivity {
                     if (classes.get(position).equals(TrainNoticeActivity.class)) {
                         intent.putExtra(GlobalConsts.TRAIN_ID, tDataBean.getId());
                     } else if(classes.get(position).equals(CaptureActivity.class)){
+                        if(tDataBean.getIsend()==100){
+                            UiUtils.snackbarText("不在签到时间内");
+                                return;
+                        }
                         startActivityForResult(intent, REQUEST_CODE);
                         return;
                     }else {

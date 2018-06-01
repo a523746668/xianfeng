@@ -30,8 +30,10 @@ import org.geometerplus.zlibrary.ui.android.library.ZLAndroidApplication;
 
 import java.io.File;
 import java.io.IOException;
+
 import java.util.Set;
 import java.util.Stack;
+
 
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.TagAliasCallback;
@@ -124,7 +126,7 @@ public class MyApplication extends ZLAndroidApplication {
     }
 
     // 初始化 JPush
-    private void JpushInit() {
+   private void JpushInit() {
         Log.d("JPush", "[ExampleApplication] onCreate");
 
         JPushInterface.setDebugMode(true);    // 设置开启日志,发布时请关闭日志
@@ -134,7 +136,6 @@ public class MyApplication extends ZLAndroidApplication {
              @Override
              public void gotResult(int var1, String var2, Set<String> var3){
                  System.out.println(var2+"-----------test");
-
             }
         });
     }

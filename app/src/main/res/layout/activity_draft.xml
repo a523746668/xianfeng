@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.zhf.DraftActivity"
+    tools:context=".zhf.DraftActivity"
     android:background="@color/tasklisttextview"
     >
     <include layout="@layout/include_toolbar" />

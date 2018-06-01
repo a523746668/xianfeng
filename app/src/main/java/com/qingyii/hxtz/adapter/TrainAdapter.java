@@ -85,8 +85,10 @@ public class TrainAdapter extends BaseAdapter {
 
         if (nowtime < begintime) {
             vh.train_state.setBackgroundResource(R.mipmap.train_state_ready);
+
         } else if (nowtime > endtime) {
             vh.train_state.setBackgroundResource(R.mipmap.train_state_end);
+           tDataBean.setIsend(100);
         } else {
             vh.train_state.setBackgroundResource(R.mipmap.train_state_ing);
         }

@@ -28,7 +28,7 @@ import com.qingyii.hxtz.pojo.ExaminationPapers;
 import com.qingyii.hxtz.util.DateUtils;
 import com.qingyii.hxtz.util.EmptyUtil;
 import com.qingyii.hxtz.util.RandomUtil;
-import com.zhf.Util.Global;
+import com.qingyii.hxtz.zhf.Util.Global;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
 

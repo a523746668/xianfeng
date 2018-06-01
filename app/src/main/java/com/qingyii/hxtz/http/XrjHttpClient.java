@@ -20,7 +20,7 @@ public class XrjHttpClient {
      * 上传Url前缀
      */
    public static final String URL_UP = "http://admin.seeo.cn";
-  // public static final String URL_UP = "http://192.168.0.100";//贤哥测试
+   //public static final String URL_UP = "http://192.168.0.120";//贤哥测试
 
 
     /**
@@ -504,7 +504,7 @@ public class XrjHttpClient {
     /**
      * DocumentaryMy 请求URL
      */
-    public static final String JS_DOCUMENTARYMY_URL = "/documentarycheck/my/";
+    public static final String JS_DOCUMENTARYMY_URL = "/js/my/";
 
     public static String getDocumentaryMyUrl() {
         return URL_PR + JS_DOCUMENTARYMY_URL;
@@ -513,7 +513,7 @@ public class XrjHttpClient {
     /**
      * DocumentaryStatus 请求URL
      */
-    public static final String JS_DOCUMENTARYSTATUS_URL = "/documentarycheck/status/";
+    public static final String JS_DOCUMENTARYSTATUS_URL = "/js/status/";
 
     public static String getDocumentaryStatusUrl() {
         return URL_PR + JS_DOCUMENTARYSTATUS_URL;
@@ -522,7 +522,7 @@ public class XrjHttpClient {
     /**
      * RankingList 请求URL
      */
-    public static final String JS_RANKINGLIST_URL = "/documentarycheck/rank/";
+    public static final String JS_RANKINGLIST_URL = "/js/rank/";
 
     public static String getRankingListUrl() {
         return URL_PR + JS_RANKINGLIST_URL;
@@ -531,7 +531,7 @@ public class XrjHttpClient {
     /**
      * WaitAffirmList 请求URL
      */
-    public static final String JS_WAITAFFIRMLIST_URL = "/documentarycheck/checklog/";
+    public static final String JS_WAITAFFIRMLIST_URL = "/js/checklog/";
 
     public static String getWaitAffirmListUrl() {
         return URL_PR + JS_WAITAFFIRMLIST_URL;
@@ -541,7 +541,7 @@ public class XrjHttpClient {
     /**
      * ManageList 请求URL
      */
-    public static final String JS_MANAGELIST_URL = "/documentarycheck";
+    public static final String JS_MANAGELIST_URL = "/js";
 
     public static String getManageListUrl() {
         return URL_PR + JS_MANAGELIST_URL;
@@ -555,5 +555,8 @@ public class XrjHttpClient {
     public static String getUserContextUrl() {
         return URL_PR + JS_USERCONTEXT_URL;
     }
+
+
+   public static String WmcjUploadPicture="http://res.seeo.cn/xfyupload?datatype=json";
 
 }

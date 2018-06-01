@@ -51,6 +51,14 @@ public class MeetingList {
     public static class DataBean implements Parcelable {
 
 
+        public int getGroupsign() {
+            return groupsign;
+        }
+
+        public void setGroupsign(int groupsign) {
+            this.groupsign = groupsign;
+        }
+
         /**
          * id : 5
          * trainingtitle : 测试2
@@ -66,10 +74,12 @@ public class MeetingList {
          * frequency : 600
          */
 
+
         private int id;
         @SerializedName("meetingtitle")
         private String trainingtitle;
         private String content;
+        private int groupsign;
         private String description;
         private String organizer;
         private Long begintime;
@@ -266,6 +276,7 @@ public class MeetingList {
             dest.writeInt(this.user_id);
             dest.writeInt(this.is_confirm);
             dest.writeInt(this.has_summary);
+            dest.writeInt(this.groupsign);
         }
 
         protected DataBean(Parcel in) {
@@ -288,6 +299,8 @@ public class MeetingList {
             this.user_id = in.readInt();
             this.is_confirm = in.readInt();
             this.has_summary = in.readInt();
+            this.groupsign=in.readInt();
+
         }
 
         public static final Creator<DataBean> CREATOR = new Creator<DataBean>() {

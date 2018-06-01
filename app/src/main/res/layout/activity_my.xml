@@ -84,12 +84,50 @@
 
          </com.zhy.autolayout.AutoLinearLayout>
 
-
-
          <com.zhy.autolayout.AutoLinearLayout
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              android:orientation="vertical">
+
+             <com.zhy.autolayout.AutoRelativeLayout
+                 android:id="@+id/rl_mystudy"
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:background="#FFFFFF"
+                 >
+
+                 <ImageView
+                     android:id="@+id/iv_mystudy"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentLeft="true"
+                     android:layout_alignParentStart="true"
+                     android:layout_alignParentTop="true"
+                     android:layout_marginBottom="51px"
+                     android:layout_marginLeft="68px"
+                     android:layout_marginTop="51px"
+                     android:background="@mipmap/wodexuexi" />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_centerVertical="true"
+                     android:layout_marginLeft="68px"
+                     android:layout_alignBottom="@+id/iv_mystudy"
+                     android:layout_toRightOf="@+id/iv_mystudy"
+                     android:layout_toEndOf="@+id/iv_mystudy"
+                     android:text="我的学习"
+                     android:textColor="@color/black"
+                     android:textSize="16sp" />
+                 <ImageView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentRight="true"
+                     android:layout_centerVertical="true"
+                     android:layout_marginRight="34px"
+                     android:background="@mipmap/keyijinru" />
+
+             </com.zhy.autolayout.AutoRelativeLayout>
 
              <com.zhy.autolayout.AutoRelativeLayout
                  android:id="@+id/rl_myshujia"
@@ -104,7 +142,9 @@
                      android:layout_height="wrap_content"
                      android:layout_centerVertical="true"
                      android:layout_marginLeft="68px"
+                     android:layout_alignBottom="@+id/iv_odepinlun"
                      android:layout_toRightOf="@+id/iv_odepinlun"
+                     android:layout_toEndOf="@+id/iv_odepinlun"
                      android:text="我的书架"
                      android:textColor="@color/black"
                      android:textSize="16sp" />
@@ -155,6 +195,8 @@
                      android:layout_centerVertical="true"
                      android:layout_marginLeft="68px"
                      android:layout_toRightOf="@id/iv_odeguanzhu"
+                     android:layout_alignBottom="@+id/iv_odeguanzhu"
+                     android:layout_toEndOf="@+id/iv_odeguanzhu"
                      android:text="我的成绩"
                      android:textColor="@color/black"
                      android:textSize="16sp" />
@@ -175,24 +217,29 @@
                  android:layout_height="wrap_content"
                  android:layout_marginBottom="3px"
                  android:background="#FFFFFF"
-                 android:visibility="gone">
+                android:visibility="gone"
+                 >
 
                  <ImageView
                      android:id="@+id/iv_odeshouchang"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
-                     android:layout_centerVertical="true"
+                     android:layout_alignParentLeft="true"
+                     android:layout_alignParentStart="true"
+                     android:layout_alignParentTop="true"
                      android:layout_marginLeft="68px"
+                     android:layout_marginBottom="51px"
+                     android:layout_marginTop="51px"
                      android:background="@mipmap/wodeguanzhu" />
 
                  <TextView
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_centerVertical="true"
-                     android:layout_marginBottom="51px"
-                     android:layout_marginLeft="68px"
-                     android:layout_marginTop="51px"
-                     android:layout_toRightOf="@id/iv_odeshouchang"
+                     android:layout_marginLeft="62px"
+                     android:layout_alignBottom="@+id/iv_odeshouchang"
+                     android:layout_toRightOf="@+id/iv_odeshouchang"
+                     android:layout_toEndOf="@+id/iv_odeshouchang"
                      android:text="我的内刊"
                      android:textColor="@color/black"
                      android:textSize="16sp" />
@@ -213,13 +260,17 @@
                  android:layout_height="wrap_content"
                  android:layout_marginBottom="3px"
                  android:background="#FFFFFF"
-                 android:visibility="gone">
+                  android:visibility="gone"
+                 >
 
                  <ImageView
                      android:id="@+id/iv_oshiguagnzhou"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_centerVertical="true"
+                     android:layout_alignParentLeft="true"
+                     android:layout_alignParentStart="true"
+                     android:layout_alignParentTop="true"
                      android:layout_marginBottom="51px"
                      android:layout_marginLeft="68px"
                      android:layout_marginTop="51px"
@@ -229,11 +280,14 @@
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_centerVertical="true"
-                     android:layout_marginLeft="68px"
+                     android:layout_marginLeft="62px"
                      android:layout_toRightOf="@id/iv_oshiguagnzhou"
+                     android:layout_alignBottom="@+id/iv_oshiguagnzhou"
+                     android:layout_toEndOf="@+id/iv_oshiguagnzhou"
                      android:text="我的时光轴"
                      android:textColor="@color/black"
-                     android:textSize="16sp" />
+                     android:textSize="16sp"
+                    />
 
                  <ImageView
                      android:layout_width="wrap_content"
@@ -260,13 +314,18 @@
                      android:layout_marginBottom="51px"
                      android:layout_marginLeft="68px"
                      android:layout_marginTop="51px"
+                     android:layout_alignParentLeft="true"
+                     android:layout_alignParentStart="true"
+                     android:layout_alignParentTop="true"
                      android:background="@mipmap/wodetongxunlu" />
 
                  <TextView
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_centerVertical="true"
-                     android:layout_marginLeft="68px"
+                     android:layout_marginLeft="62px"
+                     android:layout_alignBottom="@+id/iv_tongxunlu"
+                     android:layout_toEndOf="@+id/iv_tongxunlu"
                      android:layout_toRightOf="@id/iv_tongxunlu"
                      android:text="我的通讯录"
                      android:textColor="@color/black"
@@ -288,7 +347,8 @@
                  android:layout_height="wrap_content"
                  android:layout_marginBottom="3px"
                  android:background="#FFFFFF"
-                 android:visibility="gone">
+                android:visibility="gone"
+               >
 
                  <ImageView
                      android:id="@+id/iv_wodejifen"
@@ -306,19 +366,22 @@
                      android:layout_alignParentRight="true"
                      android:layout_centerVertical="true"
                      android:layout_marginRight="34px"
-                     android:background="@mipmap/keyijinru" />
+                     android:background="@mipmap/keyijinru"
+                    />
 
                  <TextView
                      android:id="@+id/textView"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_centerVertical="true"
-                     android:layout_marginLeft="68px"
+                     android:layout_marginLeft="62px"
                      android:layout_toEndOf="@+id/iv_wodejifen"
                      android:layout_toRightOf="@+id/iv_wodejifen"
+                     android:layout_alignBottom="@+id/iv_wodejifen"
                      android:text="我的收藏"
                      android:textColor="@color/black"
-                     android:textSize="16sp" />
+                     android:textSize="16sp"
+                  />
 
              </com.zhy.autolayout.AutoRelativeLayout>
 
@@ -336,19 +399,22 @@
                      android:layout_marginBottom="51px"
                      android:layout_marginLeft="68px"
                      android:layout_marginTop="51px"
-                     android:background="@mipmap/wodeshezhi" />
+                     android:background="@mipmap/wodeshezhi"
+                     android:layout_alignParentLeft="true"
+                     android:layout_alignParentStart="true"
+                     android:layout_alignParentTop="true"/>
 
                  <TextView
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
-                     android:layout_marginLeft="21dp"
+                     android:layout_marginLeft="62px"
                      android:text="设置"
                      android:textColor="@color/black"
                      android:textSize="16sp"
                      android:layout_alignBottom="@+id/iv_shezhi"
                      android:layout_toRightOf="@+id/iv_shezhi"
                      android:layout_toEndOf="@+id/iv_shezhi"
-                     android:layout_marginStart="21dp" />
+                    />
 
                  <ImageView
                      android:layout_width="wrap_content"

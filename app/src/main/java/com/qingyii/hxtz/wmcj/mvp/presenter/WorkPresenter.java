@@ -5,7 +5,7 @@ import com.jess.arms.mvp.BasePresenter;
 import com.qingyii.hxtz.base.utils.RxUtils;
 import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.WorkParkbean;
-import com.zhf.Util.Global;
+import com.qingyii.hxtz.zhf.Util.Global;
 
 import javax.inject.Inject;
 

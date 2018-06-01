@@ -10,8 +10,8 @@ import com.andbase.library.app.base.AbBaseActivity;
 import com.qingyii.hxtz.adapter.DatiViewflowAdapter;
 import com.qingyii.hxtz.pojo.Examination;
 import com.qingyii.hxtz.pojo.ExaminationPapers;
-import com.zhf.android_viewflow.ViewFlow;
-import com.zhf.android_viewflow.ViewFlow.ViewSwitchListener;
+import com.qingyii.hxtz.zhf.android_viewflow.ViewFlow;
+import com.qingyii.hxtz.zhf.android_viewflow.ViewFlow.ViewSwitchListener;
 
 import java.util.List;
 

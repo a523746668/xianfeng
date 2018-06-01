@@ -28,7 +28,7 @@ import org.geometerplus.fbreader.book.Bookmark;
 import org.geometerplus.fbreader.book.SerializerUtil;
 
 public abstract class FBReaderIntents {
-	public static final String DEFAULT_PACKAGE = "com.qingyii.hxt";
+	public static final String DEFAULT_PACKAGE = "com.qingyii.hxtz";
 
 	public interface Action {
 		String API                              = "android.fbreader.action.API";

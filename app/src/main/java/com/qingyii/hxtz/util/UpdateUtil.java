@@ -1,6 +1,7 @@
 package com.qingyii.hxtz.util;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.net.Uri;
@@ -287,8 +288,8 @@ public class UpdateUtil {
     public    void Updatehome(Context context,boolean flag) {
 
         OkHttpUtils
-                .post()
-                .url(XrjHttpClient.URL_PR + "/server")
+                .get()
+                .url(XrjHttpClient.URL_PR + "/version/And/1")
 //                .addHeader("Accept", XrjHttpClient.ACCEPT_V2)
 //                .addHeader("Authorization", MyApplication.hxt_setting_config.getString("credentials", ""))
                 .build()
@@ -301,9 +302,6 @@ public class UpdateUtil {
 
                              @Override
                              public void onResponse(Update response, int id) {
-                                 Log.e("UpdateCallback", response.getError_msg()+"--------"+response.getData().getDownload());
-                                 switch (response.getError_code()) {
-                                     case 0:
                                          try {
 //                                             PackageManager pm = FirstActivity.this.getPackageManager();
 //                                             PackageInfo pi = pm.getPackageInfo(FirstActivity.this.getPackageName(), 0);
@@ -311,75 +309,37 @@ public class UpdateUtil {
                                              String versionName = packageInfo.versionName;
                                              int versioncode = packageInfo.versionCode;
                                              //Toast.makeText(FirstActivity.this, "软件版本号为" + versionName, Toast.LENGTH_LONG).show();
-                                             if (versioncode < Integer.parseInt(response.getData().getVersion())) {
+                                            if(versioncode<Integer.parseInt(response.getData().getVersion())){
+                                                if (response.getData().getUpdate()==1) {
+                                                    downloadapk(context,response);
+                                                } else if(response.getData().getUpdate()==0) {
+                                                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                                                    builder.setTitle("提示")
+                                                            .setMessage("有新的版本，是否更新")
+                                                            .setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                                                                @Override
+                                                                public void onClick(DialogInterface dialog,
+                                                                                    int which) {
+                                                                    downloadapk(context,response);
+                                                                }
+                                                            })
+                                                            .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                                                                @Override
+                                                                public void onClick(DialogInterface dialog,
+                                                                                    int which) {
+                                                                    dialog.dismiss();
+                                                                }
+                                                            })
+                                                            .show();
+                                                }
+                                            }
 
-
-                                                 View view= LayoutInflater.from(context).inflate(R.layout.drafit,null);
-                                                 AlertDialog dialog=new AlertDialog.Builder(context)
-                                                         .setView(view)
-                                                         .setCancelable(false)
-                                                         .show();
-                                                 Button qr= (Button) view.findViewById(R.id.draftqueren);
-                                                 Button qx= (Button) view.findViewById(R.id.draftquxiao);
-                                                 EditText name= (EditText) view.findViewById(R.id.draftname);
-                                                 name.setVisibility(View.GONE);
-                                                 TextView textView= (TextView) view.findViewById(text99);
-                                                 textView.setVisibility(View.VISIBLE);
-                                                 TextView tishi= (TextView) view.findViewById(R.id.tishi);
-                                                 ProgressBar bar= (ProgressBar) view.findViewById(R.id.updateprogress);
-                                                 TextView  bfb= (TextView) view.findViewById(R.id.baifenbi);
-
-
-                                                         //  Toast.makeText(FirstActivity.this, "软件版本较低，请先更新再继续使用", Toast.LENGTH_LONG).show();
-                                                        /* Intent intent = new Intent();
-                                                         intent.setAction("android.intent.action.VIEW");
-
-                                                         Uri content_url = Uri.parse(response.getData().getDownload() + "");
-                                                         intent.setData(content_url);
-                                                         startActivity(intent);
-                                                         dialog.dismiss();  */
-                                                         Log.i("tmdxiazai",response.getData().getDownload());
-                                                         qr.setVisibility(View.GONE);
-                                                         qx.setVisibility(View.GONE);
-                                                         textView.setVisibility(View.GONE);
-                                                         tishi.setVisibility(View.VISIBLE);
-                                                         tishi.setText("重大版本，强制更新中");
-                                                         bar.setVisibility(View.VISIBLE);
-                                                         bfb.setVisibility(View.VISIBLE);
-                                                         OkHttpUtils.get()
-                                                                 .url(response.getData().getDownload())
-                                                                 .build()
-                                                                 .execute(new FileCallBack(Environment.getExternalStorageDirectory().getAbsolutePath(), versionName+"xfypt.apk") {
-
-                                                                     @Override
-                                                                     public void onError(Call call, Exception e, int id) {
-                                                                         Log.i("tmdxiazai",e.getMessage().toString());
-                                                                     }
-
-                                                                     @Override
-                                                                     public void onResponse(File response, int id) {
-                                                                         installApk(MyApplication.getInstance(),response);
-
-                                                                     }
-
-                                                                     @Override
-                                                                     public void inProgress(float progress, long total, int id) {
-                                                                         super.inProgress(progress, total, id);
-                                                                         int  i= (int) (progress*100);
-                                                                         bfb.setText(i+"%");
-                                                                         bar.setProgress(i);
-                                                                     }
-                                                                 });
-                                             } else {
-                                                 // Toasty.info(context,"已经是最新版本了",0).show();
-                                             }
                                          } catch (Exception e) {
                                              Log.e("VersionInfo", "Exception", e);
                                          }
-                                         break;
-                                     default:
-                                         break;
-                                 }
+
+
+
                              }
                          }
                 );
@@ -399,7 +359,7 @@ public class UpdateUtil {
         Intent it = new Intent(Intent.ACTION_VIEW);
         if(Build.VERSION.SDK_INT>=24){
             Uri apkUri = FileProvider.getUriForFile(mContext.getApplicationContext(),
-                    BuildConfig.APPLICATION_ID + ".fileprovider", file);
+                    "com.qingyiiz.zhf1.fileprovider", file);
             it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
             it.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             it.setDataAndType(apkUri, "application/vnd.android.package-archive");
@@ -472,6 +432,73 @@ public class UpdateUtil {
 
      }
 
+    public void downloadapk(Context context,Update response){
+        View view= LayoutInflater.from(context).inflate(R.layout.drafit,null);
+        AlertDialog dialog=new AlertDialog.Builder(context)
+                .setView(view)
+                .setCancelable(false)
+                .show();
+        try{
 
+
+      Button qr= (Button) view.findViewById(R.id.draftqueren);
+      Button qx= (Button) view.findViewById(R.id.draftquxiao);
+      EditText name= (EditText) view.findViewById(R.id.draftname);
+      name.setVisibility(View.GONE);
+      TextView textView= (TextView) view.findViewById(text99);
+      textView.setVisibility(View.VISIBLE);
+      TextView tishi= (TextView) view.findViewById(R.id.tishi);
+      ProgressBar bar= (ProgressBar) view.findViewById(R.id.updateprogress);
+      TextView  bfb= (TextView) view.findViewById(R.id.baifenbi);
+
+
+      //  Toast.makeText(FirstActivity.this, "软件版本较低，请先更新再继续使用", Toast.LENGTH_LONG).show();
+                                                        /* Intent intent = new Intent();
+                                                         intent.setAction("android.intent.action.VIEW");
+
+                                                         Uri content_url = Uri.parse(response.getData().getDownload() + "");
+                                                         intent.setData(content_url);
+                                                         startActivity(intent);
+                                                         dialog.dismiss();  */
+      Log.i("tmdxiazai",response.getData().getDownload());
+      qr.setVisibility(View.GONE);
+      qx.setVisibility(View.GONE);
+      textView.setVisibility(View.GONE);
+      tishi.setVisibility(View.VISIBLE);
+      tishi.setText("正在更新中...");
+      bar.setVisibility(View.VISIBLE);
+      bfb.setVisibility(View.VISIBLE);
+
+      OkHttpUtils.get()
+              .url(response.getData().getDownload())
+              .build()
+              .execute(new FileCallBack(Environment.getExternalStorageDirectory().getAbsolutePath(), response.getData().getVersion()+"xiangzhi.apk") {
+
+                  @Override
+                  public void onError(Call call, Exception e, int id) {
+                      Log.i("tmdxiazai",e.getMessage().toString());
+                      dialog.dismiss();
+                  }
+
+                  @Override
+                  public void onResponse(File response, int id) {
+                      dialog.dismiss();
+                      installApk(MyApplication.getInstance(),response);
+
+                  }
+
+                  @Override
+                  public void inProgress(float progress, long total, int id) {
+                      super.inProgress(progress, total, id);
+                      int  i= (int) (progress*100);
+                      bfb.setText(i+"%");
+                      bar.setProgress(i);
+                  }
+              });
+  }catch ( Exception e){
+        Log.i("tmddownloadapk:" ,e.getMessage().toString());
+     dialog.dismiss();
+  }
+    }
 
 }

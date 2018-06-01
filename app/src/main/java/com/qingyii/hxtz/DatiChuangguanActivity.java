@@ -42,8 +42,8 @@ import com.qingyii.hxtz.pojo.ExaminationPapers;
 import com.qingyii.hxtz.util.EmptyUtil;
 import com.qingyii.hxtz.util.TextUtil;
 import com.qingyii.hxtz.util.TimeUtil;
-import com.zhf.android_viewflow.ViewFlow;
-import com.zhf.android_viewflow.ViewFlow.ViewSwitchListener;
+import com.qingyii.hxtz.zhf.android_viewflow.ViewFlow;
+import com.qingyii.hxtz.zhf.android_viewflow.ViewFlow.ViewSwitchListener;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
 

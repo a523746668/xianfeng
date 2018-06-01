@@ -18,7 +18,7 @@ import com.qingyii.hxtz.wmcj.mvp.model.bean.TaskTitlebean;
 import com.qingyii.hxtz.wmcj.mvp.presenter.ResultPresenter;
 import com.qingyii.hxtz.wmcj.mvp.ui.adapter.Resultvpadapter;
 import com.qingyii.hxtz.wmcj.mvp.ui.fragment.ResultSonFragment;
-import com.zhf.Util.HintUtil;
+import com.qingyii.hxtz.zhf.Util.HintUtil;
 
 import java.util.ArrayList;
 
@@ -79,7 +79,6 @@ public class ResultPostionActivity extends BaseActivity<ResultPresenter> impleme
                 if(adapter.getCount()>0&&viewPager.getCurrentItem()<adapter.getCount()-1){
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     name.setText(titles.get(viewPager.getCurrentItem()).getTitle());
-
                 }
             }
         });
@@ -88,7 +87,6 @@ public class ResultPostionActivity extends BaseActivity<ResultPresenter> impleme
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
-
             @Override
             public void onPageSelected(int position) {
                 name.setText(titles.get(position).getTitle());
@@ -98,7 +96,6 @@ public class ResultPostionActivity extends BaseActivity<ResultPresenter> impleme
                 }else if(position==fragments.size()-1&&position!=0){
                     add.setBackgroundResource(R.mipmap.rightbutton_hold);
                     sub.setBackgroundResource(R.mipmap.leftbutton_unclick);
-
                 }   else {
                     sub.setBackgroundResource(R.mipmap.leftbutton_unclick);
                     add.setBackgroundResource(R.mipmap.rightbutton_unclick);

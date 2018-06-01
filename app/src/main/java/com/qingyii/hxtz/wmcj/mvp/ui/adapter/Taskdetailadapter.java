@@ -9,9 +9,9 @@ import com.qingyii.hxtz.R;
 import com.qingyii.hxtz.base.adapter.BaseRecyclerAdapter;
 import com.qingyii.hxtz.base.adapter.BaseRecyclerViewHolder;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Taskdetailbean;
-import com.zhf.IssusetaskActivity;
-import com.zhf.Util.Global;
-import com.zhf.Util.HintUtil;
+import com.qingyii.hxtz.zhf.IssusetaskActivity;
+import com.qingyii.hxtz.zhf.Util.Global;
+import com.qingyii.hxtz.zhf.Util.HintUtil;
 
 
 import java.util.List;

@@ -3,7 +3,7 @@
     android:id="@+id/activity_indent_details_tltle"
     android:layout_width="match_parent"
     android:layout_height="150px"
-    android:background="@color/tltleColor"
+    android:background="@color/toolbarbackground"
     android:gravity="center_vertical">
 
     <com.zhy.autolayout.AutoLinearLayout

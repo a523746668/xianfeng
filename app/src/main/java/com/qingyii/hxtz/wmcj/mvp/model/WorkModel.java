@@ -6,14 +6,15 @@ import com.google.gson.Gson;
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.integration.IRepositoryManager;
 import com.jess.arms.mvp.BaseModel;
+import com.qingyii.hxtz.bean.ReportBean;
 import com.qingyii.hxtz.http.MyApplication;
 import com.qingyii.hxtz.wmcj.WMCJApi;
 import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Headbean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.WorkParkbean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.WorkParkitembean;
-import com.zhf.Util.Global;
-import com.zhf.http.Urlutil;
+import com.qingyii.hxtz.zhf.Util.Global;
+import com.qingyii.hxtz.zhf.http.Urlutil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +31,7 @@ public class WorkModel extends BaseModel implements WMCJContract.WorkParkModel {
 
     private Gson mGson;
     private Application mApplication;
-    String purl=Urlutil.baseurl+"/task/"+Global.userid+"/getDynamic?token="+ MyApplication.hxt_setting_config.getString("token","");
+    String purl=Urlutil.baseurl+"/kh/"+Global.userid+"/getDynamic?token="+ MyApplication.hxt_setting_config.getString("token","");
    @Inject
     public WorkModel(IRepositoryManager repositoryManager, Gson mGson, Application mApplication) {
         super(repositoryManager);
@@ -40,7 +41,7 @@ public class WorkModel extends BaseModel implements WMCJContract.WorkParkModel {
 
     @Override
     public Observable<WorkParkbean> getWorkMenu() {
-        String purl= Urlutil.baseurl+"/task/"+ Global.userid + "/actMenu?token="+ MyApplication.hxt_setting_config.getString("token","");
+        String purl= Urlutil.baseurltest+"/kh/"+ Global.userid + "/actMenu?token="+ MyApplication.hxt_setting_config.getString("token","");
         return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getWorkMenu(purl);
     }
 
@@ -58,11 +59,9 @@ public class WorkModel extends BaseModel implements WMCJContract.WorkParkModel {
             map.put("library_id",String.valueOf(library_id));
             map.put("system_id",String.valueOf(system_id));
             return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getWorkParkItem(purl,map);
-        }
-         else {
+        } else {
             return  mRepositoryManager.obtainRetrofitService(WMCJApi.class).getWorkParkItem(purl,String.valueOf(system_id));
         }
-
     }
 
     @Override
@@ -92,13 +91,13 @@ public class WorkModel extends BaseModel implements WMCJContract.WorkParkModel {
 
     @Override
     public Observable<Headbean> getWorkParkItemHead() {
-        String purl1= Urlutil.baseurl+"/task/"+Global.userid+"/silder?token="+ MyApplication.hxt_setting_config.getString("token","");
+        String purl1= Urlutil.baseurl+"/kh/"+Global.userid+"/silder?token="+ MyApplication.hxt_setting_config.getString("token","");
         return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getWorkParkItemSlider(purl1);
     }
 
     @Override
-    public Observable<WorkParkitembean> getAlreadyWork(String time) {
-       String murl= Urlutil.baseurl+"/task/"+ Global.userid+"/account?token="+ MyApplication.hxt_setting_config.getString("token","");
+    public Observable<ReportBean> getAlreadyWork(String time) {
+       String murl= Urlutil.baseurl+"/kh/"+ Global.userid+"/account?token="+ MyApplication.hxt_setting_config.getString("token","");
         if(time.equalsIgnoreCase("null")){
             return  mRepositoryManager.obtainRetrofitService(WMCJApi.class).getReportBean(murl);
         }

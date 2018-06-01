@@ -14,6 +14,7 @@ import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
 import com.qingyii.hxtz.R;
 import com.qingyii.hxtz.base.adapter.BaseRecyclerAdapter;
+import com.qingyii.hxtz.base.app.EventBusTags;
 import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.di.component.DaggerTaskComponent;
 import com.qingyii.hxtz.wmcj.di.module.TaskModule;
@@ -22,6 +23,8 @@ import com.qingyii.hxtz.wmcj.mvp.presenter.TaskPresenter;
 import com.qingyii.hxtz.wmcj.mvp.ui.activity.ReportingActivity;
 import com.qingyii.hxtz.wmcj.mvp.ui.adapter.Taskvpadapter;
 import com.zhy.autolayout.AutoLinearLayout;
+
+import org.simple.eventbus.EventBus;
 
 import java.util.ArrayList;
 
@@ -96,6 +99,7 @@ public class TaskListFragment   extends BaseFragment<TaskPresenter> implements W
         leftbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EventBus.getDefault().post(true, EventBusTags.HOME);
                 getActivity().finish();
             }
         });

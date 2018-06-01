@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:paddingLeft="28px"
+    android:paddingRight="28px"
+    android:paddingTop="58px">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="720px"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/content"
+        >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="13212313214654364613213215646546432132132132132"
+        android:textSize="47px"
+        android:maxLines="2"
+        android:id="@+id/tv_name"
+        />
+     <com.zhy.autolayout.AutoLinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:paddingTop="23px"
+         android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发布单位："
+            android:textSize="40px"
+            android:textColor="@color/workparktext"/>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+            android:id="@+id/workpark_fbdw"
+           android:textSize="40px"
+           android:textColor="@color/workparktext"
+           android:text="湖南省商品质量监督"
+           />
+
+
+     </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12px"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发布时间："
+                android:textSize="40px"
+                android:textColor="@color/workparktext"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/workpark_fbtime"
+                android:textSize="40px"
+                android:textColor="@color/workparktext"
+                android:text="2018-3-26"
+                />
+
+
+        </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12px"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="审核状态："
+                android:textSize="40px"
+                android:textColor="@color/workparktext"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/workpark_issh"
+                android:textSize="40px"
+                android:textColor="@color/allStyles"
+                android:text="已审核"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:text="未推荐"
+                android:textColor="@color/workparktext"
+                android:textSize="40px"
+                android:id="@+id/istj"
+                />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/content"
+        android:layout_marginTop="28px"
+        android:background="@color/viewfinder_mask"
+        />
+    
+    <com.qingyii.hxtz.view.RoundedImageView
+        android:layout_width="288px"
+        android:layout_height="240px"
+        android:layout_alignParentRight="true"
+        android:id="@+id/iv"
+        />
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

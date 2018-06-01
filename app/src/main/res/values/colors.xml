@@ -8,7 +8,7 @@
 
     <!--radio-->
      <color name="tasklisttextview">#eeeeee</color>
-
+     <color name="toolbarbackground">#ee1a1a</color>
     <color name="backgroundColor">#EEEEEE</color>
     <color name="backgroundColorTranslucence">#CCEEEEEE</color>
     <color name="backgroundColorShallow">#F0F0F0</color>
@@ -84,7 +84,7 @@
     <!--非常朦胧蓝色  -->
 
     <!-- 朦胧蓝色 -->
-
+  <color name="examne_text">#2222dd</color>
     <color name="green1">#24C280</color>
     <!-- 橘色 -->
     <color name="black_wenzhang">#004276</color>
@@ -252,7 +252,10 @@
     <!-- 海军色 -->
     <color name="black">#333333</color>
     <!-- 黑色 -->
+
+    <color name="workparktext">#666666</color>
     <color name="one_black">#848484</color>
+
     <!-- 淡黑色 -->
     <color name="gray_black">#2e2e2e</color>
     <!-- 专题颜色块一 -->

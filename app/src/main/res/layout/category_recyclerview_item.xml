@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -17,9 +17,17 @@
         android:paddingRight="53px"
         android:paddingTop="20px"
         android:paddingBottom="20px"
-
         android:text="最新"
         android:textColor="@color/category_item_textcolor"
         android:textSize="45px" />
 
-</com.zhy.autolayout.AutoLinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/category_item_tv"
+        android:src="@mipmap/itemtishi"
+        android:visibility="gone"
+        android:id="@+id/itemtishi"
+        />
+
+</com.zhy.autolayout.AutoRelativeLayout>

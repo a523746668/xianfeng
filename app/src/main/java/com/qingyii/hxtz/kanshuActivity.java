@@ -45,8 +45,8 @@ import com.qingyii.hxtz.http.YzyHttpClient;
 import com.qingyii.hxtz.pojo.Book;
 import com.qingyii.hxtz.pojo.Chapter;
 import com.qingyii.hxtz.util.EmptyUtil;
-import com.zhf.android_viewflow.ViewFlow;
-import com.zhf.android_viewflow.ViewFlow.ViewSwitchListener;
+import com.qingyii.hxtz.zhf.android_viewflow.ViewFlow;
+import com.qingyii.hxtz.zhf.android_viewflow.ViewFlow.ViewSwitchListener;
 
 import org.apache.http.entity.ByteArrayEntity;
 import org.json.JSONArray;

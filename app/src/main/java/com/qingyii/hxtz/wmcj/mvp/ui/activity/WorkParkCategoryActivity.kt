@@ -20,7 +20,7 @@ import com.qingyii.hxtz.R
 import com.qingyii.hxtz.base.app.EventBusTags
 import com.qingyii.hxtz.base.app.bindView
 import com.qingyii.hxtz.wmcj.mvp.model.bean.WorkParkbean
-import com.zhf.Util.Global
+import com.qingyii.hxtz.zhf.Util.Global
 import org.simple.eventbus.EventBus
 
 /**

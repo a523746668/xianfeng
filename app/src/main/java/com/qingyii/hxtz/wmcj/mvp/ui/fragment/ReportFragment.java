@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
 import com.mcxtzhang.commonadapter.rv.HeaderFooterAdapter;
 import com.qingyii.hxtz.R;
+import com.qingyii.hxtz.base.app.EventBusTags;
 import com.qingyii.hxtz.base.widget.AutoLoadMoreRecyclerView;
 import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.di.component.DaggerAlreadyComponent;
@@ -24,7 +26,10 @@ import com.qingyii.hxtz.wmcj.di.module.WorkParkItemModule;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.WorkParkbean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.WorkParkitembean;
 import com.qingyii.hxtz.wmcj.mvp.presenter.ReportingPresenter;
+import com.qingyii.hxtz.wmcj.mvp.ui.activity.WMCJcategoryActivity;
 import com.zhy.autolayout.AutoLinearLayout;
+
+import org.simple.eventbus.EventBus;
 
 import java.util.ArrayList;
 
@@ -48,7 +53,6 @@ public class ReportFragment extends BaseFragment<ReportingPresenter> implements 
     @BindView(R.id.workpark_item_refresh)
     PtrClassicFrameLayout ptr;
 
-    private ArrayList<WorkParkitembean.DataBean.AllactivityBean> list =new ArrayList<>();
 
     @BindView(R.id.toolbar_back)
     Button back;
@@ -61,7 +65,15 @@ public class ReportFragment extends BaseFragment<ReportingPresenter> implements 
     @BindView(R.id.empty_view)
     AutoLinearLayout emtview;
 
+    @BindView(R.id.toolbar_right_tv)
+    TextView barright;
+
     private Context context;
+
+    @BindView(R.id.sxrecyc)
+    RecyclerView sxrecyc;
+
+    private ArrayList<String>  shaixuan=new ArrayList<>();
 
     @Override
     public void setupFragmentComponent(AppComponent appComponent) {
@@ -88,10 +100,11 @@ public class ReportFragment extends BaseFragment<ReportingPresenter> implements 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               getActivity().finish();
+                EventBus.getDefault().post(true, EventBusTags.HOME);
+                getActivity().finish();
             }
         });
-        title.setText("工作动态");
+        title.setText("文明创建完成动态");
         ptr.setLastUpdateTimeRelateObject(this);
         ptr.setPtrHandler(new PtrDefaultHandler() {
             @Override
@@ -111,7 +124,15 @@ public class ReportFragment extends BaseFragment<ReportingPresenter> implements 
                 mPresenter.getReportMore();
             }
         });
-
+        barright.setText("筛选");
+        barright.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent intent=new Intent(getActivity(), WMCJcategoryActivity.class);
+               intent.putExtra("wmcj","Report");
+               startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -134,7 +155,6 @@ public class ReportFragment extends BaseFragment<ReportingPresenter> implements 
     public void setRecyclerviewAdapter(HeaderFooterAdapter adapter) {
         recyclerView.setAutoLayoutManager(new LinearLayoutManager(context))
                 .setAutoItemAnimator(new DefaultItemAnimator())
-                .addAutoItemDecoration(new DividerItemDecoration(context, LinearLayout.VERTICAL))
                 .setAutoAdapter(adapter);
     }
 

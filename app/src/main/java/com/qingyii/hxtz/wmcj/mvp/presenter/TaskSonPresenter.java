@@ -12,7 +12,7 @@ import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.TaskLineSonbean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.TaskListViewBean;
 import com.qingyii.hxtz.wmcj.mvp.ui.adapter.TaskLineAdaper;
-import com.zhf.Util.Global;
+import com.qingyii.hxtz.zhf.Util.Global;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

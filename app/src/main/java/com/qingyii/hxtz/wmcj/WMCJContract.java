@@ -4,7 +4,11 @@ import com.jess.arms.mvp.IModel;
 import com.jess.arms.mvp.IView;
 import com.mcxtzhang.commonadapter.rv.HeaderFooterAdapter;
 import com.qingyii.hxtz.base.adapter.BaseRecyclerAdapter;
+import com.qingyii.hxtz.bean.ReportBean;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineBean;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineMenu;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Headbean;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.ReportMenu;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Resultbean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.TaskTitlebean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Taskdetailbean;
@@ -50,7 +54,7 @@ public interface WMCJContract  {
          Observable<Headbean>  getWorkParkItemHead();
 
        //获得已上报任务
-         Observable<WorkParkitembean>  getAlreadyWork(String time);
+         Observable<ReportBean> getAlreadyWork(String time);
 
 
     }
@@ -107,5 +111,24 @@ public interface WMCJContract  {
 
     interface  IssuseTaskModel extends  IModel{
 
+    }
+
+   interface WMCJcategoryView extends  IView{
+       void getReportMenuSuccess(ReportMenu bean);
+       void getExmineMenuSuccess(ExamineMenu bean);
+   }
+
+   interface WMCJcategoryModel extends IModel{
+      Observable<ReportMenu> getReportMenu();
+     Observable<ExamineMenu> getExamineMenu();
+    }
+
+    interface ExamineView extends  IView{
+     void getExamineBeanSuccess(ExamineBean bean);
+     void setadapter(BaseRecyclerAdapter<ExamineBean.DataBean.FileBean>  adapter);
+    }
+
+    interface ExamineModel extends IModel{
+        Observable<ExamineBean> getExamineBean();
     }
 }

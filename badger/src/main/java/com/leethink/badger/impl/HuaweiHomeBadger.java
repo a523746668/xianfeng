@@ -24,7 +24,7 @@ public class HuaweiHomeBadger extends Badger {
         try {
             Bundle bundle =new Bundle();
             bundle.putString("package", context.getPackageName().toString());
-            bundle.putString("class", "com.qingyii.hxt.FirstActivity");
+            bundle.putString("class", "com.qingyii.hxtz.FirstActivity");
             bundle.putInt("badgenumber",count);
             ContentResolver t=context.getContentResolver();
             t.call(Uri.parse(CONTENT_URI), "change_badge", null, bundle);

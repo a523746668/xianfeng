@@ -1,6 +1,10 @@
 package com.qingyii.hxtz.wmcj;
 
+import com.qingyii.hxtz.bean.ReportBean;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineBean;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineMenu;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Headbean;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.ReportMenu;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Resultbean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.TaskTitlebean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Taskdetailbean;
@@ -15,6 +19,7 @@ import okhttp3.ResponseBody;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Url;
 
@@ -65,10 +70,18 @@ public interface WMCJApi {
     Observable<Resultbean>  getResultData(@Url String mUrl,@Field("industryid") String industryid);
 
     @POST
-    Observable<WorkParkitembean> getReportBean(@Url String mUrl);
+    Observable<ReportBean> getReportBean(@Url String mUrl);
 
-   @POST
+    @POST
     @FormUrlEncoded
-    Observable<WorkParkitembean> getReportMore(@Url String murl,@Field("time") String time);
+    Observable<ReportBean> getReportMore(@Url String murl,@Field("time") String time);
 
+    @POST
+    Observable<ReportMenu> getReportMenu(@Url String murl);
+
+    @GET
+    Observable<ExamineBean> getExamine(@Url String murl);
+
+    @GET
+    Observable<ExamineMenu> getExamineMenu(@Url String murl);
 }

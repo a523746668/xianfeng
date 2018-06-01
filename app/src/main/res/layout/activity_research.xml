@@ -31,7 +31,7 @@
             android:textSize="18sp" />
     </RelativeLayout>
 
-        <com.zhf.android_viewflow.ViewFlow  
+        <com.qingyii.hxtz.zhf.android_viewflow.ViewFlow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"

@@ -11,8 +11,8 @@ import com.qingyii.hxtz.wmcj.WMCJApi;
 import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Resultbean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.TaskTitlebean;
-import com.zhf.Util.Global;
-import com.zhf.http.Urlutil;
+import com.qingyii.hxtz.zhf.Util.Global;
+import com.qingyii.hxtz.zhf.http.Urlutil;
 
 import javax.inject.Inject;
 
@@ -36,7 +36,7 @@ public class ResultModel extends BaseModel implements WMCJContract.ResultModel {
 
     @Override
     public Observable<Resultbean> getResultBean(int librarySystem) {
-        String purl= Urlutil.baseurl+"/task/"+ Global.userid+"/library/"+librarySystem
+        String purl= Urlutil.baseurl+"/kh/"+ Global.userid+"/library/"+librarySystem
                 +"/ranking?token="+ MyApplication.hxt_setting_config.getString("token","");
         return  mRepositoryManager.obtainRetrofitService(WMCJApi.class).getResultData(purl);
     }
@@ -44,7 +44,7 @@ public class ResultModel extends BaseModel implements WMCJContract.ResultModel {
     @Override
     public Observable<Resultbean> getResultBean(int librarySystem, int industryid) {
         if(industryid!=-999){
-            String purl= Urlutil.baseurl+"/task/"+Global.userid+"/library/"+librarySystem
+            String purl= Urlutil.baseurl+"/kh/"+Global.userid+"/library/"+librarySystem
                     +"/ranking?token="+ MyApplication.hxt_setting_config.getString("token","");
 
             return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getResultData(purl,String.valueOf(industryid));
@@ -56,7 +56,7 @@ public class ResultModel extends BaseModel implements WMCJContract.ResultModel {
 
     @Override
     public Observable<TaskTitlebean> getTaskTitle() {
-        String pUrl= Urlutil.baseurl+"/task/"+ Global.userid +"?token="+ MyApplication.hxt_setting_config.getString("token","");
+        String pUrl= Urlutil.baseurl+"/kh/"+ Global.userid +"?token="+ MyApplication.hxt_setting_config.getString("token","");
 
         return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getTaskTitle(pUrl);
     }

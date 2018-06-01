@@ -21,7 +21,7 @@ import android.widget.TextView;
 import com.andbase.library.app.base.AbBaseActivity;
 import com.qingyii.hxtz.http.MyApplication;
 import com.qingyii.hxtz.http.XrjHttpClient;
-import com.zhf.bean.SCbean;
+import com.qingyii.hxtz.zhf.bean.SCbean;
 
 import java.util.HashMap;
 import java.util.Map;

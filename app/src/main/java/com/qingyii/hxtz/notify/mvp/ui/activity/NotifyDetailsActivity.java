@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -156,6 +157,7 @@ public class NotifyDetailsActivity extends BaseActivity<NotifyDetailsPresenter> 
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.setHorizontalScrollBarEnabled(false);//水平不显示
         mWebView.setVerticalScrollBarEnabled(false); //垂直不显示
+        mWebView.requestFocus();
         mWebView.setListener(this, this);
         mWebView.addHttpHeader("Accept", XrjHttpClient.ACCEPT_V2);
         mWebView.addHttpHeader("Authorization", MyApplication.hxt_setting_config.getString("credentials", ""));
@@ -170,6 +172,7 @@ public class NotifyDetailsActivity extends BaseActivity<NotifyDetailsPresenter> 
                 return true;
             }
         });
+
         mWebView.loadUrl(webUrl);
     }
     @Override

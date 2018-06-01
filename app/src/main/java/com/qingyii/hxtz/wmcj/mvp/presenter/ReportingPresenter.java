@@ -4,11 +4,9 @@ import android.app.Application;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.integration.AppManager;
 import com.jess.arms.mvp.BasePresenter;
@@ -18,17 +16,21 @@ import com.mcxtzhang.commonadapter.rv.HeaderFooterAdapter;
 import com.mcxtzhang.commonadapter.rv.ViewHolder;
 import com.mcxtzhang.commonadapter.rv.mul.BaseMulTypeAdapter;
 import com.qingyii.hxtz.R;
+import com.qingyii.hxtz.bean.ReportBean;
+import com.qingyii.hxtz.view.RoundedImageView;
 import com.qingyii.hxtz.wmcj.WMCJContract;
-import com.qingyii.hxtz.wmcj.mvp.model.bean.WorkParkitembean;
 import com.qingyii.hxtz.wmcj.mvp.model.entity.FooterBean;
 import com.qingyii.hxtz.wmcj.mvp.ui.activity.WorkParkDetailsActivity;
-import com.zhf.Util.HintUtil;
-import com.zhf.http.Urlutil;
+import com.qingyii.hxtz.zhf.Util.HintUtil;
+import com.qingyii.hxtz.zhf.http.Urlutil;
 
+import org.w3c.dom.Text;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Date;
 import javax.inject.Inject;
-
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
@@ -50,8 +52,25 @@ public class ReportingPresenter extends BasePresenter<WMCJContract.WorkParkModel
     private AppManager mAppManager;
 
     HeaderFooterAdapter adapter;
-    private ArrayList<WorkParkitembean.DataBean.AllactivityBean> list =new ArrayList<>();
+
+
     String time="null";
+
+
+
+     private long  dotime(String time){
+         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//小写的mm表示的是分钟
+         Date date ;
+         try {
+              date=sdf.parse(time);
+             return  date.getTime();
+         } catch (ParseException e) {
+             e.printStackTrace();
+         }
+
+           return -1;
+     }
+
     @Inject
     public ReportingPresenter(WMCJContract.WorkParkModel model, WMCJContract.WorkParkView rootView, RxErrorHandler mErrorHandler, ImageLoader mImageLoader, Application mApplication, AppManager mAppManager) {
         super(model, rootView);
@@ -67,23 +86,49 @@ public class ReportingPresenter extends BasePresenter<WMCJContract.WorkParkModel
     }
 
     public void initadapter() {
-        if(adapter==null){
-            adapter=new HeaderFooterAdapter(new BaseMulTypeAdapter<WorkParkitembean.DataBean.AllactivityBean>(mApplication,list){
+        // fiveOne=dotime(five_one);
+         if(adapter==null){
+            adapter=new HeaderFooterAdapter(new BaseMulTypeAdapter<ReportBean.DataBean.AllactivityBean>(mApplication,list){
                 @Override
-                public void convert(ViewHolder holder, WorkParkitembean.DataBean.AllactivityBean allactivityBean) {
+                public void convert(ViewHolder holder, ReportBean.DataBean.AllactivityBean allactivityBean) {
                     super.convert(holder, allactivityBean);
-                    setDrawLeft(new Rect(0, 0, 35, 36), R.drawable.workpark_time, holder.getView(R.id.workpark_include_tv_time));
-                    setDrawLeft(new Rect(0, 0, 27, 27), R.drawable.workpark_comment, holder.getView(R.id.workpark_include_tv_comment));
-                    setDrawLeft(new Rect(0, 0, 35, 23), R.drawable.workpark_read, holder.getView(R.id.workpark_include_tv_read));
-                    TextView times= holder.getView(R.id.workpark_include_tv_time);
-                    times.setText(allactivityBean.getCreated_at());
-                    TextView name=holder.getView(R.id.workpark_lv_title);
-                    name.setText(allactivityBean.getA_name());
-                    TextView readsun=holder.getView(R.id.workpark_include_tv_read);
 
-                    readsun.setText(String.valueOf(allactivityBean.getNum_show()));
-                    TextView comment=holder.getView(R.id.workpark_include_tv_comment);
-                    comment.setText(String.valueOf(allactivityBean.getNum_comment()));
+                    TextView tv1=holder.getView(R.id.tv_name);
+                    tv1.setText(allactivityBean.getA_name());
+                    TextView tv2=holder.getView(R.id.workpark_fbtime);
+                    tv2.setText(allactivityBean.getCreated_at());
+                    TextView  issh=holder.getView(R.id.workpark_issh);
+                    if(allactivityBean.getIs_approve()==0){
+                        issh.setText("未审核");
+                        issh.setTextColor(mApplication.getResources().getColor(R.color.allStyles ));
+                    } else if(allactivityBean.getIs_approve()==1){
+                        issh.setText("已审核");
+                        issh.setTextColor(mApplication.getResources().getColor(R.color.notifyListReadColor));
+                    }
+                   TextView issc=holder.getView(R.id.istj);
+                    if(allactivityBean.getIs_article()==0){
+                      issc.setText("未推荐");
+                      issc.setTextColor(mApplication.getResources().getColor(R.color.workparktext));
+                    } else if(allactivityBean.getIs_article()==1){
+                        issc.setText("已推荐");
+                        issc.setTextColor(mApplication.getResources().getColor(R.color.allStyles));
+                    }else if(allactivityBean.getIs_article()==2){
+                        issc.setText("已收录");
+                        issc.setTextColor(mApplication.getResources().getColor(R.color.notifyListReadColor));
+                    }
+
+                   if (allactivityBean.getItemLayoutId()==R.layout.workpark_newlayout1){
+                       RoundedImageView iv=holder.getView(R.id.iv);
+                       String murl;
+                       if(allactivityBean.getImgs().get(0).contains("http")){
+                           murl=allactivityBean.getImgs().get(0);
+                       } else {
+                           murl= Urlutil.baseimgurl+ allactivityBean.getImgs().get(0);
+                       }
+                    mImageLoader.loadImage(mApplication, GlideImageConfig.builder().imageView(iv).errorPic(R.mipmap.error_default).url(murl).build());
+                   iv.setCornerRadius(12f);
+
+                   }
 
                     holder.itemView.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -93,31 +138,6 @@ public class ReportingPresenter extends BasePresenter<WMCJContract.WorkParkModel
                             mAppManager.startActivity(intent);
                         }
                     });
-                    switch(allactivityBean.getItemLayoutId()){
-                        case R.layout.workpark_content_layout1:
-                            ImageView iv1=holder.getView(R.id.workpark_lv1_iv);
-                            String url1= Urlutil.baseimgurl+ allactivityBean.getImgs().get(0);
-                            Log.i("tmdurl",url1);
-                            mImageLoader.loadImage(mApplication, GlideImageConfig.builder().url(url1).errorPic(R.mipmap.error_default)
-                                    .imageView(iv1).build());
-
-                            break;
-                        case R.layout.workpark_content_layout2:
-                            ImageView  imageView1=holder.getView(R.id.workpark_lv2_iv1);
-                            ImageView  imageView2=holder.getView(R.id.workpark_lv2_iv2);
-                            ImageView  imageView3=holder.getView(R.id.workpark_lv2_iv3);
-                            mImageLoader.loadImage(mApplication,GlideImageConfig.builder().url(Urlutil.baseimgurl+allactivityBean.getImgs().get(0))
-                                    .errorPic(R.mipmap.error_default).imageView(imageView1).build());
-                            mImageLoader.loadImage(mApplication,GlideImageConfig.builder().url(Urlutil.baseimgurl+allactivityBean.getImgs().get(1))
-                                    .errorPic(R.mipmap.error_default).imageView(imageView2).build());
-                            mImageLoader.loadImage(mApplication,GlideImageConfig.builder().url(Urlutil.baseimgurl+allactivityBean.getImgs().get(2))
-                                    .errorPic(R.mipmap.error_default).imageView(imageView3).build());
-
-                            break;
-                        case R.layout.alltext:
-
-                            break;
-                    }
 
                 }
 
@@ -130,7 +150,7 @@ public class ReportingPresenter extends BasePresenter<WMCJContract.WorkParkModel
 
 
     }
-
+     ArrayList<ReportBean.DataBean.AllactivityBean> list =new ArrayList<>();
     public void  getReportdata(){
        initadapter();
         mModel.getAlreadyWork("null")
@@ -150,9 +170,9 @@ public class ReportingPresenter extends BasePresenter<WMCJContract.WorkParkModel
                          mRootView.finishRefresh();
                     }
                 })
-                .subscribe(new ErrorHandleSubscriber<WorkParkitembean>(mErrorHandler) {
+                .subscribe(new ErrorHandleSubscriber<ReportBean>(mErrorHandler) {
                     @Override
-                    public void onNext(@NonNull WorkParkitembean workParkitembean) {
+                    public void onNext(@NonNull ReportBean workParkitembean) {
                       if(workParkitembean.getData().getAllactivity().size()<=0){
                           mRootView.getdataerror(null);
                       }
@@ -188,9 +208,9 @@ public class ReportingPresenter extends BasePresenter<WMCJContract.WorkParkModel
                          adapter.notifyDataSetChanged();
                      }
                  })
-                 .subscribe(new ErrorHandleSubscriber<WorkParkitembean>(mErrorHandler) {
+                 .subscribe(new ErrorHandleSubscriber<ReportBean>(mErrorHandler) {
                      @Override
-                     public void onNext(@NonNull WorkParkitembean workParkitembean) {
+                     public void onNext(@NonNull ReportBean workParkitembean) {
                          if(workParkitembean.getData().getAllactivity()==null|workParkitembean.getData().getAllactivity().size()<=0){
                              HintUtil.showtoast(mApplication,"已经是最后一页");
                          }

@@ -13,13 +13,18 @@ import android.widget.TextView;
 import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
 import com.qingyii.hxtz.R;
+import com.qingyii.hxtz.base.app.EventBusTags;
 import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.di.component.DaggerResultComponent;
 import com.qingyii.hxtz.wmcj.di.module.ResultModule;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.TaskTitlebean;
 import com.qingyii.hxtz.wmcj.mvp.presenter.ResultPresenter;
+import com.qingyii.hxtz.wmcj.mvp.ui.activity.WMCJcategoryActivity;
 import com.qingyii.hxtz.wmcj.mvp.ui.adapter.Resultvpadapter;
 import com.zhy.autolayout.AutoLinearLayout;
+
+import org.geometerplus.android.fbreader.api.FBReaderIntents;
+import org.simple.eventbus.EventBus;
 
 import java.util.ArrayList;
 
@@ -55,6 +60,8 @@ public class ResultPostionFragment  extends BaseFragment<ResultPresenter> implem
     @BindView(R.id.resultall)
     AutoLinearLayout emtview2;
 
+    @BindView(R.id.toolbar_right_tv)
+    TextView barright;
 
     private ArrayList<TaskTitlebean.DataBean.LibsystemBean> titles=new ArrayList<>();
     private ArrayList<ResultSonFragment> fragments=new ArrayList<>();
@@ -76,14 +83,24 @@ public class ResultPostionFragment  extends BaseFragment<ResultPresenter> implem
 
     @Override
     public void initData(Bundle savedInstanceState) {
-     init();
+        init();
         mPresenter.getResultData();
     }
 
     private void init() {
+        barright.setText("切换排行榜");
+        barright.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent intent=new Intent(getActivity(), WMCJcategoryActivity.class);
+               intent.putExtra("wmcj","Result");
+               startActivity(intent);
+            }
+        });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EventBus.getDefault().post(true, EventBusTags.HOME);
                 getActivity().finish();
             }
         });
@@ -159,15 +176,16 @@ public class ResultPostionFragment  extends BaseFragment<ResultPresenter> implem
         sub= (Button) view.findViewById(R.id.resultfragsub);
         add= (Button) view.findViewById(R.id.resultdad);
         back= (Button) view.findViewById(R.id.toolbar_back);
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().finish();
             }
         });
+
+
         viewPager= (ViewPager) view.findViewById(R.id.resultvp);
-
-
 
         if(viewPager.getCurrentItem()==0){
             sub.setBackgroundResource(R.mipmap.leftbutton_hold);

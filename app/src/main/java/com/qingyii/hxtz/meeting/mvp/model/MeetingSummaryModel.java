@@ -39,11 +39,11 @@ public class MeetingSummaryModel extends BaseModel implements CommonContract.Mee
 
     @Override
     public Observable<CommonData<String>> requestMeetingSummary(MeetingSummary data) {
-        return mRepositoryManager.obtainRetrofitService(ApiService.class).requestSummary(XrjHttpClient.URL_UP+"/api/meeting/summary",data);
+        return mRepositoryManager.obtainRetrofitService(ApiService.class).requestSummary(XrjHttpClient.URL_UP+"/api/hy/summary",data);
     }
 
     @Override
     public Observable<CommonData<String>> uploadPic(MultipartBody.Part part, String id) {
-        return mRepositoryManager.obtainRetrofitService(ApiService.class).uploadPic(XrjHttpClient.URL_UP+"/api/upload/meeting/summary/picture?user_id="+id,part);
+        return mRepositoryManager.obtainRetrofitService(ApiService.class).uploadPic(XrjHttpClient.URL_UP+"/api/upload/hy/summary/picture?user_id="+id,part);
     }
 }

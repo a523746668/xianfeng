@@ -12,12 +12,12 @@
         android:required="true" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_GPS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -32,9 +32,44 @@
     <!-- 来电消音 -->
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
-    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 极光开始 -->
+    <permission
+        android:name="com.qingyii.hxtz.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+    <!-- Required  一些系统要求的权限，如访问网络等 -->
+    <uses-permission android:name="com.qingyii.hxtz.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!-- 极光结束 -->
+
+
+    <!-- baidu map 开始 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
     <supports-screens
         android:anyDensity="true"
@@ -43,10 +78,6 @@
         android:resizeable="true"
         android:smallScreens="true" />
 
-    <!-- 网络信息中获取地理 -->
-    <!-- GPS中获取地理 -->
-    <!-- 网络状态 -->
-    <!-- 华为角标 -->
     <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
     <!-- Frontia框架的公共权限 -->
     <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
@@ -56,16 +87,11 @@
 
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
 
-    <!-- 极光开始 -->
-    <permission
-        android:name="com.qingyii.hxtz.permission.JPUSH_MESSAGE"
-        android:protectionLevel="signature" />
     <!-- Required  一些系统要求的权限，如访问网络等 -->
-    <uses-permission android:name="com.qingyii.hxt.permission.JPUSH_MESSAGE" />
+
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <!-- Optional for location -->
@@ -91,9 +117,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- 访问网络，网络定位需要上网 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!-- SD卡读取权限，用户写入离线定位数据 -->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
     <application
         android:name=".http.MyApplication"
         android:allowBackup="true"
@@ -106,7 +131,7 @@
         android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.qingyii.hxtz.fileprovider"
+            android:authorities="com.qingyiiz.zhf1.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true"
             tools:replace="name,authorities,exported,grantUriPermissions">
@@ -130,22 +155,16 @@
                 <action android:name="cn.jpush.android.ui.PushActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.qingyii.hxt" />
+                <category android:name="com.qingyii.hxtz" />
             </intent-filter>
         </activity>
-        <!-- Required  SDK核心功能 -->
+
         <service
             android:name="cn.jpush.android.service.DownloadService"
             android:enabled="true"
             android:exported="false" />
 
-        <meta-data
-            android:name="com.baidu.lbsapi.API_KEY"
-            android:value="GG2wQnZrVjc8dDxRYqG1ZaTtoC9lRgPE" />
-        <!--  -->
-
-
-        <!-- Required SDK 核心功能 -->
+        <!-- Required  SDK核心功能 -->
         <service
             android:name="cn.jpush.android.service.PushService"
             android:enabled="true"
@@ -157,6 +176,12 @@
                 <action android:name="cn.jpush.android.intent.PUSH_TIME" />
             </intent-filter>
         </service>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="GG2wQnZrVjc8dDxRYqG1ZaTtoC9lRgPE" />
+        <!--  -->
+
 
         <!-- Required SDK核心功能 -->
         <receiver
@@ -179,9 +204,9 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
+
         <!-- Required SDK核心功能 -->
         <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
-        <!-- User defined.  For test only  用户自定义的广播接收器 -->
         <receiver
             android:name=".jpush.MyReceiver"
             android:enabled="true">
@@ -202,13 +227,13 @@
                 <category android:name="com.qingyii.hxt" />
             </intent-filter>
         </receiver>
-        <!-- Required  . Enable it you can get statistics data with channel -->
+        <!-- User defined.  For test only  用户自定义的广播接收器 -->
         <meta-data
             android:name="JPUSH_CHANNEL"
             android:value="developer-default" />
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="ac0d97881c4c2e0cddbd2200" />
+            android:value="e305413a820f5eb7238f2029" />
         <!-- </>6ed240ca4108ae820d1bcf3e值来自开发者平台取得的AppKey -->
         <!-- 极光结束 -->
 
@@ -1129,23 +1154,25 @@
             android:name=".wmcj.mvp.ui.activity.WorkParkCategoryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zhf.IssusetaskActivity"
+            android:name=".zhf.IssusetaskActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.zhf.DraftActivity"
+            android:name=".zhf.DraftActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".home.mvp.ui.LattestNewsActivity" />
-        <activity android:name="com.zhf.ImgandVideoActivity" />
+        <activity android:name=".zhf.ImgandVideoActivity" />
         <activity
-            android:name="com.zhf.RecodingActivity"
+            android:name=".zhf.RecodingActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.zhf.MyshoucangActivity" />
-        <activity android:name="com.zhf.PDFreadActivity" />
+        <activity android:name=".zhf.MyshoucangActivity" />
+        <activity android:name=".zhf.PDFreadActivity" />
         <activity android:name=".wmcj.mvp.ui.activity.TaskDetailActivity" />
         <activity android:name=".wmcj.mvp.ui.activity.ResultPostionActivity" />
         <activity android:name=".wmcj.mvp.ui.activity.ReportingActivity" />
-        <activity android:name=".home.mvp.ui.HomeNewActivity"></activity>
+        <activity android:name=".home.mvp.ui.HomeNewActivity" />
+        <activity android:name=".my.My_StudyActivity" />
+        <activity android:name=".wmcj.mvp.ui.activity.WMCJcategoryActivity"></activity>
     </application>
 
 </manifest>

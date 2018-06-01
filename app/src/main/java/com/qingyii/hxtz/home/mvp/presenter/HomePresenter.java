@@ -2,6 +2,7 @@ package com.qingyii.hxtz.home.mvp.presenter;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
@@ -18,15 +19,14 @@ import com.qingyii.hxtz.base.mvp.contract.CommonContract;
 import com.qingyii.hxtz.base.utils.RxUtils;
 import com.qingyii.hxtz.home.mvp.model.entity.FakeData;
 import com.qingyii.hxtz.home.mvp.model.entity.HomeInfo;
-import com.zhf.Util.Global;
-import com.zhf.http.Urlutil;
+import com.qingyii.hxtz.zhf.Util.Global;
+import com.qingyii.hxtz.zhf.http.Urlutil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
@@ -68,7 +68,7 @@ public class HomePresenter extends BasePresenter<CommonContract.HomeInfoModel, C
         this.mApplication = null;
     }
 
-    public void requestHomeInfo( Context context) {
+    public void requestHomeInfo(Context context) {
         if (mAdapter == null) {
             mAdapter = new BaseRecyclerAdapter<HomeInfo.AccountBean.ModulesBean>(Global.list) {
                 @Override
@@ -136,8 +136,6 @@ public class HomePresenter extends BasePresenter<CommonContract.HomeInfoModel, C
      }
 
      public void gethomeinfo(){
-
-
          mModel.getHomeInfo()
                  .subscribeOn(Schedulers.io())
                  .doOnSubscribe(new Consumer<Disposable>() {
@@ -159,11 +157,14 @@ public class HomePresenter extends BasePresenter<CommonContract.HomeInfoModel, C
                      @Override
                      public void onNext(@NonNull HomeInfo homeInfo) {
                          mRootView.updateUI(homeInfo);
+                         Global.isFlag=true;
+                         Log.i("tmdaaa","aaa");
                      }
 
                      @Override
                      public void onError(@NonNull Throwable e) {
-                         UiUtils.snackbarText(e.getMessage());
+                        Global.isFlag=false;
+                         UiUtils.snackbarText(e.getMessage()+"，请求个人信息失败，请联系管理员或者尝试重新登录");
                      }
                  });
 

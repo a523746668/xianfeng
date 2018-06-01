@@ -151,7 +151,8 @@
         android:layout_width="fill_parent"
         android:layout_height="152px"
         android:layout_marginBottom="3px"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/tv_outLogin"
@@ -180,5 +181,33 @@
             android:textColor="@color/black"
             android:textSize="55px" />
     </com.zhy.autolayout.AutoRelativeLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="152px"
+        android:layout_marginBottom="3px"
+        android:background="@color/white">
 
+        <TextView
+            android:id="@+id/tv_changeuser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:text="切换用户"
+            android:textColor="@color/black"
+            android:textSize="55px" />
+
+        <TextView
+            android:id="@+id/tv_changeuser1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="55px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
 </com.zhy.autolayout.AutoLinearLayout>

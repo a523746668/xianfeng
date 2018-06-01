@@ -711,7 +711,7 @@ public class myActivity1 extends AbBaseActivity {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE, null);
             Uri uri;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-                uri= FileProvider.getUriForFile(this, "com.qingyii.hxt.fileprovider", mCurrentPhotoFile);
+                uri= FileProvider.getUriForFile(this, "com.qingyiiz.zhf1.fileprovider", mCurrentPhotoFile);
 
             }   else {
                 uri=Uri.fromFile(mCurrentPhotoFile);

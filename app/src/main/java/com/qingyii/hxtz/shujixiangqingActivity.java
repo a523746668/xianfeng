@@ -483,7 +483,7 @@ public class shujixiangqingActivity extends BaseActivity {
                                 System.out.println("bookSqlInfo = " + sdcard_url);
 
                                 File file = new File(epubUrl);
-                                Book book = bs.getBookByFile(file + "");
+                                Book book = bs.getBookByFile(file+"" );
 
                                 FBReader.openBookActivity(shujixiangqingActivity.this, book, null);
 

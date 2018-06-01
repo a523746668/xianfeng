@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".wmcj.mvp.ui.activity.WMCJcategoryActivity">
+    <!--标题栏-->
+    <include layout="@layout/include_toolbar" />
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/category_tv1"
+                android:text="点击进入相应的专题"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="50px"
+                android:textColor="@color/black"
+                android:textSize="48px"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/category_recyclerView1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingRight="50px" />
+
+            <TextView
+                android:id="@+id/category_tv2"
+                android:text="点击进入相应的标签"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="50px"
+                android:textColor="@color/black"
+                android:textSize="48px" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/category_recyclerView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingRight="50px" />
+            <TextView
+                android:id="@+id/category_tv3"
+                android:text="点击进入相应的标签"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="50px"
+                android:textColor="@color/black"
+                android:textSize="48px" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/category_recyclerView3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingRight="50px" />
+            <TextView
+                android:id="@+id/category_tv4"
+                android:text="点击进入相应的标签"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="50px"
+                android:textColor="@color/black"
+                android:textSize="48px" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/category_recyclerView4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingRight="50px" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</com.zhy.autolayout.AutoLinearLayout>

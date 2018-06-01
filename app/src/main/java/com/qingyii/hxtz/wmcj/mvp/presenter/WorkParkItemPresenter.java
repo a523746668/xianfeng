@@ -27,8 +27,8 @@ import com.qingyii.hxtz.wmcj.mvp.model.entity.HeaderBean;
 import com.qingyii.hxtz.wmcj.mvp.ui.activity.WorkParkDetailsActivity;
 import com.youth.banner.Banner;
 import com.youth.banner.listener.OnBannerClickListener;
-import com.zhf.Util.HintUtil;
-import com.zhf.http.Urlutil;
+import com.qingyii.hxtz.zhf.Util.HintUtil;
+import com.qingyii.hxtz.zhf.http.Urlutil;
 
 import java.util.ArrayList;
 import java.util.List;

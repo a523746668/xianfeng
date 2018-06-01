@@ -46,7 +46,7 @@ import java.util.ArrayList;
  */
 public class CircleChooseReasonActivity extends AbBaseActivity {
 
-    private ImageView mImgLeft;
+   // private ImageView mImgLeft;
     private ListView mListView;
     private ArrayList<CircleReport> mArrayType;
     private ArrayList<String> mArrayTypeStr;
@@ -88,7 +88,7 @@ public class CircleChooseReasonActivity extends AbBaseActivity {
     }
 
     private void findView() {
-        mImgLeft = (ImageView) findViewById(R.id.circle_choosetype_left);
+      //  mImgLeft = (ImageView) findViewById(R.id.circle_choosetype_left);
         mListView = (ListView) findViewById(R.id.circle_typelist_list);
     }
 
@@ -126,12 +126,8 @@ public class CircleChooseReasonActivity extends AbBaseActivity {
     }
 
     private void setListener() {
-        mImgLeft.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                CircleChooseReasonActivity.this.finish();
-            }
-        });
+
+
         mListView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,

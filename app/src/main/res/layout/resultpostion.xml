@@ -26,17 +26,19 @@
                 android:layout_marginLeft="50px"
                 android:background="@mipmap/leftbutton_unclick"
                 android:id="@+id/resultfragsub"
+                android:visibility="gone"
                 />
             <TextView
                 android:layout_width="772px"
                 android:layout_height="match_parent"
                 android:layout_toRightOf="@+id/resultfragsub"
                 android:layout_marginLeft="50px"
-
-                android:textSize="40px"
-                android:textColor="#dd3030"
+                android:layout_centerHorizontal="true"
+                android:textSize="52px"
+                android:textColor="@color/black"
                 android:gravity="center"
                 android:id="@+id/resulttitle"
+
                 />
             <Button
                 android:layout_width="54px"
@@ -46,12 +48,14 @@
                 android:layout_marginRight="50px"
                 android:background="@mipmap/rightbutton_unclick"
                 android:id="@+id/resultdad"
+                android:visibility="gone"
                 />
         </com.zhy.autolayout.AutoRelativeLayout>
         <android.support.v4.view.ViewPager
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/resultvp"
+
             ></android.support.v4.view.ViewPager>
 
     </com.zhy.autolayout.AutoLinearLayout>

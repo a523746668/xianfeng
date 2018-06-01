@@ -8,8 +8,8 @@ import android.widget.ImageView;
 import com.andbase.library.app.base.AbBaseActivity;
 import com.qingyii.hxtz.adapter.ActivityInfoAdapter;
 import com.qingyii.hxtz.pojo.ActivityDiscussPic;
-import com.zhf.android_viewflow.ViewFlow;
-import com.zhf.android_viewflow.ViewFlow.ViewSwitchListener;
+import com.qingyii.hxtz.zhf.android_viewflow.ViewFlow;
+import com.qingyii.hxtz.zhf.android_viewflow.ViewFlow.ViewSwitchListener;
 
 import java.util.ArrayList;
 

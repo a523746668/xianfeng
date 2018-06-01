@@ -66,9 +66,10 @@ public class TaskLineAdaper extends RecyclerView.Adapter<BaseRecyclerViewHolder>
          TextView tvcj=holder.getTextView(R.id.tasklinecj);
         TextView tvtitle= holder.getTextView(R.id.tasklinetitle);
         TextView tvscore=holder.getTextView(R.id.tasklinefenshu);
-
-
+        TextView shuixian1=holder.getTextView(R.id.shuxian1);
+        TextView shuixian2=holder.getTextView(R.id.shuxian2);
         holder.itemView.setClickable(true);
+
 
          if(position<list.size()&&list.get(position).istask()){
            tvcj.setVisibility(View.INVISIBLE);
@@ -81,6 +82,7 @@ public class TaskLineAdaper extends RecyclerView.Adapter<BaseRecyclerViewHolder>
                      intent.putExtra("id",list.get(position).getId());
                      intent.putExtra("taget",list.get(position).getTaskname());
                      intent.putExtra("title",titilename);
+                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                      context.startActivity(intent);
                   }
              });

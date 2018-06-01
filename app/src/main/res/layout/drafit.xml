@@ -34,7 +34,7 @@
          android:id="@+id/updateprogress"
           android:layout_marginLeft="20px"
           android:layout_marginRight="20px"
-          android:visibility="gone"
+
            />
       <TextView
           android:layout_width="wrap_content"

@@ -5,8 +5,8 @@ import android.view.View;
 
 import com.andbase.library.app.base.AbBaseActivity;
 import com.qingyii.hxtz.adapter.GuideViewflowAdapter;
-import com.zhf.android_viewflow.ViewFlow;
-import com.zhf.android_viewflow.ViewFlow.ViewSwitchListener;
+import com.qingyii.hxtz.zhf.android_viewflow.ViewFlow;
+import com.qingyii.hxtz.zhf.android_viewflow.ViewFlow.ViewSwitchListener;
 
 /**
  * 引导界面

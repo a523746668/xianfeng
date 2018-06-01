@@ -15,7 +15,7 @@ import com.qingyii.hxtz.http.MyApplication;
 import com.qingyii.hxtz.http.XrjHttpClient;
 import com.qingyii.hxtz.httpway.HandleParameterCallback;
 import com.qingyii.hxtz.pojo.HandleParameter;
-import com.zhf.Util.HintUtil;
+import com.qingyii.hxtz.zhf.Util.HintUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import okhttp3.Call;

@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.net.ParseException;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonParseException;
@@ -19,6 +22,7 @@ import com.jess.arms.http.GlobalHttpHandler;
 import com.jess.arms.integration.ConfigModule;
 import com.jess.arms.utils.UiUtils;
 import com.king.thread.nevercrash.NeverCrash;
+import com.qingyii.hxtz.R;
 import com.qingyii.hxtz.base.mvp.api.Api;
 import com.qingyii.hxtz.http.MyApplication;
 import com.qingyii.hxtz.http.XrjHttpClient;
@@ -198,6 +202,20 @@ public final class GlobalConfiguration implements ConfigModule {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
                 Timber.w(activity + " - onActivityCreated");
+                if (Build.VERSION.SDK_INT >= 21) {
+                    //LAYOUT_FULLSCREEN 、LAYOUT_STABLE：让应用的主体内容占用系统状态栏的空间；
+//            View decorView = getWindow().getDecorView();
+//            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+//                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+//            decorView.setSystemUiVisibility(option);
+//            getWindow().setStatusBarColor(Color.TRANSPARENT);
+                    Window window = activity.getWindow();
+                    //取消设置透明状态栏,使 ContentView 内容不再覆盖状态栏
+                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                    //需要设置这个 flag 才能调用 setStatusBarColor 来设置状态栏颜色
+                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                    window.setStatusBarColor(activity.getResources().getColor(R.color.toolbarbackground));
+                }
             }
 
             @Override

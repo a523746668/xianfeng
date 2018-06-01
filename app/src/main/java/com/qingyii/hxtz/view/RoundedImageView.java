@@ -63,7 +63,7 @@ public class RoundedImageView extends ImageView {
       setScaleType(SCALE_TYPES[index]);
     } else {
       // default scaletype to FIT_CENTER
-      setScaleType(ScaleType.FIT_CENTER);
+      setScaleType(ScaleType.FIT_XY);
     }
 
     cornerRadius = a.getDimensionPixelSize(R.styleable.RoundedImageView_corner_radius, -1);

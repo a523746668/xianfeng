@@ -6,7 +6,7 @@
 
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.zhf.PDFreadActivity">
+    tools:context=".zhf.PDFreadActivity">
     <include layout="@layout/include_toolbar"
        android:id="@+id/toolbar"
 

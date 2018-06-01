@@ -15,16 +15,16 @@ repositories {
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
     buildToolsVersion rootProject.ext.android["buildToolsVersion"]
-
     signingConfigs {
         // your debug keystore
-        debug {
+        release {
             keyAlias 'xiangzhi'
             keyPassword '123456'
             storeFile file("xiangzhi.jks")
             storePassword '123456'
         }
     }
+
     sourceSets.main.jni.srcDirs = [] //disable automatic ndk-build call
     sourceSets {
         main {
@@ -56,6 +56,7 @@ android {
         testInstrumentationRunner rootProject.ext.dependencies["androidJUnitRunner"]
     }
 
+
     buildTypes {
         release {
             minifyEnabled false
@@ -81,10 +82,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
     }
-    compileOptions {
-        targetCompatibility 1.8
-        sourceCompatibility 1.8
-    }
+
 }
 
 def releaseTime() {
@@ -100,15 +98,10 @@ dependencies {
     compile project(':badger')
     compile project(path: ':superToasts')
     compile project(path: ':ambilWarna')
-
     //lambda
-
     //自动适配屏幕框架
-
     //adapter基类
-
     //mvpArms
-
     //    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
     kapt rootProject.ext.dependencies["dagger2-compiler"]
     compile rootProject.ext.dependencies["dagger2"]
@@ -158,7 +151,6 @@ dependencies {
         exclude module: 'support-v4'
     }
     compile files('libs/umeng-common-1.4.0.jar')
-
     compile 'com.github.d-max:spots-dialog:0.4@aar'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.1'
     compile 'com.github.zzz40500:android-shapeLoadingView:1.0.3.2'
@@ -191,5 +183,9 @@ dependencies {
     compile 'com.github.GrenderG:Toasty:1.2.5'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.zyao89:zloading:1.1.1'
+    compile 'com.githang:status-bar-compat:0.7'
+    compile 'me.zhouzhuo.zzhorizontalprogressbar:zz-horizontal-progressbar:1.0.6'
     testCompile 'junit:junit:4.12'
+
 }
+apply plugin: 'kotlin-android-extensions'

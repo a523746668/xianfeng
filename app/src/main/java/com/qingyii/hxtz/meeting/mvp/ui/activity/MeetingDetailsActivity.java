@@ -1,12 +1,15 @@
 package com.qingyii.hxtz.meeting.mvp.ui.activity;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.location.Location;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -24,6 +27,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.UiUtils;
@@ -34,15 +38,20 @@ import com.qingyii.hxtz.TrainSiteActivity;
 import com.qingyii.hxtz.base.app.EventBusTags;
 import com.qingyii.hxtz.base.app.GlobalConsts;
 import com.qingyii.hxtz.base.mvp.contract.CommonContract;
+import com.qingyii.hxtz.base.mvp.model.entity.MyLocations;
+import com.qingyii.hxtz.base.utils.RxLocationUtils;
 import com.qingyii.hxtz.home.mvp.model.entity.HomeInfo;
 import com.qingyii.hxtz.http.HttpUrlConfig;
 import com.qingyii.hxtz.http.MyApplication;
+import com.qingyii.hxtz.http.Urlutil;
 import com.qingyii.hxtz.http.XrjHttpClient;
 import com.qingyii.hxtz.meeting.di.component.DaggerMeetingDetailsComponent;
 import com.qingyii.hxtz.meeting.di.module.MeetingDetailsModule;
 import com.qingyii.hxtz.meeting.di.module.entity.MeetingList;
 import com.qingyii.hxtz.meeting.mvp.presenter.MeetingetailsPresenter;
+import com.qingyii.hxtz.my.My_StudyActivity;
 import com.qingyii.hxtz.pojo.TrainList;
+import com.qingyii.hxtz.zhf.Util.Global;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
 import com.zhy.autolayout.AutoLinearLayout;
@@ -52,7 +61,9 @@ import org.simple.eventbus.Subscriber;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -96,6 +107,16 @@ public class MeetingDetailsActivity extends BaseActivity<MeetingetailsPresenter>
     private EditText editText;
     private int position;
 
+    //用户位置
+    Location location1;
+
+    //与目标位置的距离
+    private double juli=-1;
+
+   //会议地址位置
+    MyLocations meetlocation;
+    ArrayList<String> items=new ArrayList<>();
+
     @Override
     public void setupActivityComponent(AppComponent appComponent) {
         DaggerMeetingDetailsComponent
@@ -123,9 +144,8 @@ public class MeetingDetailsActivity extends BaseActivity<MeetingetailsPresenter>
             mDetailsSign.setVisibility(View.GONE);
         }
         toolbarTitle.setText(R.string.meeting_details);
+
         toolbarRightTv.setTextColor(getResources().getColorStateList(R.color.toolbar_right_tv_selector));
-
-
         if (data.getStatus_mark().equals("已结束")) {
             toolbarRightTv.setVisibility(View.GONE);
             if (MyApplication.userUtil.getId() == data.getUser_id()) {
@@ -149,7 +169,34 @@ public class MeetingDetailsActivity extends BaseActivity<MeetingetailsPresenter>
         } else {
             updateFeedBack();
         }
+        registRxLocation();
         initWebView();
+
+    }
+
+    private void registRxLocation() {
+
+        meetlocation=new Gson().fromJson(data.getLocation(),MyLocations.class);
+
+        RxLocationUtils.register(MeetingDetailsActivity.this, 1000, 0, new RxLocationUtils.OnLocationChangeListener() {
+            @Override
+            public void getLastKnownLocation(Location location) {
+                location1 =location;
+                juli=RxLocationUtils.GetDistance(meetlocation.getMap().getLat(),meetlocation.getMap().getLng(),location.getLatitude(),location.getLongitude());
+               Log.i("tmdjuli","juli:"+juli+"-----1:"+meetlocation.getMap().getLat()+"-----2:"+meetlocation.getMap().getLng()+"------" +
+                       "-3:"+location.getLatitude()+"--------4:"+location.getLongitude());
+            }
+
+            @Override
+            public void onLocationChanged(Location location) {
+
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+        });
     }
 
     @Subscriber(tag = EventBusTags.MEETING)
@@ -223,7 +270,7 @@ public class MeetingDetailsActivity extends BaseActivity<MeetingetailsPresenter>
         mWebView.setListener(this, this);
         mWebView.addHttpHeader("Accept", XrjHttpClient.ACCEPT_V2);
         mWebView.addHttpHeader("Authorization", MyApplication.hxt_setting_config.getString("credentials", ""));
-        String webUrl = XrjHttpClient.URL_PR + "/meeting/" + data.getId();
+        String webUrl = XrjHttpClient.URL_PR + "/hy/" + data.getId();
         Log.i("tmdmeet",webUrl);
         //WebView点击事件依旧显示在本页面
         mWebView.setWebViewClient(new WebViewClient() {
@@ -240,6 +287,12 @@ public class MeetingDetailsActivity extends BaseActivity<MeetingetailsPresenter>
 //                }
                 view.loadUrl(url);
                 return false;
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+               Log.i("tmdmeetdetail",url);
             }
         });
         mWebView.addJavascriptInterface(new clickOnJS(), "click");
@@ -312,7 +365,7 @@ public class MeetingDetailsActivity extends BaseActivity<MeetingetailsPresenter>
 
 
     @Nullable
-    @OnClick({R.id.toolbar_back_layout, R.id.toolbar_right_layout, R.id.meeting_details_feedback})
+    @OnClick({R.id.toolbar_back_layout, R.id.toolbar_right_tv, R.id.meeting_details_feedback})
     public void onViewClicked(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -331,18 +384,97 @@ public class MeetingDetailsActivity extends BaseActivity<MeetingetailsPresenter>
                     show();
                 }
                 break;
-            case R.id.toolbar_right_layout:
+            case R.id.toolbar_right_tv:
 
                 if (isSignin) {
                     intent = goToMeetingSummary(true);
+                    startActivityForResult(intent, REQUEST_CODE);
                 } else {
-                    intent = new Intent(this, CaptureActivity.class);
+                  Log.i("tmdmeetgroup",data.getGroupsign()+"----");
+                  if(data.getGroupsign()!=1){
+                      items.clear();
+                      items.add("扫码签到");
+                      items.add("附近签到");
+                      items.add("取消");
+                      AlertDialog.Builder builder=new AlertDialog.Builder(MeetingDetailsActivity.this);
+                      builder.setCancelable(false);
+                      builder.setItems(items.toArray(new  String[]{}), new DialogInterface.OnClickListener() {
+                          @Override
+                          public void onClick(DialogInterface dialog, int which) {
+                              switch (which){
+                                  case 0:
+                                      Intent   intent = new Intent(MeetingDetailsActivity.this, CaptureActivity.class);
+                                      startActivityForResult(intent, REQUEST_CODE);
+                                      break;
+                                  case 1:
+                                      if(juli!=-1&&juli>1200){
+                                          UiUtils.snackbarText("不在签到范围之内，无法签到");
+                                          return;
+                                      }
+                                      String murl= com.qingyii.hxtz.zhf.http.Urlutil.baseurls+"/meeting/"+data.getId()+"/signin?token="+MyApplication.hxt_setting_config.getString("token","");
+                                      Intent intent1=new Intent(MeetingDetailsActivity.this, My_StudyActivity.class);
+                                      intent1.putExtra("meetqiandao",murl);
+                                      startActivity(intent1);
+                                      break;
+                                  case 2:
+                                      break;
+                                  default:
+                                      RxLocationUtils.unregister();
+                                      dialog.dismiss();
+                                      break;
+                              }
+                          }
+                      });
+                      builder.show();
+                    } else {
+                      items.clear();
+                      items.add("扫码签到");
+                      items.add("附近签到");
+                      items.add("单位签到");
+                      items.add("取消");
+                      AlertDialog.Builder builder=new AlertDialog.Builder(MeetingDetailsActivity.this);
+                      builder.setCancelable(false);
+                      builder.setItems( items.toArray(new  String[]{}), new DialogInterface.OnClickListener() {
+                          @Override
+                          public void onClick(DialogInterface dialog, int which) {
+                              switch (which){
+                                  case 0:
+                                      Intent   intent = new Intent(MeetingDetailsActivity.this, CaptureActivity.class);
+                                      startActivityForResult(intent, REQUEST_CODE);
+                                      break;
+                                  case 1:
+
+                                  case 2:
+                                      if(juli!=-1&&juli>1200){
+                                          UiUtils.snackbarText("不在签到范围之内，无法签到");
+                                          return;
+                                      }
+                                      String murl1= com.qingyii.hxtz.zhf.http.Urlutil.baseurls+"/meeting/"+data.getId()+"/signin?token="+MyApplication.hxt_setting_config.getString("token","");
+                                      Intent intent1=new Intent(MeetingDetailsActivity.this, My_StudyActivity.class);
+                                      intent1.putExtra("meetqiandao",murl1);
+                                      startActivity(intent1);
+                                      break;
+                                  default:
+                                      dialog.dismiss();
+                                      break;
+                              }
+                          }
+                      });
+                      builder.show();
+                  }
+
 
                 }
-                startActivityForResult(intent, REQUEST_CODE);
+
                 break;
 
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        RxLocationUtils.unregister();
     }
 
     @Override

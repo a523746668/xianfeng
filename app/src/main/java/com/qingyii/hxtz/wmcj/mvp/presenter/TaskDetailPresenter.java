@@ -9,6 +9,7 @@ import com.jess.arms.widget.imageloader.ImageLoader;
 import com.qingyii.hxtz.base.utils.RxUtils;
 import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Taskdetailbean;
+import com.qingyii.hxtz.zhf.Util.Global;
 
 import javax.inject.Inject;
 
@@ -63,7 +64,8 @@ public class TaskDetailPresenter extends BasePresenter<WMCJContract.TaskModel,WM
                 .subscribe(new ErrorHandleSubscriber<Taskdetailbean>(mErrorHandler) {
                     @Override
                     public void onNext(@NonNull Taskdetailbean taskdetailbean) {
-                                 mRootView.getdatasuccess(taskdetailbean);
+                        mRootView.getdatasuccess(taskdetailbean);
+                        Global.industryParent=taskdetailbean.getData().getIndustryParent();
                        }
                 });
     }

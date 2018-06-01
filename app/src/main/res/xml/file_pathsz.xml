@@ -2,6 +2,6 @@
 <paths>
 
 <external-path  path=""  name="download"></external-path>
-<external-path  path="HXT" name="hxt"></external-path>
-<external-path  path="" name="download/com.qingyii.hxt/images"></external-path>
+<external-path  path="HXT" name="hxtz"></external-path>
+<external-path  path="" name="download/com.qingyii.hxtz/images"></external-path>
 </paths>

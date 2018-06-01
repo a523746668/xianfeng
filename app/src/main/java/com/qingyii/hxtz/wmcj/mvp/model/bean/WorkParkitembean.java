@@ -3,7 +3,9 @@ package com.qingyii.hxtz.wmcj.mvp.model.bean;
 import com.mcxtzhang.commonadapter.rv.ViewHolder;
 import com.mcxtzhang.commonadapter.rv.mul.IMulTypeHelper;
 import com.qingyii.hxtz.R;
+import com.qingyii.hxtz.bean.ReportBean;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -93,7 +95,26 @@ public class WorkParkitembean {
              * updated_at : 2018-01-08 10:37:14
              * imgs : ["/upload/task/20180104/13cc59e0f4c930647e06c166ff141f7a_thumb.jpg","/upload/task/20180104/566ec7fbbc4aef278e0e34f5c26b01ee_thumb.jpg","/upload/task/20180104/a59b2a68444aa7422d795bc1416c740b_thumb.jpg","/upload/task/20180104/e7427744ff751c18f2207e610ab4a8dc_thumb.jpg","/upload/task/20180104/a949139ee2de3524e799702bf4429f29_thumb.jpg","/upload/task/20180104/dc8f1f02de09769d2982e4ceb7224164_thumb.jpg"]
              * type : equpthire
+             *  is_article   0=未推荐  1=已推荐 2=已收录       is_approve   0=未审核 1=已审核
              */
+            private int is_article;
+            private int is_approve;
+
+            public int getIs_article() {
+                return is_article;
+            }
+
+            public void setIs_article(int is_article) {
+                this.is_article = is_article;
+            }
+
+            public int getIs_approve() {
+                return is_approve;
+            }
+
+            public void setIs_approve(int is_approve) {
+                this.is_approve = is_approve;
+            }
 
             private int id;
             private int a_status;

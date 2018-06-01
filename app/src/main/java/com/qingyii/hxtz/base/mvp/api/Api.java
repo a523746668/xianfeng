@@ -5,6 +5,7 @@ package com.qingyii.hxtz.base.mvp.api;
  *
  */
 public interface Api {
-    String APP_DOMAIN = "http://web.seeo.cn";
+   String APP_DOMAIN = "http://web.seeo.cn";
+  //  String APP_DOMAIN = "http://192.168.0.120";
     String RequestSuccess = "0";
 }

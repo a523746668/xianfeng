@@ -8,7 +8,7 @@ public class Update {
     /**
      * error_msg : success
      * error_code : 0
-     * data : {"timestamp":1488876212,"version":"357","download":"http://pre.im/HXTAPK"}
+     * data : {"version":"300112","download":"xxxx","update":0}
      */
 
     private String error_msg;
@@ -41,22 +41,14 @@ public class Update {
 
     public static class DataBean {
         /**
-         * timestamp : 1488876212
-         * version : 357
-         * download : http://pre.im/HXTAPK
+         * version : 300112
+         * download : xxxx
+         * update : 0
          */
 
-        private int timestamp;
         private String version;
         private String download;
-
-        public int getTimestamp() {
-            return timestamp;
-        }
-
-        public void setTimestamp(int timestamp) {
-            this.timestamp = timestamp;
-        }
+        private int update;
 
         public String getVersion() {
             return version;
@@ -73,5 +65,20 @@ public class Update {
         public void setDownload(String download) {
             this.download = download;
         }
+
+        public int getUpdate() {
+            return update;
+        }
+
+        public void setUpdate(int update) {
+            this.update = update;
+        }
     }
+    /**
+     * error_msg : success
+     * error_code : 0
+     * data : {"timestamp":1488876212,"version":"357","download":"http://pre.im/HXTAPK"}
+     */
+
+
 }

@@ -20,7 +20,7 @@ import com.qingyii.hxtz.wmcj.di.module.ResultSonModule;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Resultbean;
 import com.qingyii.hxtz.wmcj.mvp.presenter.ResultSonPresenter;
 import com.qingyii.hxtz.wmcj.mvp.ui.adapter.ResultsonAdapter;
-import com.zhf.Util.HintUtil;
+import com.qingyii.hxtz.zhf.Util.HintUtil;
 
 import java.util.ArrayList;
 
@@ -74,20 +74,19 @@ public class ResultSonFragment  extends BaseFragment<ResultSonPresenter> impleme
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        name2= (TextView) view.findViewById(R.id.postion2name);
-        name1= (TextView) view.findViewById(R.id.postion1name);
+
+
         title= (TextView) view.findViewById(R.id.resultsonname);
         getscore= (TextView) view.findViewById(R.id.getscore);
-        postion1= (TextView) view.findViewById(R.id.postion);
-        postion2= (TextView) view.findViewById(R.id.postion2);
+
         score= (TextView) view.findViewById(R.id.score);
-        allpostion1=(TextView) view.findViewById(R.id.allpostion);
-        allpostion2=(TextView) view.findViewById(R.id.allpostion2);
+
+        postion1= (TextView) view.findViewById(R.id.getadnwei);
+        postion2= (TextView) view.findViewById(R.id.danwei);
         recyclerView= (RecyclerView) view.findViewById(R.id.resultsonrecyc);
         adapter=new ResultsonAdapter(list,getActivity() );
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
-
     }
 
     @Override
@@ -129,9 +128,9 @@ public class ResultSonFragment  extends BaseFragment<ResultSonPresenter> impleme
         postion1.setText(String.valueOf(resultbean.getData().getParentindustry().getOrder()));
         allpostion1.setText("/"+resultbean.getData().getParentindustry().getTotle());
       */
-        name1.setText("在"+resultbean.getData().getTopIndustry().getName()+"的排名");
+      // name1.setText("在"+resultbean.getData().getTopIndustry().getName()+"的排名");
         postion1.setText(String.valueOf(resultbean.getData().getTopIndustry().getOrder()));
-        allpostion1.setText("/"+resultbean.getData().getTopIndustry().getTotle());
+        postion2.setText("/"+resultbean.getData().getTopIndustry().getTotle());
         list.clear();
         list.addAll(resultbean.getData().getBrothindustry());
         adapter.notifyDataSetChanged();

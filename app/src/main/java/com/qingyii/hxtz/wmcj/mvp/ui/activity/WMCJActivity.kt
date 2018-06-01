@@ -1,6 +1,7 @@
 package com.qingyii.hxtz.wmcj.mvp.ui.activity
 
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
@@ -11,22 +12,21 @@ import com.jess.arms.mvp.BasePresenter
 import com.jess.arms.mvp.IModel
 import com.jess.arms.mvp.IView
 import com.qingyii.hxtz.R
+import com.qingyii.hxtz.base.app.EventBusTags
 import com.qingyii.hxtz.base.app.GlobalConsts
 import com.qingyii.hxtz.base.app.bindView
 import com.qingyii.hxtz.base.widget.MyFragmentTabHost
-import com.qingyii.hxtz.wmcj.mvp.ui.fragment.ReportFragment
-import com.qingyii.hxtz.wmcj.mvp.ui.fragment.ResultPostionFragment
-import com.qingyii.hxtz.wmcj.mvp.ui.fragment.WorkParkFragment
-import com.qingyii.hxtz.wmcj.mvp.ui.fragment.TaskListFragment
+import com.qingyii.hxtz.wmcj.mvp.ui.fragment.*
+import org.simple.eventbus.EventBus
 
 class WMCJActivity : BaseActivity<BasePresenter<IModel, IView>>() {
     private val tabHost: MyFragmentTabHost by bindView(android.R.id.tabhost)
 
     companion object {
-        private val tabTexts = arrayOf("工作动态", "任务清单", "结果排名")
-        private val tabImgIds = intArrayOf(R.drawable.wmcj_workpark_selector, R.drawable.wmcj_tasklist_selector, R.drawable.wmcj_resultranking_selector)
+        private val tabTexts = arrayOf("考核首页", "任务清单","完成动态", "积分结果")
+        private val tabImgIds = intArrayOf(R.drawable.wmcj_examine, R.drawable.wmcj_tasklist_selector,R.drawable.wmcj_workpark_selector, R.drawable.wmcj_resultranking_selector)
         private var inflater: LayoutInflater? = null
-        private val fragments = arrayOf<Class<*>>(ReportFragment::class.java, TaskListFragment::class.java,ResultPostionFragment::class.java)
+        private val fragments = arrayOf<Class<*>>(ExamineFragment::class.java ,TaskListFragment::class.java,ReportFragment::class.java,ResultPostionFragment::class.java)
     }
 
     override fun setupActivityComponent(appComponent: AppComponent?) {
@@ -87,5 +87,12 @@ class WMCJActivity : BaseActivity<BasePresenter<IModel, IView>>() {
         tabHost.clearAllTabs()
         tabHost.removeAllViews()
     }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        EventBus.getDefault().post(true,EventBusTags.HOME)
+        return super.onKeyDown(keyCode, event)
+
+    }
+
 
 }

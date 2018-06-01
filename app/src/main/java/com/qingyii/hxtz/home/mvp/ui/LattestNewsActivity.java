@@ -16,7 +16,7 @@ import com.qingyii.hxtz.base.adapter.BaseRecyclerViewHolder;
 import com.qingyii.hxtz.base.widget.AutoLoadMoreRecyclerView;
 import com.qingyii.hxtz.home.mvp.model.entity.FakeData;
 import com.qingyii.hxtz.wmcj.mvp.ui.activity.WorkParkDetailsActivity;
-import com.zhf.wight.Itemdecotion;
+import com.qingyii.hxtz.zhf.wight.Itemdecotion;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.ArrayList;

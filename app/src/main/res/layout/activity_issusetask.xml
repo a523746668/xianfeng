@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zhf.IssusetaskActivity"
+    tools:context=".zhf.IssusetaskActivity"
     android:orientation="vertical"
     >
     <include layout="@layout/include_toolbar" />
@@ -21,7 +21,8 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingLayoutStyle">
+            <com.zhy.autolayout.AutoLinearLayout
+                style="@style/addMeetingLayoutStyle">
 
                 <TextView
                     style="@style/addMeetingTitleTextStyle"
@@ -357,7 +358,8 @@
                     </com.qingyii.hxtz.base.widget.AutoRadioGroup>
                 </com.zhy.autolayout.AutoLinearLayout>
 
-                <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingRadioGroupLayoutStyle">
+                <com.zhy.autolayout.AutoLinearLayout
+                    style="@style/addMeetingRadioGroupLayoutStyle">
 
                     <TextView
                         style="@style/addMeetingTitleTextStyle"
@@ -445,6 +447,52 @@
 
                     </com.qingyii.hxtz.base.widget.AutoRadioGroup>
                 </com.zhy.autolayout.AutoLinearLayout>
+                <com.zhy.autolayout.AutoLinearLayout style="@style/addMeetingRadioGroupLayoutStyle">
+
+                    <TextView
+                        style="@style/addMeetingTitleTextStyle"
+                        android:layout_gravity="center_vertical"
+                        android:text="是否投稿咨询系统" />
+
+                    <com.qingyii.hxtz.base.widget.AutoRadioGroup
+                        android:id="@+id/tougao_rg1"
+                        style="@style/addMeetingRadioGroupStyle">
+
+                        <RadioButton
+                            android:id="@+id/tougao_rg1_rb1"
+                            style="@style/addMeetingRadioButtonStyle"
+
+                            android:tag="1"
+                            android:text="是" />
+
+                        <RadioButton
+                            android:id="@+id/tougao_rg1_rb2"
+                            style="@style/addMeetingRadioButtonStyle"
+                            android:tag="2"
+                            android:text="否"
+                            android:checked="true"/>
+
+                    </com.qingyii.hxtz.base.widget.AutoRadioGroup>
+                </com.zhy.autolayout.AutoLinearLayout>
+                .
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    style="@style/addMeetingRadioGroupLayoutStyle"
+                    android:id="@+id/xuanzedanwei">
+
+                    <TextView
+                        style="@style/addMeetingTitleTextStyle"
+                        android:layout_gravity="center_vertical"
+                        android:text="选择单位资讯系统:" />
+
+                    <TextView
+                        android:id="@+id/tv_xuanze"
+                        style="@style/addMeetingTitleTextStyle"
+                        android:layout_gravity="center_vertical"
+                         android:text="点击选择"
+                         />
+                </com.zhy.autolayout.AutoLinearLayout>
+
             </com.zhy.autolayout.AutoLinearLayout>
 
             <Button

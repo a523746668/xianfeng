@@ -10,7 +10,7 @@ import com.andbase.library.app.base.AbBaseActivity;
 import com.qingyii.hxtz.adapter.viewFlorAdapter;
 import com.qingyii.hxtz.bean.huodongInfo;
 import com.qingyii.hxtz.bean.researchInfo;
-import com.zhf.android_viewflow.ViewFlow;
+import com.qingyii.hxtz.zhf.android_viewflow.ViewFlow;
 
 import java.util.ArrayList;
 

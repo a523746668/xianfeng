@@ -32,13 +32,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="scan_qr_code_sign_in">扫码签到</string>
+    <string name="scan_qr_code_sign_in">签到</string>
     <string name="delete_sign_in">删除签到</string>
     <string name="ask_for_leave">请&#160;&#160;&#160;&#160;假</string>
     <string name="confirm_join">确认参加</string>
     <string name="leave_reason">确认参加可不需输入理由，如不能参加请在此处填写理由，再点击请假！</string>
     <string name="function_is_developing">新功能即将推出···</string>
-    <string name="install_apk_path">com.qingyii.fileprovider</string>
+    <string name="install_apk_path">com.qingyiiz.zhf1</string>
     <string name="title_can_not_null">请输入标题</string>
     <string name="content_can_not_null">请输入内容</string>
     <string name="result_ranking">结果排名</string>

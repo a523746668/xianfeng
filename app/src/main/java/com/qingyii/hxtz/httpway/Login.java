@@ -15,7 +15,7 @@ import com.qingyii.hxtz.pojo.HandleParameter;
 import com.qingyii.hxtz.pojo.LoginParameter;
 import com.qingyii.hxtz.pojo.UserParameter;
 import com.qingyii.hxtz.util.DateUtils;
-import com.zhf.Util.Global;
+import com.qingyii.hxtz.zhf.Util.Global;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
 
@@ -83,7 +83,7 @@ public class Login {
                                              Global.phone=phone;
                                             Global.flag=true;
                                              userRFI();
-                                             userDevice(activity, response.getData(), handler);
+                                             //userDevice(activity, response.getData(), handler);
                                              handler.sendEmptyMessage(1);
                                              break;
                                          case 2:
@@ -151,7 +151,7 @@ public class Login {
                                              Global.flag=true;
                                          Log.i("tmdtokenbaocun",response.getData());
                                          userRFI();
-                                         userDevice(activity, response.getData(), handler);
+                                        // userDevice(activity, response.getData(), handler);
                                          handler.sendEmptyMessage(1);
                                          break;
                                      case 2:
@@ -187,6 +187,7 @@ public class Login {
 //                                 Toast.makeText(activity, "网络异常--用户信息", Toast.LENGTH_LONG).show();
                                  editor.putString("UserID", "").commit();
 //                                 UserParameterUtil.userUtil = new UserParameter().getData();
+
                              }
 
                              @Override
@@ -214,9 +215,9 @@ public class Login {
                 );
     }
 
-    public void userDevice(final Activity activity, String credentials, final Handler handler) {
+    public void userDevice(final Activity activity, String credentials) {
 
-        Log.e("DeviceID", MyApplication.hxt_setting_config.getString("DeviceID", ""));
+        Log.e("DeviceID", MyApplication.hxt_setting_config.getString("DeviceID", "")+"--------");
 
         OkHttpUtils
                 .post()
@@ -224,12 +225,14 @@ public class Login {
                 .addHeader("Accept", XrjHttpClient.ACCEPT_V2)
                 .addHeader("Authorization", "Bearer " + credentials)
                 .addParams("device_id", MyApplication.hxt_setting_config.getString("DeviceID", ""))
+                .addParams("jpushbz","1")
                 .build()
                 .execute(new HandleParameterCallback() {
                              @Override
                              public void onError(Call call, Exception e, int id) {
                                  Log.e("DeviceCallback_onError", e.toString());
 //                                 Toast.makeText(activity, "网络异常--请检查网络", Toast.LENGTH_LONG).show();
+                             Global.isFlag=false;
                              }
 
                              @Override
@@ -238,6 +241,7 @@ public class Login {
                                  switch (response.getError_code()) {
                                      case 0:
                                          Log.e("DeviceCallback", "推送上传成功");
+                                         Global.isjpush=true;
                                          break;
                                      default:
                                          break;

@@ -11,8 +11,8 @@ import com.qingyii.hxtz.wmcj.WMCJApi;
 import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.TaskTitlebean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Taskdetailbean;
-import com.zhf.Util.Global;
-import com.zhf.http.Urlutil;
+import com.qingyii.hxtz.zhf.Util.Global;
+import com.qingyii.hxtz.zhf.http.Urlutil;
 
 import javax.inject.Inject;
 
@@ -38,21 +38,21 @@ public class TaskModel extends BaseModel implements WMCJContract.TaskModel {
 
     @Override
     public Observable<TaskTitlebean> getTaskTitle() {
-        String pUrl= Urlutil.baseurl+"/task/"+ Global.userid +"?token="+ MyApplication.hxt_setting_config.getString("token","");
+        String pUrl= Urlutil.baseurl+"/kh/"+ Global.userid +"?token="+ MyApplication.hxt_setting_config.getString("token","");
 
         return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getTaskTitle(pUrl);
     }
 
     @Override
     public Observable<ResponseBody> getTaskListData(int id) {
-        String purl= Urlutil.baseurl+"/task/"+ Global.userid +"/library/"+id
+        String purl= Urlutil.baseurl+"/kh/"+ Global.userid +"/library/"+id
                 +"?token="+ MyApplication.hxt_setting_config.getString("token","");
         return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getTaskListData(purl);
     }
 
     @Override
     public Observable<Taskdetailbean> getTaskDetail(int taskid) {
-         String purl=Urlutil.baseurl+"/task/"+ Global.userid+"/getTask?token="+ MyApplication.hxt_setting_config.getString("token","");
+         String purl=Urlutil.baseurl+"/kh/"+ Global.userid+"/getTask?token="+ MyApplication.hxt_setting_config.getString("token","");
         return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getTaskDetailData(purl,String.valueOf(taskid));
     }
 

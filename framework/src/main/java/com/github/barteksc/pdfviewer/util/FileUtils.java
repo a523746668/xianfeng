@@ -79,19 +79,16 @@ public class FileUtils {
         Uri  uri;
         File file=new File(filesPath);
         if (Build.VERSION.SDK_INT >= 23) {
-            uri= FileProvider.getUriForFile(context,"com.qingyii.hxt.fileprovider",file);
+            uri= FileProvider.getUriForFile(context,"com.qingyiiz.zhf1.fileprovider",file);
         }  else {
             uri= Uri.fromFile(file);
         }
-
         Intent intent = new Intent();
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setAction(Intent.ACTION_VIEW);
         intent.setDataAndType(uri, mimeType);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         context.startActivity(intent);
-
-
     }
 
     //显示打开方式

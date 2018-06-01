@@ -69,19 +69,11 @@ public class TrainDownloadActivity extends BaseActivity<MeetingetailsPresenter> 
             if (file.exists()) {
                 v.setClickable(false);
                 try{
-                  /* if(FileUtil.ispdf(file)){
-                       Intent intent=new Intent(this, PDFreadActivity.class);
-                        intent.putExtra("path",file.getPath());
-                        startActivity(intent);
-                    }else {
-
-                    } */
                     FileUtils.openFile(this, file.getPath(), FileUtils.getMIMEType(file.getPath()));
                 } catch (Exception e){
                     Toasty.info(this,"没有打开此文件的应用",0).show();
                 }
-
-            } else {
+                } else {
                //mPresenter.downloadFile(data.getUri(), file, FileUtils.getMIMEType(file.getPath()));
                 UpdateUtil util=new UpdateUtil();
                 util.download(this,file,data.getUri());

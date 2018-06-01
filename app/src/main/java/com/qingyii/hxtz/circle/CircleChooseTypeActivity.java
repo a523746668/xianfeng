@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.andbase.library.app.base.AbBaseActivity;
@@ -22,6 +24,8 @@ import com.qingyii.hxtz.adapter.CircleChooseAdapter;
 import com.qingyii.hxtz.http.MyApplication;
 import com.qingyii.hxtz.http.XrjHttpClient;
 import com.qingyii.hxtz.pojo.Category;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.Taskdetailbean;
+import com.qingyii.hxtz.zhf.Util.Global;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.util.ArrayList;
@@ -35,10 +39,13 @@ import okhttp3.Response;
  *
  * @author Lee
  */
+
 public class CircleChooseTypeActivity extends AbBaseActivity {
 
 
-    private ImageView mImgLeft;
+   private Button back;
+   private TextView title;
+
     private ListView mListView;
     //    private ArrayList<CircleType> mArrayType;
 //    private ArrayList<String> mArrayTypeStr;
@@ -53,6 +60,7 @@ public class CircleChooseTypeActivity extends AbBaseActivity {
 //    private AbLoadDialogFragment mDialogFragment = null;
 //    private AbProgressDialogFragment mDialogFragment = null;
     private ShapeLoadingDialog shapeLoadingDialog = null;
+    private List<Taskdetailbean.DataBean.IndustryParentBean> industryParents;
 
     private Handler mHandler = new Handler(new Callback() {
 
@@ -107,7 +115,34 @@ public class CircleChooseTypeActivity extends AbBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_circle_typelist);
         findView();
-        initData();
+        if(getIntent().getIntExtra("iss",0)==99){
+            circleChooseAdapter = new CircleChooseAdapter(this, Global.industryParent,0);
+            mListView.setAdapter(circleChooseAdapter);
+            mListView.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent=new Intent();
+                    intent.putExtra("position",position);
+                    setResult(99,intent);
+                    finish();
+                }
+            });
+
+        } else {
+            initData();
+            getTypeData();
+//            }
+//        });
+//        mDialogFragment = AbDialogUtil.showProgressDialog(
+//                CircleChooseTypeActivity.this, R.mipmap.ic_load,
+//                "发送中,请等一小会");
+            shapeLoadingDialog = new ShapeLoadingDialog(this);
+            shapeLoadingDialog.setLoadingText("查询中,请等一小会");
+            shapeLoadingDialog.show();
+
+            setListener();
+        }
+
         /**
          * Load失效修改为Progress
          *
@@ -118,22 +153,20 @@ public class CircleChooseTypeActivity extends AbBaseActivity {
 //        mDialogFragment.setAbDialogOnLoadListener(new AbDialogOnLoadListener() {
 //            @Override
 //            public void onLoad() {
-        getTypeData();
-//            }
-//        });
-//        mDialogFragment = AbDialogUtil.showProgressDialog(
-//                CircleChooseTypeActivity.this, R.mipmap.ic_load,
-//                "发送中,请等一小会");
-        shapeLoadingDialog = new ShapeLoadingDialog(this);
-        shapeLoadingDialog.setLoadingText("查询中,请等一小会");
-        shapeLoadingDialog.show();
 
-        setListener();
     }
 
     private void findView() {
-        mImgLeft = (ImageView) findViewById(R.id.circle_choosetype_left);
+        back= (Button) findViewById(R.id.toolbar_back);
         mListView = (ListView) findViewById(R.id.circle_typelist_list);
+       title= (TextView) findViewById(R.id.toolbar_title);
+       title.setText("选择类型");
+       back.setOnClickListener(new OnClickListener() {
+           @Override
+           public void onClick(View v) {
+                finish();
+           }
+       });
     }
 
     private void initData() {
@@ -147,12 +180,7 @@ public class CircleChooseTypeActivity extends AbBaseActivity {
     }
 
     private void setListener() {
-        mImgLeft.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                CircleChooseTypeActivity.this.finish();
-            }
-        });
+
         mListView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
