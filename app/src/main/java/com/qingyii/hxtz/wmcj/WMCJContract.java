@@ -130,5 +130,6 @@ public interface WMCJContract  {
 
     interface ExamineModel extends IModel{
         Observable<ExamineBean> getExamineBean();
+        Observable<ResponseBody> download(String url);
     }
 }

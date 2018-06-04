@@ -21,6 +21,7 @@ public interface   EventBusTags {
     String DOWNLOAD = "download";
     String WORKPARK = "workpark";
 
+    String EXAMINE="wmcj_examine";
 
     int UPDATE_NOTIFY_SIGN_IN = 10001;
     int UPDATE_NOTIFY_RETURN = 10002;

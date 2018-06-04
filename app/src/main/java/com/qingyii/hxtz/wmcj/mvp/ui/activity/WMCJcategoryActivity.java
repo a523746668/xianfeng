@@ -1,6 +1,7 @@
 package com.qingyii.hxtz.wmcj.mvp.ui.activity;
 
 import android.content.Intent;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -17,14 +18,18 @@ import com.mcxtzhang.commonadapter.rv.CommonAdapter;
 import com.mcxtzhang.commonadapter.rv.OnItemClickListener;
 import com.mcxtzhang.commonadapter.rv.ViewHolder;
 import com.qingyii.hxtz.R;
+import com.qingyii.hxtz.base.app.EventBusTags;
 import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.di.component.DaggerWMCJcategoryComponent;
 import com.qingyii.hxtz.wmcj.di.module.WMCJcategoryModule;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineBean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineMenu;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineSelectMenu;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.ReportMenu;
 import com.qingyii.hxtz.wmcj.mvp.presenter.WMCJcatgoryPresenter;
 import com.qingyii.hxtz.zhf.Util.HintUtil;
+
+import org.simple.eventbus.EventBus;
 
 import java.util.ArrayList;
 
@@ -44,6 +49,7 @@ public class WMCJcategoryActivity extends BaseActivity<WMCJcatgoryPresenter> imp
 
        @BindView(R.id.category_tv4)
        TextView tv4;
+
        @BindView(R.id.toolbar_back)
        Button back;
 
@@ -77,13 +83,20 @@ public class WMCJcategoryActivity extends BaseActivity<WMCJcatgoryPresenter> imp
        ArrayList<ReportMenu.DataBean.MenuItemBean> ones=new ArrayList<>();
        ArrayList<ReportMenu.DataBean.MenuItem1Bean> twos=new ArrayList<>();
        ArrayList<ReportMenu.DataBean.TagItemBean> tags=new ArrayList<>();
+
        ArrayList<ExamineMenu.DataBean.FirstSystemBean> list1=new ArrayList<>();
        ArrayList<ExamineMenu.DataBean.TagListBean> list2=new ArrayList<>();
 
-    ChipsLayoutManager layoutManager1;
-    ChipsLayoutManager layoutManager2;
-    ChipsLayoutManager layoutManager3;
-    ChipsLayoutManager layoutManager4;
+       ExamineMenu.DataBean.FirstSystemBean firstSystemBean=null;
+       ExamineMenu.DataBean.TagListBean tagListBean=null;
+
+      ChipsLayoutManager layoutManager1;
+      ChipsLayoutManager layoutManager2;
+      ChipsLayoutManager layoutManager3;
+      ChipsLayoutManager layoutManager4;
+
+
+
     @Override
     public void setupActivityComponent(AppComponent appComponent) {
         DaggerWMCJcategoryComponent.builder()
@@ -126,8 +139,20 @@ public class WMCJcategoryActivity extends BaseActivity<WMCJcatgoryPresenter> imp
            tv4.setVisibility(View.GONE);
            rec3.setVisibility(View.GONE);
            rec4.setVisibility(View.GONE);
-           initrecycylerviewExamine();
-           mPresenter.getExmineMenu();
+
+            initrecycylerviewExamine();
+            mPresenter.getExmineMenu();
+            barright.setText("切换");
+            barright.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ExamineSelectMenu slect=new ExamineSelectMenu();
+                    slect.setFirstSystemBean(firstSystemBean);
+                    slect.setTag(tagListBean);
+                    EventBus.getDefault().post(slect, EventBusTags.EXAMINE);
+                    finish();
+                }
+            });
         }
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,7 +160,7 @@ public class WMCJcategoryActivity extends BaseActivity<WMCJcatgoryPresenter> imp
                 finish();
             }
         });
-        barright.setText("确认");
+
         init();
     }
 
@@ -147,16 +172,61 @@ public class WMCJcategoryActivity extends BaseActivity<WMCJcatgoryPresenter> imp
               public void convert(ViewHolder viewHolder, ExamineMenu.DataBean.FirstSystemBean firstSystemBean) {
                     TextView tv=viewHolder.getView(R.id.category_item_tv);
                     tv.setText(firstSystemBean.getTitle());
+                    ImageView iv=viewHolder.getView(R.id.itemtishi);
+                    if(firstSystemBean.isIscheck()){
+                          iv.setVisibility(View.VISIBLE);
+                    } else {
+                        iv.setVisibility(View.GONE);
+                    }
               }
           };
+          adapter1.setOnItemClickListener(new OnItemClickListener() {
+              @Override
+              public void onItemClick(ViewGroup viewGroup, View view, Object o, int i) {
+                       if(firstSystemBean!=null){
+                           firstSystemBean.setIscheck(false);
+                       }
+                        firstSystemBean=list1.get(i);
+                        firstSystemBean.setIscheck(true);
+                        adapter1.notifyDataSetChanged();
+              }
+
+              @Override
+              public boolean onItemLongClick(ViewGroup viewGroup, View view, Object o, int i) {
+                  return false;
+              }
+          });
           rec1.setAdapter(adapter1);
          adapter2=new CommonAdapter<ExamineMenu.DataBean.TagListBean>(this,list2,R.layout.category_recyclerview_item) {
              @Override
              public void convert(ViewHolder viewHolder, ExamineMenu.DataBean.TagListBean tagListBean) {
                       TextView tv=viewHolder.getView(R.id.category_item_tv);
                       tv.setText(tagListBean.getTitle());
+                  ImageView iv=viewHolder.getView(R.id.itemtishi);
+                     if(tagListBean.isIscheck()){
+                         iv.setVisibility(View.VISIBLE);
+                     } else {
+                         iv.setVisibility(View.GONE);
+                     }
+
              }
          };
+        adapter2.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(ViewGroup viewGroup, View view, Object o, int i) {
+                if(tagListBean!=null){
+                    tagListBean.setIscheck(false);
+                }
+                tagListBean=list2.get(i);
+                tagListBean.setIscheck(true);
+                adapter2.notifyDataSetChanged();
+            }
+
+            @Override
+            public boolean onItemLongClick(ViewGroup viewGroup, View view, Object o, int i) {
+                return false;
+            }
+        });
          rec2.setAdapter(adapter2);
     }
 

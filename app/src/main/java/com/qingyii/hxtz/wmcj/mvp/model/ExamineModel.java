@@ -16,6 +16,7 @@ import com.qingyii.hxtz.zhf.http.Urlutil;
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
+import okhttp3.ResponseBody;
 
 @ActivityScope
 public class ExamineModel extends BaseModel implements WMCJContract.ExamineModel {
@@ -35,5 +36,11 @@ public class ExamineModel extends BaseModel implements WMCJContract.ExamineModel
     public Observable<ExamineBean> getExamineBean() {
         String murl= Urlutil.baseurl+"/kh/manages/"+ Global.userid+"/15?token="+ MyApplication.hxt_setting_config.getString("token","");
        return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getExamine(murl);
+    }
+
+    @Override
+    public Observable<ResponseBody> download(String url) {
+
+            return mRepositoryManager.obtainRetrofitService(WMCJApi.class).download(url);
     }
 }

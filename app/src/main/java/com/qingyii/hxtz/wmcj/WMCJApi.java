@@ -84,4 +84,7 @@ public interface WMCJApi {
 
     @GET
     Observable<ExamineMenu> getExamineMenu(@Url String murl);
+
+    @GET
+    Observable<ResponseBody> download(@Url String url);
 }

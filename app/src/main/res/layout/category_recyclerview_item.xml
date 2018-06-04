@@ -2,8 +2,12 @@
 <com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    android:paddingTop="16px"
+    >
+  <FrameLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
     <TextView
         android:id="@+id/category_item_tv"
         android:layout_width="wrap_content"
@@ -19,15 +23,18 @@
         android:paddingBottom="20px"
         android:text="最新"
         android:textColor="@color/category_item_textcolor"
-        android:textSize="45px" />
+        android:textSize="45px"
+        android:layout_marginTop="16px"
+        android:layout_marginRight="16px"
+        />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/category_item_tv"
         android:src="@mipmap/itemtishi"
-        android:visibility="gone"
         android:id="@+id/itemtishi"
+        android:layout_gravity="right"
+        android:visibility="gone"
         />
-
+  </FrameLayout>
 </com.zhy.autolayout.AutoRelativeLayout>

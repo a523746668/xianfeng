@@ -17,14 +17,19 @@ import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
 import com.qingyii.hxtz.R;
 import com.qingyii.hxtz.base.adapter.BaseRecyclerAdapter;
+import com.qingyii.hxtz.base.app.EventBusTags;
 import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.di.component.DaggerExamineComponent;
 import com.qingyii.hxtz.wmcj.di.module.ExamineModule;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineBean;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineMenu;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineSelectMenu;
 import com.qingyii.hxtz.wmcj.mvp.presenter.ExaminePresenter;
 import com.qingyii.hxtz.wmcj.mvp.ui.activity.WMCJcategoryActivity;
 import com.qingyii.hxtz.zhf.Util.HintUtil;
 
+import org.simple.eventbus.Subscriber;
+import org.simple.eventbus.ThreadMode;
 import org.w3c.dom.Text;
 
 import butterknife.BindView;
@@ -159,5 +164,10 @@ public class ExamineFragment extends BaseFragment<ExaminePresenter> implements W
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
+
+    @Subscriber(mode = ThreadMode.MAIN, tag = EventBusTags.EXAMINE)
+    public  void change(ExamineSelectMenu select){
+
     }
 }

@@ -66,6 +66,15 @@ public class ExamineMenu {
 
             private int id;
             private String title;
+            private boolean ischeck=false;
+
+            public boolean isIscheck() {
+                return ischeck;
+            }
+
+            public void setIscheck(boolean ischeck) {
+                this.ischeck = ischeck;
+            }
 
             public int getId() {
                 return id;
@@ -97,6 +106,15 @@ public class ExamineMenu {
             private String name;
             private int created_uid;
             private String title;
+            private boolean ischeck=false;
+
+            public boolean isIscheck() {
+                return ischeck;
+            }
+
+            public void setIscheck(boolean ischeck) {
+                this.ischeck = ischeck;
+            }
 
             public String getTitle() {
                 return title;
