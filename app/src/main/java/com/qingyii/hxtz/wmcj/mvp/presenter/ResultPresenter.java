@@ -1,6 +1,7 @@
 package com.qingyii.hxtz.wmcj.mvp.presenter;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.integration.AppManager;
@@ -54,7 +55,7 @@ public class ResultPresenter extends BasePresenter<WMCJContract.ResultModel,WMCJ
                       mRootView.showLoading();
                   }
               })
-              .retryWhen(new RetryWithDelay(2,2)) //重试次数
+           //   .retryWhen(new RetryWithDelay(2,2)) //重试次数
               .compose(RxUtils.bindToLifecycle(mRootView))
               .doAfterTerminate(new Action() {
                   @Override
@@ -67,11 +68,17 @@ public class ResultPresenter extends BasePresenter<WMCJContract.ResultModel,WMCJ
               .subscribe(new ErrorHandleSubscriber<TaskTitlebean>(mErrorHandler) {
                   @Override
                   public void onNext(@NonNull TaskTitlebean taskTitlebean) {
-                      if(taskTitlebean.getData().getLibsystem().size()>0) {
+                    if(taskTitlebean.getError_code()==1){
+                        mRootView.getdatano();
+                        Log.i("tmderror_code","123123123123123");
+                        return;
+                    }
+                    if(taskTitlebean.getData().getLibsystem()!=null&&taskTitlebean.getData().getLibsystem().size()>0&&taskTitlebean.getData().isIsadmin()) {
                           mRootView.gettitlesuccess((ArrayList<TaskTitlebean.DataBean.LibsystemBean>) taskTitlebean.getData().getLibsystem());
                           getdvpdata(taskTitlebean.getData().getLibsystem());
                       } else {
                          mRootView.getdatano();
+                        Log.i("tmderror_code",taskTitlebean.getData().isIsadmin()+"1231313");
                       }
                   }
               });
@@ -109,16 +116,16 @@ public class ResultPresenter extends BasePresenter<WMCJContract.ResultModel,WMCJ
                 });
     }
 
-    private void getdvpdata(List<TaskTitlebean.DataBean.LibsystemBean> list, int id) {
+    private void getdvpdata(List<TaskTitlebean.DataBean.LibsystemBean> list, int industryid) {
         ArrayList<ResultSonFragment> list1=new ArrayList<>();
         for(int i=0;i<list.size();i++){
             ResultSonFragment fragment=new ResultSonFragment();
             fragment.setLibrarySystem(list.get(i).getId());
-            fragment.setIndustryid(id);
+            fragment.setIndustryid(industryid);
             list1.add(fragment);
         }
+        Log.i("tmdindustryid",industryid+"--------");
         mRootView.getdatasuccess(list1);
-
     }
 
     private void getdvpdata(List<TaskTitlebean.DataBean.LibsystemBean> list) {
@@ -130,7 +137,5 @@ public class ResultPresenter extends BasePresenter<WMCJContract.ResultModel,WMCJ
             list1.add(fragment);
         }
        mRootView.getdatasuccess(list1);
-
-
     }
 }

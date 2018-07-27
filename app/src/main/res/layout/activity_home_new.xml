@@ -7,7 +7,7 @@
 
    >
     <include layout="@layout/include_toolbar"
-        android:id="@+id/include"/>
+    android:id="@+id/include"/>
     <WebView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,6 +15,17 @@
         android:layout_above="@+id/homerecyc"
         android:id="@+id/homewebview"
         ></WebView>
+    <TextView
+        android:layout_width="600px"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="您的网络不稳定或者无法连接网络，请检查网络后重试。"
+         android:visibility="gone"
+        android:textColor="@color/black"
+        android:textSize="52px"
+        android:id="@+id/isloadding"
+        />
+
  <android.support.v7.widget.RecyclerView
      android:layout_width="match_parent"
      android:layout_height="wrap_content"

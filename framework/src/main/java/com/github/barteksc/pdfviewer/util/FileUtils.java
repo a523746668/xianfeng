@@ -113,7 +113,7 @@ public class FileUtils {
      * --获取文件类型 --
      */
     public static String getMIMEType(String filePath) {
-        String type = "*/*";
+        String type = "application/msword";
         String fName = filePath;
 
         int dotIndex = fName.lastIndexOf(".");
@@ -127,7 +127,7 @@ public class FileUtils {
         }
 
         for (int i = 0; i < MIME_MapTable.length; i++) {
-            if (end.equals(MIME_MapTable[i][0])) {
+            if (end.contains(MIME_MapTable[i][0])) {
                 type = MIME_MapTable[i][1];
             }
         }
@@ -195,6 +195,7 @@ public class FileUtils {
                     {".css", "text/css"},
                     {".cur", "application/octet-stream"},
                     {".doc", "application/msword"},
+                    {".docx", "application/msword"},
                     {".dcm", "x-lml/x-evm"},
                     {".dcr", "application/x-director"},
                     {".dcx", "image/x-dcx"},
@@ -575,7 +576,6 @@ public class FileUtils {
                     {".z", "application/x-compress"},
                     {".zac", "application/x-zaurus-zac"},
                     {".zip", "application/zip"},
-                    {"", "*/*"}
             };
     /**
      * 写入文件

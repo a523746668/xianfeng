@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.hss01248.dialog.StyledDialog;
@@ -49,6 +50,7 @@ public class WindowUtils {
                 // 又开始了新的上传或下载操作,那现在就需要用到 id(请求开始时的时间) 来区分正在执行的进度信息
                 // 这里我就取最新的上传进度用来展示,顺便展示下 id 的用法
                 StyledDialog.updateProgress(dialog, progressInfo.getPercent(), 100, "下载进度", true);
+                Log.i("tmddowmload",progressInfo.getPercent()+"--");
                 dialog.setProgress(progressInfo.getPercent());
                 if (progressInfo.isFinish()) {
                     dialog.dismiss();

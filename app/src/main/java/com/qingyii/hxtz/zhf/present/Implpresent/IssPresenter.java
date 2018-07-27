@@ -211,7 +211,7 @@ public class IssPresenter extends Basepresenter<Isstaskview> {
   //发布
     public void fabu(int a_org_id, String summary_title, String a_time, String summary, String my_score, ArrayList<String > tags, ArrayList<SendTask> sendTasks
     , ArrayList<String> files, String score_text, int is_show, int is_show_auditing, int show_range, int is_comment, String situation,
-                     String address, Taskdetailbean.DataBean.IndustryParentBean bean, int select5){
+                     String address, Taskdetailbean.DataBean.IndustryParentBean bean, int select5,int system_id){
       String murl= Urlutil.baseurl+"/kh/check/activityAct/"+Global.taskdetailbean.getData().getTask().getId()+"?token="+MyApplication.hxt_setting_config.getString("token","");
 
         String cltags=chuli(tags);
@@ -239,6 +239,7 @@ public class IssPresenter extends Basepresenter<Isstaskview> {
                 .addParams("address",address)
                 .addParams("wz_industryid",bean.getID())
                 .addParams("is_article",String.valueOf(select5))
+                .addParams("system_id",String.valueOf(system_id))
                 .build()
                 .execute(new Fabuback() {
                     @Override

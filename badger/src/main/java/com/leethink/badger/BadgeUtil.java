@@ -33,9 +33,10 @@ public class BadgeUtil {
 
         String currentHomePackage = getLauncherName(context);
 
-        Log.d(TAG, "currentHomePackage:" + currentHomePackage);
+        Log.i("tmdcurrentHomePackage", "currentHomePackage:" + currentHomePackage);
         if (badger == null)
             badger = BadgerType.getBadgerByLauncherName(currentHomePackage);
+
         badger.executeBadge(context, notification, notifyID, thisNotifyCount, count);
     }
 

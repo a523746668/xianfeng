@@ -123,7 +123,7 @@ public final class GlobalConfiguration implements ConfigModule {
                     } else if (t instanceof JsonParseException || t instanceof ParseException || t instanceof JSONException || t instanceof JsonIOException) {
                         msg = "数据解析错误";
                     }
-                    UiUtils.snackbarText(msg);
+                    //UiUtils.snackbarText(msg);
 
                 })
                 .gsonConfiguration((context1, gsonBuilder) -> {//这里可以自己自定义配置Gson的参数
@@ -135,7 +135,7 @@ public final class GlobalConfiguration implements ConfigModule {
                     // retrofitBuilder.addConverterFactory(FastJsonConverterFactory.create());//比如使用fastjson替代gson
                 })
                 .okhttpConfiguration((context1, okhttpBuilder) -> {//这里可以自己自定义配置Okhttp的参数
-                    okhttpBuilder.writeTimeout(20, TimeUnit.SECONDS).connectTimeout(20,TimeUnit.SECONDS).readTimeout(20,TimeUnit.SECONDS);
+                    okhttpBuilder.writeTimeout(30, TimeUnit.SECONDS).connectTimeout(30,TimeUnit.SECONDS).readTimeout(30,TimeUnit.SECONDS);
                     //开启使用一行代码监听 Retrofit／Okhttp 上传下载进度监听,以及 Glide 加载进度监听 详细使用方法查看 https://github.com/JessYanCoding/ProgressManager
                     ProgressManager.getInstance().with(okhttpBuilder);
                 })

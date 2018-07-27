@@ -78,7 +78,8 @@ public enum BadgerType {
         public Badger initBadger() {
             return new XiaomiHomeBadger();
         }
-    };
+    }
+    ;
 
     public Badger badger;
 

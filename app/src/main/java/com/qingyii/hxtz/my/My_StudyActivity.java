@@ -10,7 +10,10 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.DownloadListener;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -21,21 +24,31 @@ import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.mvp.IView;
 import com.qingyii.hxtz.R;
+import com.qingyii.hxtz.base.mvp.contract.CommonContract;
 import com.qingyii.hxtz.base.utils.WindowUtils;
+import com.qingyii.hxtz.http.HttpUrlConfig;
 import com.qingyii.hxtz.http.MyApplication;
+import com.qingyii.hxtz.notify.di.module.NotifyDetailsModule;
+import com.qingyii.hxtz.notify.mvp.presenter.NotifyDetailsPresenter;
 import com.qingyii.hxtz.zhf.Util.Global;
 import com.qingyii.hxtz.zhf.Util.HintUtil;
 import com.qingyii.hxtz.zhf.http.Urlutil;
+import com.zhy.autolayout.AutoLinearLayout;
+
+import java.io.File;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 
 import static android.view.KeyEvent.KEYCODE_BACK;
+import static com.github.barteksc.pdfviewer.util.FileUtils.openFile;
 
 
 //2018 5 11 新增加我的学习页面,我的积分,会议签到公用
-public class My_StudyActivity extends BaseActivity implements View.OnClickListener,IView {
-    @BindView(R.id.toolbar_back)
-    Button back;
+public class My_StudyActivity extends BaseActivity<NotifyDetailsPresenter> implements View.OnClickListener,IView , CommonContract.NotifyDetailsView{
+    @BindView(R.id.toolbar_back_layout)
+    AutoLinearLayout back;
 
     @BindView(R.id.toolbar_title)
     TextView title1;
@@ -46,11 +59,22 @@ public class My_StudyActivity extends BaseActivity implements View.OnClickListen
     String mUrl="";
 
     int wzid=-99;
+    int actid=-99;
 
     int flag;
+
+    private String grade;
+
+    @Inject
+    NotifyDetailsPresenter presenter;
+
     @Override
     public void setupActivityComponent(AppComponent appComponent) {
-
+      DaggerStudyComponent.builder()
+              .appComponent(appComponent)
+              .notifyDetailsModule(new NotifyDetailsModule(this))
+              .build()
+              .inject(this);
     }
 
     @Override
@@ -64,7 +88,8 @@ public class My_StudyActivity extends BaseActivity implements View.OnClickListen
 
         mUrl= Urlutil.waburl+"mystudy?token="+ MyApplication.hxt_setting_config.getString("token","");
         String meeturl=getIntent().getStringExtra("meetqiandao");
-       title1.setText("我的学习");
+        title1.setText("我的积分");
+
         if(!TextUtils.isEmpty(meeturl)){
             mUrl=meeturl;
             title1.setText("签到结果");
@@ -73,6 +98,17 @@ public class My_StudyActivity extends BaseActivity implements View.OnClickListen
         if(wzid!=-99){
             mUrl=Urlutil.waburl+"wz/article/"+wzid;
             title1.setText("资讯详情");
+        }
+        actid=getIntent().getIntExtra("actid",-99);
+        if(actid!=-99){
+           mUrl=Urlutil.baseurls+"/kh/"+Global.userid+"/dynamicDetail?token="+MyApplication.hxt_setting_config.getString("token","")+
+                   "&actid="+actid;
+           title1.setText("详情");
+       }
+       grade=getIntent().getStringExtra("grade");
+        if(grade!=null&&grade.equalsIgnoreCase("grade")){
+            mUrl=Urlutil.baseurls+"/wd/myScore?token="+MyApplication.hxt_setting_config.getString("token","");
+           title1.setText("我的成绩");
         }
        initoolbar();
        initwebview();
@@ -115,17 +151,47 @@ public class My_StudyActivity extends BaseActivity implements View.OnClickListen
           }
 
       });
+        webview.setDownloadListener(new DownloadListener() {
+            @Override
+            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                String filename=url.substring(url.lastIndexOf("/")+1,url.length());
+                File file = new File(HttpUrlConfig.cacheDir,filename);
+                if (file.exists()) {
+                    openFile(My_StudyActivity.this, file.getPath(), mimetype);
+                } else {
+                    presenter.downloadFile(url,file,mimetype);
+                }
+            }
+        });
       webview.setWebViewClient(new WebViewClient(){
+          @Override
+          public boolean shouldOverrideUrlLoading(WebView view, String url) {
+              view.loadUrl(url);
+              Log.i("tmdmystudy:",url);
+              return  true;
+          }
+
           @Override
           public void onPageFinished(WebView view, String url) {
               super.onPageFinished(view, url);
+
              HintUtil.stopdialog();
+
           }
 
           @Override
           public void onPageStarted(WebView view, String url, Bitmap favicon) {
               super.onPageStarted(view, url, favicon);
+              if(title1.getText().toString().contains("详情")){
+                  return;
+              }
               HintUtil.showdialog(My_StudyActivity.this);
+          }
+
+          @Override
+          public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+              super.onReceivedError(view, request, error);
+              HintUtil.stopdialog();
           }
       });
 
@@ -143,7 +209,7 @@ public class My_StudyActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.toolbar_back :
+            case R.id.toolbar_back_layout :
                  killMyself();
                  finish();
                  break;
@@ -191,13 +257,25 @@ public class My_StudyActivity extends BaseActivity implements View.OnClickListen
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         Log.i("tmdhome",webview.canGoBack()+"");
-        if ((keyCode == KEYCODE_BACK) && webview.canGoBack()) {
+                   HintUtil.stopdialog();
+
+         if ((keyCode == KEYCODE_BACK) && webview.canGoBack()) {
             webview.goBack();
             return true;
         } else {
            finish();
         }
         return super.onKeyDown(keyCode, event);
+
+    }
+
+    @Override
+    public void UpdateReadStatus() {
+
+    }
+
+    @Override
+    public void UpdateSignStatus() {
 
     }
 }

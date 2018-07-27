@@ -25,7 +25,7 @@
             android:layout_marginBottom="20px"
             android:text="内刊"
             android:textColor="@color/textColorDark"
-            android:textSize="52px" />
+            android:textSize="58px" />
 
         <TextView
             android:id="@+id/tv_neikan_content"
@@ -38,7 +38,7 @@
             android:maxLines="3"
             android:text="这本榨汁很好看这本榨汁很好看这榨汁很好看这本榨汁很好看这本榨汁很好看这本榨汁很好看这本榨汁很好看这本榨汁很好看"
             android:textColor="@color/textColorMedium"
-            android:textSize="38px" />
+            android:textSize="52px" />
 
         <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:text="上传者：wewe"
                 android:textColor="@color/textColorShallow"
-                android:textSize="30px" />
+                android:textSize="52px" />
 
             <ImageView
                 android:id="@+id/tv_neikan_jurisdiction"

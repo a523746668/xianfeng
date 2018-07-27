@@ -13,8 +13,10 @@
         android:layout_width="@dimen/title_height"
         android:layout_height="match_parent"
         android:gravity="center"
-         android:paddingLeft="36px"
-        android:paddingRight="36px">
+        android:paddingLeft="36px"
+        android:paddingRight="36px"
+        android:background="@drawable/presscolor"
+        >
 
         <Button
             android:id="@+id/toolbar_back"
@@ -24,6 +26,7 @@
             android:layout_centerVertical="true"
             android:background="@mipmap/back_white"
             android:clickable="true"/>
+
     </com.zhy.autolayout.AutoLinearLayout>
 
     <TextView
@@ -43,26 +46,31 @@
         android:layout_centerVertical="true"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingRight="36px">
+        android:paddingRight="36px"
+
+        android:clickable="true"
+        >
 
         <TextView
             android:id="@+id/toolbar_right_tv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:clickable="true"
             android:textColor="@color/white"
             android:textSize="@dimen/sp_normal"
-            app:layout_auto_basewidth="height" />
+            android:gravity="right|center"
+            android:background="@drawable/presscolor"
+            android:padding="10px"
+           />
 
         <Button
             android:id="@+id/toolbar_right"
             android:layout_width="70px"
             android:layout_height="70px"
             android:background="@null"
-            android:clickable="false"
             android:textColor="@color/white"
             android:visibility="gone"
-            android:textSize="42px"
+            android:textSize="52px"
             app:layout_auto_basewidth="height" />
 
     </com.zhy.autolayout.AutoLinearLayout>

@@ -20,10 +20,11 @@ import java.util.List;
 //任务清单Rcyclerview对应
 public class Taskdetailadapter extends BaseRecyclerAdapter<Taskdetailbean> {
     private Context context;
-
-    public Taskdetailadapter(List<Taskdetailbean> data, Context context) {
+   private int system_id;
+    public Taskdetailadapter(List<Taskdetailbean> data, Context context,int system_id) {
         super(data);
         this.context=context;
+        this.system_id=system_id;
     }
 
     @Override
@@ -54,6 +55,7 @@ public class Taskdetailadapter extends BaseRecyclerAdapter<Taskdetailbean> {
                @Override
                public void onClick(View v) {
                    Intent intent=new Intent(context, IssusetaskActivity.class);
+                   intent.putExtra("system_id",system_id);
                    Global.taskdetailbean=item;
                    context.startActivity(intent);
                }

@@ -15,6 +15,12 @@ repositories {
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
     buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
     signingConfigs {
         // your debug keystore
         release {
@@ -185,6 +191,10 @@ dependencies {
     compile 'com.zyao89:zloading:1.1.1'
     compile 'com.githang:status-bar-compat:0.7'
     compile 'me.zhouzhuo.zzhorizontalprogressbar:zz-horizontal-progressbar:1.0.6'
+    compile('me.drakeet.multitype:multitype:3.0.0', {
+        exclude group: 'com.android.support'
+    })
+
     testCompile 'junit:junit:4.12'
 
 }

@@ -11,6 +11,15 @@ public class TaskLineSonbean {
     private String level;
     private boolean istask=false;
     private int id;
+    private int system_id;
+
+    public int getSystem_id() {
+        return system_id;
+    }
+
+    public void setSystem_id(int system_id) {
+        this.system_id = system_id;
+    }
 
     public int getId() {
         return id;

@@ -57,11 +57,13 @@ class WorkParkDetailsActivity : BaseActivity<BasePresenter<IModel,IView>>() {
 
         }
         xwebchromeclient=myWebChromeClient()
+
         webView!!.settings.javaScriptEnabled = true
         webView!!.settings.setSupportMultipleWindows(true)// 新加
         webView!!.setWebChromeClient(xwebchromeclient)
         webView!!.setWebViewClient(myWebViewClient())
         webView!!.setLayerType(View.LAYER_TYPE_HARDWARE, null)
+        webView!!.setMixedContentAllowed(true);
         map.put("Accept", XrjHttpClient.ACCEPT_V2)
 
 

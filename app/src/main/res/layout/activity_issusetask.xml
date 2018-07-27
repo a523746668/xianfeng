@@ -461,16 +461,16 @@
                         <RadioButton
                             android:id="@+id/tougao_rg1_rb1"
                             style="@style/addMeetingRadioButtonStyle"
-
+                            android:checked="true"
                             android:tag="1"
                             android:text="是" />
 
                         <RadioButton
                             android:id="@+id/tougao_rg1_rb2"
                             style="@style/addMeetingRadioButtonStyle"
-                            android:tag="2"
+                            android:tag="0"
                             android:text="否"
-                            android:checked="true"/>
+                           />
 
                     </com.qingyii.hxtz.base.widget.AutoRadioGroup>
                 </com.zhy.autolayout.AutoLinearLayout>

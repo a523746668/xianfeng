@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.OpenableColumns;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -267,7 +268,13 @@ public class neiKanPDFActivity extends AppCompatActivity implements OnPageChange
                     // SQLiteDatabase database = dbHelper.getWritableDatabase();
                     System.out.println("下载ok--------------");
                     String filepath = localPath + filename;
-                    Uri uri = Uri.parse(filepath);
+                    Uri uri;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                      uri= FileProvider.getUriForFile(neiKanPDFActivity.this,"com.qingyiiz.zhf1.fileprovider",new File(filepath));
+                     }else {
+                        uri= Uri.parse(filepath);
+                    }
+
                     displayFromUri(uri);
                     //System.out.println("---已下载-111-开始读");
 
@@ -281,7 +288,12 @@ public class neiKanPDFActivity extends AppCompatActivity implements OnPageChange
             //System.out.println(filepath+" ------------filepathd");
             File file = new File(filepath);
             if (file.exists()) {
-                Uri uri = Uri.parse(filepath);
+                Uri uri ;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    uri= FileProvider.getUriForFile(this,"com.qingyiiz.zhf1.fileprovider",file);
+                }else {
+                    uri= Uri.parse(filepath);
+                }
                 try {
                     displayFromUri(uri);
                     System.out.println("---已下载--开始读");

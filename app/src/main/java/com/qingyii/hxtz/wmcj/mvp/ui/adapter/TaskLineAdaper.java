@@ -22,11 +22,11 @@ import java.util.ArrayList;
  */
 
 public class TaskLineAdaper extends RecyclerView.Adapter<BaseRecyclerViewHolder> {
-     Context context;
+      Context context;
       ArrayList<TaskLineSonbean> list;
-    LayoutInflater inflater;
-    private String titilename;
-    private String sum;
+      LayoutInflater inflater;
+      private String titilename;
+      private String sum;
 
     public void setSum(String sum) {
         this.sum = sum;
@@ -44,7 +44,6 @@ public class TaskLineAdaper extends RecyclerView.Adapter<BaseRecyclerViewHolder>
 
     @Override
     public BaseRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         return new BaseRecyclerViewHolder(context,inflater.inflate(R.layout.tasklineadd,parent,false));
     }
 
@@ -61,16 +60,13 @@ public class TaskLineAdaper extends RecyclerView.Adapter<BaseRecyclerViewHolder>
        tvfenshu.setVisibility(View.INVISIBLE);
          for(TaskLineBean.DataBean.MylibrarysystemBean.ChildBeanX.ChildBean childBean:bean.getChild()){
           addchild(view,layout,childBean);
-
          } */
-         TextView tvcj=holder.getTextView(R.id.tasklinecj);
-        TextView tvtitle= holder.getTextView(R.id.tasklinetitle);
-        TextView tvscore=holder.getTextView(R.id.tasklinefenshu);
-        TextView shuixian1=holder.getTextView(R.id.shuxian1);
-        TextView shuixian2=holder.getTextView(R.id.shuxian2);
+        TextView tvcj     =  holder.getTextView(R.id.tasklinecj);
+        TextView tvtitle  =  holder.getTextView(R.id.tasklinetitle);
+        TextView tvscore  =  holder.getTextView(R.id.tasklinefenshu);
+        TextView shuixian1=  holder.getTextView(R.id.shuxian1);
+        TextView shuixian2=  holder.getTextView(R.id.shuxian2);
         holder.itemView.setClickable(true);
-
-
          if(position<list.size()&&list.get(position).istask()){
            tvcj.setVisibility(View.INVISIBLE);
              tvtitle.setText(list.get(position).getTaskname());
@@ -81,40 +77,48 @@ public class TaskLineAdaper extends RecyclerView.Adapter<BaseRecyclerViewHolder>
                      Intent intent=new Intent(context,TaskDetailActivity.class);
                      intent.putExtra("id",list.get(position).getId());
                      intent.putExtra("taget",list.get(position).getTaskname());
+                     intent.putExtra("system_id",list.get(position).getSystem_id());
                      intent.putExtra("title",titilename);
                      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                      context.startActivity(intent);
                   }
              });
              tvtitle.setGravity(Gravity.NO_GRAVITY);
+             tvscore.setVisibility(View.VISIBLE);
 
-         }  else if(position==list.size()){
-                  tvtitle.setText("合计");
+           } else if(position==list.size()){
+                  tvtitle.setText("总分");
                   tvtitle.setGravity(Gravity.CENTER);
+                  tvtitle.setTextColor(context.getResources().getColor(R.color.white));
                   tvscore.setText(sum+"分");
+                  tvscore.setTextColor(context.getResources().getColor(R.color.white));
                   tvcj.setVisibility(View.INVISIBLE);
              holder.itemView.setClickable(false);
-             holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.white));
+             holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.textcolorred));
              return;
          }
-
-
          else {
                if(list.get(position).getLevel().equalsIgnoreCase("一级")){
                      holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.textColorShallow));
                 } else if(list.get(position).getLevel().equalsIgnoreCase("二级")){
                    holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.tasklisttextview));
-               }
-             tvcj.setTextColor(context.getResources().getColor(R.color.textcolorred));
-              tvcj.setVisibility(View.VISIBLE);
-             tvtitle.setText(list.get(position).getTaskname());
-             tvtitle.setGravity(Gravity.NO_GRAVITY);
-             tvscore.setText(list.get(position).getScore()+"分");
-             tvcj.setText(list.get(position).getLevel());
-               return;
-         }
-         holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.white));
+                }
+               tvcj.setTextColor(context.getResources().getColor(R.color.textcolorred));
+               tvcj.setVisibility(View.VISIBLE);
+               tvtitle.setText(list.get(position).getTaskname());
+               tvtitle.setGravity(Gravity.NO_GRAVITY);
+               tvscore.setText(list.get(position).getScore()+"分");
+               tvcj.setText(list.get(position).getLevel());
+               if(list.get(position).getTaskname().contains("加分项")){
 
+                   tvscore.setVisibility(View.INVISIBLE);
+               }
+               return;
+           }
+           tvscore.setVisibility(View.VISIBLE);
+          tvtitle.setTextColor(context.getResources().getColor(R.color.black));
+          tvscore.setTextColor(context.getResources().getColor(R.color.black));
+          holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.white));
     }
 
    /* private void addchild(View view, AutoLinearLayout layout, TaskLineBean.DataBean.MylibrarysystemBean.ChildBeanX.ChildBean childBean){

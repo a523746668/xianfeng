@@ -263,7 +263,9 @@ public class myActivity extends BaseActivity implements OnClickListener {
                 break;
             case R.id.rl_mychengji:
 //                startActivity(new Intent(myActivity.this, kaochangActivity.class));
-                startActivity(new Intent(myActivity.this, KaoChangType02Activity.class));
+                Intent intent=new Intent(myActivity.this,My_StudyActivity.class);
+                 intent.putExtra("grade","grade");
+                startActivity(intent);
                 break;
             case R.id.rl_myneikan:
                 startActivity(new Intent(myActivity.this, neiKanActivity.class));

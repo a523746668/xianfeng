@@ -8,23 +8,22 @@
       <include layout="@layout/include_toolbar"
           android:id="@+id/include"/>
 
-       <android.support.v7.widget.RecyclerView
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:id="@+id/sxrecyc"
-           android:layout_below="@id/include"
-           android:background="@color/white"
-           android:visibility="gone"
-           >
-
-       </android.support.v7.widget.RecyclerView>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="300px"
+                android:id="@+id/sxrecyc"
+                android:background="@color/white"
+                android:layout_below="@id/include"
+                android:visibility="gone"
+                >
+            </android.support.v7.widget.RecyclerView>
 
       <in.srain.cube.views.ptr.PtrClassicFrameLayout xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
           android:id="@+id/workpark_item_refresh"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           android:background="#fff"
-         android:layout_below="@id/sxrecyc"
+          android:layout_below="@id/sxrecyc"
           cube_ptr:ptr_duration_to_close="200"
           cube_ptr:ptr_duration_to_close_header="1000"
           cube_ptr:ptr_keep_header_when_refresh="true"
@@ -32,6 +31,7 @@
           cube_ptr:ptr_ratio_of_header_height_to_refresh="1.2"
           cube_ptr:ptr_resistance="1.7"
          android:layout_marginTop="30px"
+
           >
             <com.qingyii.hxtz.base.widget.AutoLoadMoreRecyclerView
                 android:id="@+id/workpark_item_recyclerView"
@@ -39,6 +39,7 @@
                 android:layout_height="match_parent"/>
 
       </in.srain.cube.views.ptr.PtrClassicFrameLayout>
+
       <com.zhy.autolayout.AutoLinearLayout
           android:id="@+id/empty_view"
           android:layout_width="match_parent"

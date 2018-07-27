@@ -57,7 +57,7 @@ public class Login {
                              @Override
                              public void onError(Call call, Exception e, int id) {
                                  Log.e("Lodin_onError", e.toString());
-                                 Toast.makeText(activity, "网络异常", Toast.LENGTH_LONG).show();
+                                // Toast.makeText(activity, "网络异常", Toast.LENGTH_LONG).show();
 
                                  if (pd != null) {
                                      pd.dismiss();
@@ -81,7 +81,7 @@ public class Login {
                                              editor.putString("token",response.getData()).commit();
                                              Log.e("ToKen", MyApplication.hxt_setting_config.getString("credentials", ""));
                                              Global.phone=phone;
-                                            Global.flag=true;
+                                             Global.flag=true;
                                              userRFI();
                                              //userDevice(activity, response.getData(), handler);
                                              handler.sendEmptyMessage(1);

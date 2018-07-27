@@ -33,14 +33,19 @@ public class ExamineModel extends BaseModel implements WMCJContract.ExamineModel
     }
 
     @Override
-    public Observable<ExamineBean> getExamineBean() {
-        String murl= Urlutil.baseurl+"/kh/manages/"+ Global.userid+"/15?token="+ MyApplication.hxt_setting_config.getString("token","");
-       return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getExamine(murl);
+    public Observable<ExamineBean> getExamineBean(int system_id) {
+        String murl= Urlutil.baseurl+"/kh/manages/"+ Global.userid+"/"+system_id+"?token="+ MyApplication.hxt_setting_config.getString("token","");
+       return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getExamine(murl,null);
+    }
+
+    @Override
+    public Observable<ExamineBean> getExamineBean(int system_id,String  tag_id) {
+        String murl= Urlutil.baseurl+"/kh/manages/"+Global.userid+"/"+system_id+"?token="+ MyApplication.hxt_setting_config.getString("token","");
+        return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getExamine(murl,String.valueOf(tag_id));
     }
 
     @Override
     public Observable<ResponseBody> download(String url) {
-
             return mRepositoryManager.obtainRetrofitService(WMCJApi.class).download(url);
     }
 }

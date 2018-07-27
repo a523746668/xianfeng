@@ -22,6 +22,8 @@ import android.view.WindowManager;
 import android.webkit.DownloadListener;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -50,6 +52,7 @@ import com.qingyii.hxtz.home.mvp.model.entity.FakeData;
 import com.qingyii.hxtz.home.mvp.model.entity.HomeClass;
 import com.qingyii.hxtz.home.mvp.model.entity.HomeInfo;
 import com.qingyii.hxtz.home.mvp.presenter.HomePresenter;
+import com.qingyii.hxtz.home.util.IsInternet;
 import com.qingyii.hxtz.http.HttpUrlConfig;
 import com.qingyii.hxtz.http.MyApplication;
 import com.qingyii.hxtz.httpway.Login;
@@ -66,6 +69,7 @@ import com.qingyii.hxtz.wmcj.mvp.ui.activity.WMCJActivity;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.qingyii.hxtz.zhf.Util.Global;
 import com.qingyii.hxtz.zhf.Util.HintUtil;
+import com.zhy.autolayout.AutoLinearLayout;
 
 import org.simple.eventbus.Subscriber;
 import org.simple.eventbus.ThreadMode;
@@ -102,8 +106,8 @@ import static com.qingyii.hxtz.base.app.GlobalConsts.WMCJ;
 
 public class HomeNewActivity extends BaseActivity<HomePresenter> implements CommonContract.HomeInfoView,CommonContract.NotifyDetailsView {
 
-    @BindView(R.id.toolbar_back)
-    Button back;
+   // @BindView(R.id.toolbar_back)
+    //Button back;
 
     @BindView(R.id.toolbar_title)
     TextView title;
@@ -114,15 +118,26 @@ public class HomeNewActivity extends BaseActivity<HomePresenter> implements Comm
     @BindView(R.id.homewebview)
     WebView webview;
 
+    @BindView(R.id.toolbar_back_layout)
+    AutoLinearLayout back;
+
     private Map<String, Class<?>> map = new HashMap<>();
+
     ArrayList<HomeClass>  homes=new ArrayList<>();
+
     private HomeInfo homeInfo;
+
     private RxPermissions mRxPermissions;
+
     UpdateUtil util=new UpdateUtil();
+
     ValueCallback<Uri> mUploadMessage;
-    private String url="http://192.168.0.106:81";
+
+    @BindView(R.id.isloadding)
+    TextView is;
+
     private String xianshang="https://wap.seeo.cn/C143/";
-    private String murl=url+"/C143";
+
     public static int webviewUpload =100;
 
      @Inject
@@ -131,6 +146,7 @@ public class HomeNewActivity extends BaseActivity<HomePresenter> implements Comm
     //是否是重新登录跳转过来的界面
     private boolean isLoginag=false;
 
+    private boolean isloadding=true;
 
     @Override
     public void setupActivityComponent(AppComponent appComponent) {
@@ -151,6 +167,12 @@ public class HomeNewActivity extends BaseActivity<HomePresenter> implements Comm
     @Override
     public void initData(Bundle savedInstanceState) {
 
+       if(!IsInternet.isNetworkAvalible(this)){
+           webview.setVisibility(View.GONE);
+           is.setVisibility(View.VISIBLE);
+           initoolbar();
+           return;
+       }
          String registrationID= JPushInterface.getRegistrationID(MyApplication.getInstance());
          MyApplication.hxt_setting_config.edit().putString("DeviceID",registrationID).commit();
          isLoginag=getIntent().getBooleanExtra("userchange",false);
@@ -175,21 +197,21 @@ public class HomeNewActivity extends BaseActivity<HomePresenter> implements Comm
         //声明WebSettings子类
         WebSettings webSettings = webview.getSettings();
 
-//如果访问的页面中要与Javascript交互，则webview必须设置支持Javascript
+      //如果访问的页面中要与Javascript交互，则webview必须设置支持Javascript
         webSettings.setJavaScriptEnabled(true);
 
 
-//设置自适应屏幕，两者合用
+       //设置自适应屏幕，两者合用
         webSettings.setUseWideViewPort(true); //将图片调整到适合webview的大小
         webSettings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
 
-//缩放操作
+      //缩放操作
         webSettings.setSupportZoom(true); //支持缩放，默认为true。是下面那个的前提。
         webSettings.setBuiltInZoomControls(true); //设置内置的缩放控件。若为false，则该WebView不可缩放
         webSettings.setDisplayZoomControls(false); //隐藏原生的缩放控件
 
-//其他细节操作
-       webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
+     //其他细节操作
+        webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
         webSettings.setAllowFileAccess(true); //设置可以访问文件
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true); //支持通过JS打开新窗口
         webSettings.setLoadsImagesAutomatically(true); //支持自动加载图片
@@ -219,7 +241,13 @@ public class HomeNewActivity extends BaseActivity<HomePresenter> implements Comm
                 super.onPageFinished(view, url);
                 Log.i("tmdurlfinish", url);
                 backjianting(url);
-                if (url.contains("=") && url.endsWith("=")&&url.contains("#?")) {
+                if(!isloadding){
+                    view.setVisibility(View.GONE);
+                     is.setVisibility(View.VISIBLE);
+                    return;
+                }
+
+                if (url.contains("=") && url.endsWith("=")&&url.contains("#")) {
                     view.loadUrl(xianshang+"login");
                     return;
                 }
@@ -232,7 +260,7 @@ public class HomeNewActivity extends BaseActivity<HomePresenter> implements Comm
                     Login.getLogin().userDevice(HomeNewActivity.this,MyApplication.hxt_setting_config.getString("token",""));
                     return;
                 }
-                if (url.startsWith(xianshang+"appm?m2")||url.contains("appm?m2=")) {
+                if (url.startsWith(xianshang+"#m2")||url.contains("#m2=")) {
                     if (url.contains("=") && !url.endsWith("=")) {
                         String[] urls = url.split("=");
                         MyApplication.hxt_setting_config.edit().putString("token", urls[1]).commit();
@@ -247,20 +275,19 @@ public class HomeNewActivity extends BaseActivity<HomePresenter> implements Comm
                     }
                 }
 
-                if (url.startsWith(xianshang+"more#")&&!url.contains("?m5=")) {
+                if (url.startsWith(xianshang+"more#")&&!url.contains("m5=")) {
                     if (url.contains("=") && !url.endsWith("=")) {
                         String[] urls = url.split("=");
                         MyApplication.hxt_setting_config.edit().putString("token", urls[1]).commit();
-                       MyApplication.hxt_setting_config.edit().putString("credentials", "Bearer " +urls[1]).commit();
-                       isneedrequest();
+                        MyApplication.hxt_setting_config.edit().putString("credentials", "Bearer " +urls[1]).commit();
+                        isneedrequest();
                         String  num =urls[0].substring(urls[0].length() - 3) ;
                         Intent intent = new Intent();
-                        Log.i("tmdnum",num+"");
+
                         if(num.contains("46")) {
                             Log.i("tmdnum",num+"");
                             intent.setClass(HomeNewActivity.this, map.get(CIRCLE));
                             startActivity(intent);
-
                         } else if(num.contains("36")) {
                             intent.setClass(HomeNewActivity.this, map.get(MEETING));
                             startActivity(intent);
@@ -277,17 +304,18 @@ public class HomeNewActivity extends BaseActivity<HomePresenter> implements Comm
                           else if(num.contains("44")) {
                                 intent.setClass(HomeNewActivity.this, map.get(ANNOUNCEMENT));
                                 startActivity(intent);}
+
+                          else if(num.contains("45")){
+                            intent.setClass(HomeNewActivity.this,map.get(DOCUMENTARY));
+                            startActivity(intent);
+                        }
                         view.goBack();
                         }
-
-                    Log.i("tmd","444");
                              return;
                     }
-                    if(url.startsWith(xianshang+"appm?m5")||url.contains("appm?m5=")){
-
+                    if(url.startsWith(xianshang+"#m5")||url.contains("m5=")){
                         if (url.contains("=") && !url.endsWith("=")) {
                             String[] urls = url.split("=");
-
                             MyApplication.hxt_setting_config.edit().putString("token", urls[1]).commit();
                             MyApplication.hxt_setting_config.edit().putString("credentials", "Bearer " +urls[1]).commit();
                             isneedrequest();
@@ -302,7 +330,11 @@ public class HomeNewActivity extends BaseActivity<HomePresenter> implements Comm
                     }
                 }
 
-
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                super.onReceivedError(view, request, error);
+                isloadding=false;
+            }
         });
         webview.setWebChromeClient(new WebChromeClient(){
             public void openFileChooser(ValueCallback<Uri> uploadMsg,
@@ -346,7 +378,8 @@ public class HomeNewActivity extends BaseActivity<HomePresenter> implements Comm
        webview.setDownloadListener(new DownloadListener() {
            @Override
            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
-               File file = new File(HttpUrlConfig.cacheDir, userAgent);
+               String filename=url.substring(url.lastIndexOf("/")+1,url.length());
+               File file = new File(HttpUrlConfig.cacheDir, filename);
                if (file.exists()) {
                    openFile(HomeNewActivity.this, file.getPath(), mimetype);
                } else {
@@ -437,8 +470,8 @@ public class HomeNewActivity extends BaseActivity<HomePresenter> implements Comm
         map.put(EXAMS, KaoChangType02Activity.class);
     }
     private void initoolbar() {
-       back.setVisibility(View.GONE);
-        title.setText("湘直宣传云");
+        back.setVisibility(View.GONE);
+        title.setText("湘直文明");
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -462,13 +495,17 @@ public class HomeNewActivity extends BaseActivity<HomePresenter> implements Comm
 
     }
     private int badgeCount;
+
     @Override
     public void updateUI(HomeInfo homeInfo) {
         this.homeInfo=homeInfo;
         ArrayList<HomeInfo.AccountBean.ModulesBean> list= (ArrayList<HomeInfo.AccountBean.ModulesBean>) homeInfo.getAccount().getModules();
-       for(HomeInfo.AccountBean.ModulesBean bean :list){
+       if(list==null&&list.size()<=0){
+           return;
+       }
+        for(HomeInfo.AccountBean.ModulesBean bean :list){
            if(bean.getMark().startsWith("task")){
-               String num=bean.getMark().substring(bean.getMark().lastIndexOf("/")+1);
+               String num=bean.getMark().substring(bean.getMark().lastIndexOf(",")+1);
                Global.userid=Integer.valueOf(num);
            }
           if(bean.getMark().equalsIgnoreCase("meeting")){
@@ -585,7 +622,7 @@ public class HomeNewActivity extends BaseActivity<HomePresenter> implements Comm
 
     @Subscriber(mode = ThreadMode.MAIN, tag = EventBusTags.HOME)
     public void refreshwebview(boolean flag){
-         Log.i("tmdhome","运行了此方法："+murl);
+       //  Log.i("tmdhome","运行了此方法："+murl);
       //  webview.loadUrl(murl);
     }
 
@@ -608,7 +645,6 @@ public class HomeNewActivity extends BaseActivity<HomePresenter> implements Comm
         if (webview != null) {
             webview.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
             webview.clearHistory();
-
             ((ViewGroup) webview.getParent()).removeView(webview);
             webview.destroy();
             webview = null;

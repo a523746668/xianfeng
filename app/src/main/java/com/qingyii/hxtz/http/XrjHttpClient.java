@@ -15,6 +15,7 @@ public class XrjHttpClient {
      */
     public static final String URL_PR = "http://web.seeo.cn";
     //public static final String URL_PR="http://192.168.0.100" ;
+    public static final String URL_PRS ="https://web.seeo.cn";
 
     /**
      * 上传Url前缀
@@ -375,7 +376,7 @@ public class XrjHttpClient {
     public static final String TZ_INFORMLIST_URL = "/notify";
 
     public static String getInformListUrl() {
-        return URL_PR + TZ_INFORMLIST_URL;
+        return URL_PRS + TZ_INFORMLIST_URL;
     }
 
     /**
@@ -409,7 +410,7 @@ public class XrjHttpClient {
     public static final String PX_TRAINLIST_URL = "/training";
 
     public static String getTrainListUrl() {
-        return URL_PR + PX_TRAINLIST_URL;
+        return URL_PR+ PX_TRAINLIST_URL;
     }
     /**
      * MeetingMap 请求URL

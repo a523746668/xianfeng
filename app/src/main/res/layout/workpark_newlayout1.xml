@@ -95,9 +95,17 @@
                 android:textSize="40px"
                 android:id="@+id/istj"
                 />
-
+            <Button
+                android:layout_width="140px"
+                android:layout_height="90px"
+                android:text="删除"
+                android:layout_marginLeft="20px"
+                android:id="@+id/report_delete"
+                android:textSize="40px"
+                android:textColor="@color/allStyles"
+                 android:background="@drawable/corner_white_lightgray"
+                />
         </com.zhy.autolayout.AutoLinearLayout>
-
 
     </com.zhy.autolayout.AutoLinearLayout>
 

@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.NonNull;
@@ -67,6 +68,8 @@ import java.util.Scanner;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.jiluai.android.framework.Dialog.ActionSheetDialog;
+import cn.jiluai.android.framework.Map.CheckInstalled;
 import im.delight.android.webview.AdvancedWebView;
 
 import static com.github.barteksc.pdfviewer.util.FileUtils.openFile;
@@ -82,6 +85,7 @@ public class MeetingDetailsActivity extends BaseActivity<MeetingetailsPresenter>
     public static final String PARAMS2 = "position";
     public static final String SIGN = "sign";
     public static final String REJECT = "reject";
+    private MyLocations locations;
     @BindView(R.id.toolbar_back)
     Button toolbarBack;
     @BindView(R.id.toolbar_title)
@@ -270,7 +274,7 @@ public class MeetingDetailsActivity extends BaseActivity<MeetingetailsPresenter>
         mWebView.setListener(this, this);
         mWebView.addHttpHeader("Accept", XrjHttpClient.ACCEPT_V2);
         mWebView.addHttpHeader("Authorization", MyApplication.hxt_setting_config.getString("credentials", ""));
-        String webUrl = XrjHttpClient.URL_PR + "/hy/" + data.getId();
+        String webUrl = XrjHttpClient.URL_PRS+ "/hy/" + data.getId();
         Log.i("tmdmeet",webUrl);
         //WebView点击事件依旧显示在本页面
         mWebView.setWebViewClient(new WebViewClient() {
@@ -338,15 +342,48 @@ public class MeetingDetailsActivity extends BaseActivity<MeetingetailsPresenter>
         @JavascriptInterface
         public void openMap() {
             isIntercept = true;
-            Intent intent = new Intent(MeetingDetailsActivity.this, TrainSiteActivity.class);
+           /* Intent intent = new Intent(MeetingDetailsActivity.this, TrainSiteActivity.class);
             TrainList.DataBean tDataBean = new TrainList.DataBean();
             tDataBean.setId(data.getId());
             tDataBean.setLocation(data.getLocation());
             intent.putExtra("isMeeting", true);
             intent.putExtra("training", tDataBean);
             intent.putExtra("tltle", data.getAddress());
-            startActivity(intent);
+            startActivity(intent); */
+           locations=new Gson().fromJson(data.getLocation(),MyLocations.class);
+            new ActionSheetDialog(MeetingDetailsActivity.this).builder()
+                    .setTitle("请选择地图")
+                    .setCancelable(true)
+                    .setCanceledOnTouchOutside(true)
+                    .addSheetItem("百度地图", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
+                        @Override
+                        public void onClick(int which) {
 
+
+                            boolean ifinstalled = checkIfInstall("baidu"); //检查是否安装百度地图
+
+                            if (ifinstalled) {
+                                goBaidu();
+                            } else {
+                                new Toast(MeetingDetailsActivity.this).makeText(MeetingDetailsActivity.this, "百度地图没有安装", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    })
+                    .addSheetItem("高德地图", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
+                        @Override
+                        public void onClick(int which) {
+
+                            boolean ifinstalled = checkIfInstall("gaode"); //检查是否安装百度地图
+
+                            if (ifinstalled) {
+                                goGaode();
+                            } else {
+                                new Toast(MeetingDetailsActivity.this).makeText(MeetingDetailsActivity.this, "高德地图没有安装", Toast.LENGTH_LONG).show();
+                            }
+
+                        }
+                    })
+                    .show();
         }
 
     }
@@ -591,5 +628,43 @@ public class MeetingDetailsActivity extends BaseActivity<MeetingetailsPresenter>
                 dialog.dismiss();
                 break;
         }
+    }
+
+    private boolean checkIfInstall(String dituname) {
+
+        if (dituname.equals("baidu")) {
+            return CheckInstalled.isInstalled(MeetingDetailsActivity.this, "com.baidu.BaiduMap");
+        } else if (dituname.equals("gaode")) {
+            return CheckInstalled.isInstalled(MeetingDetailsActivity.this, "com.autonavi.minimap");
+        } else {
+            return false;
+        }
+    }
+
+    private void goBaidu() {
+        try {
+            Intent i1 = new Intent();
+            // 驾车导航
+            i1.setData(Uri.parse("baidumap://map/geocoder?location="+ RxLocationUtils.GCJ02ToBD09(locations.getLocation().get(locations.getLocation().size()-1).getLat(),locations.getLocation().get(locations.getLocation().size()-1).getLng())));
+            startActivity(i1);
+        } catch (Exception e) {
+            Log.d("URISyntaxException : ", e.getMessage());
+            e.printStackTrace();
+        }
+
+    }
+
+    private void goGaode() {
+        Intent intent = new Intent("android.intent.action.VIEW",
+                Uri.parse("" +
+                        "androidamap://viewMap?sourceApplication=先锋云平台&poiname="+
+                        locations.getLocation().get(locations.getLocation().size()-1).getText()
+                        +"&lat="+
+                        locations.getLocation().get(locations.getLocation().size()-1).getLat()
+                        +"&lon="+
+                        locations.getLocation().get(locations.getLocation().size()-1).getLng()
+                        +"&dev=0"));
+        intent.setPackage("com.autonavi.minimap");
+        startActivity(intent);
     }
 }

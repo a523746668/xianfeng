@@ -55,6 +55,24 @@ public class Resultbean {
         private ParentindustryBean parentindustry;
         private TopIndustryBean topIndustry;
         private List<BrothindustryBean> brothindustry;
+        private String time;
+        private int is_top;
+
+        public int getIs_top() {
+            return is_top;
+        }
+
+        public void setIs_top(int is_top) {
+            this.is_top = is_top;
+        }
+
+        public String getTime() {
+            return time;
+        }
+
+        public void setTime(String time) {
+            this.time = time;
+        }
 
         public MyBean getMy() {
             return my;
@@ -418,6 +436,15 @@ public class Resultbean {
              * myscore : 0
              * ranking : 1
              */
+            private int industry_id;
+
+            public int getIndustry_id() {
+                return industry_id;
+            }
+
+            public void setIndustry_id(int industry_id) {
+                this.industry_id = industry_id;
+            }
 
             private int id;
             private int industry_sub_id;
@@ -425,8 +452,8 @@ public class Resultbean {
             private int sort;
             private int status;
             private String name;
-            private int score;
-            private int myscore;
+            private double score;
+            private double myscore;
             private int ranking;
 
             public int getId() {
@@ -477,7 +504,7 @@ public class Resultbean {
                 this.name = name;
             }
 
-            public int getScore() {
+            public double getScore() {
                 return score;
             }
 
@@ -485,7 +512,7 @@ public class Resultbean {
                 this.score = score;
             }
 
-            public int getMyscore() {
+            public double getMyscore() {
                 return myscore;
             }
 

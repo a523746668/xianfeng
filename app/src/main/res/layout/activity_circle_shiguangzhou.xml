@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <com.zhy.autolayout.AutoRelativeLayout
         android:id="@+id/main_circle_nav"
         android:layout_width="match_parent"
         android:layout_height="@dimen/x40"
-        android:background="@color/tltleColor">
+        android:background="@color/toolbarbackground">
 
         <ImageView
             android:id="@+id/main_circle_left"
@@ -39,7 +39,7 @@
             android:text="发布"
             android:textColor="#FFFFFF" />
 
-    </RelativeLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
 
 
     <com.andbase.library.view.refresh.AbPullToRefreshView
@@ -58,4 +58,4 @@
 
     </com.andbase.library.view.refresh.AbPullToRefreshView>
 
-</LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

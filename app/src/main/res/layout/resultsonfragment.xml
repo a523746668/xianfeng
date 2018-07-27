@@ -20,6 +20,7 @@
         android:text="截至上次审核2018年5月20日"
          android:layout_gravity="center"
         android:layout_marginTop="36px"
+        android:id="@+id/endtime"
         />
     
     <com.zhy.autolayout.AutoLinearLayout
@@ -31,6 +32,7 @@
         android:layout_marginLeft="57px"
         android:layout_marginRight="57px"
         android:background="@mipmap/back99"
+        android:id="@+id/isvisble"
         >
        <com.zhy.autolayout.AutoLinearLayout
            android:layout_width="wrap_content"

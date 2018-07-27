@@ -182,7 +182,7 @@ public class MyTongXunLuDetailsActivity extends AppCompatActivity implements Vie
                 } else {
                     dialog.dismiss();
                     dialog.setContentView(initAffirmContentLayout());
-                    affirm_context.setText("确定拨打：" + aDataBean.getPhone());
+                    affirm_context.setText("确定拨打：" + uDataBean.getPhone());
 //                    dialog.getWindow().setGravity(Gravity.BOTTOM);
                     dialog.getWindow().getAttributes().width = (int) (getWindowManager().getDefaultDisplay().getWidth() * 0.8);
                     dialog.getWindow().setAttributes(dialog.getWindow().getAttributes());
@@ -194,7 +194,7 @@ public class MyTongXunLuDetailsActivity extends AppCompatActivity implements Vie
                 break;
             case R.id.affirm_submit://打电话 确认
                 //用intent启动拨打电话
-                intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + aDataBean.getPhone()));
+                intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + uDataBean.getPhone()));
                 startActivity(intent);
                 dialog.dismiss();
                 break;

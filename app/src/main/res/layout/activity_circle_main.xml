@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="150px"
         android:layout_alignParentTop="true"
-        android:background="@color/tltleColor">
+        android:background="@color/toolbarbackground">
 
         <com.zhy.autolayout.AutoLinearLayout
             android:id="@+id/main_circle_left"
@@ -18,8 +18,8 @@
             android:gravity="center">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="68px"
+                android:layout_height="58px"
                 android:src="@mipmap/returns_arrow" />
 
         </com.zhy.autolayout.AutoLinearLayout>

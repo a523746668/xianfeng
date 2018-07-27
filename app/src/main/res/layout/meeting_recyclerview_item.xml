@@ -10,16 +10,16 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <com.zhy.autolayout.AutoRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
+            <com.zhy.autolayout.AutoLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -34,9 +34,9 @@
                     android:ellipsize="end"
                     android:text="和谐社会由你开始"
                     android:textColor="@color/notifyListTitleColor"
-                    android:textSize="46px" />
+                    android:textSize="58px" />
 
-                <LinearLayout
+                <com.zhy.autolayout.AutoLinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="46px"
@@ -49,7 +49,7 @@
                         android:maxLines="1"
                         android:text="主办单位："
                         android:textColor="@color/notifyListContentColor"
-                        android:textSize="@dimen/sp_normal" />
+                        android:textSize="52px" />
 
                     <TextView
                         android:id="@+id/meeting_item_unit"
@@ -59,10 +59,10 @@
                         android:maxLines="1"
                         android:text="党建工作部"
                         android:textColor="@color/notifyListContentColor"
-                        android:textSize="@dimen/sp_normal" />
-                </LinearLayout>
+                        android:textSize="52px" />
+                </com.zhy.autolayout.AutoLinearLayout>
 
-                <LinearLayout
+                <com.zhy.autolayout.AutoLinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="46px"
@@ -75,7 +75,7 @@
                         android:maxLines="1"
                         android:text="会议地点："
                         android:textColor="@color/notifyListContentColor"
-                        android:textSize="@dimen/sp_normal" />
+                        android:textSize="52px" />
 
                     <TextView
                         android:id="@+id/meeting_item_address"
@@ -84,10 +84,10 @@
                         android:layout_marginRight="74px"
                         android:text="省委办公楼4栋直机关工委机关1号会议室省委办公楼4栋直机关工委机关1号会议室"
                         android:textColor="@color/notifyListContentColor"
-                        android:textSize="@dimen/sp_normal" />
-                </LinearLayout>
+                        android:textSize="52px" />
+                </com.zhy.autolayout.AutoLinearLayout>
 
-                <LinearLayout
+                <com.zhy.autolayout.AutoLinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="46px"
@@ -100,7 +100,7 @@
                         android:maxLines="1"
                         android:text="会议时间："
                         android:textColor="@color/notifyListContentColor"
-                        android:textSize="@dimen/sp_normal" />
+                        android:textSize="52px" />
 
                     <TextView
                         android:id="@+id/meeting_item_train_time"
@@ -109,10 +109,10 @@
                         android:layout_marginRight="74px"
                         android:text="2017-06-15 08:00到2017-06-20 17：30"
                         android:textColor="@color/notifyListContentColor"
-                        android:textSize="@dimen/sp_normal" />
-                </LinearLayout>
+                        android:textSize="52px" />
+                </com.zhy.autolayout.AutoLinearLayout>
 
-                <LinearLayout
+                <com.zhy.autolayout.AutoLinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="44px"
@@ -126,7 +126,7 @@
                         android:maxLines="1"
                         android:text="会议类型："
                         android:textColor="@color/notifyListContentColor"
-                        android:textSize="@dimen/sp_normal" />
+                        android:textSize="52px" />
 
                     <TextView
                         android:id="@+id/meeting_item_train_type"
@@ -136,7 +136,7 @@
                         android:maxLines="1"
                         android:text="党建大课堂"
                         android:textColor="@color/notifyListContentColor"
-                        android:textSize="@dimen/sp_normal" />
+                        android:textSize="52px" />
 
                     <View
                         android:layout_width="0dp"
@@ -152,10 +152,10 @@
                         android:text="进行中"
                         android:gravity="center"
                         android:textSize="@dimen/sp_normal" />
-                </LinearLayout>
+                </com.zhy.autolayout.AutoLinearLayout>
 
-            </LinearLayout>
-        </RelativeLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+        </com.zhy.autolayout.AutoRelativeLayout>
 
         <ImageView
             android:id="@+id/meeting_item_mark"
@@ -167,5 +167,5 @@
             android:background="@mipmap/tabhost_hint"
             android:visibility="visible"
             app:layout_auto_basewidth="height" />
-    </RelativeLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
 </com.qingyii.hxtz.base.widget.AutoCardView>

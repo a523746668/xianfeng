@@ -36,7 +36,9 @@ public class RecodingActivity extends AppCompatActivity implements View.OnClickL
 
     @BindView(R.id.btnStartStop)
     Button mBtnStartStop;
-     private Unbinder unbinder;
+
+    private Unbinder unbinder;
+
     private MediaRecorder mediaRecorder;
     private SurfaceHolder mSurfaceHolder;
     private Camera mCamera;
@@ -161,7 +163,7 @@ public class RecodingActivity extends AppCompatActivity implements View.OnClickL
         //设置录像的分辨率
         mediaRecorder.setVideoSize(mProfile.videoFrameWidth, mProfile.videoFrameHeight);
 
-          path=Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+System.currentTimeMillis()+"xf.mp4";
+        path=Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+System.currentTimeMillis()+"xf.mp4";
         mediaRecorder.setOutputFile(path);
 
     }

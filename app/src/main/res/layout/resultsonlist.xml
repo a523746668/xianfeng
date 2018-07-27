@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     >
@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="150px"
         android:orientation="horizontal"
+        android:id="@+id/allrecycler"
         >
 
         <TextView
@@ -48,8 +49,18 @@
       android:layout_width="match_parent"
       android:layout_height="1dp"
       android:background="@color/tasklisttextview"
+      android:layout_below="@+id/allrecycler"
+      />
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="150px"
+      android:textSize="40px"
+      android:gravity="center"
+      android:text="无下级单位"
+      android:visibility="gone"
+      android:id="@+id/nodanwei"
+      android:textColor="@color/black"
       />
 
 
-
-</com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

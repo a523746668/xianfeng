@@ -16,9 +16,13 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:listDivider">@drawable/divider</item>
-
     </style>
-
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@mipmap/ydy</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
     <!--底部弹窗样式-->
     <!-- iOS7 Style -->
     <style name="ActionSheetStyleiOS7">

@@ -5,13 +5,18 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.media.AudioManager;
+import android.net.http.SslError;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -28,6 +33,7 @@ import java.util.Map;
 import im.delight.android.webview.AdvancedWebView;
 
 import static com.qingyii.hxtz.http.XrjHttpClient.URL_PR;
+import static com.qingyii.hxtz.http.XrjHttpClient.URL_PRS;
 
 //import com.jjshome.banking.R;
 //import com.jjshome.banking.activity.BasicFragmentActivity;
@@ -71,8 +77,7 @@ public class neiKanWebViewActivity extends FragmentActivity {
         
         extraHeaders.put("Accept", XrjHttpClient.ACCEPT_V2);
         extraHeaders.put("Authorization", MyApplication.hxt_setting_config.getString("credentials", ""));
-        videowebview.loadUrl(articleUrl,extraHeaders);
-
+        videowebview.loadUrl(articleUrl);
 
     }
 
@@ -83,7 +88,7 @@ public class neiKanWebViewActivity extends FragmentActivity {
             article_web =  b.getParcelable("Article");
             if (article_web!=null){
                 //http://xfapi.ccketang.com/article/{article_id}
-                articleUrl = URL_PR +"/article/"+article_web.getId();
+                articleUrl = URL_PRS +"/article/"+article_web.getId()+"?token="+MyApplication.hxt_setting_config.getString("token","");
                 Log.i("tmdneikan","zzzzzzz"+articleUrl);
                 //NKSaveArticle(bookadr,article_pdf);
             }
@@ -120,13 +125,12 @@ public class neiKanWebViewActivity extends FragmentActivity {
         ws.setGeolocationEnabled(true);// 启用地理定位
         ws.setGeolocationDatabasePath("/data/data/org.itri.html5webview/databases/");// 设置定位的数据库路径
         ws.setDomStorageEnabled(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+         ws.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
         mWebchromeclient = new mWebChromeClient();
         videowebview.setWebChromeClient(mWebchromeclient);
-
-
-
         //final Map<String, String> extraHeaders = new HashMap<String, String>();
-
         videowebview.setWebViewClient(new xWebViewClientent());
 
     }
@@ -317,6 +321,8 @@ public class neiKanWebViewActivity extends FragmentActivity {
             view.loadUrl(articleUrl,extraHeaders);
             return super.shouldOverrideUrlLoading(view, url);
         }
+
+
     }
 
     /**

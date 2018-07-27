@@ -59,6 +59,24 @@ public class ExamineBean {
         private String sender;
         private String content;
         private List<FileBean> doclist;
+        private String enddate;
+        private String completeobj;
+
+        public String getCompleteobj() {
+            return completeobj;
+        }
+
+        public void setCompleteobj(String completeobj) {
+            this.completeobj = completeobj;
+        }
+
+        public String getEnddate() {
+            return enddate;
+        }
+
+        public void setEnddate(String enddate) {
+            this.enddate = enddate;
+        }
 
         public String getTitle() {
             return title;

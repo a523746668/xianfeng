@@ -21,9 +21,13 @@ import com.qingyii.hxtz.wmcj.di.module.WorkParkItemModule;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.WorkParkbean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.WorkParkitembean;
 import com.qingyii.hxtz.wmcj.mvp.presenter.ReportingPresenter;
+import com.qingyii.hxtz.wmcj.mvp.presenter.WorkPresenter;
+import com.qingyii.hxtz.zhf.Util.Global;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.ArrayList;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
@@ -51,6 +55,9 @@ public class ReportingActivity extends BaseActivity<ReportingPresenter> implemen
     @BindView(R.id.empty_view)
     AutoLinearLayout emtview;
 
+    @Inject
+    WorkPresenter presenter1;
+
     @Override
     public void setupActivityComponent(AppComponent appComponent) {
         DaggerReportingComponent.builder()
@@ -58,6 +65,7 @@ public class ReportingActivity extends BaseActivity<ReportingPresenter> implemen
                 .workParkItemModule(new WorkParkItemModule(this))
                 .build()
                 .inject(this);
+
     }
 
     @Override
@@ -68,7 +76,12 @@ public class ReportingActivity extends BaseActivity<ReportingPresenter> implemen
     @Override
     public void initData(Bundle savedInstanceState) {
           init();
-        mPresenter.getReportdata();
+       if(Global.userid==6){
+       presenter1.getWorkMenu();
+       }else {
+           mPresenter.getReportdata();
+       }
+
 
     }
 
@@ -85,7 +98,13 @@ public class ReportingActivity extends BaseActivity<ReportingPresenter> implemen
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
               //  presenter.getreportingdata();
-                mPresenter.getReportdata();
+             if(Global.userid==6){
+                mPresenter.getWorkItem(system_id);
+             } else {
+                 mPresenter.getReportdata();
+             }
+
+
             }
 
             @Override
@@ -96,15 +115,23 @@ public class ReportingActivity extends BaseActivity<ReportingPresenter> implemen
         recyclerView.setOnLoadMoreListener(new AutoLoadMoreRecyclerView.OnLoadMoreListener() {
             @Override
             public void loadMore() {
-               mPresenter.getReportMore();
+                 if(Global.userid==6){
+                     mPresenter.getworkitemmore(system_id);
+                 } else {
+                     mPresenter.getReportMore();
+                 }
+
             }
         });
 
     }
 
+     private String  system_id;
+
     @Override
     public void getdatasuccess(WorkParkbean workParkbean) {
-
+        system_id=String .valueOf(workParkbean.getData().getMenu_item().get(0).getId());
+        mPresenter.getWorkItem(system_id);
     }
 
     @Override
@@ -129,6 +156,11 @@ public class ReportingActivity extends BaseActivity<ReportingPresenter> implemen
     @Override
     public void finishRefresh() {
         ptr.refreshComplete();
+    }
+
+    @Override
+    public void setflag(boolean flag) {
+
     }
 
     @Override

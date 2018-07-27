@@ -107,10 +107,10 @@ public class MeetingActivity extends BaseActivity implements IView {
         }
     }
 
-    @OnClick({R.id.toolbar_back, R.id.toolbar_right_layout})
+    @OnClick({R.id.toolbar_back_layout, R.id.toolbar_right_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.toolbar_back:
+            case R.id.toolbar_back_layout:
                 killMyself();
                 break;
             case R.id.toolbar_right_layout:

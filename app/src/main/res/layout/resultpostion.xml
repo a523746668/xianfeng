@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="120px"
             android:layout_below="@+id/include"
-
+            android:layout_marginTop="30px"
             android:id="@+id/resultfragrl">
             <Button
                 android:layout_width="54px"
@@ -32,7 +32,7 @@
                 android:layout_width="772px"
                 android:layout_height="match_parent"
                 android:layout_toRightOf="@+id/resultfragsub"
-                android:layout_marginLeft="50px"
+
                 android:layout_centerHorizontal="true"
                 android:textSize="52px"
                 android:textColor="@color/black"

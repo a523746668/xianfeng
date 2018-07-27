@@ -10,7 +10,9 @@
         android:id="@+id/include" />
    <android.support.v4.widget.NestedScrollView
        android:layout_width="match_parent"
-       android:layout_height="match_parent">
+       android:layout_height="match_parent"
+       android:id="@+id/visibleview"
+       >
       <com.zhy.autolayout.AutoLinearLayout
           android:layout_width="match_parent"
           android:layout_height="match_parent"
@@ -20,19 +22,28 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:gravity="center"
-              android:text="2018年文明单位日常工作考评"
+              android:text=""
               android:textColor="@color/black"
               android:textSize="52px"
               android:layout_marginTop="58px"
               android:layout_marginBottom="43px"
               android:id="@+id/examine_title"
               />
-   <com.zhy.autolayout.AutoLinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal"
-       android:padding="25px"
-       >
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="1px"
+              android:background="@color/allStyles"
+              android:layout_marginLeft="25px"
+              android:layout_marginRight="25px"
+              />
+
+       <com.zhy.autolayout.AutoLinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:paddingTop="25px"
+           android:paddingLeft="25px"
+        >
      <TextView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
@@ -43,18 +54,48 @@
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="省直机关工委"
+          android:text=""
           android:textSize="42px"
           android:textColor="@color/black"
+          android:layout_marginLeft="50px"
           android:id="@+id/examine_company"
           />
 
-   </com.zhy.autolayout.AutoLinearLayout>
+         </com.zhy.autolayout.AutoLinearLayout>
           <com.zhy.autolayout.AutoLinearLayout
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:orientation="horizontal"
-              android:padding="25px"
+              android:paddingTop="25px"
+              android:paddingLeft="25px"
+              >
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="考核对象:"
+                  android:textSize="42px"
+                  android:textColor="@color/black"
+                  />
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text=""
+                  android:textSize="42px"
+                  android:textColor="@color/black"
+                  android:id="@+id/examine_duixiang"
+                  android:layout_marginLeft="50px"
+                  />
+
+          </com.zhy.autolayout.AutoLinearLayout>
+
+
+          <com.zhy.autolayout.AutoLinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+           android:paddingTop="25px"
+              android:paddingLeft="25px"
+              android:paddingBottom="25px"
               >
               <TextView
                   android:layout_width="wrap_content"
@@ -66,13 +107,176 @@
               <TextView
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text="省直机关工委"
+                  android:text=""
                   android:textSize="42px"
                   android:textColor="@color/black"
                   android:id="@+id/examine_content"
+                  android:layout_marginLeft="50px"
                   />
 
           </com.zhy.autolayout.AutoLinearLayout>
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="1px"
+              android:background="@color/allStyles"
+              android:layout_marginLeft="25px"
+              android:layout_marginRight="25px"
+              />
+
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:textSize="60px"
+              android:gravity="center"
+              android:layout_marginTop="25px"
+              android:text=""
+              android:textColor="@color/examne_text"
+              android:id="@+id/examine_company1"
+              />
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textSize="42px"
+              android:gravity="center_horizontal"
+              android:text="考核任务完成进度"
+              android:layout_marginTop="30px"
+              />
+
+          <com.zhy.autolayout.AutoRelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_horizontal"
+              android:layout_marginTop="28px">
+              <me.zhouzhuo.zzhorizontalprogressbar.ZzHorizontalProgressBar
+                  android:id="@+id/pb"
+                  android:layout_width="576px"
+                  android:layout_height="65px"
+                  app:zpb_padding="0dp"
+                  app:zpb_pb_color="@color/green1"
+                  app:zpb_bg_color="@color/very_dimgrey"
+                  app:zpb_max="100"
+                  app:zpb_border_width="2dp"
+                  app:zpb_border_color="@color/green1"
+                  android:layout_centerVertical="true"
+                  android:layout_centerHorizontal="true"
+                  />
+              <ImageView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:src="@mipmap/paobu"
+                 android:scaleType="fitStart"
+                  android:layout_alignLeft="@+id/pb"
+                  android:id="@+id/paobu"
+                  />
+          </com.zhy.autolayout.AutoRelativeLayout>
+  <com.zhy.autolayout.AutoLinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:gravity="center_horizontal"
+      android:layout_marginTop="58px">
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="目标任务总"
+       android:textSize="60px"
+       android:textColor="@color/black"
+       />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/examine_total"
+        android:layout_gravity="center_horizontal"
+
+        android:textSize="60px"
+       android:textColor="@color/allStyles"
+
+
+        />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="次"
+          android:textSize="60px"
+          android:textColor="@color/black"
+          />
+
+  </com.zhy.autolayout.AutoLinearLayout>
+
+       <com.zhy.autolayout.AutoLinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:gravity="center_horizontal"
+           android:layout_marginTop="42px">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="当前已完成"
+               android:textSize="60px"
+               android:textColor="@color/black"
+               />
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/examine_processnum"
+              android:layout_gravity="center_horizontal"
+              android:textSize="60px"
+              android:textColor="@color/allStyles"
+              />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="次"
+               android:textSize="60px"
+               android:textColor="@color/black"
+               />
+       </com.zhy.autolayout.AutoLinearLayout>
+       <com.zhy.autolayout.AutoLinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:gravity="center_horizontal"
+           android:layout_marginTop="42px">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="目标完成度"
+               android:textSize="60px"
+               android:textColor="@color/black"
+               />
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/examine_processnum100"
+              android:layout_gravity="center_horizontal"
+              android:textSize="60px"
+              android:textColor="@color/allStyles"
+
+              />
+       </com.zhy.autolayout.AutoLinearLayout>
+         <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/examine_finaly"
+               android:layout_marginLeft="125px"
+             android:layout_marginTop="125px"
+             android:layout_marginRight="125px"
+             android:text="注："
+             android:textSize="40px"
+             />
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="1px"
+              android:background="@color/allStyles"
+              android:layout_marginLeft="25px"
+              android:layout_marginRight="25px"
+              android:layout_marginTop="10px"
+              android:layout_marginBottom="10px"
+              />
+
           <com.zhy.autolayout.AutoLinearLayout
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
@@ -82,92 +286,44 @@
               <TextView
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text="考核文件:"
+                  android:text="相关文件:"
                   android:textSize="42px"
                   android:textColor="@color/black"
                   />
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/examine_files"
-                >
-            </android.support.v7.widget.RecyclerView>
+              <android.support.v7.widget.RecyclerView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/examine_files"
+                  >
+              </android.support.v7.widget.RecyclerView>
 
           </com.zhy.autolayout.AutoLinearLayout>
-
-          <TextView
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:textSize="60px"
-              android:gravity="center"
-              android:layout_marginTop="25px"
-              android:text="省直机关工委"
-              android:textColor="@color/examne_text"
-              android:id="@+id/examine_company1"
-              />
-          <TextView
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:textSize="54px"
-              android:gravity="center"
-              android:layout_marginTop="40px"
-              android:text="考核任务完成进度"
-              android:textColor="@color/black"
-              android:id="@+id/examine_process"
-              />
-          <com.zhy.autolayout.AutoRelativeLayout
-              android:layout_width="576px"
-              android:layout_height="wrap_content"
-              android:layout_gravity="center_horizontal"
-              android:layout_marginTop="58px">
-              <me.zhouzhuo.zzhorizontalprogressbar.ZzHorizontalProgressBar
-                  android:id="@+id/pb"
-                  android:layout_width="match_parent"
-                  android:layout_height="58px"
-                  app:zpb_padding="0dp"
-                  app:zpb_pb_color="@color/green1"
-                  app:zpb_bg_color="@color/white"
-                  app:zpb_max="100"
-                  app:zpb_progress="30"
-                  app:zpb_border_color="@color/green1"
-
-                  />
-          </com.zhy.autolayout.AutoRelativeLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/examine_total"
-        android:layout_gravity="center_horizontal"
-        android:text="目标总共30次"
-        android:textSize="60px"
-       android:textColor="@color/black"
-        android:layout_marginTop="58px"
-
-        />
-          <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:id="@+id/examine_processnum"
-              android:layout_gravity="center_horizontal"
-              android:text="已经完成5次"
-              android:textSize="60px"
-              android:textColor="@color/black"
-              android:layout_marginTop="42px"
-
-              />
-          <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:id="@+id/examine_processnum100"
-              android:layout_gravity="center_horizontal"
-              android:text="目标完成度16.67%"
-              android:textSize="60px"
-              android:textColor="@color/black"
-              android:layout_marginTop="42px"
-
-              />
-
       </com.zhy.autolayout.AutoLinearLayout>
+
    </android.support.v4.widget.NestedScrollView>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_below="@+id/include">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/x10"
+            android:background="@mipmap/list_empty" />
+
+        <TextView
+            android:id="@+id/empty_neikan_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="暂未收到需要您查阅的内容"
+            android:textColor="@color/textColorShallow"
+            android:textSize="42px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
 </com.zhy.autolayout.AutoLinearLayout>

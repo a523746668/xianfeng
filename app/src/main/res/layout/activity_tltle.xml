@@ -10,7 +10,8 @@
         android:id="@+id/returns_arrow"
         android:layout_width="150px"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="center"
+        android:background="@drawable/presscolor">
 
         <ImageView
             android:layout_width="68px"

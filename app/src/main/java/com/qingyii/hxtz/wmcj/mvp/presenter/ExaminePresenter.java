@@ -1,6 +1,8 @@
 package com.qingyii.hxtz.wmcj.mvp.presenter;
 
 import android.app.Application;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -17,14 +19,19 @@ import com.qingyii.hxtz.base.utils.WindowUtils;
 import com.qingyii.hxtz.http.HttpUrlConfig;
 import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineBean;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineMenu;
 import com.qingyii.hxtz.wmcj.mvp.model.entity.FooterBean;
+import com.qingyii.hxtz.zhf.Util.FileUtil;
 
 import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -76,14 +83,24 @@ public class ExaminePresenter extends BasePresenter<WMCJContract.ExamineModel,WM
 
                 }
             };
-            adapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
+            adapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener()                                                  {
                 @Override
                 public void onItemClick(Object Data, View view, int position) {
                     String murl=list.get(position).getFileurl();
-                    File file=new File(HttpUrlConfig.cacheDir,murl);
-                    downloadandopen(murl,file);
+                    File file = null;
+                    try {
+                        URL url=new URL(murl);
+                        file=new File(HttpUrlConfig.cacheDir,url.getFile());
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                    if(file.exists()){
+                       Log.i("tmdtype",FileUtils.getMIMEType(file.getPath())+"------"+file.getPath());
+                       FileUtils.openFile(mApplication, file.getPath(),FileUtils.getMIMEType(file.getPath()));
+                   }else {
+                       downloadandopen(murl,file);
+                   }
                 }
-
                 @Override
                 public void onItemLongClick(Object Data, View view, int position) {
 
@@ -94,8 +111,8 @@ public class ExaminePresenter extends BasePresenter<WMCJContract.ExamineModel,WM
     }
 
 
-   public void getExamineBean(){
-        mModel.getExamineBean()
+   public void getExamineBean(int system_id){
+        mModel.getExamineBean(system_id)
                 .subscribeOn(Schedulers.io())
                 . retryWhen(new RetryWithDelay(1,1)) //重试次数
                 .doOnSubscribe(new Consumer<Disposable>() {
@@ -121,9 +138,59 @@ public class ExaminePresenter extends BasePresenter<WMCJContract.ExamineModel,WM
                            list.addAll(examineBean.getData().getDoclist());
                            adapter.notifyDataSetChanged();
                     }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        Log.i("tmdeeee",e.getMessage());
+                        mRootView.getdataerror();
+                    }
                 });
    }
 
+   //切换考核
+   public void getExamineBean(int system_id,Message msg){
+          List<ExamineMenu.DataBean.TagListBean> list1= (List<ExamineMenu.DataBean.TagListBean>) msg.obj;
+          String tag_id=chuli(list1);
+          mModel.getExamineBean(system_id,tag_id)
+                  .subscribeOn(Schedulers.io())
+                  //.retryWhen(new RetryWithDelay(1,1)) //重试次数
+                  .doOnSubscribe(new Consumer<Disposable>() {
+                      @Override
+                      public void accept(@NonNull Disposable disposable) throws Exception {
+                          mRootView.showLoading();
+                      }
+                  })
+                  .subscribeOn(AndroidSchedulers.mainThread())
+                  .observeOn(AndroidSchedulers.mainThread())
+                  .doAfterTerminate(new Action() {
+                      @Override
+                      public void run() throws Exception {
+                          mRootView.hideLoading();
+                      }
+                  })
+                  .subscribe(new ErrorHandleSubscriber<ExamineBean>(mErrorHandler) {
+                      @Override
+                      public void onNext(ExamineBean examineBean) {
+                          mRootView.getExamineBeanSuccess(examineBean);
+                          list.clear();
+                          list.addAll(examineBean.getData().getDoclist());
+                          adapter.notifyDataSetChanged();
+                      }
+                  });
+   }
+   public String  chuli(List<ExamineMenu.DataBean.TagListBean> list){
+        StringBuffer stringBuffer=new StringBuffer();
+        for(int i=0;i<list.size();i++){
+            if(list.size()>1&&i!=list.size()-1){
+                stringBuffer.append(list.get(i).getId()+",");
+             }else {
+                stringBuffer.append(list.get(i).getId());
+            }
+        }
+       Log.i("chulitaglist",stringBuffer.toString());
+        return  stringBuffer.toString();
+   }
 
    //下载并且打开文件
     public void downloadandopen(String murl,File file){
@@ -136,10 +203,8 @@ public class ExaminePresenter extends BasePresenter<WMCJContract.ExamineModel,WM
                     @Override
                     public void onNext(@NonNull InputStream inputStream) {
                         try {
-
-                            String[] urls=murl.split(".");
                             FileUtils.writeFile(inputStream, file);
-                            FileUtils.openFile(mApplication, file.getPath(),"."+urls[1]);
+                            FileUtils.openFile(mApplication, file.getPath(),FileUtils.getMIMEType(file.getPath()));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

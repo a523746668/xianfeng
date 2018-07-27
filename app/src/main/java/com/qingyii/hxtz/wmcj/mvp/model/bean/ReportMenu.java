@@ -76,17 +76,15 @@ public class ReportMenu {
             this.allsonIndustry = allsonIndustry;
         }
 
-        public static class MenuItemBean {
+        public static class MenuItemBean  extends Common{
             /**
              * id : 0
              * system_id : 0
              * title : 最新动态
              */
 
-            private int id;
             private int system_id;
-            private String title;
-            private boolean ischeck=false;
+
 
             public boolean isIscheck() {
                 return ischeck;
@@ -121,15 +119,15 @@ public class ReportMenu {
             }
         }
 
-        public static class TagItemBean {
+        public static class TagItemBean extends Common {
             /**
              * id : 25
              * title : 党建
              */
 
-            private int id;
-            private String title;
-            private boolean ischeck=false;
+
+
+
 
             public boolean isIscheck() {
                 return ischeck;
@@ -156,16 +154,25 @@ public class ReportMenu {
             }
         }
 
-        public static class MenuItem1Bean {
+        public static class MenuItem1Bean extends Common {
             /**
              * id : 3
              * system_id : 1
              * title : 创建氛围
              */
 
-            private int id;
+
+            public boolean isIscheck() {
+                return ischeck;
+            }
+
+            public void setIscheck(boolean ischeck) {
+                this.ischeck = ischeck;
+            }
+
+
             private int system_id;
-            private String title;
+
 
             public int getId() {
                 return id;
@@ -192,14 +199,20 @@ public class ReportMenu {
             }
         }
 
-        public static class AllsonIndustryBean {
+        public static class AllsonIndustryBean extends Common {
             /**
              * id : 1
              * name : 省动物卫生监督所
              */
 
-            private int id;
-            private String title;
+
+            public boolean isIscheck() {
+                return ischeck;
+            }
+
+            public void setIscheck(boolean ischeck) {
+                this.ischeck = ischeck;
+            }
 
             public String getTitle() {
                 return title;

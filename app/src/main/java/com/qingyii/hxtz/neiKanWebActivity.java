@@ -27,10 +27,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.qingyii.hxtz.http.XrjHttpClient.URL_PR;
+import static com.qingyii.hxtz.http.XrjHttpClient.URL_PRS;
 
 /**
  * 文章详情界面
- *
  * @author Administrator
  */
 public class neiKanWebActivity extends AbBaseActivity {
@@ -63,7 +63,7 @@ public class neiKanWebActivity extends AbBaseActivity {
             dataBean= (SCbean.DataBean) b.getSerializable("data");
             if (dataBean!=null){
                 //http://xfapi.ccketang.com/article/{article_id}
-                articleUrl = URL_PR +"/article/"+dataBean.getId();
+                articleUrl = URL_PRS +"/article/"+dataBean.getId();
                 //NKSaveArticle(bookadr,article_pdf);
             }
         }

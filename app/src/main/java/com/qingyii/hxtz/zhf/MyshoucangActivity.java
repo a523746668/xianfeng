@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,8 +18,10 @@ import com.qingyii.hxtz.zhf.bean.SCtypebean;
 import com.qingyii.hxtz.zhf.present.Implpresent.ScPresenter;
 import com.qingyii.hxtz.zhf.present.Implview.Scview;
 import com.qingyii.hxtz.zhf.wight.Itemdecotion;
+import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,8 +38,8 @@ public class MyshoucangActivity extends AppCompatActivity implements Scview {
     @BindView(R.id.toolbar_title)
     TextView title;
 
-    @BindView(R.id.toolbar_back)
-    Button back;
+    @BindView(R.id.toolbar_back_layout)
+    AutoLinearLayout back;
     private SCAdapter adapter;
     private Unbinder unbinder;
     private ArrayList<String > types=new ArrayList<>();
@@ -63,8 +66,8 @@ public class MyshoucangActivity extends AppCompatActivity implements Scview {
     }
 
     private void initrecyclerview() {
-           adapter=new SCAdapter(list,this);
-          recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter=new SCAdapter(list,this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new Itemdecotion());
         recyclerView.setAdapter(adapter);
     }
@@ -87,6 +90,13 @@ public class MyshoucangActivity extends AppCompatActivity implements Scview {
     public void getdatasuccess(ArrayList<SCbean.DataBean> list) {
              this.list.clear();
              this.list.addAll(list);
+             Iterator<SCbean.DataBean> it=  this.list.iterator();
+             while (it.hasNext()){
+                 SCbean.DataBean bean=it.next();
+                 if(bean.getTitle()==null| TextUtils.isEmpty(bean.getTitle())){
+                     it.remove();
+                 }
+             }
              adapter.notifyDataSetChanged();
     }
 
@@ -96,6 +106,7 @@ public class MyshoucangActivity extends AppCompatActivity implements Scview {
             for(String str:types){
                  if(str.equalsIgnoreCase("article")){
                      tabLayout.addTab(tabLayout.newTab().setText("文章"));
+
                  }
                 if(str.equalsIgnoreCase("activity")){
                     tabLayout.addTab(tabLayout.newTab().setText("任务"));

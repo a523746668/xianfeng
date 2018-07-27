@@ -297,7 +297,7 @@ public class UpdateUtil {
                              @Override
                              public void onError(Call call, Exception e, int id) {
                                  Timber.e("Update_onError", e.toString());
-                                Toast.makeText(context, "网络异常--请检查网络"+e.toString(), Toast.LENGTH_LONG).show();
+                                //Toast.makeText(context, "网络异常--请检查网络"+e.toString(), Toast.LENGTH_LONG).show();
                              }
 
                              @Override

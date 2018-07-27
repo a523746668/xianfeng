@@ -103,7 +103,7 @@
                         android:layout_marginBottom="@dimen/x12"
                         android:layout_marginTop="@dimen/x10"
                         android:ellipsize="end"
-                        android:maxLines="1"
+
                         android:text="职务："
                         android:textColor="@color/textColorMedium"
                         android:textSize="@dimen/x14" />

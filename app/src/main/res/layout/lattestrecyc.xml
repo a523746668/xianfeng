@@ -7,12 +7,11 @@
     >
    <TextView
        android:layout_width="match_parent"
-       android:layout_height="120px"
+       android:layout_height="150px"
         android:id="@+id/lattext"
        android:gravity="center_vertical"
-          android:paddingTop="35px"
-         android:paddingBottom="35px"
-       android:textSize="42px"
+     android:singleLine="true"
+       android:textSize="52px"
         android:paddingLeft="24px"
        android:paddingRight="30px"
        android:drawableRight="@mipmap/rightjt"

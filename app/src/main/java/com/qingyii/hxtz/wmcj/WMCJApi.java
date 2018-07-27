@@ -4,6 +4,7 @@ import com.qingyii.hxtz.bean.ReportBean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineBean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineMenu;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Headbean;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.ReportDelete;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.ReportMenu;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Resultbean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.TaskTitlebean;
@@ -12,6 +13,7 @@ import com.qingyii.hxtz.wmcj.mvp.model.bean.WorkParkbean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.WorkParkitembean;
 
 
+import java.util.HashMap;
 import java.util.Map;
 
 import io.reactivex.Observable;
@@ -67,24 +69,41 @@ public interface WMCJApi {
 
     @POST
     @FormUrlEncoded
-    Observable<Resultbean>  getResultData(@Url String mUrl,@Field("industryid") String industryid);
-
-    @POST
-    Observable<ReportBean> getReportBean(@Url String mUrl);
+    Observable<Resultbean> getResultData(@Url String mUrl, @FieldMap Map<String,String> map);
 
     @POST
     @FormUrlEncoded
-    Observable<ReportBean> getReportMore(@Url String murl,@Field("time") String time);
+    Observable<Resultbean>  getResultData(@Url String mUrl,@Field("industryid") String industryid);
+
+    @POST
+    @FormUrlEncoded
+    Observable<ReportBean> getReportBean(@Url String mUrl ,@Field("system") String system);
+
+    @POST
+    @FormUrlEncoded
+    Observable<ReportBean> getReportMore(@Url String murl,@Field("time") String time,@Field("system") String system);
 
     @POST
     Observable<ReportMenu> getReportMenu(@Url String murl);
 
-    @GET
-    Observable<ExamineBean> getExamine(@Url String murl);
+    @POST
+    @FormUrlEncoded
+    Observable<ExamineBean> getExamine(@Url String murl,@Field("tagid") String tagid);
+
 
     @GET
     Observable<ExamineMenu> getExamineMenu(@Url String murl);
 
     @GET
     Observable<ResponseBody> download(@Url String url);
+
+
+    @POST
+    @FormUrlEncoded
+    Observable<ReportBean> getallreport(@Url String url,@FieldMap Map<String, String > map);
+
+    @POST
+    @FormUrlEncoded
+    Observable<ReportDelete> deleteReport(@Url String murl,@Field("a_org_id ") String a_org_id);
+
 }

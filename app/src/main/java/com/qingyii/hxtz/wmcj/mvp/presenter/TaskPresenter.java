@@ -1,6 +1,7 @@
 package com.qingyii.hxtz.wmcj.mvp.presenter;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.integration.AppManager;
@@ -10,6 +11,7 @@ import com.qingyii.hxtz.base.utils.RxUtils;
 import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.TaskTitlebean;
 import com.qingyii.hxtz.wmcj.mvp.ui.fragment.TaskListSonFragment;
+import com.qingyii.hxtz.zhf.Util.Global;
 
 import java.util.ArrayList;
 
@@ -46,7 +48,7 @@ public class TaskPresenter extends BasePresenter<WMCJContract.TaskModel,WMCJCont
         this.mAppManager = mAppManager;
     }
 
-     public void getTitle(){
+     public void getTitle(boolean flag){
               mModel.getTaskTitle()
                       .subscribeOn(Schedulers.io())
                       .doOnSubscribe(new Consumer<Disposable>() {
@@ -67,16 +69,48 @@ public class TaskPresenter extends BasePresenter<WMCJContract.TaskModel,WMCJCont
                  .observeOn(AndroidSchedulers.mainThread())
                       .subscribe(new ErrorHandleSubscriber<TaskTitlebean>(mErrorHandler) {
                           @Override
-                          public void onNext(@NonNull TaskTitlebean taskTitlebean) {
+                           public void onNext(@NonNull TaskTitlebean taskTitlebean) {
+                           if(taskTitlebean.getError_code()==1){
+                               mRootView.getdatano();
+                               return;
+                           }
+                           if(!flag&&!taskTitlebean.getData().isIsadmin()){
+                               mRootView.getdatano();
+                               return;
+                           }
+                           if(taskTitlebean.getData()==null){
+                               mRootView.getdatano();
+                               return;
+                           }
                           if(taskTitlebean.getData().getLibsystem()!=null&&taskTitlebean.getData().getLibsystem().size()>0){
-                               list.clear();
+                              list.clear();
                               list.addAll(taskTitlebean.getData().getLibsystem());
 
+                              if(list.size()>0){
+                                  StringBuffer str=new StringBuffer();
+                                  for(int i=0;i<list.size();i++){
+                                      if(i<list.size()-1){
+                                          str.append(list.get(i).getId()+",");}
+                                      else {
+                                          str.append(list.get(i).getId());
+                                      }
+                                  }
+                                  Global.system=str.toString();
+                                  Log.i("tmdsystemid",Global.system);
+                              }
+
                               mRootView.gettitile(list);
-                              initfragment();
-                          }else {
-                              mRootView.getdatano();
+                              if(!flag){
+                                  initfragment();
+                              }
+                          } else {
+                               mRootView.getdatano();
                           }
+                          }
+                          @Override
+                          public void onError(Throwable e) {
+                              super.onError(e);
+                              mRootView.getdatano();
                           }
                       });
      }
@@ -104,8 +138,5 @@ public class TaskPresenter extends BasePresenter<WMCJContract.TaskModel,WMCJCont
         list=null;
 
     }
-
-
-
 
 }

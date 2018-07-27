@@ -1,12 +1,15 @@
 package com.qingyii.hxtz.wmcj.mvp.presenter;
 
 import android.app.Application;
+import android.os.Message;
 
 import com.google.gson.Gson;
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.integration.AppManager;
 import com.jess.arms.mvp.BasePresenter;
+import com.jess.arms.utils.UiUtils;
 import com.jess.arms.widget.imageloader.ImageLoader;
+import com.qingyii.hxtz.base.app.EventBusTags;
 import com.qingyii.hxtz.base.utils.RxUtils;
 import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.TaskLineSonbean;
@@ -16,6 +19,7 @@ import com.qingyii.hxtz.zhf.Util.Global;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.simple.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,6 +96,7 @@ public class TaskSonPresenter extends BasePresenter<WMCJContract.TaskModel,WMCJC
                             chulishuju();
                         } catch (Exception e) {
                             e.printStackTrace();
+                            EventBus.getDefault().post(Message.obtain(), EventBusTags.WMCJ_TASK);
                         }
                         finally {
                             mRootView.hideLoading();
@@ -102,13 +107,11 @@ public class TaskSonPresenter extends BasePresenter<WMCJContract.TaskModel,WMCJC
                     public void onError(@NonNull Throwable e) {
                         super.onError(e);
                         mRootView.hideLoading();
+                        UiUtils.snackbarText(e.getMessage());
+                        EventBus.getDefault().post(Message.obtain(), EventBusTags.WMCJ_TASK);
                     }
                 });
       }
-
-
-
-
     //得到的数据再处理
     private double chulishuju() {
         double sum=0;
@@ -120,6 +123,7 @@ public class TaskSonPresenter extends BasePresenter<WMCJContract.TaskModel,WMCJC
                 TaskLineSonbean tasklinebean=new TaskLineSonbean();
                 tasklinebean.setLevel(level);
                 tasklinebean.setTaskname(name);
+                tasklinebean.setSystem_id(bean.getSystem_id());
                 list2.add(tasklinebean);
                 if(bean.getChild()!=null&&bean.getChild().size()>0){
                     sum=dochild(bean.getChild());

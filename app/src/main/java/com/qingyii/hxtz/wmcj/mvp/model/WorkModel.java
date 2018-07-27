@@ -11,6 +11,7 @@ import com.qingyii.hxtz.http.MyApplication;
 import com.qingyii.hxtz.wmcj.WMCJApi;
 import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Headbean;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.ReportDelete;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.WorkParkbean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.WorkParkitembean;
 import com.qingyii.hxtz.zhf.Util.Global;
@@ -39,9 +40,11 @@ public class WorkModel extends BaseModel implements WMCJContract.WorkParkModel {
         this.mApplication = mApplication;
     }
 
+
+
     @Override
     public Observable<WorkParkbean> getWorkMenu() {
-        String purl= Urlutil.baseurltest+"/kh/"+ Global.userid + "/actMenu?token="+ MyApplication.hxt_setting_config.getString("token","");
+        String purl= Urlutil.baseurl+"/kh/"+ Global.userid + "/actMenu?token="+ MyApplication.hxt_setting_config.getString("token","");
         return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getWorkMenu(purl);
     }
 
@@ -99,9 +102,50 @@ public class WorkModel extends BaseModel implements WMCJContract.WorkParkModel {
     public Observable<ReportBean> getAlreadyWork(String time) {
        String murl= Urlutil.baseurl+"/kh/"+ Global.userid+"/account?token="+ MyApplication.hxt_setting_config.getString("token","");
         if(time.equalsIgnoreCase("null")){
-            return  mRepositoryManager.obtainRetrofitService(WMCJApi.class).getReportBean(murl);
+            return  mRepositoryManager.obtainRetrofitService(WMCJApi.class).getReportBean(murl,Global.system);
         }
-        return  mRepositoryManager.obtainRetrofitService(WMCJApi.class).getReportMore(murl,time);
+        return  mRepositoryManager.obtainRetrofitService(WMCJApi.class).getReportMore(murl,time,Global.system);
+    }
+
+    @Override
+    public Observable<ReportBean> getallReport(String system_id) {
+      Map<String,String> map=new HashMap<>();
+      map.put("tag_id",system_id);
+       return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getallreport(purl,map);
+    }
+
+    @Override
+    public Observable<ReportBean> getallReportMore(String system_id, String time) {
+        Map<String, String> map = new HashMap<String,String >();
+        map.put("tag_id", String.valueOf(system_id));
+        map.put("created_at", time);
+        map.put("direction", "lt");
+        return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getallreport(purl,map);
+    }
+
+    @Override
+    public Observable<ReportBean> getReportSX(String indtagid, String onetask, String twotask, String industryarray) {
+        String murl= Urlutil.baseurl+"/kh/"+ Global.userid+"/account?token="+ MyApplication.hxt_setting_config.getString("token","");
+          Map<String,String> map=new HashMap<>();
+          map.put("indtagid",indtagid);
+          map.put("onetask",onetask);
+          map.put("twotask",twotask);
+          map.put("industryarray",industryarray);
+          map.put("system",Global.system);
+        return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getallreport(murl,map);
+    }
+
+    @Override
+    public Observable<ReportDelete> deleteReport(String actid, String a_org_id) {
+        String murl=Urlutil.baseurl+"/kh/delmyact/"+Global.userid+"/"+actid+"?token="+MyApplication.hxt_setting_config.getString("token","");
+        return mRepositoryManager.obtainRetrofitService(WMCJApi.class).deleteReport(murl,a_org_id);
+    }
+
+    @Override
+    public Observable<ReportBean> getReportSXMore(Map<String, String> map) {
+        String murl= Urlutil.baseurl+"/kh/"+ Global.userid+"/account?token="+MyApplication.hxt_setting_config.getString("token","");
+
+        return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getallreport(murl,map);
     }
 
 

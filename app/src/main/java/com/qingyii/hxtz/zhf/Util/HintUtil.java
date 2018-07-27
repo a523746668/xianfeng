@@ -35,6 +35,8 @@ public class HintUtil {
                       .setHintText("Loading...")
                       .setHintTextSize(16) // 设置字体大小 dp
                       .setHintTextColor(Color.WHITE)// 设置字体颜色
+                      .setCancelable(false)
+                      .setCanceledOnTouchOutside(false)
                       .show();
 
            } else {
@@ -50,6 +52,8 @@ public class HintUtil {
                      .setHintText("Upload...")
                      .setHintTextSize(16) // 设置字体大小 dp
                      .setHintTextColor(Color.WHITE)// 设置字体颜色
+                     .setCancelable(false)
+                     .setCanceledOnTouchOutside(false)
                      .show();
          } else {
              dialog.show();

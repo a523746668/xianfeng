@@ -29,6 +29,7 @@ public class ResultPostionActivity extends BaseActivity<ResultPresenter> impleme
     Button sub,add;
     ImageView back;
     TextView title,name;
+
     int industryid;
 
     @BindView(R.id.resultvp)
@@ -56,6 +57,7 @@ public class ResultPostionActivity extends BaseActivity<ResultPresenter> impleme
 
     @Override
     public void initData(Bundle savedInstanceState) {
+         industryid=getIntent().getIntExtra("industryid",0);
         initview();
         initviewpager();
         mPresenter.getResultData(industryid);
@@ -108,6 +110,7 @@ public class ResultPostionActivity extends BaseActivity<ResultPresenter> impleme
             }
         });
 
+
     }
 
     private void initview() {
@@ -146,12 +149,14 @@ public class ResultPostionActivity extends BaseActivity<ResultPresenter> impleme
     @Override
     public void getdatasuccess(ArrayList<ResultSonFragment> list) {
         this.fragments.clear();
-        this.fragments.addAll(list);
+        this.fragments.add(list.get(list.size()-1));
         adapter.notifyDataSetChanged();
+        for(ResultSonFragment fragment:list){
+            fragment.letvisble(false);
+        }
         if(viewPager.getCurrentItem()==0){
             sub.setBackgroundResource(R.mipmap.leftbutton_hold);
         }
-
         if(viewPager.getCurrentItem()==fragments.size()-1){
             add.setBackgroundResource(R.mipmap.rightbutton_hold);
         }
@@ -161,7 +166,7 @@ public class ResultPostionActivity extends BaseActivity<ResultPresenter> impleme
     public void gettitlesuccess(ArrayList<TaskTitlebean.DataBean.LibsystemBean> titles) {
         this.titles.clear();
         this.titles.addAll(titles);
-        name.setText(titles.get(0).getTitle());
+        name.setText(titles.get(titles.size()-1).getTitle());
     }
 
     @Override

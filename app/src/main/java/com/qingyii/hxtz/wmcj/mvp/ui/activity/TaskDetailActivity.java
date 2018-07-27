@@ -49,7 +49,7 @@ public class TaskDetailActivity extends BaseActivity<TaskDetailPresenter> implem
     //从listfragment传过来的title
     private String titlename="";
 
-
+  private int system_id=1;
     @Override
     public void setupActivityComponent(AppComponent appComponent) {
         DaggerTaskDetailComponent.builder()
@@ -74,6 +74,7 @@ public class TaskDetailActivity extends BaseActivity<TaskDetailPresenter> implem
         taskid=getIntent().getIntExtra("id",0);
         taget=getIntent().getStringExtra("taget");
         titlename=getIntent().getStringExtra("title");
+        system_id=getIntent().getIntExtra("system_id",0);
         huaxian= (AutoLinearLayout) findViewById(R.id.taskdetailll1);
         title= (TextView) findViewById(R.id.taskindextitle);
         title.setText(titlename);
@@ -113,7 +114,7 @@ public class TaskDetailActivity extends BaseActivity<TaskDetailPresenter> implem
         });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter=new Taskdetailadapter(list,this);
+        adapter=new Taskdetailadapter(list,this,system_id);
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new Itemdecotion());
     }

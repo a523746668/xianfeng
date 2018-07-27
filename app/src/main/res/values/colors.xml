@@ -286,4 +286,6 @@
     <color name="workpark_item_text_selected">#dd3030</color>
     <color name="workpark_item_text_normal">#898989</color>
 
+    <!--toolbarpress -->
+     <color name="toolbar_press_red">#c3ec8a8a</color>
 </resources>

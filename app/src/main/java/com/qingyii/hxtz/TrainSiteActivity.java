@@ -18,6 +18,7 @@ import com.google.gson.Gson;
 import com.qingyii.hxtz.base.mvp.model.entity.MyLocations;
 import com.qingyii.hxtz.base.utils.RxLocationUtils;
 import com.qingyii.hxtz.http.MyApplication;
+import com.qingyii.hxtz.http.Urlutil;
 import com.qingyii.hxtz.http.XrjHttpClient;
 import com.qingyii.hxtz.pojo.TrainList;
 
@@ -125,9 +126,9 @@ public class TrainSiteActivity extends AbBaseActivity {
         extraHeaders.put("Authorization", MyApplication.hxt_setting_config.getString("credentials", ""));
         //load网页
         if (intent.hasExtra("isMeeting")) {
-            webUrl = XrjHttpClient.getMeetingMapUrl() + "/" + tDataBean.getId() + "/map";
+            webUrl = com.qingyii.hxtz.zhf.http.Urlutil.baseurls + "/training/" + tDataBean.getId() + "/map";
         } else {
-            webUrl = XrjHttpClient.getTrainListUrl() + "/" + tDataBean.getId() + "/map";
+            webUrl =com.qingyii.hxtz.zhf.http.Urlutil.baseurls + "/training/" + tDataBean.getId() + "/map";
         }
         Log.e("Trainite_webUrl", webUrl);
 
@@ -153,7 +154,6 @@ public class TrainSiteActivity extends AbBaseActivity {
         if (dituname.equals("baidu")) {
             return CheckInstalled.isInstalled(TrainSiteActivity.this, "com.baidu.BaiduMap");
         } else if (dituname.equals("gaode")) {
-
             return CheckInstalled.isInstalled(TrainSiteActivity.this, "com.autonavi.minimap");
         } else {
             return false;

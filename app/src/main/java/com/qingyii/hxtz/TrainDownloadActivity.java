@@ -16,6 +16,7 @@ import com.qingyii.hxtz.adapter.TrainDownloadAdapter;
 import com.qingyii.hxtz.base.app.EventBusTags;
 import com.qingyii.hxtz.base.mvp.contract.CommonContract;
 import com.qingyii.hxtz.http.HttpUrlConfig;
+import com.qingyii.hxtz.http.Urlutil;
 import com.qingyii.hxtz.httpway.PSUpload;
 import com.qingyii.hxtz.meeting.di.component.DaggerMeetingDetailsComponent;
 import com.qingyii.hxtz.meeting.di.module.MeetingDetailsModule;
@@ -32,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.dmoral.toasty.Toasty;
+import retrofit2.http.Url;
 
 /**
  * 资料下载
@@ -76,7 +78,7 @@ public class TrainDownloadActivity extends BaseActivity<MeetingetailsPresenter> 
                 } else {
                //mPresenter.downloadFile(data.getUri(), file, FileUtils.getMIMEType(file.getPath()));
                 UpdateUtil util=new UpdateUtil();
-                util.download(this,file,data.getUri());
+                util.download(this,file, data.getUri());
             }
             v.setClickable(true);
             trainAdapter.notifyDataSetChanged();

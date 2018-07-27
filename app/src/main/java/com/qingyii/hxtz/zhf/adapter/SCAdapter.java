@@ -52,12 +52,10 @@ public class SCAdapter extends BaseRecyclerAdapter<SCbean.DataBean> {
                        mcontext.startActivity(intent);
                    }
                   else  {
-                       Intent intent=new Intent(mcontext,WorkParkDetailsActivity.class);
+                       Intent intent=new Intent(mcontext,My_StudyActivity.class);
                        intent.putExtra("actid",item.getId());
                        mcontext.startActivity(intent);
-
                    }
-
               }
           });
     }

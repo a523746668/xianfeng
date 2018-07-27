@@ -2,6 +2,7 @@ package com.qingyii.hxtz.wmcj.mvp.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -25,8 +26,11 @@ import com.zhy.autolayout.AutoLinearLayout;
 
 import org.geometerplus.android.fbreader.api.FBReaderIntents;
 import org.simple.eventbus.EventBus;
+import org.simple.eventbus.Subscriber;
+import org.simple.eventbus.ThreadMode;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import butterknife.BindView;
 
@@ -35,14 +39,14 @@ import butterknife.BindView;
  */
 
 public class ResultPostionFragment  extends BaseFragment<ResultPresenter> implements WMCJContract.ResultView {
-   @BindView(R.id.resultfragsub)
+    @BindView(R.id.resultfragsub)
     Button sub;
 
     @BindView(R.id.resultdad)
     Button add;
 
-    @BindView(R.id.toolbar_back)
-    Button back;
+    @BindView(R.id.toolbar_back_layout)
+    AutoLinearLayout back;
 
    @BindView(R.id.toolbar_title)
     TextView title;
@@ -62,6 +66,9 @@ public class ResultPostionFragment  extends BaseFragment<ResultPresenter> implem
 
     @BindView(R.id.toolbar_right_tv)
     TextView barright;
+
+    @BindView(R.id.toolbar_right_layout)
+    AutoLinearLayout rightlayout;
 
     private ArrayList<TaskTitlebean.DataBean.LibsystemBean> titles=new ArrayList<>();
     private ArrayList<ResultSonFragment> fragments=new ArrayList<>();
@@ -89,7 +96,7 @@ public class ResultPostionFragment  extends BaseFragment<ResultPresenter> implem
 
     private void init() {
         barright.setText("切换排行榜");
-        barright.setOnClickListener(new View.OnClickListener() {
+      barright.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                Intent intent=new Intent(getActivity(), WMCJcategoryActivity.class);
@@ -130,19 +137,16 @@ public class ResultPostionFragment  extends BaseFragment<ResultPresenter> implem
                 if(adapter.getCount()>0&&viewPager.getCurrentItem()<adapter.getCount()-1){
                     viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                     name.setText(titles.get(viewPager.getCurrentItem()).getTitle());
-
                 }
             }
         });
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override
             public void onPageSelected(int position) {
-
                 name.setText(titles.get(position).getTitle());
                 if(position==0&&adapter.getCount()>1){
                     sub.setBackgroundResource(R.mipmap.leftbutton_hold);
@@ -156,13 +160,10 @@ public class ResultPostionFragment  extends BaseFragment<ResultPresenter> implem
                     add.setBackgroundResource(R.mipmap.rightbutton_unclick);
                 }
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
-
     }
 
     @Override
@@ -175,7 +176,7 @@ public class ResultPostionFragment  extends BaseFragment<ResultPresenter> implem
         name= (TextView) view.findViewById(R.id.resulttitle);
         sub= (Button) view.findViewById(R.id.resultfragsub);
         add= (Button) view.findViewById(R.id.resultdad);
-        back= (Button) view.findViewById(R.id.toolbar_back);
+        back= (AutoLinearLayout) view.findViewById(R.id.toolbar_back_layout);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -231,16 +232,21 @@ public class ResultPostionFragment  extends BaseFragment<ResultPresenter> implem
         emtview.setVisibility(View.VISIBLE);
         emtview2.setVisibility(View.GONE);
     }
+    @Subscriber(mode = ThreadMode.MAIN, tag = EventBusTags.WMCJ_RESULT)
+    public void getdatafail(int i){
+        getdatano();
+    }
+
 
     @Override
     public void getdatasuccess(ArrayList<ResultSonFragment> list) {
         this.fragments.clear();
-        this.fragments.addAll(list);
+        this.fragments.add(list.get(list.size()-1));
         adapter.notifyDataSetChanged();
+        viewPager.setCurrentItem(this.fragments.size()-1);
         if(viewPager.getCurrentItem()==0){
             sub.setBackgroundResource(R.mipmap.leftbutton_hold);
         }
-
         if(viewPager.getCurrentItem()==fragments.size()-1){
             add.setBackgroundResource(R.mipmap.rightbutton_hold);
         }
@@ -252,6 +258,13 @@ public class ResultPostionFragment  extends BaseFragment<ResultPresenter> implem
         emtview2.setVisibility(View.VISIBLE);
         this.titles.clear();
         this.titles.addAll(titles);
-        name.setText(titles.get(0).getTitle());
+        name.setText(titles.get(titles.size()-1).getTitle());
+    }
+
+    @Subscriber(mode = ThreadMode.MAIN, tag = EventBusTags.WMCJ_RESULT)
+    public  void change(Message msg){
+        if(msg.arg2!=-1){
+            name.setText(titles.get(msg.arg2).getTitle());
+        }
     }
 }

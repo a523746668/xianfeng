@@ -27,7 +27,8 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 //草稿箱页面
-public class DraftActivity extends AppCompatActivity {
+public class
+DraftActivity extends AppCompatActivity {
     private Unbinder unbinder;
     @BindView(R.id.toolbar_back)
     Button back

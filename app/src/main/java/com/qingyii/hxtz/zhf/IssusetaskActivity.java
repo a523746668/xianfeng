@@ -27,6 +27,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -76,9 +77,14 @@ import me.shihao.library.XRadioGroup;
 //发布任务
 public class IssusetaskActivity extends AppCompatActivity implements Isstaskview,View.OnClickListener{
     Dialog  dialog;
+
     Unbinder unbinder;
+
     private boolean iszk=false;
+
     private IssPresenter mPresenter;
+
+    private int system_id=1;
 
     @BindView(R.id.test)
     ImageView  test;
@@ -106,11 +112,11 @@ public class IssusetaskActivity extends AppCompatActivity implements Isstaskview
     @BindView(R.id.meeting_summary_content)
     EditText sbcontent;
 
-   @BindView(R.id.meeting_summary_title)
+    @BindView(R.id.meeting_summary_title)
     EditText sbtitle;
 
     @BindView(R.id.meeting_summary_type)
-   TextView zhuangti;
+    TextView zhuangti;
 
     @BindView(R.id.meeting_task)
     TextView task;
@@ -154,7 +160,7 @@ public class IssusetaskActivity extends AppCompatActivity implements Isstaskview
     //ImageView ivadd;
 
    @BindView(R.id.recyc2)
-  RecyclerView recyclerView2;
+   RecyclerView recyclerView2;
 
     @BindView(R.id.taskbaocun)
     Button bc;
@@ -188,8 +194,11 @@ public class IssusetaskActivity extends AppCompatActivity implements Isstaskview
 
     @BindView(R.id.toolbar_right_tv)
     TextView caogaoxiang;
-       String[] str;
-       boolean[] stag2;
+
+    String[] str;
+
+    boolean[] stag2;
+
     @BindView(R.id.taskfabu)
     Button fabu;
 
@@ -210,13 +219,14 @@ public class IssusetaskActivity extends AppCompatActivity implements Isstaskview
 
      @BindView(R.id.tv_xuanze)
      TextView xuanzetv;
-     Taskdetailbean.DataBean.IndustryParentBean  industryParentBean;
-    private int  select5=2;
+     Taskdetailbean.DataBean.IndustryParentBean  industryParentBean=null;
+    private int  select5=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
            setContentView(R.layout.activity_issusetask);
+           system_id=getIntent().getIntExtra("system_id",1);
            unbinder= ButterKnife.bind(this);
            EventBus.getDefault().register(this);
            init();
@@ -311,6 +321,8 @@ public class IssusetaskActivity extends AppCompatActivity implements Isstaskview
                   HintUtil.showtoast(IssusetaskActivity.this,"时间不能为空");
                   return;
               }
+
+
               String cyq="";
               if(!TextUtils.isEmpty(cyqk.getText())){
                   cyq=cyqk.getText().toString();
@@ -332,7 +344,7 @@ public class IssusetaskActivity extends AppCompatActivity implements Isstaskview
               Log.i("tmdfabu",Global.taskdetailbean.getData().getTask().getIndustry_admin()+"");
               mPresenter.fabu(Global.taskdetailbean.getData().getTask().getIndustry_admin(),sbt,times,
                       sbc,zp,tagsid,tasks,imgurls2,zpc,select1,select2,
-                      select3,select4,cyq,"湖南长沙",industryParentBean,select5);
+                      select3,select4,cyq,"湖南长沙",industryParentBean,select5,system_id);
 
           }
       });
@@ -475,9 +487,11 @@ public class IssusetaskActivity extends AppCompatActivity implements Isstaskview
                 AlertDialog dialog=new AlertDialog.Builder(IssusetaskActivity.this)
                         .setView(view)
                         .show();
+                ProgressBar bar= (ProgressBar) view.findViewById(R.id.updateprogress);
                 Button qr= (Button) view.findViewById(R.id.draftqueren);
                 Button qx= (Button) view.findViewById(R.id.draftquxiao);
                 EditText name= (EditText) view.findViewById(R.id.draftname);
+                bar.setVisibility(View.GONE);
                 qr.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

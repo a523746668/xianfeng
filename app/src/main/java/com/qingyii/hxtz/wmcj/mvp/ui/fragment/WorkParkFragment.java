@@ -246,6 +246,11 @@ public class WorkParkFragment extends BaseFragment<WorkPresenter>  implements WM
         ptr.refreshComplete();
     }
 
+    @Override
+    public void setflag(boolean flag) {
+
+    }
+
     @Subscriber(mode = ThreadMode.MAIN, tag = EventBusTags.WORKPARK)
     public void getzhuanti(Message msg){
        recyclerView.scrollToPosition(0);

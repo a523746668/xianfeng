@@ -8,6 +8,7 @@ import com.qingyii.hxtz.bean.ReportBean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineBean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.ExamineMenu;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Headbean;
+import com.qingyii.hxtz.wmcj.mvp.model.bean.ReportDelete;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.ReportMenu;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.Resultbean;
 import com.qingyii.hxtz.wmcj.mvp.model.bean.TaskTitlebean;
@@ -19,9 +20,13 @@ import com.qingyii.hxtz.wmcj.mvp.ui.fragment.TaskListSonFragment;
 import com.qingyii.hxtz.wmcj.mvp.ui.adapter.TaskLineAdaper;
 
 
+import org.geometerplus.zlibrary.core.util.ZLSearchUtil;
+
 import java.util.ArrayList;
+import java.util.Map;
 
 import io.reactivex.Observable;
+import io.reactivex.ObservableTransformer;
 import okhttp3.ResponseBody;
 
 /**
@@ -37,6 +42,7 @@ public interface WMCJContract  {
         void setRecyclerviewAdapter(HeaderFooterAdapter adapter);
         void doRefresh();
         void finishRefresh();
+        void setflag(boolean flag);
     }
 
     /*复用model*/
@@ -55,8 +61,12 @@ public interface WMCJContract  {
 
        //获得已上报任务
          Observable<ReportBean> getAlreadyWork(String time);
-
-
+      //6
+        Observable<ReportBean> getallReport(String system_id);
+        Observable<ReportBean> getallReportMore(String system_id,String time);
+        Observable<ReportBean> getReportSX(String indtagid,String onetask,String twotask,String industryarray);
+        Observable<ReportDelete> deleteReport(String actid,String a_org_id);
+        Observable<ReportBean> getReportSXMore(Map<String,String > map);
     }
 
    interface  WorkParkItemView extends  IView{
@@ -98,6 +108,7 @@ public interface WMCJContract  {
     interface  ResultModel extends  IModel{
         Observable<Resultbean>  getResultBean(int librarySystem);
         Observable<Resultbean>  getResultBean(int librarySystem,int  industryid);
+        Observable<Resultbean>  getResultSX(int librarySystem,int industryid,String tagid);
         Observable<TaskTitlebean>  getTaskTitle();
     }
 
@@ -126,10 +137,12 @@ public interface WMCJContract  {
     interface ExamineView extends  IView{
      void getExamineBeanSuccess(ExamineBean bean);
      void setadapter(BaseRecyclerAdapter<ExamineBean.DataBean.FileBean>  adapter);
+     void getdataerror();
     }
 
     interface ExamineModel extends IModel{
-        Observable<ExamineBean> getExamineBean();
+        Observable<ExamineBean> getExamineBean(int id);
         Observable<ResponseBody> download(String url);
+        Observable<ExamineBean> getExamineBean(int id,String system_id);
     }
 }

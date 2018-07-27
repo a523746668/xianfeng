@@ -21,8 +21,11 @@ public interface   EventBusTags {
     String DOWNLOAD = "download";
     String WORKPARK = "workpark";
 
+   String WMCJ_Adapter_Select="select";
     String EXAMINE="wmcj_examine";
-
+    String WMCJ_REPORT="wmcj_report";
+    String WMCJ_RESULT="wmcj_result";
+    String WMCJ_TASK="wmcj_task";
     int UPDATE_NOTIFY_SIGN_IN = 10001;
     int UPDATE_NOTIFY_RETURN = 10002;
     int UPDATE_NOTIFY_RETURN_LIST = 10003;

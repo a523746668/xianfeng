@@ -61,7 +61,6 @@ public class TaskListSonFragment  extends BaseFragment<TaskSonPresenter> impleme
          mPresenter.getTaskSonData(titleid,titlename);
     }
 
-
     @Override
     public void setData(Object data) {
 

@@ -52,7 +52,7 @@ public class TaskModel extends BaseModel implements WMCJContract.TaskModel {
 
     @Override
     public Observable<Taskdetailbean> getTaskDetail(int taskid) {
-         String purl=Urlutil.baseurl+"/kh/"+ Global.userid+"/getTask?token="+ MyApplication.hxt_setting_config.getString("token","");
+        String purl=Urlutil.baseurl+"/kh/"+ Global.userid+"/getTask?token="+ MyApplication.hxt_setting_config.getString("token","");
         return mRepositoryManager.obtainRetrofitService(WMCJApi.class).getTaskDetailData(purl,String.valueOf(taskid));
     }
 

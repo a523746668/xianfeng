@@ -2,6 +2,7 @@ package com.qingyii.hxtz.wmcj.mvp.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
 import com.qingyii.hxtz.R;
+import com.qingyii.hxtz.base.app.EventBusTags;
 import com.qingyii.hxtz.wmcj.WMCJContract;
 import com.qingyii.hxtz.wmcj.di.component.DaggerResultSonComponent;
 import com.qingyii.hxtz.wmcj.di.module.ResultSonModule;
@@ -21,6 +23,10 @@ import com.qingyii.hxtz.wmcj.mvp.model.bean.Resultbean;
 import com.qingyii.hxtz.wmcj.mvp.presenter.ResultSonPresenter;
 import com.qingyii.hxtz.wmcj.mvp.ui.adapter.ResultsonAdapter;
 import com.qingyii.hxtz.zhf.Util.HintUtil;
+import com.zhy.autolayout.AutoLinearLayout;
+
+import org.simple.eventbus.Subscriber;
+import org.simple.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 
@@ -34,13 +40,15 @@ public class ResultSonFragment  extends BaseFragment<ResultSonPresenter> impleme
     TextView name1,name2;
     Button back;
     RecyclerView recyclerView;
+    TextView endtime;
 
+    AutoLinearLayout layout;
 
     ArrayList<Resultbean.DataBean.BrothindustryBean> list=new ArrayList<>();
     private ResultsonAdapter adapter;
 
     int  librarySystem;
-    int industryid=-999;
+    int industryid=0;
 
     public void setIndustryid(int industryid) {
         this.industryid = industryid;
@@ -68,22 +76,19 @@ public class ResultSonFragment  extends BaseFragment<ResultSonPresenter> impleme
     @Override
     public void initData(Bundle savedInstanceState) {
             mPresenter.getResultData(librarySystem,industryid);
-
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
         title= (TextView) view.findViewById(R.id.resultsonname);
         getscore= (TextView) view.findViewById(R.id.getscore);
-
+        endtime= (TextView) view.findViewById(R.id.endtime);
         score= (TextView) view.findViewById(R.id.score);
-
         postion1= (TextView) view.findViewById(R.id.getadnwei);
         postion2= (TextView) view.findViewById(R.id.danwei);
         recyclerView= (RecyclerView) view.findViewById(R.id.resultsonrecyc);
+        layout= (AutoLinearLayout) view.findViewById(R.id.isvisble);
         adapter=new ResultsonAdapter(list,getActivity() );
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
@@ -121,6 +126,10 @@ public class ResultSonFragment  extends BaseFragment<ResultSonPresenter> impleme
 
     @Override
     public void getResultDataSuccess(Resultbean resultbean) {
+        if(resultbean.getData().getIs_top()==1&&isvisble){
+            layout.setVisibility(View.GONE);
+        }
+
         title.setText(resultbean.getData().getMy().getName());
         getscore.setText(String.valueOf(resultbean.getData().getMy().getMyscore()));
         score.setText("/"+resultbean.getData().getMy().getScore());
@@ -131,8 +140,26 @@ public class ResultSonFragment  extends BaseFragment<ResultSonPresenter> impleme
       // name1.setText("在"+resultbean.getData().getTopIndustry().getName()+"的排名");
         postion1.setText(String.valueOf(resultbean.getData().getTopIndustry().getOrder()));
         postion2.setText("/"+resultbean.getData().getTopIndustry().getTotle());
+        endtime.setText("截止上次审核"+resultbean.getData().getTime());
         list.clear();
         list.addAll(resultbean.getData().getBrothindustry());
         adapter.notifyDataSetChanged();
     }
+
+    @Subscriber(mode = ThreadMode.MAIN, tag = EventBusTags.WMCJ_RESULT)
+    public  void change(Message msg){
+            librarySystem=msg.arg1;
+      if(msg.obj==null){
+          mPresenter.getResultData(librarySystem,industryid);
+      } else {
+          mPresenter.getResultData(librarySystem,industryid,msg);
+      }
+
+    }
+
+  private boolean isvisble=true;
+   public void letvisble(boolean flag){
+       isvisble=flag;
+   }
+
 }

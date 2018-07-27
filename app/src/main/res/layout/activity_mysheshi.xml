@@ -194,7 +194,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
-            android:text="切换用户"
+            android:text="退出登录"
             android:textColor="@color/black"
             android:textSize="55px" />
 

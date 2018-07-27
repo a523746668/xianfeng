@@ -18,12 +18,11 @@ public class Global {
       //任务清单Fragment的翻页Title
      public static String TaskVpTitle="";
 
-
     public static long alltime=0;
      //public static  int TaskVpTitleId;
 
      // 行业组ID
-     public  static int userid=6;
+     public  static int userid=-99;
 
     //任务清单Listview子条目
      public static  String  TaskListname="";
@@ -48,6 +47,8 @@ public class Global {
 
     public static ArrayList<HomeInfo.AccountBean.ModulesBean> list=new ArrayList<>();
 
-
     public static  List<Taskdetailbean.DataBean.IndustryParentBean> industryParent;
+
+     public  static String system="";
+
 }

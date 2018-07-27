@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <string android:id="@+id/string1" name="app_name" android:layout_width="wrap_content" android:layout_height="wrap_content">湘直宣传云</string>
+    <string android:id="@+id/string1" name="app_name" android:layout_width="wrap_content" android:layout_height="wrap_content">湘直文明</string>
     <string name="okBtn">确定</string>
     <string name="cancelBtn">取消</string>
     <string name="hello_world">Hello world!</string>

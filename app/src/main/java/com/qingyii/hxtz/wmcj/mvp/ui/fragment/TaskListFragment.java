@@ -2,6 +2,7 @@ package com.qingyii.hxtz.wmcj.mvp.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -25,8 +26,12 @@ import com.qingyii.hxtz.wmcj.mvp.ui.adapter.Taskvpadapter;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import org.simple.eventbus.EventBus;
+import org.simple.eventbus.Subscriber;
+import org.simple.eventbus.ThreadMode;
 
 import java.util.ArrayList;
+
+import butterknife.BindView;
 
 /**
  * Created by zhf on 2018/3/21.
@@ -37,7 +42,7 @@ public class TaskListFragment   extends BaseFragment<TaskPresenter> implements W
 
     TextView rightbar;
 
-    Button leftbar;
+    AutoLinearLayout leftbar;
 
     AutoLinearLayout emtview;
     AutoLinearLayout emtview2;
@@ -80,7 +85,8 @@ public class TaskListFragment   extends BaseFragment<TaskPresenter> implements W
 
     private void initview(View view) {
         title = (TextView) view.findViewById(R.id.toolbar_title);
-        leftbar= (Button) view.findViewById(R.id.toolbar_back);
+        leftbar= (AutoLinearLayout) view.findViewById(R.id.toolbar_back_layout);
+
        /* reporting= (TextView) view.findViewById(R.id.toolbar_right_tv);
      //   reporting.setVisibility(View.VISIBLE);
         // reporting.setText("已上报动态");
@@ -163,7 +169,8 @@ public class TaskListFragment   extends BaseFragment<TaskPresenter> implements W
         if(viewPager.getCurrentItem()==fragments.size()-1){
             add.setBackgroundResource(R.mipmap.rightbutton_hold);
         }
-        mPresenter.getTitle();
+        //参数指数区别这里与Examine
+        mPresenter.getTitle(false);
 
 
     }
@@ -196,6 +203,7 @@ public class TaskListFragment   extends BaseFragment<TaskPresenter> implements W
         fragments.clear();
         fragments.addAll(list);
         adapter.notifyDataSetChanged();
+        viewPager.setCurrentItem(titles.size()-1);
         if(viewPager.getCurrentItem()==0){
             sub.setBackgroundResource(R.mipmap.leftbutton_hold);
         }
@@ -203,6 +211,7 @@ public class TaskListFragment   extends BaseFragment<TaskPresenter> implements W
         if(viewPager.getCurrentItem()==fragments.size()-1){
             add.setBackgroundResource(R.mipmap.rightbutton_hold);
         }
+
     }
 
     @Override
@@ -245,6 +254,11 @@ public class TaskListFragment   extends BaseFragment<TaskPresenter> implements W
         super.onDestroy();
         fragments.clear();
         titles.clear();
-       adapter=null;
+        adapter=null;
+    }
+
+    @Subscriber(mode = ThreadMode.MAIN, tag = EventBusTags.WMCJ_TASK)
+    public  void change(Message msg){
+       getdatano();
     }
 }

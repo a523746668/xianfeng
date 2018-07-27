@@ -156,6 +156,7 @@ public class HomePresenter extends BasePresenter<CommonContract.HomeInfoModel, C
                  .subscribe(new ErrorHandleSubscriber<HomeInfo>(mErrorHandler) {
                      @Override
                      public void onNext(@NonNull HomeInfo homeInfo) {
+                        mRootView.hideLoading();
                          mRootView.updateUI(homeInfo);
                          Global.isFlag=true;
                          Log.i("tmdaaa","aaa");
@@ -163,8 +164,9 @@ public class HomePresenter extends BasePresenter<CommonContract.HomeInfoModel, C
 
                      @Override
                      public void onError(@NonNull Throwable e) {
+                       mRootView.hideLoading();
                         Global.isFlag=false;
-                         UiUtils.snackbarText(e.getMessage()+"，请求个人信息失败，请联系管理员或者尝试重新登录");
+                        // UiUtils.snackbarText(e.getMessage()+"，请求个人信息失败，请联系管理员或者尝试重新登录");
                      }
                  });
 
